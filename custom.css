@@ -1,3 +1,6 @@
+/* Stylish display font for the home hero header. @import must come first. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap");
+
 /* Hide the default page-header chrome on the custom landing page so the hero
    sits flush against the navbar/tabs. We do NOT hide the navbar/tabs themselves
    so the landing page shares chrome with the rest of the docs (Strategy B). */
@@ -39,7 +42,8 @@ html[data-current-path="/"] footer.docs-footer {
   background-repeat: no-repeat;
 }
 
-/* Dark navy band reused by the "Why choose Eseye?" stats section. */
-.eseye-band {
-  background-color: #1e1652;
+/* Stylish display typeface for the hero heading. */
+.eseye-display {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.03em;
 }
