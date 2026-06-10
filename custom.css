@@ -23,16 +23,20 @@ html[data-current-path="/"] footer.docs-footer {
   display: none !important;
 }
 
-/* Eseye brand hero: dark navy/indigo base with a magenta glow rising from the
-   bottom-right and a cool blue glow top-left, mirroring eseye.com. To drop in a
-   real photo later, add it as the first background-image layer (e.g.
-   url('/images/hero.jpg') center/cover) before the gradients below. */
+/* Eseye brand hero: the neon-bridge photo behind a dark navy/indigo overlay so
+   the white hero text stays readable, mirroring eseye.com. Background layers
+   render top-to-bottom: the darkening gradient and magenta glow sit ON TOP of
+   the photo (listed last). The overlay is heaviest at the top-left, where the
+   copy sits, and lets the bridge show through toward the bottom-right. */
 .eseye-hero {
-  background-color: #1b1448;
+  background-color: #150f38;
   background-image:
-    radial-gradient(55% 80% at 80% 120%, rgba(236, 30, 121, 0.55), transparent 60%),
-    radial-gradient(45% 60% at 12% -15%, rgba(80, 120, 220, 0.30), transparent 60%),
-    linear-gradient(180deg, #2a2068 0%, #1e1652 55%, #150f38 100%);
+    radial-gradient(50% 75% at 82% 115%, rgba(236, 30, 121, 0.40), transparent 60%),
+    linear-gradient(115deg, rgba(21, 15, 56, 0.94) 0%, rgba(30, 22, 82, 0.80) 45%, rgba(30, 22, 82, 0.45) 100%),
+    url("/images/resources/images/Eseye-Hero_0003_Neon-Bridge.webp");
+  background-size: cover, cover, cover;
+  background-position: center, center, center bottom;
+  background-repeat: no-repeat;
 }
 
 /* Dark navy band reused by the "Why choose Eseye?" stats section. */
