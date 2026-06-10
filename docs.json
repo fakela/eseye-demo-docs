@@ -5,8 +5,8 @@
   "description": "Eseye documentation \u2014 IoT connectivity, hardware, and APIs",
   "colors": {
     "primary": "#EC1E79",
-    "light": "#0F172A",
-    "dark": "#005EB8"
+    "light": "#F472A6",
+    "dark": "#C2185B"
   },
   "favicon": {
     "light": "/favicon.png",
@@ -924,7 +924,7 @@
     ]
   },
   "logo": {
-    "light": "/images/logo(1).svg",
+    "light": "/images/resources/89c621c0ed10458c846129e0259b2b30-Eseye-logo-dark-blue-scaled-2.png",
     "dark": "/images/logo(1).svg"
   },
   "navbar": {
