@@ -4,17 +4,18 @@ description: "Build, connect, and manage your IoT estate with Eseye — guides f
 mode: "custom"
 ---
 
-<div className="relative isolate overflow-hidden bg-gradient-to-br from-[#003D7A] via-[#005EB8] to-[#3A8DDE] text-white">
+<div className="relative isolate overflow-hidden bg-gradient-to-br from-[#EC1E79] via-[#9B1F71] to-[#46236A] text-white">
+  <div className="absolute inset-0 -z-10 opacity-20 [background:radial-gradient(60%_60%_at_85%_15%,white,transparent)]" />
   <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28 lg:py-32">
-    <p className="text-sm font-semibold uppercase tracking-widest text-sky-200">Eseye documentation</p>
+    <p className="text-sm font-semibold uppercase tracking-widest text-pink-200">Eseye documentation</p>
     <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
       Build, connect, and manage your IoT estate.
     </h1>
-    <p className="mt-6 max-w-2xl text-lg text-sky-50 sm:text-xl">
+    <p className="mt-6 max-w-2xl text-lg text-pink-50/90 sm:text-xl">
       Reference guides, API documentation, and how-tos for IoT developers, network engineers, and operations teams working with Eseye SIMs, hardware, and the AnyNet&nbsp;Federation.
     </p>
     <div className="mt-8 flex flex-wrap gap-3">
-      <a href="/getting-started/getting-started" className="inline-flex items-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#003D7A] shadow-sm hover:bg-sky-50">
+      <a href="/getting-started/getting-started" className="inline-flex items-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#EC1E79] shadow-sm hover:bg-pink-50">
         Get started
       </a>
       <a href="/developer-docs/getting-started-for-developers" className="inline-flex items-center rounded-md border border-white/40 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
@@ -26,7 +27,11 @@ mode: "custom"
 
 <div className="mx-auto max-w-6xl px-6 py-16">
 
-## I would like to find information about…
+<p className="text-sm font-semibold uppercase tracking-widest text-[#EC1E79]">Documentation</p>
+
+## Browse by category
+
+Pick a topic to jump straight to the guides, references, and how-tos you need.
 
 <CardGroup cols={3}>
   <Card title="Get started" icon="rocket" href="/getting-started/getting-started">
@@ -49,7 +54,9 @@ mode: "custom"
   </Card>
 </CardGroup>
 
-## Quick links
+<p className="mt-16 text-sm font-semibold uppercase tracking-widest text-[#EC1E79]">Most read</p>
+
+## Popular guides
 
 <CardGroup cols={2}>
   <Card title="IoT essentials" icon="book-open">
@@ -122,5 +129,87 @@ mode: "custom"
     </ul>
   </Card>
 </CardGroup>
+
+<p className="mt-16 text-sm font-semibold uppercase tracking-widest text-[#EC1E79]">Quick answers</p>
+
+## Frequently asked questions
+
+<Tabs>
+  <Tab title="Connectivity">
+    <AccordionGroup>
+      <Accordion title="What is multi-IMSI and why does it matter?">
+        Multi-IMSI lets a single SIM hold multiple network identities, so devices can switch between operators for better coverage and resilience. See [Understanding multi-IMSI functionality](/getting-started/multi-imsi).
+      </Accordion>
+      <Accordion title="How does roaming and localisation work?">
+        Eseye combines roaming with localisation to keep devices connected to the strongest local network while avoiding permanent-roaming restrictions. Read more in [Roaming](/getting-started/roaming) and [Localisation](/getting-started/localisation).
+      </Accordion>
+      <Accordion title="What APN should my devices use?">
+        Your APN determines how device traffic is routed to your cloud or network. See [Access Point Names (APNs)](/connectivity/access-point-name) for setup details.
+      </Accordion>
+      <Accordion title="How does Eseye route traffic to my cloud?">
+        Traffic flows from the device through Eseye's points of presence (PoPs) to your destination. Start with the [Connectivity overview](/connectivity/connectivity-intro).
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="SIMs & eSIM">
+    <AccordionGroup>
+      <Accordion title="What is eSIM and how is it different from a physical SIM?">
+        eSIM (eUICC) lets you provision and switch operator profiles remotely, without swapping hardware. Learn the basics in [About eSIM technology](/getting-started/esim/esim).
+      </Accordion>
+      <Accordion title="How do I activate my SIMs?">
+        Activation is managed from your portal alongside the rest of your estate. See [Managing SIMs](/managing-my-estate/managing-sims).
+      </Accordion>
+      <Accordion title="My SIM isn't connecting — what should I check?">
+        Work through the common causes and fixes in [SIM not working](/troubleshooting/sim-not-working).
+      </Accordion>
+      <Accordion title="What do I do about a lost or stolen SIM?">
+        Suspend the affected SIM to protect your estate and follow the steps in [Stolen SIMs](/troubleshooting/stolen-sims).
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Billing & estate">
+    <AccordionGroup>
+      <Accordion title="How does billing and invoicing work?">
+        Understand charges, invoices, and reporting in the [Billing and invoices](/billing/billing-intro) guide.
+      </Accordion>
+      <Accordion title="What is the Infinity portal?">
+        Infinity is Eseye's platform for managing connectivity, SIMs, and devices across your estate. See the [Infinity introduction](/infinity/introduction).
+      </Accordion>
+      <Accordion title="How do I manage my estate day to day?">
+        From activating SIMs to running reports and controlling invoicing — start with [Managing my estate](/managing-my-estate/managing-my-estate).
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="APIs & developers">
+    <AccordionGroup>
+      <Accordion title="How do I get started as a developer?">
+        Follow the developer onboarding in [Getting started for developers](/developer-docs/getting-started-for-developers).
+      </Accordion>
+      <Accordion title="How do I authenticate and start using the APIs?">
+        Learn how to access and call the REST APIs in [Start using APIs](/developer-docs/start-using-apis).
+      </Accordion>
+      <Accordion title="Which API manages the SIM lifecycle?">
+        The SIM API covers activation, status, and lifecycle operations. See the [SIM API introduction](/api/sim/simapi-intro).
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
+
+<div className="mt-16 overflow-hidden rounded-2xl bg-gradient-to-br from-[#EC1E79] via-[#9B1F71] to-[#46236A] px-8 py-12 text-white sm:px-12">
+  <div className="max-w-2xl">
+    <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Need help?</h2>
+    <p className="mt-3 text-pink-50/90">
+      Can't find what you're looking for? Raise a support ticket with our team, or talk to us about your IoT connectivity project.
+    </p>
+    <div className="mt-6 flex flex-wrap gap-3">
+      <a href="/support/manage-tickets" className="inline-flex items-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#EC1E79] shadow-sm hover:bg-pink-50">
+        Visit support
+      </a>
+      <a href="https://www.eseye.com/get-in-touch/" className="inline-flex items-center rounded-md border border-white/40 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
+        Contact sales
+      </a>
+    </div>
+  </div>
+</div>
 
 </div>
