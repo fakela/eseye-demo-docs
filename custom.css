@@ -22,3 +22,20 @@ html[data-current-path="/"] .pagination-nav,
 html[data-current-path="/"] footer.docs-footer {
   display: none !important;
 }
+
+/* Eseye brand hero: dark navy/indigo base with a magenta glow rising from the
+   bottom-right and a cool blue glow top-left, mirroring eseye.com. To drop in a
+   real photo later, add it as the first background-image layer (e.g.
+   url('/images/hero.jpg') center/cover) before the gradients below. */
+.eseye-hero {
+  background-color: #1b1448;
+  background-image:
+    radial-gradient(55% 80% at 80% 120%, rgba(236, 30, 121, 0.55), transparent 60%),
+    radial-gradient(45% 60% at 12% -15%, rgba(80, 120, 220, 0.30), transparent 60%),
+    linear-gradient(180deg, #2a2068 0%, #1e1652 55%, #150f38 100%);
+}
+
+/* Dark navy band reused by the "Why choose Eseye?" stats section. */
+.eseye-band {
+  background-color: #1e1652;
+}
