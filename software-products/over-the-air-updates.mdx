@@ -1,0 +1,26 @@
+---
+title: "Over-the-air (OTA) updates"
+description: "AnyNet SMARTconnect™ supports over the air (OTA) updates for the following software, using parameters set in the configuration file:"
+---
+
+<p>AnyNet SMARTconnect™ supports over the air (OTA) updates for the following software, using parameters set in the configuration file:</p>
+
+<ul> <li>Host</li> <li>Kernel (Module operating firmware)</li> <li>AnyNet SMARTconnect™ application</li> <li>Configuration file</li> </ul>
+
+<p>For more information, see <a href="/software-products/configuration-file">Using the AnyNet SMARTconnect™ configuration file</a>.</p>
+
+<h2 id="Updatinghostfirmware">Updating host firmware</h2>
+
+<p>Modify the AnyNet SMARTconnect™ configuration file to contain the URL for the host firmware. The host must request AnyNet SMARTconnect™ to check for updates. If an update is available, AnyNet SMARTconnect™ will download it into flash memory and send a URC to the host, indicating that new firmware is available. The host then reads the firmware image in chunks, using AT commands. A checksum is provided to ensure the copy from AnyNet SMARTconnect™ to host has completed without errors.</p>
+
+<p>For more information, see <a href="/software-products/update-software-firmware#Download2" target="_blank">Updating AnyNet SMARTconnect™ software and host module firmware</a>.</p>
+
+<h2 id="UpdatingkernelAnyNetSMARTconnectapplicationandconfigurationsoftware">Updating kernel, AnyNet SMARTconnect™ application and configuration software</h2>
+
+<p>Trigger updates to the modem kernel, AnyNet SMARTconnect™ application and configuration using either the host, cloud IoT service, or SMS.</p>
+
+<p>The URL used to download the images is set in AnyNet SMARTconnect™ configuration file. In order to apply updates, AnyNet SMARTconnect™ must reboot. For more information, see <span>update&#95;autoreboot</span> in the configuration file.</p>
+
+<p>For more information, see <a href="/software-products/update-software-firmware">Updating AnyNet SMARTconnect™ software and host module firmware</a>.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> <li><a href="/software-products/configuration-file">Using the AnyNet SMARTconnect™ configuration file</a> </li> </ul> </div>

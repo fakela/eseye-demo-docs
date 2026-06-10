@@ -1,0 +1,52 @@
+---
+title: "Receiving mobile originated SMS messages"
+description: "Eseye's AnyNet Messaging Service and SMS API enable customers to intercept SMS messages sent to an MSISDN and deliver them to a customer's SMS application."
+---
+
+<p>Eseye's AnyNet Messaging Service and SMS API enable customers to intercept SMS messages sent to an MSISDN and deliver them to a customer's SMS application. </p>
+
+<p>When IoT devices and other SMS applications send SMS messages to the designated MSISDN (<a href="/infinity-classic/settings#Messaging">API MSISDN</a>) linked to the customer's Infinity Classic account, the AnyNet Messaging Service intercepts the SMS messages and delivers them to the customer's application. </p>
+
+<p> <img src="/images/resources/images/apis/sms/mosms.svg" alt="Mosms" /> </p>
+
+<p>To receive mobile originated SMS messages from the SMS API, customers must first:</p>
+
+<ol> <li><a href="#SettingUp">Set up a HTTP endpoint application</a> – this application receives SMS messages from the SMS API.</li> <li><a href="#ProvideDetails">Provide details to Eseye Support</a> – these details are typically provided when ordering the SMS API and include the URL of the HTTP endpoint to which the AnyNet Messaging Service will forward messages. </li> <li><a href="#EnableReception">Enable reception of SMS messages in Infinity Classic</a> – using the Infinity Classic web interface.</li> <li><a href="#Test">Send a test MO SMS message</a> – checks that the system is working as intended.</li> </ol>
+
+<h2 id="SetupacustomHTTPendpointapplication">Set up a custom HTTP endpoint application</h2>
+
+<p>To receive MO SMS messages, the customer must create an application (HTTP endpoint) that is capable of receiving HTTP POST messages from the SMS API. The SMS message contents (text or data) from the device are contained in the message payload. </p>
+
+<h3>MO message format</h3>
+
+<p>The AnyNet Messaging Service sends MO SMS PDU messages that may include the fields listed in the table below. </p>
+
+<Note>The specific fields depend on the type of PDU (Deliver-SM, Submit-SM, Status-Report, etc) and the information supplied by the originating network.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>source</td> <td>string</td> <td> The source MSISDN of the originator of the message.  <span><strong>Note: </strong>If omitted, the source was an SMS API.</span> </td> </tr> <tr> <td>destination</td> <td>string</td> <td>The destination MSISDN, which is link to the customer's HTTP SMS endpoint. </td> </tr> <tr> <td>message&#95;id</td> <td>string</td> <td>A unique identifier for the message that can be used for tracking.</td> </tr> <tr> <td>text</td> <td>string</td> <td> The human-readable SMS message content.  </td> </tr> <tr> <td>binary</td> <td>hexadecimal string</td> <td> Hexadecimal representation of the Submit-SM PDU.  <span><strong>Tip: </strong>To decode the contents, use an SMS decoder. Click <a href="https://www.diafaan.com/sms-tutorials/gsm-modem-tutorial/online-sms-submit-pdu-decoder/" target="_blank">here</a> for an online SMS PDU decoder.</span> </td> </tr> </tbody> </table>
+
+<p> </p>
+
+<h2 id="ProvidedetailstoEseyeSupport">Provide details to Eseye Support</h2>
+
+<p>Once the endpoint application is created, customers must send the following information to Eseye in order to configure their MO SMS application. </p>
+
+<ul> <li>The URL of the HTTP endpoint application, which is stored as the <a href="/infinity-classic/settings#Messaging">MO destination URL</a> in the Infinity Classic web interface.</li> <li> The Infinity Classic account to which the application is to be linked.  <span><strong>Note: </strong>This will determine the charges (if any) for the messages from the SMS API to the customer's application.</span> </li> </ul>
+
+<h2 id="EnablereceptionofMOSMSmessages">Enable reception of MO SMS messages</h2>
+
+<p> </p>
+
+<p>The AnyNet Messaging Service collects mobile originated (MO) SMS messages and sends them to the customer server when the following conditions are met:</p>
+
+<ul> <li>SMS MO is enabled on the customer's SMS API configuration (<a href="/infinity-classic/settings#Messaging">MO Enable option in Infinity Classic</a>) </li> <li>The source device MSISDN is included on the <a href="/getting-started/sms/understanding-sms#AllowedBlockedLists">SMS allowed list</a></li> <li>If an optional <a href="/getting-started/sms/understanding-sms#IpAddressAllowedList">IP address allowed list</a> exists, the source device is included</li> </ul>
+
+<p>To enable reception of MO SMS messages:</p>
+
+<ol> <li>Log in to the Infinity Classic web interface using the customer account to which the SMS API is linked.</li> <li>Display the Settings &gt; <a href="/infinity-classic/settings#Messaging">Messaging API page</a>.</li> <li>Under <span>Actions</span>, select <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" />.</li> <li>Select the <span>Mobile Originated Enable</span> check box. </li> <li>If required, edit the <span>Mobile Originated POST URL</span>, which is the URL of the customers HTTP endpoint application. </li> <li>Select <span>Save</span>.</li> </ol>
+
+<h2 id="TestMOSMSmessagereception">Test MO SMS message reception</h2>
+
+<p>Once configured and enabled, the customer can send an SMS message from an IoT device (or application) to the MSISDN (<a href="/infinity-classic/settings#Messaging">API MSISDN</a>) linked to their Infinity Classic account. The AnyNet Messaging Service will intercept the message, look up the MSISDN and re-route it to the customer's application. </p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sms/smsapi-intro">SMS API introduction</a> </li> <li><a href="/api/sms/delivery-receipt">Delivery receipts for MT and MO SMS messages</a> </li> <li>For information about 16-bit Unicode, see <a href="/api/sms/mtsms">Sending mobile terminated SMS messages</a></li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8297-SMS-API-Developer-Guide.pdf" target="_blank">8297 SMS API Developer Guide (PDF)</a> </li> </ul> </div>

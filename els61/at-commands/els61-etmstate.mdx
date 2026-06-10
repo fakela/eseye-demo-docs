@@ -1,0 +1,20 @@
+---
+title: "ETMSTATE – check current state"
+description: "Checks the current state of the LTE Cat.1-xx click."
+---
+
+<p>Checks the current state of the LTE Cat.1-xx click.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+ETMSTATE=?</span>  </td> <td> OK <br />  <br />+ETMSTATE: 0 disables URCs, 1 enables URCs </td> </tr> <tr> <td>Read</td> <td> <span>AT+ETMSTATE?</span>  </td> <td> +ETMSTATE: <var>&lt;State&gt;</var> <br /> <br />  <br />OK <br />or <br />ERROR </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMSTATE=&lt;<var>cmd</var>&gt;</span>  <br />where <span>&lt;<var>cmd</var>&gt;</span> is the command, either: <br /><span>0</span> – disable state change URC <br /><span>1</span> – enable state change URC </td> <td> AT+ETMSTATE=&lt;CurrentState&gt; <br />  <br />OK </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+ETMSTATE?</p>
+
+<p>0</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> <li><a href="/els61/at-commands/els61-etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

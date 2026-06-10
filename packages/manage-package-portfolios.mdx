@@ -1,0 +1,32 @@
+---
+title: "Managing the package portfolios"
+description: "You can associate one or more customers with a package. The customer must agree to the associated package costs before their account on the package is activated. They cannot use their SIMs associated with the package..."
+---
+
+<p>You can associate one or more customers with a package. The customer must agree to the associated package costs before their account on the package is activated. They cannot use their SIMs associated with the package until they have signed a contract, agreeing to the costs.</p>
+
+<p>From time-to-time, you may need to suspend a portfolio from using a package. For more information, see .</p>
+
+<ul> <li>Package Statuses: Different package statuses exist, including admin suspended and customer suspended. Admin suspended packages can only be reactivated by an administrator, while customers have the ability to manage their suspended packages.</li> <li>Customer Management: The process of onboarding a new customer includes setting up the portfolio, adding addresses and users, and linking packages. This comprehensive approach ensures the customer can begin using the services immediately.</li> <li>Initial Setup: During the initial setup, the sales agent collects information from the customer to create the portfolio. This process involves entering general information, configuring addresses, and adding initial users to the Infinity.</li> <li>Ongoing Management: Customers have the capability to manage their accounts and make necessary changes, such as adding new users or updating package statuses. This flexibility facilitates efficient and effective customer management.</li> </ul>
+
+<h2 id="Viewingtheportfoliosassociatedwithapackage">Viewing the portfolios associated with a package</h2>
+
+<p>To view the portfolios associated with a specific package:</p>
+
+<ol> <li> Using Integra, on the left menu, select <span>Packages</span>. <br /> <img src="/images/resources/images/integra/packages-icon_80x78.png" alt="Packages Icon 80X78" />  </li> <li> On the <span>Packages</span> page, in the Packages list, select the package <span>ID</span> where you want to view the linked portfolios. </li> <li> Select the <span>Portfolios</span> tab. <br /><img src="/images/resources/images/integra/portfolios-packages.png" alt="Portfolios Packages" />  <br />The Portfolios list displays the following fields: <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Portfolio Name</span> </td> <td> A friendly name for identifying the portfolio, usually the company name followed by a geographic region or project. </td> </tr> <tr> <td><span>Portfolio ID</span> </td> <td> The unique portfolio identifier. The portfolio is the overall customer account that contains user, package, network and SIM information, and includes details such as linked addresses, contact phone numbers, tax information and billing currency information. </td> </tr> <tr> <td>packagePortfolio relationship <span>Status</span></td> <td> The current object status, either: <ul> <li><span>setup</span> – (internal only) a partially completed, newly created object that is not yet available for use. </li> <li><span>requested</span> – a validation status for approving the setup object. All mandatory fields are validated. Approval is required to confirm that the object is configured correctly. Only someone with the correct permissions can approve the object. </li> <li><span>active</span> – the object is approved and ready for use. </li> <li><span>deleted</span> – (internal only) the object is removed from the customer system and is no longer available for use. </li> </ul> </td> </tr> <tr> <td><span>Customer Suspended</span> </td> <td> A customer suspension state, either: <ul> <li><span>yes</span> – The customer has temporarily disabled the object functionality.</li> <li><span>no</span> – The customer has not temporarily disabled the object functionality.</li> </ul> </td> </tr> <tr> <td><span>Admin Suspended</span> </td> <td> An administrator suspension state, either: <ul> <li><span>yes</span> – An administrator has temporarily disabled the object functionality.</li> <li><span>no</span> – An administrator has not temporarily disabled the object functionality.</li> </ul> </td> </tr> </tbody> </table> </li> </ol>
+
+<h2 id="Assigningaportfoliotoapackage">Assigning a portfolio to a package</h2>
+
+<p> To assign a portfolio to a package:</p>
+
+<ol> <li> Use the <span>Portfolios</span> &gt; <span>Manage Portfolios</span> list to find the existing portfolio. <span><strong>Note: </strong>The currency on the portfolio must match the package currency.</span> <span><strong>Tip: </strong>For more information, see <a href="/portfolios/manage-porfolios#Creating" target="_blank">Creating a portfolio</a>.</span> </li> <li>  Copy the <span>Portfolio ID</span>. </li> <li> View the portfolios associated with a package. <br />For more information, see <a href="#Viewing">Viewing the portfolios associated with a package</a>. </li> <li>On the <span>Portfolios</span> tab, select <span>Add</span>.</li> <li> In the <span>Add a Portfolio to the Package</span> dialog, paste the portfolio ID. <br />The system finds the relevant portfolio. </li> <li> Select the returned result. <br /><img src="/images/resources/images/integra/addpf-package.png" alt="Addpf Package" />  </li> <li> Select <span>Save</span> to add the selected portfolio to the package. </li> </ol>
+
+<h2 id="ChangingthepackagePortfoliorelationshipstatus">Changing the packagePortfolio relationship status</h2>
+
+<p>The packagePortfolio relationship is a managed process because it involves a contract.</p>
+
+<p>To change the packagePortfolio lifecycle status: </p>
+
+<ol> <li>  On the <span>Package</span> <span>Portfolios</span> tab, select <span>Edit</span> alongside the relevant portfolio. </li> <li> Select the required <span>Status</span>. <span><strong>Tip: </strong>An <span>Active</span> status will activate the customer account on that package. </span> <br /><img src="/images/resources/images/integra/status-portfolio.png" alt="Status Portfolio" />  </li> <li> Select <span>Update</span> to change the status. </li> </ol>
+
+<h2 id=""> </h2>

@@ -1,0 +1,18 @@
+---
+title: "ETMINFO – displays ETM and device information"
+description: "Displays information about the current ETM application and device."
+---
+
+<p>Displays information about the current ETM application and device. </p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+ETMINFO=?</span>  </td> <td>  +ETMINFO:(ci,iccid,imei,imsi,mcc,mnc,<br />rssi,service,version)  </td> </tr> <tr> <td>Read</td> <td> <span>AT+ETMINFO?</span>  </td> <td> OK <br />or <br />ERROR </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMINFO=</span><span>&lt;<var>id</var>&gt;</span>  <br />where <span>&lt;<var>id</var>&gt;</span> is either: <ul> <li><span>ci</span> – the unique cell identity</li> <li><span>iccid</span> – the SIM unique identifier</li> <li><span>imei</span> –the device unique identifier</li> <li><span>imsi</span> – the cellular network user unique identifier</li> <li><span>mcc</span> – the mobile country code</li> <li><span>mnc</span> – the mobile network code</li> <li><span>rssi</span> – the received signal strength indicator</li> <li><span>service</span> – shows whether the modem is registered to a network</li> <li><span>version</span> – the current version of Eseye software on the selected modem</li> </ul> </td> <td> +ETMINFO: &lt;value&gt; <br />  <br />OK <br />where <span>value</span> is the requested value, such as the SIM ICCID. <br />For <span>service</span>, returns the registration status in decimal format:  <ul> <li><span>0</span> – not registered</li> <li><span>1</span> – registered</li> </ul> <br />or <br /><span>ERROR</span> – the command failed </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+ETMINFO="iccid"</p>
+
+<p>8944538523020412345</p>
+
+<p>OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> <li><a href="/els61/at-commands/els61-etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

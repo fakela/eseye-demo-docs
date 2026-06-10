@@ -1,0 +1,62 @@
+---
+title: "Updating software – Cinterion® ELS61 Wireless Module"
+description: "If you have the Cinterion® ELS61 Wireless Module version 2.0.5 or previous, you must install the Eseye Updater and update the device software."
+---
+
+<p>If you have the Cinterion® ELS61 Wireless Module version 2.0.5 or previous, you must install the Eseye Updater and update the device software.</p>
+
+<p>You will install the following:</p>
+
+<ul> <li>USB Drivers – to enable the computer to access the Cinterion® ELS61 Wireless Module</li> <li>Module Exchange Suite (MES) tool – enables you to copy files into the Cinterion® ELS61 Wireless Module</li> <li>Eseye Updater – a tool for updating the current software</li> <li> Cinterion® ELS61 Wireless Module  software (latest version)</li> </ul>
+
+<div> <h3>Before you begin</h3> <p>You need:</p> <ul> <li>Windows 10 computer, version 1909 or later, with administrator access.</li> <li>The Cinterion® ELS61 Wireless Module you want to update, which may exist within a click module. Ensure it is powered on.</li> <li> A cable for connecting the Cinterion® ELS61 Wireless Module to the computer. Ensure the cable is connected to the device and the computer. <br />If you are using the LTE Cat.1-xx click, you will need a Micro USB cable. </li> <li>A customer login for Eseye Zendesk, to access and download the required zip files. If you do not have a customer login, contact Eseye Support: <a href="mailto:support@eseye.com">support@eseye.com.</a></li> </ul> </div>
+
+<h2>Installing the USB drivers and Module Exchange Suite (MES)</h2>
+
+<p>To download the USB drivers:</p>
+
+<ol> <li> Using the Windows 10 computer, go to: <br /><a href="https://eseye.zendesk.com/hc/en-us/articles/360009436498">https://eseye.zendesk.com/hc/en-us/articles/360009436498</a>  </li> <li> Log into Zendesk to view the files. </li> <li>Download <span>pls62-w&#95;rev02.000&#95;arn01.000.04&#95;drivers.zip</span>.</li> <li> Extract all the contents of the zip file to here:  <br />C:&#92;Drivers </li> </ol>
+
+<p>To install the USB drivers:</p>
+
+<ol> <li>Using the Windows 10 computer, open <span>Device Manager</span>.</li> <li> Expand <span>Ports (COM &amp; LPT)</span>. <br />Five ports are listed. Their names may differ from those displayed in the example, depending on your computer setup. </li> <li> Right-click the first listed port (in this example, <span>COM10</span>), then select <span>Update driver</span> in the shortcut menu. <br /><img src="/images/resources/images/devicemanagermodemdrivers.png" alt="Devicemanagermodemdrivers" />  <br />The Update Drivers - USB Serial Device window appears for that port. </li> <li>Select <span>Browse my computer for driver software</span>.</li> <li>Alongside <span>Search for drivers in this location</span>, select <span>Browse</span>.</li> <li>Browse to C:&#92;Drivers&#92;USB.</li> <li> Ensure the <span>Include subfolders</span> checkbox is selected.  <br /><img src="/images/resources/images/browsefordrivers.png" alt="Browsefordrivers" />  </li> <li>Select <span>Next</span> to install the drivers.</li> <li> If the <span>Windows Security</span> box appears, asking if you would like to install this device software, select <span>Install</span>. <br />The Windows has successfully updated your drivers window appears. </li> <li> Select <span>Close</span>. <br />In Device Manager, the port name updates. </li> <li>Repeat this procedure for each of the listed ports.</li> <li> When you have finished updating the drivers, you should have one USB Modem driver,two USB Com ports and a do&#95;not&#95;use port listed: <span><strong>Note: </strong>The <span>do&#95;not&#95;use</span> port is for diagnostics. The MES tool uses one of the USB Com ports. Use one of the alternative USB Com ports for the terminal emulator – this cannot use the same port as the MES tool.</span> </li> </ol>
+
+<p>To install the MESSetup.exe tools:</p>
+
+<ol> <li> Using the Windows 10 computer, go to:  <br /><a href="https://eseye.zendesk.com/hc/en-us/articles/360009436498">https://eseye.zendesk.com/hc/en-us/articles/360009436498</a>  </li> <li>Download <span>MESSetup.zip</span>.</li> <li>Extract the contents to your <span>Downloads</span> folder, then run <span>MESSetup.exe</span>.</li> <li> Depending on your user permissions, a message box may appear: <span>Do you want to allow this app to make changes to your device?</span> Select <span>Yes</span>. <br />The InstallShield Wizard starts. </li> <li>Select <span>Next</span> to view the <span>License Agreement</span>.</li> <li> Select <span>Yes</span> to accept the terms of the license agreement and install the MES tool. <span><strong>Note: </strong>Selecting <span>No</span> will close the wizard.</span> </li> <li>Select <span>Finish</span> to exit the InstallShield Wizard.</li> </ol>
+
+<h2>Preparing the Cinterion® ELS61 Wireless Module for the latest Eseye Updater</h2>
+
+<p>We highly recommend that you remove existing Eseye Updater software from the Cinterion® ELS61 Wireless Module, using the following procedure. If the Eseye Updater does not exist, you will receive an <span>Error</span> response. You can ignore this response.</p>
+
+<Tip>Use a terminal emulator to perform the following procedure. For more information, see <a href="/els61/els61-rs232-serial-connection">Connecting to the LTE Cat.1-xx click</a>.</Tip>
+
+<p>To uninstall existing Eseye Updater software:</p>
+
+<ol> <li> Using a terminal emulator, type:  <br /><span>at^SJAM=2,"a:/EseyeUpdater.jad",""</span>&lt;return&gt; <br /><span>at^SJAM=3,"a:/EseyeUpdater.jad",""</span>&lt;return&gt; <br />Both commands return the following response if previous Eseye Updater software was uninstalled: <br />OK </li> <li>Leave the terminal emulator open.</li> </ol>
+
+<h2>Downloading the software update onto <span>the modem</span></h2>
+
+<p>To download the software update onto the modem:</p>
+
+<ol> <li>Using Windows File Explorer, browse to <span>This PC</span>.</li> <li> In the right-hand display panel, right-click <span>Module</span>. <br /><img src="/images/resources/images/softwareupdate1.png" alt="Softwareupdate1" />  </li> <li>In the shortcut menu, select <span>Properties</span>.</li> <li> On the<span> Port</span> tab, select a <b>COM Port</b> that enables you to connect to the Cinterion® ELS61 Wireless Module. <br />For information about which port to use, see <a href="#Preparin">Installing the USB drivers and Module Exchange Suite (MES)</a>. <br />Use a terminal emulator to test the connection on that port. For information about checking if a device is ready to receive AT commands, see <a href="/els61/at-commands/els61-at-commands">General AT Commands for the Cinterion® ELS61 Wireless Module</a>. </li> <li> Select <span>OK</span> to connect to the Cinterion® ELS61 Wireless Module through that port. </li> <li> Double-click <span>Module</span> to view <span>Module Disk (A:)</span>. <br /><img src="/images/resources/images/softwareupdate2.png" alt="Softwareupdate2" />  </li> <li>Double-click <span>Module Disk (A:)</span>. </li> </ol>
+
+<div> <p>Ensure that the Cinterion® ELS61 Wireless Module includes the JRC-1.62.03 or later software update. Refer to the Thales documentation for information about updating the modem. </p> <p>To check the modem version, use a terminal emulator to run: </p> <p>AT^SJAM=4</p> <p>The response must include: </p> <p>SJAM: "a:/JRC-1.62.03.jad"</p> </div>
+
+<h2>Installing the latest Eseye Updater</h2>
+
+<p>To install the Eseye Updater:</p>
+
+<ol> <li> Using the Windows 10 computer, go to:  <br /><a href="https://eseye.zendesk.com/hc/en-us/articles/360008923637">https://eseye.zendesk.com/hc/en-us/articles/360008923637</a>  </li> <li>Download <span>ICC&#95;EseyeUpdater&#95;<var>&lt;version&gt;</var>.zip</span>, where <var>&lt;version&gt;</var> is the latest version.</li> <li>Extract the contents to your <span>Downloads</span> folder.</li> <li>Copy<span> EseyeUpdater.jad</span> and <span>EseyeUpdater.jar</span> from the extracted <span>EseyeUpdater</span> folder to the <span>Module Disk (A):</span> folder.</li> <li> Using a terminal emulator, type:  <br /><span>at^SJAM=0,"a:/EseyeUpdater.jad",""</span>&lt;return&gt; <br />The following response occurs: <span>OK</span> <span><strong>Note: </strong>You will receive an <span>Error</span> response if you did not copy the files to the Module correctly, or if you have not removed a previous version of the Eseye Updater. For more information, see <a href="#Preparin2">Preparing the Cinterion® ELS61 Wireless Module for the latest Eseye Updater</a> and <a href="#Download">Downloading the software update onto the modem</a>.</span> </li> <li> Using the terminal emulator, type:  <br /><span>at^SJAM=4</span>&lt;return&gt; <br />The response must include: <br />SJAM: "a:/EseyeUpdater.jad","EseyeUpdater","Eseye","<var>&lt;version&gt;</var>",1,<var>&lt;filesize&gt;</var>,0,2 <br />where:  <br /><var>&lt;version&gt;</var> is the latest version of the Eseye Updater software, for example: 2.0.6 <br /><var>&lt;filesize&gt;</var> is the EseyeUpdater.jad filesize </li> <li> Using Windows File Explorer, in the <span>Module Disk (A):</span> folder, delete the following files: <ul> <li>EseyeUpdater.jad</li> <li>EseyeUpdater.jar</li> </ul> </li> </ol>
+
+<h2>Installing the latest software update</h2>
+
+<ol> <li> Using the Windows 10 computer, go to:  <br /><a href="https://eseye.zendesk.com/hc/en-us/articles/360008924537">https://eseye.zendesk.com/hc/en-us/articles/360008924537</a>  </li> <li>Download <span>ICC&#95;ETM&#95; <var>&lt;version&gt;</var>.zip</span>, where <var>&lt;version&gt;</var> is the latest version.</li> <li> Extract the contents to your <span>Downloads</span> folder. <br />Ensure you perform steps 4 and 5 separately, in order.  </li> <li> Copy the <span>update</span> folder from the extracted contents to the <span>Module Disk (A):</span> folder. <span><strong>Note: </strong>If you have previously updated the software, you must overwrite the existing files.</span> </li> <li> Copy the <span>Update.flag</span> file to the <span>Module Disk (A):</span> folder. </li> <li>Remove power from the Cinterion® ELS61 Wireless Module for 20 seconds.</li> <li> Restart the Cinterion® ELS61 Wireless Module. <br />The software update takes place. </li> <li> Using a terminal emulator, type: <br /><span>at^SJAM=4</span>&lt;return&gt; <br />The response must include: <br />SJAM: "a:/EseyeUpdater.jad","EseyeUpdater","Eseye","<var>&lt;version&gt;</var>",1,<var>&lt;filesize&gt;</var>,0,2 <br />where:  <br /><var>&lt;version&gt;</var> is the latest version of the Eseye Updater software, for example: 2.0.6 <br /><var>&lt;filesize&gt;</var> is the EseyeUpdater.jad filesize <span><strong>Note: </strong>The JRC version may differ, depending on the firmware version installed in the terminal. We recommend that you update the Cinterion® ELS61 Wireless Module to the latest Thales-supported JRC firmware for Java® ME 3.2.</span> </li> <li>Ensure the EseyeUpdater, ETM and CertificateConfigApp versions match those listed above. </li> <li> Delete the following files if they continue to exist in the <span> Module Disk (A):</span> folder: <br />EseyeUpdater.jad <br />EseyeUpdater.jar <br />Etm.jad <br />Etm.jar <br />CertificatesConfigApp.jad <br />CertificatesConfigApp.jar </li> </ol>
+
+<h2>Uninstalling the Module Exchange Suite</h2>
+
+<p>If required, you may need to uninstall the Module Exchange Suite.</p>
+
+<p>To uninstall the Module Exchange Suite:</p>
+
+<ol> <li> In the <span>Downloads</span> folder, double-click <span>MESSetup.exe</span>. <br />Depending on your account set up, a <span>User Account Control</span> popup may appear. Select <span>Yes</span>. <br />The InstallShield Wizard appears with the options to Modify, Repair or Remove the current installation. </li> <li>Select <span>Remove</span>.</li> <li> Select <span>Next</span>. <br />A message box appears, asking you to confirm your choice. </li> <li> Select <span>Yes</span>.  <br />If you are currently using the files, the <span>Files in Use</span> page appears, listing the open applications. </li> <li>Select <span>Automatically close and attempt to restart applications</span>.</li> <li> Select <span>OK</span>. <br />The wizard closes the applications and uninstalls the Module Exchange Suite. The <span>Uninstall Complete</span> page appears. </li> <li>Select <span>Finish</span> to close the wizard.</li> </ol>

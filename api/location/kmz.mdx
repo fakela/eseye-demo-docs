@@ -1,0 +1,53 @@
+---
+title: "POST /index/kmz"
+description: "Returns a compressed Keyhole Markup Language file detailing the Google Earth location of one or more SIMs. You will need to install Google Earth or Google My Maps in order to import the file and view the mapped locati..."
+openapi: "/api-specs/legacy/location.json POST /index/kmz"
+---
+
+<p>Returns a compressed Keyhole Markup Language file detailing the Google Earth location of one or more SIMs. You will need to install Google Earth or Google My Maps in order to import the file and view the mapped locations.</p>
+
+<p><span>kmz</span> – Keyhole Markup Language Zipped</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/location/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<Note>Use null without quotes as the input if you do not wish to use these objects. The value will remain as previously set. If you want to change the object value to a new value, replace null with "<span>&lt;<var>value</var>&gt;</span>" within quotes, where <span>&lt;<var>value</var>&gt;</span> is the required value. To remove an existing value, type an empty string. For example: <span>"friendlyName": "",</span></Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>request&#95;id</td> <td> A request identifier for tracking responses. </td> <td> </td> </tr> <tr> <td> username </td> <td>The Eseye-assigned Location API username</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> <tr> <td>password</td> <td>The Eseye-assigned Location API password</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> <tr> <td>group</td> <td>The group name for the SIMs. If left blank, the request is not limited to group.</td> <td> </td> </tr> <tr> <td>ICCID</td> <td> The array, containing the list of one or more SIMs that you want to locate using their Integrated Circuit Card IDs (ICCIDs). </td> <td> </td> </tr> <tr> <td><var>ICCID1</var> </td> <td>The first ICCID</td> <td> </td> </tr> <tr> <td><var>ICCID2</var> </td> <td>The second ICCID</td> <td> </td> </tr> <tr> <td><var>ICCID3</var> </td> <td>The third ICCID</td> <td> </td> </tr> <tr> <td>...</td> <td>The range of ICCIDs. We recommend you search for a maximum of 10 ICCIDs in one request to reduce the load on the server.</td> <td> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123;<br /> "request&#95;id": "1",<br /> "username": "ExampleUsername",<br /> "password": "ExamplePassword",<br /> "group": "ExampleGroup",<br /> "iccid": [<br /> "8944538523000000000",<br /> "8944538523000000001",<br /> "8944538523000000002"<br /> ]<br />&#125;</code></pre> </div> </div>
+
+<Tip>Using Postman or similar, we recommend you test the request using <span>Send</span> before you <span>Send and Download</span> the file.<br /><img src="/images/resources/images/apis/location/postmansendanddownload.png" alt="Postmansendanddownload" /></Tip>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Test request using <span>Send</span></h3>
+
+<p>If you test the request using <span>Send</span>, then a successful response is similar to the following:</p>
+
+<p> <img src="/images/resources/images/apis/location/kmztestrequest_650x104.png" alt="Kmztestrequest 650X104" /> </p>
+
+<p>For information about errors, see <a href="/api/location/troubleshooting">Troubleshooting errors: Location API</a>.</p>
+
+<h3>Download file using <span>Send and Download</span></h3>
+
+<p>If you download the location map file using <span>Send and Download</span>, then a successful response immediately opens a dialog box to save the file to your default <span>Downloads</span> folder:</p>
+
+<p><img src="/images/resources/images/apis/location/savefile.png" alt="Savefile" /> </p>
+
+<ol> <li>Add a <span>.kml</span> extension to the <span>File name</span>.</li> <li>Browse to where you want to save the file, then select <span>Save</span>.</li> <li>Import the file into <span>Google Earth</span> or <span>Google My Maps</span> to view the SIM locations.</li> </ol>
+
+<Note>For more information, see the <span>Google Earth</span> or <span>Google My Maps</span> documentation.</Note>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="#">POST /index/kmz</a> </li> <li><a href="/api/location/using-postman">Location API requests</a> </li> <li><a href="/api/location/troubleshooting">Troubleshooting errors: Location API</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8313-Location-API-1.0-Developer-Guide.pdf" target="_blank">8313 Location API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

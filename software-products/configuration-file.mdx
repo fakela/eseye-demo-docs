@@ -1,0 +1,220 @@
+---
+title: "Using the AnyNet SMARTconnect™ configuration file"
+description: "Eseye -enabled module operating parameters are contained in a module-specific configuration file."
+---
+
+<p>Eseye-enabled module operating parameters are contained in a module-specific configuration file. </p>
+
+<p>The Eseye-enabled Quectel module operating parameters are contained in the configuration file, which you can find here: <span>/datatx/eseyeconfig.ini</span>. </p>
+
+<p>You can use the configuration file to set the following parameters:</p>
+
+<ul> <li><a href="#Operatio">Operational</a> </li> <li><a href="#Network" target="_blank">Network</a> </li> <li><a href="#Applicat">Application</a> </li> <li><a href="#Host">Host</a> </li> <li><a href="#[config]">Config</a> </li> <li><a href="#MQTT">MQTT</a> </li> <li><a href="#UDP">UDP</a> </li> <li><a href="#SMS">SMS</a> </li> <li><a href="#Location">Location</a> </li> </ul>
+
+<Note>If this file does not exist, a backup configuration file is used instead: <span>/datatx/eseyeconfig.bak</span>. If neither file exists,AnyNet SMARTconnect™ uses internal default configuration parameters.</Note>
+
+<p>To display the contents of the current configuration file:</p>
+
+<ul> <li>Send: <span>AT+ETMCFG="show"</span></li> </ul>
+
+<p>To save the current configuration: </p>
+
+<ul> <li>Send: <span>AT+ETMCFG="save"</span></li> </ul>
+
+<p>For more information, see <a href="/software-products/anynet-smartconnect-at-commands/etmcfg">ETMCFG – read and write configuration file values</a>.</p>
+
+<Note>To update the configuration file over the air, see <a href="/quectel/awsio-t-jobs">Updating the modem firmware using AWS IoT jobs – Quectel module</a>.</Note>
+
+<p>You can deploy the configuration file using any of the following network protocols: <span>http</span>, <span>https</span>, or <span>tftp</span>.</p>
+
+<p>You can trigger an update using either SMS, MQTT, or AT command.</p>
+
+<p>The.ini file is divided into sections, denoted by square brackets. Each section has parameters listed underneath it. </p>
+
+<Tip>To view an example configuration file, see <a href="#Example">Example content – AnyNet SMARTconnect™ configuration file</a>.</Tip>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Section</th> <th>Parameter</th> <th>Definition</th> </tr> </thead> <tbody> <tr> <td colspan="2">[operation]</td> <td>Operational parameters</td> </tr> <tr> <td> </td> <td>anynet&#95;secure</td> <td> Only for the Quectel EG2x-G module. Sets how the security credentials are stored in the device, either: <br /><span>auto</span> (default) – the device will check the SIM for credentials. If none are found, it will check its own file system. <br /><span>true</span> – the device will only use credentials from the SIM. If none are available, it will wait until they become available. <br /><span>false</span> – the device will only use credentials from its own file system. </td> </tr> <tr> <td> </td> <td>apptrace</td> <td>AnyNet SMARTconnect™ application trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>at&#95;uart&#95;baud</td> <td> Only for the Quectel EG2x-G module. Sets the UART baud rate for serial communication with the device. The following rates are acceptable: <br /><span>4800</span>; <span>9600</span>; <span>19200</span>; <span>38400</span>; <span>57600</span>; <span>115200</span>; <span>230400</span>; <span>460800</span>; <span>921600</span>; <span>3000000</span>; <span>4000000</span> </td> </tr> <tr> <td> </td> <td>attrace</td> <td>AnyNet SMARTconnect™ AT command trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>enable&#95;time&#95;zone</td> <td>AnyNet SMARTconnect™ will use the default time zone to enable setting a local time if the time is unavailable from the network, either:<br /><span>0</span> – default time zone disabled<br /><span>1</span> – uses the default time zone. You must also configure <span>&lt;time&#95;zone&gt;</span>.</td> </tr> <tr> <td> </td> <td>irqhigh</td> <td> Only for the Quectel EG2x-G module. Sets the interrupt pin for interfacing to the device MCU, either: <br /><span>0</span> – active-low <br /><span>1</span> (default) – active-high </td> </tr> <tr> <td> </td> <td>irqpin</td> <td> <div> Which physical AnyNet SMARTconnect™ pin to use as the IRQ pin. Type a number from the following ranges: <br /><span>Quectel BG95 module</span>: <span>4-7</span>,<span>18-19</span>,<span>22-23</span>,<span>26-28</span>,<span>40-41</span>,<span>64</span>. <br /><span>Quectel EG2x-G module</span>: <span>1-6</span>, <span>13</span>, <span>23-27</span>, <span>37-42</span>. </div> </td> </tr> <tr> <td> </td> <td>ntp&#95;urls</td> <td> One or more NTP servers that you want to use, specified in comma-separated order. If AnyNet SMARTconnect™ fails to fetch the time from the first NTP server, it will try the next on the list, and so on. For example: <br /><span>ntp&#95;urls=pool.ntp.org,time.nist.gov,time.google.com</span>  <br />For more information, see <a href="/hardware-products/nt-pvs-nitz">Time synchronisation services – NTP vs NITZ</a>. </td> </tr> <tr> <td> </td> <td>nvqueue&#95;enable</td> <td> The non-volatile memory NV queue is enabled by default to prevent message loss during a power-cycle or reboot. Use: <br /><span>0</span> – NV queue is not enabled <br /><span>1</span> (default) – NV queue is enabled </td> </tr> <tr> <td> </td> <td>nvqueuemaxsize</td> <td> Maximum size (in bytes) of the NV data TX queue. Default: <span>2048</span> bytes. If the queue size is exceeded, the oldest messages are dropped.  <span><strong>Note: </strong>The default size is intended for devices sending small message payloads. Increase this amount if you are using devices that send large message payloads.</span> <br />For large messages, you must ensure that the maximum NV store size is at least four times the largest expected published message size, plus eight bytes for the storage header. For example, for 1000 byte messages, set a minimum nvqueuemaxsize of 4032. </td> </tr> <tr> <td> </td> <td>nvqueuetrace</td> <td>AnyNet SMARTconnect™ non-volatile (NV) queueing subsystem trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>mode</td> <td> The default startup operating mode, either: <br /><span>lwm2m</span>  <br /><span>mqtt</span>  <br /><span>udp</span>  <br /><span>none</span> (default) – If this option is set, the user must send a start command to start the chosen telemetry protocol, for example <span>AT+ETMSTATE=startmqtt</span>. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/etmstate">ETMSTATE – check current state</a>. </td> </tr> <tr> <td> </td> <td>teletrace</td> <td>AnyNet SMARTconnect™ data connection subsystem trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>time&#95;format</td> <td> Transforms the time string into human readable format. Some commonly used specifiers are detailed below: <span><strong>Note: </strong>All specifiers display as integers.</span> <h4>Concatenated specifiers</h4> <ul> <li>%D – same as %m/%d/%y.</li> <li>%F – ISO 8601 date format, same as "%Y−%m−%d".</li> <li>%R – same as "%H:%M".</li> <li>%T – ISO 8601 time format, same as "%H:%M:%S".</li> </ul> <h4>Single specifiers</h4> <ul> <li>%d – day of the month. Range: 01-31.</li> <li>%e – day of the month, where a single digit is preceded by a space. Range: 1-31. </li> <li>%G – year of the ISO 8601 week number (see %V), normally useful only with %V, for example 2024.</li> <li>%g – last 2 digits of the year of the ISO week number (see %V), normally useful only with %V, for example 24. Range: 00−99. </li> <li>%H – hour (24-hour clock). Range: 00−23.</li> <li>%I – hour (12-hour clock). Range: 01−12.</li> <li>%j – day of the year. Range: 001−366.</li> <li>%m – month. Range: 01−12.</li> <li>%M – minute. Range: 00−59.</li> <li>%n – a new-line character.</li> <li>%s – number of seconds since the Epoch, 1970-01-01 00:00:00+0000 (UTC).</li> <li>%S – second. Range: 00−60.</li> <li>%t – a horizontal-tab character.</li> <li>%u – ISO 8601 weekday, where Monday (1) is the first day of the week. Range: 1−7.</li> <li>%U – week number of the year, with Sunday as first day of week 1 (00). Range: 00-53.</li> <li>%V – ISO 8601 week number, with Monday as first day of week 1. Range: 01−53.</li> <li>%w – weekday, where Sunday is the first day of the week. Range: 0−6, where Sunday is 0.</li> <li>%W– week number of the year, with Monday as the first day of week 1 (00). Range: 00−53.</li> <li>%Y – year, for example: 2024.</li> <li>%y – last 2 digits of the year. Range: 00−99.</li> <li>%z – offset from UTC (including daylight saving time) in the ISO 8601 format "−0430" (meaning 4 hours 30 minutes behind UTC, west of Greenwich), or by no characters if no time zone is determinable.</li> <li>%% – is replaced by %.</li> </ul> </td> </tr> <tr> <td> </td> <td>time&#95;urc</td> <td> Enables a URC to report the time as soon as it is available in the internal clock (when the device connects on the network), either: <br /><span>none</span> (default) – URC disabled <br /><span>local</span> – the URC reports local time according to the time zone and daylight saving <br /><span>utc</span> – the URC reports UTC time <span><strong>Tip: </strong>Format the displayed time using <span>[operation] time&#95;format</span>.</span> </td> </tr> <tr> <td> </td> <td>time&#95;zone</td> <td> The default UTC offset (in minutes) that is used until the module obtains time information from the connected cellular network. <br /><span>0</span> (default value) – no offset, time is displayed as the local time <br />For example:  <ul> <li>India is +5.5x60=<span>330</span></li> <li>US central time is -6x60=<span>-360</span> </li> </ul> </td> </tr> <tr> <td> </td> <td><span>update&#95;autoreboot</span> </td> <td> AnyNet SMARTconnect™ will automatically reboot after an over-the-air (OTA) update is processed, either: <br /><span>0</span> – automatic reboot disabled  <span><strong>Note: </strong>If you disable this parameter, the <span>+ETM: REBOOT REQUIRED</span> URC will appear after an update, requiring the host to tell AnyNet SMARTconnect™ when to reboot. To apply the changes, the host must reset AnyNet SMARTconnect™ as soon as possible by sending <span>AT+ETMSTATE="reboot"</span>.</span> <br /><span>1</span> (default) – automatic reboot enabled <span><strong>Note: </strong>If you enable this parameter, AnyNet SMARTconnect™ will automatically reboot after an update and issue the <span>+ETM: REBOOTING</span> URC. After this, the host must wait for the <span>+ETM: IDLE</span> URC before starting the desired telemetry mode.</span> </td> </tr> <tr> <td colspan="2">[network]</td> <td>Cellular network parameters</td> </tr> <tr> <td> </td> <td>apn</td> <td>Access Point Name. For more information, see <a href="/connectivity/anynet-apn-list">Current AnyNet APN list</a>.</td> </tr> <tr> <td> </td> <td>apnuser</td> <td>APN user name. For more information, see <a href="/connectivity/anynet-apn-list">Current AnyNet APN list</a>.</td> </tr> <tr> <td> </td> <td>apnpass</td> <td>APN password. For more information, see <a href="/connectivity/anynet-apn-list">Current AnyNet APN list</a>.</td> </tr> <tr> <td> </td> <td>band </td> <td> For the Quectel BG95 module only. Comma-separated list of radio frequency bands, for example: 0xf,0x400a0e189f,0xa0e189f <span><strong>Note: </strong>This is a Quectel module setting for the BG95 module only. Refer to the Quectel documentation for more information.</span> </td> </tr> <tr> <td> </td> <td>disable&#95;rxdiv</td> <td> Disables the diversity antenna, allowing single antenna operation, either: <br /><span>0</span> (default) – diversity antenna enabled <br /><span>1</span> – diversity antenna disabled </td> </tr> <tr> <td> </td> <td>iotopmode </td> <td> Selects which LTE network categories the modem can use. <br /><span>0</span> (default) – LTE Cat M1 <br /><span>1</span> – LTE Cat NB1. <br /><span>2</span> – LTE Cat M1 and LTE Cat NB1 <span><strong>Note: </strong>This is a Quectel module setting for the BG95 module only. Refer to the Quectel documentation for more information.</span> </td> </tr> <tr> <td> </td> <td>nwscanseq</td> <td> Consult with Eseye before changing this parameter. <br />Radio Access Technology (RAT) search sequence for 2G/4G. <br /><span>00</span> (default) – automatic (LTE Cat M1 to LTE Cat NB1 to GSM) <br /><span>01</span> – GSM <br /><span>02</span> – LTE Cat M1 <br /><span>03</span> – LTE Cat NB1 <br />For example, <span>010203</span> will initiate a search in the following order: GSM to LTE Cat.M1 to LTE Cat.NB1. <span><strong>Note: </strong>This is a Quectel module setting for the BG95 module only. Refer to the Quectel documentation for more information.</span> </td> </tr> <tr> <td> </td> <td>nwscanmode</td> <td> Consult with Eseye before changing this parameter. <br />Configure which RATs are searched, either: <br /><span>0</span> (default) – automatic <br /><span>1</span> – 2G (GSM) only <br /><span>3</span> – 4G (LTE) only <span><strong>Note: </strong>This is a Quectel module setting for the BG95 module only. Refer to the Quectel documentation for more information.</span> </td> </tr> <tr> <td> </td> <td>tech</td> <td> Preferred technology for connecting to the cellular network, either: <br /><span>2G</span> – 2G (GSM) only <br /><span>LTE</span> – 4G (LTE) only <br /><span>any</span> (default) – either 2G or LTE <br />This is a Quectel module setting for the BG95 module only. Refer to the Quectel documentation for more information. </td> </tr> <tr> <td> </td> <td>tracelevel</td> <td>Cellular connectivity trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td colspan="2">[application]</td> <td>Modem and AnyNet SMARTconnect™ application update parameters</td> </tr> <tr> <td> </td> <td>fotaport</td> <td>Modem firmware over-the-air (OTA) image protocol IP port. Default: <span>80</span></td> </tr> <tr> <td> </td> <td>fotaurl</td> <td> Modem firmware OTA image URL, using any of the following network protocols: <span>http</span>, <span>https</span>, or <span>tftp</span> <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td> </td> <td>updateport</td> <td>AnyNet SMARTconnect™ application update protocol IP port. Default: <span>80</span></td> </tr> <tr> <td> </td> <td>updateurl</td> <td> AnyNet SMARTconnect™ application update URL, using any of the following network protocols: <span>http</span>, <span>https</span>, or <span>tftp</span> <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td colspan="2">[host]</td> <td>The device embedded controller (host) parameters</td> </tr> <tr> <td> </td> <td>updateport</td> <td>Host firmware update protocol IP port. Default: <span>80</span></td> </tr> <tr> <td> </td> <td>updateurl</td> <td> Host firmware update URL, using any of the following network protocols: <span>http</span>, <span>https</span>, or <span>tftp</span> <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td colspan="2">[config]</td> <td>AnyNet SMARTconnect™ configuration file update parameters</td> </tr> <tr> <td> </td> <td>updateport</td> <td>Configuration file update protocol IP port. Default: <span>80</span></td> </tr> <tr> <td> </td> <td>updateurl</td> <td> Configuration file update URL, using any of the following network protocols: <span>http</span>, <span>https</span>, or <span>tftp</span> <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td colspan="2">[mqtt]</td> <td>MQTT parameters for communicating with the cloud</td> </tr> <tr> <td> </td> <td>awsjobs</td> <td> AWS jobs topics subscription and for processing jobs instructions, either: <br /><span>0</span> – Do not subscribe to AWS jobs topics <br /><span>1</span> (default) – Subscribe to AWS jobs topics </td> </tr> <tr> <td> </td> <td>awsshadow</td> <td> AWS shadow mode for reporting a set value to the device shadow/twin, either: <br /><span>simple</span> (default) – Report only the content of the state reported object <br /><span>complete</span> – Report the complete JSON data <br /><span>off</span> – Do not report a set value <br />For more information, see <a href="/software-products/anynet-smartconnect-at-commands/emqpersist">EMQPERSIST – report a set value to the device shadow</a>. </td> </tr> <tr> <td> </td> <td>azuretopicproperty</td> <td> Enables you to create an MQTT publish or subscribe topic name in Azure IoT, either: <br /><span>0</span> (default) – disables azuretopicproperty <br /><span>1</span> – enables azuretopicproperty <br />For more information, see <a href="/software-products/anynet-smartconnect-at-commands/emqpubopen">EMQPUBOPEN – create a publish message topic</a> and <a href="/software-products/anynet-smartconnect-at-commands/emqsubopen">EMQSUBOPEN – create a subscribe message topic</a>. </td> </tr> <tr> <td> </td> <td>clientid</td> <td> MQTT client ID. This parameter is ignored when AnyNet SMARTconnect™ connects in Google IoT mode. <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td> </td> <td>enable&#95;msg&#95;tokens</td> <td> Enables you to use MQTT message tokens within MQTT messages sent to the MQTT broker, either: <br /><span>0</span> (default) – disables message token use <br /><span>1</span> – enables the following tokens: <ul> <li> <span>&#36;a</span> – the currently in use Radio Access Technology (RAT). Possible values: <ul> <li> <span>GSM</span> – GSM/GPRS/EDGE mode </li> <li> <span>eMTC</span> – eMTC mode </li> <li> <span>NBIoT</span> – NB-IoT mode </li> <li> <span>NOSERVICE</span> – if AnyNet SMARTconnect™ has no connection to a network </li> </ul> </li> <li> <span>&#36;b</span> – the LTE Signal to Interference &amp; Noise Ratio (SINR) </li> <li> <span>&#36;c</span> – the Mobile Country Code (MCC) </li> <li> <span>&#36;i</span> – the unique IMEI number for the device </li> <li> <span>&#36;n</span> – the Mobile Network Code (MNC) </li> <li> <span>&#36;p</span> – the LTE Reference Signal Received Power (RSRP) </li> <li> <span>&#36;q</span> – the LTE Reference Signal Received Quality (RSRQ) </li> <li> <span>&#36;r</span> – the device Received Signal Strength Indicator (RSSI) </li> <li> <span>&#36;s</span> – the International Mobile Subscriber Identity (IMSI) </li> </ul> <span><strong>Note: </strong><span>&#36;b</span>, <span>&#36;p</span>, and <span>&#36;q</span> are LTE-only signal metrics. If the device is using a GSM connection, the returned value is <span>0</span>.</span> </td> </tr> <tr> <td> </td> <td>keepalive</td> <td>Maximum expected time (in seconds) between received keepalives before AnyNet SMARTconnect™ assumes the MQTT connection is down. Default: <span>1200</span></td> </tr> <tr> <td> </td> <td>mqttenablerxqueue</td> <td> <div> For enabling or disabling the <span>MQTT Rx Queue</span>. Either: <br /><span>0</span> (default) – disables the queue <br /><span>1</span> – enables the queue <span><strong>Note: </strong>For more information, see <a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue" target="_blank">MQTT Rx Queue</a>.</span> </div> </td> </tr> <tr> <td> </td> <td>mode</td> <td> The method that AnyNet SMARTconnect™ uses to connect to the MQTT cloud broker, either: <br /><span>auto</span> (default) – Uses the connection URL (set within the credentials AnyNet SMARTconnect™ gets from the AnyNet Secure SIM) to determine the mode <br /><span>aws&#95;iot</span> – for Amazon cloud connection <br /><span>azure&#95;iot</span> – for MS Azure cloud connection <br /><span>google&#95;iot</span> – for Google-derived cloud connection <span><strong>Note: </strong>Contact Support for more information.</span> </td> </tr> <tr> <td> </td> <td>mqttlwtmessage</td> <td> Last will and testament (LWT) message for notifying subscribed clients about an unexpected loss of connection. To enable LWT, you must configure <span>&lt;mqttlwttopic&gt;</span> and <span>&lt;mqttlwtmessage&gt;</span>. Use: <br /><span>&lt;<var>message</var>&gt;</span> – the MQTT message that is discarded if the client disconnects gracefully <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td> </td> <td>mqttlwtqos</td> <td> Last will and testament (LWT) message QoS, defining the guarantee of message delivery. Either:<span>0</span> (default) – at most once, no guarantee of message receipt<br /><span>1</span> – the message is sent or delivered to the receiver one or more times</td> </tr> <tr> <td> </td> <td>mqttlwtretain</td> <td> Last will and testament (LWT) message retained message flag, either: <br /><span>0</span> (default) – message flag not enabled. This is a required setting for AWS only.  <br /><span>1</span> – message flag enabled </td> </tr> <tr> <td> </td> <td>mqttlwttopic</td> <td> Last will and testament (LWT) topic path for notifying subscribed clients about an unexpected loss of connection. To enable LWT, you must configure <span>&lt;mqttlwttopic&gt;</span> and <span>&lt;mqttlwtmessage&gt;</span>. Use:  <br /><span>topic</span> – the topic path <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td> </td> <td>mqttrxqueuesize</td> <td> The maximum number of messages that the <span>MQTT Rx Queue</span> can retain, up to three. Either: <br /><span>1</span>, <span>2</span>, or <span>3</span> (default) </td> </tr> <tr> <td> </td> <td>mqttsettingstopic</td> <td> Alternative to the AWS IoT shadow for configuring AnyNet SMARTconnect™ behaviour. Subscription to this single topic enables commands to be sent from the cloud broker to AnyNet SMARTconnect™ via MQTT. Use either: <br /><span>settings/&lt;topicsuffix&gt;</span> (default) - If the <span>&lt;mqttsettingtopic&gt;</span> parameter is not configured, then AnyNet SMARTconnect™ subscribes to the <span>settings</span> topic and appends the <span>&lt;topicsuffix&gt;</span> parameter. <br /><span>&lt;mqttsettingstopic&gt;/&lt;topicsuffix&gt;</span> – If the <span>&lt;mqttsettingtopic&gt;</span> parameter is configured, then AnyNet SMARTconnect™ subscribes to the MQTT settings topic name and appends the <span>&lt;topicsuffix&gt;</span> parameter. <span><strong>Tip: </strong> The <span>&lt;mqttsettingstopic&gt;</span> parameter supports the following tokens: <br /> <ul> <li><span>&#36;t</span> –the cloud thingName<br /></li> <li><span>&#36;i</span> – the unique IMEI number for the device<br /></li> </ul> <br /> For example, <span>settingtopicname/&#36;t</span>. If a token is used, <span>&lt;topicsuffix&gt;</span> is not used. </span> </td> </tr> <tr> <td> </td> <td>mqttvolatiletxqueuesize</td> <td> Sets the volatile buffer queue depth for transmitting messages when the <span>[operation] nvqueue&#95;enable</span> is <span>0</span>. You can use a value between 1 and 12. Default: <span>12</span>. <br />  </td> </tr> <tr> <td> </td> <td>port</td> <td>MQTT protocol IP port. Default: <span>8883</span></td> </tr> <tr> <td> </td> <td>singlepubtopic</td> <td> Predefined topic for single-publish systems. The &lt;<span>topicsuffix</span>&gt; is not added as a suffix to the singlepubtopic name, however you can use a token instead. <span><strong>Tip: </strong> The <span>&lt;mqttsettingstopic&gt;</span> parameter supports the following tokens: <br /> <ul> <li><span>&#36;t</span> –the cloud thingName<br /></li> <li><span>&#36;i</span> – the unique IMEI number for the device<br /></li> </ul> <br /> For example, <span>settingtopicname/&#36;t</span>. If a token is used, <span>&lt;topicsuffix&gt;</span> is not used. </span> <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td> </td> <td>singlepubtopicqos</td> <td> QoS for single publish, defining the guarantee of message delivery. Either:<span>0</span> (default) – at most once, no guarantee of message receipt<br /><span>1</span> – the message is sent or delivered to the receiver one or more times</td> </tr> <tr> <td> </td> <td>singlesubtopic</td> <td> Predefined topic for single subscription systems. The topic name depends on &lt;<span>[mqtt] singlesubtopic</span>&gt;/&lt;<span>[mqtt] topicsuffix</span>&gt;, unless a token is used. <span><strong>Tip: </strong> The &lt;<span>singlesubtopic</span>&gt; parameter supports the following tokens:  <ul> <li><span>&#36;t</span> –the AWS thingName</li> <li><span>&#36;i</span> – the unique IMEI number for the device</li> </ul> <br />For example: <span>mysinglesubtopic/&#36;t</span> </span> <span><strong>Note: </strong>If this parameter is not set, it is not included in the configuration file.</span> </td> </tr> <tr> <td> </td> <td>singlesubtopicqos</td> <td> Quality of Service (QoS) for single subscription, defining the guarantee of message delivery. Either:<span>0</span> (default) – at most once, no guarantee of message receipt<br /><span>1</span> – the message is sent or delivered to the receiver one or more times</td> </tr> <tr> <td> </td> <td>tls&#95;cipher</td> <td> The cipher suite we advertise to the cloud for connectivity. <br /><span>auto</span> (default) – Uses the connection URL (set within the credentials AnyNet SMARTconnect™ gets from the AnyNet Secure SIM) to determine the cipher <br /><span>ec</span> – forces Elliptic-Curve cryptography only  <br /><span>rsa</span> – forces the RSA algorithm cryptography only </td> </tr> <tr> <td> </td> <td>topicsuffix</td> <td> Appends a topic path to the end of the requested topic to uniquely identify the thing on the broker. <br /><span>thingname</span> (default) – the cloud thingName <br /><span>imei</span> – the unique IMEI number for the device <br /><span>none</span> – the exact topic is used, with no suffix appended <span><strong>Note: </strong>If <span>topicsuffix</span> is not present in the configuration file, then <span>thingname</span> is appended on the requested topic.</span> </td> </tr> <tr> <td> </td> <td>tracelevel</td> <td>MQTT trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>urcautoformat</td> <td> For formatting URCs, either: <br /><span>0</span> – sends all URCs as ASCII-hex within quotes <br />For example: <span>'&#123;"key1":"val1"&#125;'</span> will appear in a URC as <span>'+EMQ: &lt;id&gt;,15&#92;r&#92;n"7B226B657931223A2276616C31227D"'</span> <br /><span>1</span> (default) – this option enables sending URCs as either ASCII-hex or text, depending on the received payload. <ul> <li> If the received payload is printable text (including JSON), then the URC data is sent as text. <br />For example: <br /><span>'&#123;"key1":"val1"&#125;'</span> will appear in a URC as <span>'+EMQ: &lt;id&gt;,15&#92;r&#92;n&#123;"key1":"val1"&#125;'</span> <br />For JSON, the maximum payload is 1012 characters. Escaped quotes count as 1 character: <span>&#92;"</span> </li> <li> If the received payload is binary data, then the URC data is sent as ASCII hex. </li> </ul> </td> </tr> <tr> <td> </td> <td>url</td> <td>MQTT server URL (IP address or name)</td> </tr> <tr> <td>[lwm2m]</td> <td> </td> <td>LwM2M parameters</td> </tr> <tr> <td> </td> <td>wakaama&#95;lwm2m&#95;trace</td> <td> Enables the Wakaama library trace for Support purposes, either: <br /><span>0</span> (default) – trace disabled <br /><span>1</span> – trace enabled </td> </tr> <tr> <td> </td> <td>wakaama&#95;coap&#95;trace</td> <td> Enable the Wakaama CoAP trace for Support purposes, either: <br /><span>0</span> (default) – trace disabled <br /><span>1</span> – trace enabled </td> </tr> <tr> <td> </td> <td>client&#95;tracelevel</td> <td>LwM2M client trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>nat&#95;timeout</td> <td> NAT session timeout (in seconds) if no data sent to the server for the specified time period. Range: 0-65535. Default: 120. <br />For DTLS connections, when the NAT session times out, a new DTLS connection is established the next time AnyNet SMARTconnect™ sends data to the server. </td> </tr> <tr> <td> </td> <td>lifetime</td> <td> The session lifetime value (in seconds), using LwM2M resource "/1/0/1". Range: 0-65535. Default: 205. <br />If AnyNet SMARTconnect™ does not send data to the server for the specified lifetime, the server will consider the client de-registered. <br />If data is sent during the <span>lifetime</span>, AnyNet SMARTconnect™ uses the following calculation to work out how often to send a "Registration Update" message to the server: <br />If <span>lifetime</span> &gt; 93, then a "Registration Update" is sent every "lifetime–93" seconds, otherwise every "lifetime/2" seconds. </td> </tr> <tr> <td>[udp]</td> <td> </td> <td>User Datagram Protocol (UDP) parameters</td> </tr> <tr> <td> </td> <td>port</td> <td>UDP IP port. Default: 12401</td> </tr> <tr> <td> </td> <td>url</td> <td> UDP IP address </td> </tr> <tr> <td>[sms]</td> <td> </td> <td>SMS parameters for device management.</td> </tr> <tr> <td> </td> <td>enable</td> <td> For configuring SMS handling, either: <br /><span>0</span> – SMS handling disabled <br /><span>1</span> (default) – SMS handling enabled </td> </tr> <tr> <td> </td> <td>tracelevel</td> <td>SMS trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> <tr> <td> </td> <td>allowedlist</td> <td>Comma-separated list of one or more MSISDN values from which SMS is accepted. Include the international country code without the leading zeros. For example: <span>447700900170,447700900854</span></td> </tr> <tr> <td colspan="2">[location]</td> <td>Global navigation satellite system (GNSS) location parameters</td> </tr> <tr> <td> </td> <td>enable</td> <td> For configuring location, either: <br /><span>0</span> (default) – location disabled <br /><span>1</span> – location enabled; Quectel module will always try to establish a GPS/GNSS location while running </td> </tr> <tr> <td> </td> <td>tracelevel</td> <td>Location trace level (0-4), for Support purposes. Leave as <span>1</span> (default).</td> </tr> </tbody> </table>
+
+<h2 id="ExamplecontentAnyNetSMARTconnectconfigurationfile">Example content – AnyNet SMARTconnect™ configuration file</h2>
+
+<p>The following configuration example is for a battery operated device that connects to the network at random times, when in use.</p>
+
+<ul> <li>The microcontroller (MCU) has very limited programming capacity.</li> <li>It uses elliptic-curve cryptography (ECC).</li> <li>The device data is sent to AWS.</li> <li> Device updates and so on are fetched from AWS. In line with best practice, the device initiates all communication with AWS. <br />For more information, see <a href="/connectivity/device-configuration">Device configuration best practices</a>. </li> </ul>
+
+<Note>The comments within the example do not exist in the configuration file on the device.</Note>
+
+<p> </p>
+
+<p>[operation]</p>
+
+<p>mode=mqtt</p>
+
+<p>; Operating in MQTT mode by default</p>
+
+<p>irqmode=none</p>
+
+<p>irqpin=26</p>
+
+<p>apptrace=1</p>
+
+<p>nvqueuetrace=1</p>
+
+<p>teletrace=1</p>
+
+<p>attrace=1</p>
+
+<p>nvqueuemaxsize=2048</p>
+
+<p>nvqueue&#95;enable=1</p>
+
+<p>update&#95;autoreboot=0</p>
+
+<p>; Disables autoreboot. The device is not designed to handle the </p>
+
+<p>; modem disconnecting and connecting in an uncontrolled way.</p>
+
+<p>; By disabling autoreboot, then using AT+ETMSTATE="powerdown" and</p>
+
+<p>; waiting for a POWERED DOWN URC, the device can process an OTA</p>
+
+<p>; without disrupting the normal flow of operation.</p>
+
+<p>; To set this up, use the AT+ETMSTATE=1 command to enable state change URC.</p>
+
+<p>time&#95;format=%F,%T%z</p>
+
+<p>time&#95;urc=none</p>
+
+<p>enable&#95;time&#95;zone=0</p>
+
+<p>time&#95;zone=0</p>
+
+<p>; Sets the time and timezone to match where the device physically exists.</p>
+
+<p>; The timezone value is passed to a server-side platform for further processing.</p>
+
+<p>ntp&#95;urls=pool.ntp.org,time.nist.gov,time.google.com</p>
+
+<p>[network]</p>
+
+<p>apn=eseye1</p>
+
+<p>apnuser=&#36;v</p>
+
+<p>apnpass=&#36;f</p>
+
+<p>tech=any</p>
+
+<p>iotopmode=0</p>
+
+<p>nwscanseq=020301</p>
+
+<p>nwscanmode=0</p>
+
+<p>band=0xf,0x100002000000000f0e189f,0x10004200000000090e189f</p>
+
+<p>tracelevel=1</p>
+
+<p>[application]</p>
+
+<p>[host]</p>
+
+<p>[config]</p>
+
+<p>[mqtt]</p>
+
+<p>mode=auto</p>
+
+<p>mqttenablerxqueue=0</p>
+
+<p>mqttrxqueuesize=3</p>
+
+<p>mqttvolatiletxqueuesize=12</p>
+
+<p>port=8883</p>
+
+<p>keepalive=900</p>
+
+<p>topicsuffix=thingname</p>
+
+<p>urcautoformat=1</p>
+
+<p>singlesubtopic=dev/a01/j261a/sub/2/&#36;t</p>
+
+<p>singlepubtopic=dev/a01/j261a/pub/2/&#36;t</p>
+
+<p>; Sets singletopic publish and subscribe. Limited device memory restricts the</p>
+
+<p>; capacity to make multiple subscriptions and check that they have connected</p>
+
+<p>; properly and so on. This makes device coding easier.</p>
+
+<p>singlesubtopicqos=0</p>
+
+<p>singlepubtopicqos=1</p>
+
+<p>; Sets the publish Quality of Service to ensure the messages from device</p>
+
+<p>; to server-side platform are delivered.</p>
+
+<p>tracelevel=1</p>
+
+<p>mqttsettingstopic=settings</p>
+
+<p>mqttlwtqos=0</p>
+
+<p>mqttlwtretain=0</p>
+
+<p>enable&#95;msg&#95;tokens=1</p>
+
+<p>; Enables message tokens so that AnyNet SMARTconnect fills the values, rather than</p>
+
+<p>; having to code the device to query the values. For example, to gather connectivity</p>
+
+<p>; information such as RSSI, MNC, MCC, IMSI, and so on.</p>
+
+<p>tls&#95;cipher=ec</p>
+
+<p>; Required for ECC to work with AWS IoT Core.</p>
+
+<p>awsjobs=1</p>
+
+<p>; Enables AnyNet SMARTconnect to use AWS jobs to run firmware and host updates OTA.</p>
+
+<p>awsshadow=off</p>
+
+<p>; This example does not use AWS shadow.</p>
+
+<p>[lwm2m]</p>
+
+<p>wakaama&#95;lwm2m&#95;trace=0</p>
+
+<p>wakaama&#95;coap&#95;trace=0</p>
+
+<p>client&#95;tracelevel=1</p>
+
+<p>nat&#95;timeout=120</p>
+
+<p>lifetime=205</p>
+
+<p>[udp]</p>
+
+<p>url=192.168.113.6</p>
+
+<p>port=12401</p>
+
+<p>[sms]</p>
+
+<p>enable=1</p>
+
+<p>allowedlist=447700900170</p>
+
+<p>tracelevel=1</p>
+
+<p>[location]</p>
+
+<p>enable=0</p>
+
+<p>tracelevel=1</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/quectel/installing-smartconnect-bg9x">Installing AnyNet SMARTconnect™ on a Quectel BGxx module</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> </ul> </div>

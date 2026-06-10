@@ -1,0 +1,41 @@
+---
+title: "POST /JAPI/Niam/login"
+description: "Logs the user into Margay."
+openapi: "/api-specs/legacy/margay.json POST /JAPI/Niam/login"
+---
+
+<h2 id="POSTJAPINiamlogin">POST /JAPI/Niam/login</h2>
+
+<p>Logs the user into Margay.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User account must exist in Infinity Classic</li> <li>PortfolioID</li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/margay/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Object name</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>username</td> <td>The end-user name or email address that enables access to an existing SIAM account. Can contain from 6 to 255 characters.</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> <tr> <td>password</td> <td>The end-user password. Can contain from 6 to 255 characters</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> <tr> <td>portfolioID</td> <td>The SIAM account portfolio identifier. Must contain exactly 32 characters.</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123;<br />"username": "Example@Username.com",<br />"password": "examplepassword",<br />"portfolioID": "CustomerPortfolioID"<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/margay/troubleshooting">Troubleshooting errors: Margay API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <div> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  </div> <br />For more information, see <a href="/api/margay/troubleshooting">Troubleshooting errors: Margay API</a>. </td> </tr> <tr> <td>cookie</td> <td> The cookie stores your login details so that the session can remain open without the need to log in again. If you do not log out, but an attempt is made to log in, the previous user is logged out, regardless of whether the new login attempt is successful.  <span><strong>Note: </strong>The system will only record an attempt to login if the function and JSON format text is entered correctly. </span> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "errorCode": "",<br /> "errorMessage": "",<br /> "status": "OK"<br /> &#125;,<br /> "cookie": "01eq42isi4e2ksr2p6dq7jfut2",<br />&#125;</code></pre> </div> </div>
+
+<p>For more information, see <a href="/api/margay/troubleshooting">Troubleshooting errors: Margay API</a>.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="#">POST /JAPI/Niam/login</a> </li> <li><a href="/api/margay/margay-api">Margay API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8732-Margay-API-1.0-Developer-Guide.pdf" target="_blank">8732 Margay API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

@@ -1,0 +1,20 @@
+---
+title: "CSQ – request signal quality"
+description: "This command returns the received signal strength (rssi) and the channel bit error rate (ber)."
+---
+
+<p>This command returns the received signal strength (rssi) and the channel bit error <span>rate (ber).</span></p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+CSQ=? </td> <td> +CSQ: (0-31,99),(0-7,99) <br />  <br />OK <br />where:  <ul> <li><span>(0-31, 99)</span> is the list of supported &lt;rssi&gt;s</li> <li><span>(0-7,99)</span> is the list of supported &lt;ber&gt;s</li> </ul> </td> </tr> <tr> <td>Execute</td> <td> AT+CSQ </td> <td> +CSQ: &lt;rssi&gt;,&lt;ber&gt; <br />  <br />OK <br />where:  <ul> <li><span>&lt;rssi&gt;</span>is either:<ul><li><span>0</span> – -113dBm or less</li><li><span>1</span> – -111dBm</li><li><span>2...30</span> – -109... -53dBm</li><li><span>31</span> – -51dBm or greater</li><li><span>99</span> – Not known or not detectable</li></ul></li> <li>&lt;ber&gt; is either<ul><li><span>0-7</span> – between 0.2% and 12.8%. <br />For more information, consult the RXQUAL values in the following table:<br /><span>3Gpp TS 45.008 subclause 8.2.4</span></li><li><span>99</span> – Not known or not detectable</li></ul></li> </ul> <br />or <br /><span>+CME ERROR: &lt;err&gt;</span> – the command failed. </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+CSQ</p>
+
+<p>+CSQ: 3,99</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/els61/at-commands/els61-system-urcs">System Unsolicited Response Codes (URCs)</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

@@ -1,0 +1,20 @@
+---
+title: "Connecting the Quectel BGxx module to a LwM2M server"
+description: "AnyNet SMARTconnect™ uses the essential AnyNet files to connect a Quectel BGxx module to a LwM2M bootstrap server. For more information, see Creating the essential AnyNet files."
+---
+
+<p>AnyNet SMARTconnect™ uses the essential AnyNet files to connect a Quectel BGxx module to a LwM2M bootstrap server. For more information, see <a href="/quectel/installing-smartconnect-bg9x#Creating">Creating the essential AnyNet files</a>.</p>
+
+<p>AnyNet SMARTconnect™ then obtains the certificates and data required to connect to a LwM2M server from the LwM2M bootstrap server. There are two modes for the connection:</p>
+
+<ul> <li>Secure – CoAP messages are encrypted using a DTLS connection.</li> <li>Non-secure – CoAP messages are exchanged unencrypted via UDP.</li> </ul>
+
+<h2 id="AboutLwM2Mcertificates">About LwM2M certificates</h2>
+
+<p>After the bootstrap procedure completes, for secure mode, AnyNet SMARTconnect™ saves the following files in the datatx folder:</p>
+
+<ul> <li><span>lwm2m&#95;server&#95;public&#95;key</span> – the x509 server certificate</li> <li><span>lwm2m&#95;public&#95;key</span> – the LwM2M public certificate</li> <li><span>lwm2m&#95;secret&#95;key</span> – the LwM2M public private key</li> <li> <span>lwm2m&#95;url</span> – the LwM2M server URL, in this format: <span>coap(s)://&lt;url&gt;:&lt;port&gt;</span> <br />where <span>coaps</span> indicates secure mode, and <span>coap</span> indicates non-secure mode.  <br />If coaps is used but one or more lwm2m files is missing from the datatx folder, then non-secure mode is used.  <br />For non-secure mode, only the <span>anynet&#95;thingname&#95;store</span> file and <span>lwm2m&#95;url</span> file are required. </li> </ul>
+
+<Note>LwM2M files require the same 6 byte header as the essential AnyNet files. For more information, see <a href="/quectel/installing-smartconnect-bg9x#Creating">Creating the essential AnyNet files</a>.</Note>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/etmlw">ETMLW – handles the LwM2M protocol</a> </li> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands">MQTT AT commands</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> </ul> </div>

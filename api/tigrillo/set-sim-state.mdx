@@ -1,0 +1,43 @@
+---
+title: "POST /Japi/Tigrillo/setSIMState"
+description: "Changes the state of a single SIM to either of the following states:"
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/setSIMState"
+---
+
+<p>Changes the state of a single SIM to either of the following states:</p>
+
+<ul> <li><span>suspended</span> – displayed when you <span>suspend</span> a SIM using this method</li> <li><span>available</span> – displayed when you <span>terminate</span> a SIM using this method. The SIM will cycle through <span>pendingDeprovision</span> &gt; <span>unprovisioned</span> &gt; <span>available</span>. If the SIM is <span>pendingDeprovision</span>, you cannot change its state.</li> </ul>
+
+<p>If you want to set the state of multiple SIMs, use any of the following methods:</p>
+
+<ul> <li>activateSIMs – see <a href="/api/tigrillo/activate-sims">POST /Japi/Tigrillo/activateSIMs</a>.</li> <li>suspendSIMs – see <a href="/api/tigrillo/suspend-sims">POST /Japi/Tigrillo/suspendSIMs</a>.</li> <li>unsuspendSIMs – see <a href="/api/tigrillo/unsuspend-sims">POST /Japi/Tigrillo/unsuspendSIMs</a>.</li> <li>terminateSIMs – see <a href="/api/tigrillo/terminate-sims">POST /Japi/Tigrillo/terminateSIMs</a>.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login </li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/tigrillo/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Object name</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>ICCID</td> <td>The current SIM ICCID</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> <tr> <td>state</td> <td>The desired state, either "suspend", or "terminate".</td> <td> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123; <br />"ICCID": "8944538523012999555",<br />"state": "suspend"<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "",<br /> "errorMessage": ""<br /> &#125;<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> <li><a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

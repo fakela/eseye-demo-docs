@@ -1,0 +1,64 @@
+---
+title: "eUICC overview"
+description: "The embedded Universal Integrated Circuit Card (eUICC) is the eSIM software component that runs on a UICC. It is responsible for the storage of multiple network profiles and the secure, over-the-air (OTA) remote SIM p..."
+---
+
+<p>The embedded Universal Integrated Circuit Card (eUICC) is the eSIM software component that runs on a UICC. It is responsible for the storage of multiple <a href="/getting-started/esim/profiles">network profiles</a> and the secure, over-the-air (OTA) <a href="/getting-started/esim/remote-sim-provisioning">remote SIM provisioning and management</a> of profiles. </p>
+
+<p>Each eUICC SIM has a unique identifier (<a href="/glossary/eid">EID</a>) and uses the <a href="#IccidAndImsi">ICCID and IMSI</a> values from the enabled <a href="/getting-started/esim/profiles">profile</a>. </p>
+
+<p> <img src="/images/resources/images/esim/euicc.svg" alt="Euicc" /> </p>
+
+<p>Although initially eUICC SIMs were designed as soldered chips, or implemented within a system on a chip (SOC), they may exist as any form factor.</p>
+
+<h2 id="eUICCIdentifierEID">eUICC Identifier (EID)</h2>
+
+<p>Each eUICC SIM is identified by a unique 32-digit eUICC identifier (EID), which is defined by the eUICC manufacturer (EUM). </p>
+
+<Note> SIM manufacturers may release updated numbering schema on future SIM batches. Eseye provide advance notice of any such changes to enable customers to update firmware and application software if required.</Note>
+
+<p>The first 18 digits define the EUM identification number (EIN), the next 12 digits define the EUM-specific identification number (ESIN) and the last two digits are check sum digits.</p>
+
+<p> <img src="/images/resources/images/esim/eid.svg" alt="Eid" /> </p>
+
+<p>For more information about the EID, refer to the latest version of the SGP.02 Remote Provisioning Architecture for Embedded UICC specification, available here: <a href="https://www.gsma.com/esim/esim-m2m-specifications/">https://www.gsma.com/esim/esim-m2m-specifications/</a>.</p>
+
+<h3>SIM supplier (SIMID)</h3>
+
+<p>For eUICC SIMs, the SIM supplier identifier is the initial digits of the <a href="#eid">EID</a>. For Eseye eUICC SIMs, the identifier is either: </p>
+
+<ul> <li><b>8903302331217</b> </li> <li><span>89044045</span>, or </li> <li><span>89883013</span> </li> </ul>
+
+<Note>The first two digits (89) indicate that the SIM is a telecommunications product. </Note>
+
+<p>For non-eUICC SIMs, use the ICCID to identify the SIM and supplier.</p>
+
+<h3>To identify the EID from the modem, using AT commands</h3>
+
+<Note>Consult your modem manuals or contact your modem vendor for information on using modem commands to obtain the EID.</Note>
+
+<p>Some modem manufacturers have updated their firmware to handle the requirements for eUICC SIMs. For example, Sierra Wireless has updated the AT+CCID command for some AirPrime modems so that it returns both the ICCID and the EID in its response. The response is in the format:</p>
+
+<p>+CCID: &lt;<var>iccid</var>&gt;[,&lt;<var>eid</var>&gt;]</p>
+
+<h3>To identify the EID from the SIMs using AT commands</h3>
+
+<p>If your modem doesn’t have a command to return the EID directly, use the following AT commands to obtain the information from the SIM.</p>
+
+<p>Consult your modem documentation for the exact format of the commands. The AT commands shown below are examples and may not work on your modem.</p>
+
+<ol> <li> Open a logical channel to the eUICC SIM. Type: <br />AT+CSIM=10,"0070000001" <br />Example response: <br />+CSIM: 6,"&lt;<var>nn</var>&gt;9000" <br />where &lt;<var>nn</var>&gt; is is the allocated channel number, for example, <span>01</span>, and 9000 is a successful command. This is only valid for channels 1-7 (depending on the SIM type). </li> <li> Select the eUICC Controlling Authority Security Domain (ECASD) using the Application ID (AID) <b>A0000005591010FFFFFFFF8900000200</b>. Type: <br />AT+CSIM=42,"&lt;<var>nn</var>&gt;A4040010A0000005591010FFFFFFFF8900000200" <br />where &lt;<var>nn</var>&gt; is the allocated channel number, for example <span>01</span>: <span>01A4040010A0000005591010FFFFFFFF8900000200</span> <br />Example response: <br />+CSIM: 4, "614A" <br />OK </li> <li> Read data from the ECASD. Type: <br />AT+CSIM=10,"8&lt;<var>n</var>&gt;CA005A12" <br />where &lt;<var>n</var>&gt; is the channel number with the most significant bit set, in hexadecimal. For example <span>8<span>1</span>CA005A12</span> for channel 1, <span>8<span>2</span>CA005A12</span> for channel 2, and so on. <br />The response contains the EID as shown (in red) in the following example: <br />+CSIM: 40, "5A10<span>89033023312170000000005421143542</span>9000" <br />OK <br />If the SIM is not an eUICC SIM, the response includes an error, as shown in the following example: <br />+CSIM: 4, "6D00" <br />OK </li> <li> Close the logical channel. Type: <br />AT+CSIM=10,"007000&lt;<var>nn</var>&gt;00" <br />where &lt;<var>nn</var>&gt; is the previously allocated channel number, for example: <span>0070000100</span>. </li> </ol>
+
+<h2 id="ICCIDandIMSI">ICCID and IMSI</h2>
+
+<p>On traditional SIM cards, the ICCID and IMSI uniquely identify the physical SIM card and subscriber respectively. The ICCID is printed on the physical SIM card during manufacture and the IMSI is unique to the subscriber. </p>
+
+<p>On Eseye's AnyNet+ SIM s, a single SIM card can support multiple IMSIs. </p>
+
+<p>On eUICCs, the ICCID and IMSI are unique to a profile and not the eUICC, which is uniquely identified using the <a href="#eid">EID</a>.</p>
+
+<p> <img src="/images/resources/images/esim/euicciccidandimsi.svg" alt="Euicciccidandimsi" /> </p>
+
+<p>The following table describes the differences between the ICCID and IMSI on UICCs and eUICCs.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> </th> <th>ICCID</th> <th>IMSI</th> </tr> </thead> <tbody> <tr> <td>UICC</td> <td>Identifies the physical SIM card</td> <td>Identifies the subscriber</td> </tr> <tr> <td>AnyNet SIM</td> <td>Identifies the physical SIM card</td> <td>Supports multiple IMSIs, each of which identify a subscriber</td> </tr> <tr> <td>eUICC SIM</td> <td>Identifies the profile</td> <td>Identifies the subscriber within a profile</td> </tr> </tbody> </table>

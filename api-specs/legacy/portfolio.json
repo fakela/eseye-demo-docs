@@ -1,0 +1,5083 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Portfolio API",
+    "version": "2.0.0",
+    "description": "Portfolio API reference, generated from the Eseye documentation."
+  },
+  "servers": [
+    {
+      "url": "https://portfolio.api.anynetiot.com"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Address type"
+    },
+    {
+      "name": "Business code"
+    },
+    {
+      "name": "Industry sector"
+    },
+    {
+      "name": "Invoicing entity attribute"
+    },
+    {
+      "name": "Invoicing entity"
+    },
+    {
+      "name": "Job title"
+    },
+    {
+      "name": "Payment method"
+    },
+    {
+      "name": "Portal attribute"
+    },
+    {
+      "name": "Portal"
+    },
+    {
+      "name": "Portfolio address attribute"
+    },
+    {
+      "name": "Portfolio address"
+    },
+    {
+      "name": "Portfolio attribute"
+    },
+    {
+      "name": "Portfolio"
+    },
+    {
+      "name": "Tax code"
+    },
+    {
+      "name": "User attribute"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "User permission"
+    },
+    {
+      "name": "User type"
+    }
+  ],
+  "paths": {
+    "/api/v2/addressType": {
+      "get": {
+        "summary": "Viewing all address types",
+        "operationId": "get-api-v2-addresstype",
+        "tags": [
+          "Address type"
+        ],
+        "description": "To view all address types:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "addressTypeId": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 3,
+                  "items": [
+                    {
+                      "addressTypeId": "1",
+                      "name": "Where to deliver orders",
+                      "title": "shipping",
+                      "status": "active"
+                    },
+                    {
+                      "addressTypeId": "4",
+                      "name": "Where to deploy goods or services",
+                      "title": "deployment",
+                      "status": "active"
+                    },
+                    {
+                      "addressTypeId": "7",
+                      "name": "Where to send invoices",
+                      "title": "billing",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new address type",
+        "operationId": "post-api-v2-addresstype",
+        "tags": [
+          "Address type"
+        ],
+        "description": "To create a new address type:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/addressType/{addressTypeId}": {
+      "get": {
+        "summary": "Viewing a specific address type",
+        "operationId": "get-api-v2-addresstype-addresstypeid",
+        "tags": [
+          "Address type"
+        ],
+        "description": "To view details for a specific address type:",
+        "parameters": [
+          {
+            "name": "addressTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "addressTypeId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "addressTypeId": "7",
+                  "name": "Where to send invoices",
+                  "title": "billing",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific address type",
+        "operationId": "patch-api-v2-addresstype-addresstypeid",
+        "tags": [
+          "Address type"
+        ],
+        "description": "To update a specific address type:",
+        "parameters": [
+          {
+            "name": "addressTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "addressTypeId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "addressTypeId": "1",
+                  "name": "Where to deliver orders",
+                  "title": "shipping",
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/businessCode": {
+      "get": {
+        "summary": "Viewing all business codes",
+        "operationId": "get-api-v2-businesscode",
+        "tags": [
+          "Business code"
+        ],
+        "description": "To view all business codes:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "businessCodeId": {
+                            "type": "string"
+                          },
+                          "businessCode": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 3,
+                  "items": [
+                    {
+                      "businessCodeId": "1",
+                      "businessCode": "DOMESTIC",
+                      "name": "Customer is local to the legal billing entity. E.g. if the legal billing entity is in the UK, the customer is also in the UK.",
+                      "title": "DOMESTIC",
+                      "status": "setup"
+                    },
+                    {
+                      "businessCodeId": "2",
+                      "businessCode": "EU",
+                      "name": "Customer is based in the European Union.",
+                      "title": "EU",
+                      "status": "active"
+                    },
+                    {
+                      "businessCodeId": "3",
+                      "businessCode": "EXPORT",
+                      "name": "Customer is based in the rest of the world. E.g. if the legal billing entity is in the UK, the customer is non-UK and non-EU.",
+                      "title": "EXPORT",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new business code",
+        "operationId": "post-api-v2-businesscode",
+        "tags": [
+          "Business code"
+        ],
+        "description": "To create a new business code:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "businessCode": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "businessCode",
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/businessCode/{businessCodeId}": {
+      "get": {
+        "summary": "Viewing a specific business code",
+        "operationId": "get-api-v2-businesscode-businesscodeid",
+        "tags": [
+          "Business code"
+        ],
+        "description": "To view details for a specific business code:",
+        "parameters": [
+          {
+            "name": "businessCodeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "businessCodeId": {
+                      "type": "string"
+                    },
+                    "businessCode": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "businessCodeId": "2",
+                  "businessCode": "EU",
+                  "name": "Customer is based in the European Union.",
+                  "title": "EU",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific business code",
+        "operationId": "patch-api-v2-businesscode-businesscodeid",
+        "tags": [
+          "Business code"
+        ],
+        "description": "To update a specific business code:",
+        "parameters": [
+          {
+            "name": "businessCodeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "businessCodeId": {
+                      "type": "string"
+                    },
+                    "businessCode": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "businessCodeId": "1",
+                  "businessCode": "DOMESTIC",
+                  "name": "Customer is local to the legal billing entity. E.g. if the legal billing entity is in the UK, the customer is also in the UK.",
+                  "title": "DOMESTIC",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/industrySector": {
+      "get": {
+        "summary": "Viewing all industry sectors",
+        "operationId": "get-api-v2-industrysector",
+        "tags": [
+          "Industry sector"
+        ],
+        "description": "To view all industry sectors:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "industrySectorId": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 2,
+                  "items": [
+                    {
+                      "industrySectorId": 4,
+                      "name": "Agriculture, forestry and fishing",
+                      "title": "AGROFISH",
+                      "status": "active"
+                    },
+                    {
+                      "industrySectorId": 1,
+                      "name": "Aerospace industries",
+                      "title": "AEROSPACE",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new industry sector",
+        "operationId": "post-api-v2-industrysector",
+        "tags": [
+          "Industry sector"
+        ],
+        "description": "To create a new industry sector:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/industrySector/{industrySectorId}": {
+      "get": {
+        "summary": "Viewing a specific industry sector",
+        "operationId": "get-api-v2-industrysector-industrysectorid",
+        "tags": [
+          "Industry sector"
+        ],
+        "description": "To view details for a specific industry sector:",
+        "parameters": [
+          {
+            "name": "industrySectorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "industrySectorId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "industrySectorId": "2",
+                  "name": "Aerospace industries",
+                  "title": "AEROSPACE",
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific industry sector",
+        "operationId": "patch-api-v2-industrysector-industrysectorid",
+        "tags": [
+          "Industry sector"
+        ],
+        "description": "To update a specific industry sector:",
+        "parameters": [
+          {
+            "name": "industrySectorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "null": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "industrySectorId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "industrySectorId": "2",
+                  "name": "Aerospace industries",
+                  "title": "AEROSPACE",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/invoicingEntity/{invoicingEntityId}/attribute": {
+      "get": {
+        "summary": "Viewing all invoicing entity attributes for an invoicing entity",
+        "operationId": "get-api-v2-invoicingentity-invoicingentityid-attribute",
+        "tags": [
+          "Invoicing entity attribute"
+        ],
+        "description": "To view all attributes for a specific invoicing entity:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new invoicing entity attribute",
+        "operationId": "post-api-v2-invoicingentity-invoicingentityid-attribute",
+        "tags": [
+          "Invoicing entity attribute"
+        ],
+        "description": "To create a new invoicing entity attribute:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/invoicingEntity/{invoicingEntityId}/attribute/{invoicingEntityAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific invoicing entity attribute",
+        "operationId": "get-api-v2-invoicingentity-invoicingentityid-attribute-invoicingentityattributeid",
+        "tags": [
+          "Invoicing entity attribute"
+        ],
+        "description": "To view details for a specific invoicing entity attribute:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invoicingEntityAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific invoicing entity attribute",
+        "operationId": "patch-api-v2-invoicingentity-invoicingentityid-attribute-invoicingentityattributeid",
+        "tags": [
+          "Invoicing entity attribute"
+        ],
+        "description": "To update a specific invoicing entity attribute:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invoicingEntityAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific invoicing entity attribute",
+        "operationId": "delete-api-v2-invoicingentity-invoicingentityid-attribute-invoicingentityattributeid",
+        "tags": [
+          "Invoicing entity attribute"
+        ],
+        "description": "To delete a specific invoicing entity attribute:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invoicingEntityAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "INVOICING_ENTITY_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "INVOICING_ENTITY_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/invoicingEntity": {
+      "get": {
+        "summary": "Viewing all invoicing entities",
+        "operationId": "get-api-v2-invoicingentity",
+        "tags": [
+          "Invoicing entity"
+        ],
+        "description": "To view all invoicing entities:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "invoicingEntityId": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "countryCode": {
+                            "type": "string"
+                          },
+                          "invoiceNumber": {
+                            "type": "integer"
+                          },
+                          "grossBilling": {
+                            "type": "string"
+                          },
+                          "portfolioId": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "attribute": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "invoicingEntityAttributeId": {
+                                  "type": "integer"
+                                },
+                                "invoicingEntityId": {
+                                  "type": "integer"
+                                },
+                                "attribute": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 2,
+                  "items": [
+                    {
+                      "invoicingEntityId": 80,
+                      "name": "Eseye UK",
+                      "title": "Eseye UK",
+                      "countryCode": "GB",
+                      "invoiceNumber": 1234567,
+                      "grossBilling": "no",
+                      "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                      "status": "setup",
+                      "attribute": [
+                        {
+                          "invoicingEntityAttributeId": 5,
+                          "invoicingEntityId": 80,
+                          "attribute": "dynamicsCompanyId",
+                          "value": "KPfrJIkvhU4bNrJxmWrfs2Y882lyKkH1TGv1GpNS8R5hQ3irXvA4csGDg6l0hERF",
+                          "status": "active"
+                        },
+                        {
+                          "invoicingEntityAttributeId": 23,
+                          "invoicingEntityId": 80,
+                          "attribute": "dynamicsCompanyName",
+                          "value": "Eseye UK",
+                          "status": "active"
+                        },
+                        {
+                          "invoicingEntityAttributeId": 46,
+                          "invoicingEntityId": 80,
+                          "attribute": "homeCurrencyCode",
+                          "value": "GBP",
+                          "status": "active"
+                        }
+                      ]
+                    },
+                    {
+                      "invoicingEntityId": 15,
+                      "name": "Eseye US",
+                      "title": "Eseye US",
+                      "countryCode": "US",
+                      "invoiceNumber": 2054498,
+                      "grossBilling": "no",
+                      "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                      "status": "active",
+                      "attribute": [
+                        {
+                          "invoicingEntityAttributeId": 4,
+                          "invoicingEntityId": 15,
+                          "attribute": "dynamicsCompanyId",
+                          "value": "aee6f31e-b1ba-ad11-c813-888d3a0bc420",
+                          "status": "active"
+                        },
+                        {
+                          "invoicingEntityAttributeId": 16,
+                          "invoicingEntityId": 15,
+                          "attribute": "dynamicsCompanyName",
+                          "value": "Eseye LIVE",
+                          "status": "active"
+                        },
+                        {
+                          "invoicingEntityAttributeId": 43,
+                          "invoicingEntityId": 15,
+                          "attribute": "homeCurrencyCode",
+                          "value": "USD",
+                          "status": "active"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new invoicing entity",
+        "operationId": "post-api-v2-invoicingentity",
+        "tags": [
+          "Invoicing entity"
+        ],
+        "description": "To create a new invoicing entity:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "grossBilling": {
+                    "type": "string"
+                  },
+                  "portfolioId": {
+                    "type": "string"
+                  },
+                  "countryCodeId": {
+                    "type": "string"
+                  },
+                  "invoiceNumber": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title",
+                  "grossBilling",
+                  "portfolioId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/{invoicingEntityId}": {
+      "get": {
+        "summary": "Viewing a specific invoicing entity",
+        "operationId": "get-api-v2-invoicingentityid",
+        "tags": [
+          "Invoicing entity"
+        ],
+        "description": "To view details for a specific invoicing entity:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "invoicingEntityId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string"
+                    },
+                    "invoiceNumber": {
+                      "type": "integer"
+                    },
+                    "grossBilling": {
+                      "type": "string"
+                    },
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attribute": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "invoicingEntityAttributeId": {
+                            "type": "integer"
+                          },
+                          "invoicingEntityId": {
+                            "type": "integer"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "businessCode": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "businessCodeId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currencyId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "paymentMethod": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "paymentMethodId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "taxCode": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "taxCodeId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "invoicingEntityId": 80,
+                  "name": "Eseye UK",
+                  "title": "Eseye UK",
+                  "countryCode": "GB",
+                  "invoiceNumber": 1234567,
+                  "grossBilling": "no",
+                  "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                  "status": "setup",
+                  "attribute": [
+                    {
+                      "invoicingEntityAttributeId": 5,
+                      "invoicingEntityId": 80,
+                      "attribute": "dynamicsCompanyId",
+                      "value": "KPfrJIkvhU4bNrJxmWrfs2Y882lyKkH1TGv1GpNS8R5hQ3irXvA4csGDg6l0hERF",
+                      "status": "active"
+                    },
+                    {
+                      "invoicingEntityAttributeId": 23,
+                      "invoicingEntityId": 80,
+                      "attribute": "dynamicsCompanyName",
+                      "value": "Eseye UK",
+                      "status": "active"
+                    },
+                    {
+                      "invoicingEntityAttributeId": 46,
+                      "invoicingEntityId": 80,
+                      "attribute": "homeCurrencyCode",
+                      "value": "GBP",
+                      "status": "active"
+                    }
+                  ],
+                  "businessCode": [
+                    {
+                      "businessCodeId": 3
+                    }
+                  ],
+                  "currency": [
+                    {
+                      "currencyId": 1
+                    },
+                    {
+                      "currencyId": 13
+                    }
+                  ],
+                  "paymentMethod": [
+                    {
+                      "paymentMethodId": 1
+                    }
+                  ],
+                  "taxCode": [
+                    {
+                      "taxCodeId": 1
+                    },
+                    {
+                      "taxCodeId": 3
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/invoicingEntity/{invoicingEntityId}": {
+      "patch": {
+        "summary": "Updating a specific invoicing entity",
+        "operationId": "patch-api-v2-invoicingentity-invoicingentityid",
+        "tags": [
+          "Invoicing entity"
+        ],
+        "description": "To update a specific invoicing entity:",
+        "parameters": [
+          {
+            "name": "invoicingEntityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "grossBilling": {
+                    "type": "string"
+                  },
+                  "portfolioId": {
+                    "type": "string"
+                  },
+                  "countryCodeId": {
+                    "type": "string"
+                  },
+                  "invoiceNumber": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "invoicingEntityId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string"
+                    },
+                    "invoiceNumber": {
+                      "type": "integer"
+                    },
+                    "grossBilling": {
+                      "type": "string"
+                    },
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attribute": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "invoicingEntityAttributeId": {
+                            "type": "integer"
+                          },
+                          "invoicingEntityId": {
+                            "type": "integer"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "businessCode": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "businessCodeId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currencyId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "paymentMethod": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "paymentMethodId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "taxCode": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "taxCodeId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "invoicingEntityId": 80,
+                  "name": "Eseye UK",
+                  "title": "Eseye UK",
+                  "countryCode": "GB",
+                  "invoiceNumber": 1234567,
+                  "grossBilling": "no",
+                  "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                  "status": "active",
+                  "attribute": [
+                    {
+                      "invoicingEntityAttributeId": 5,
+                      "invoicingEntityId": 80,
+                      "attribute": "dynamicsCompanyId",
+                      "value": "KPfrJIkvhU4bNrJxmWrfs2Y882lyKkH1TGv1GpNS8R5hQ3irXvA4csGDg6l0hERF",
+                      "status": "active"
+                    },
+                    {
+                      "invoicingEntityAttributeId": 23,
+                      "invoicingEntityId": 80,
+                      "attribute": "dynamicsCompanyName",
+                      "value": "Eseye UK",
+                      "status": "active"
+                    },
+                    {
+                      "invoicingEntityAttributeId": 46,
+                      "invoicingEntityId": 80,
+                      "attribute": "homeCurrencyCode",
+                      "value": "GBP",
+                      "status": "active"
+                    }
+                  ],
+                  "businessCode": [
+                    {
+                      "businessCodeId": 3
+                    }
+                  ],
+                  "currency": [
+                    {
+                      "currencyId": 1
+                    },
+                    {
+                      "currencyId": 13
+                    }
+                  ],
+                  "paymentMethod": [
+                    {
+                      "paymentMethodId": 1
+                    }
+                  ],
+                  "taxCode": [
+                    {
+                      "taxCodeId": 1
+                    },
+                    {
+                      "taxCodeId": 3
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/jobTitle": {
+      "get": {
+        "summary": "Viewing all job titles",
+        "operationId": "get-api-v2-jobtitle",
+        "tags": [
+          "Job title"
+        ],
+        "description": "To view all job titles:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "jobTitleId": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 3,
+                  "items": [
+                    {
+                      "jobTitleId": 1,
+                      "name": "Finance",
+                      "title": "CASHB",
+                      "status": "active"
+                    },
+                    {
+                      "jobTitleId": 7,
+                      "name": "Operations",
+                      "title": "OPSBO",
+                      "status": "active"
+                    },
+                    {
+                      "jobTitleId": 10,
+                      "name": "Logistics",
+                      "title": "OPSLO",
+                      "status": "setup"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new job title",
+        "operationId": "post-api-v2-jobtitle",
+        "tags": [
+          "Job title"
+        ],
+        "description": "To create a new job title:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jobTitle": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "jobTitle",
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/jobTitle/{jobTitleId}": {
+      "get": {
+        "summary": "Viewing a specific job title",
+        "operationId": "get-api-v2-jobtitle-jobtitleid",
+        "tags": [
+          "Job title"
+        ],
+        "description": "To view details for a specific job title:",
+        "parameters": [
+          {
+            "name": "jobTitleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobTitleId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "jobTitleId": "10",
+                  "name": "Logistics",
+                  "title": "OPSLO",
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific job title",
+        "operationId": "patch-api-v2-jobtitle-jobtitleid",
+        "tags": [
+          "Job title"
+        ],
+        "description": "To update a specific job title:",
+        "parameters": [
+          {
+            "name": "jobTitleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobTitleId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "jobTitleId": "10",
+                  "name": "Logistics",
+                  "title": "OPSLO",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/paymentMethod": {
+      "get": {
+        "summary": "Viewing all payment methods",
+        "operationId": "get-api-v2-paymentmethod",
+        "tags": [
+          "Payment method"
+        ],
+        "description": "To view all payment methods:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "paymentMethodId": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 3,
+                  "items": [
+                    {
+                      "paymentMethodId": 1,
+                      "name": "Direct Debit",
+                      "title": "PayByDirectDebit",
+                      "description": "Pay by Direct Debit",
+                      "status": "active"
+                    },
+                    {
+                      "paymentMethodId": 2,
+                      "name": "AWS",
+                      "title": "PayByAWS",
+                      "description": "Pay by AWS Marketplace",
+                      "status": "active"
+                    },
+                    {
+                      "paymentMethodId": 4,
+                      "name": "Credit Card",
+                      "title": "RepeatBillingAuthorized",
+                      "description": "Pay by Credit Card",
+                      "status": "setup"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new payment method",
+        "operationId": "post-api-v2-paymentmethod",
+        "tags": [
+          "Payment method"
+        ],
+        "description": "To create a new payment method:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "paymentMethod": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "paymentMethod",
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/paymentMethod/{paymentMethodId}": {
+      "get": {
+        "summary": "Viewing a specific payment method",
+        "operationId": "get-api-v2-paymentmethod-paymentmethodid",
+        "tags": [
+          "Payment method"
+        ],
+        "description": "To view details for a specific payment method:",
+        "parameters": [
+          {
+            "name": "paymentMethodId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "paymentMethodId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "paymentMethodId": "4",
+                  "name": "Credit Card",
+                  "title": "RepeatBillingAuthorized",
+                  "description": "Pay by Credit Card",
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific payment method",
+        "operationId": "patch-api-v2-paymentmethod-paymentmethodid",
+        "tags": [
+          "Payment method"
+        ],
+        "description": "To update a specific payment method:",
+        "parameters": [
+          {
+            "name": "paymentMethodId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "paymentMethodId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "paymentMethodId": "4",
+                  "name": "Credit Card",
+                  "title": "RepeatBillingAuthorized",
+                  "description": "Pay by Credit Card",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portal/{portalId}/attribute": {
+      "get": {
+        "summary": "Viewing all portal attributes",
+        "operationId": "get-api-v2-portal-portalid-attribute",
+        "tags": [
+          "Portal attribute"
+        ],
+        "description": "To view all attributes for a specific portal:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new portal attribute",
+        "operationId": "post-api-v2-portal-portalid-attribute",
+        "tags": [
+          "Portal attribute"
+        ],
+        "description": "To create a new portal attribute:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portal/{portalId}/attribute/{portalAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific portal attribute",
+        "operationId": "get-api-v2-portal-portalid-attribute-portalattributeid",
+        "tags": [
+          "Portal attribute"
+        ],
+        "description": "To view details for a specific portal attribute:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portalAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific portal attribute",
+        "operationId": "patch-api-v2-portal-portalid-attribute-portalattributeid",
+        "tags": [
+          "Portal attribute"
+        ],
+        "description": "To update a specific portal attribute:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portalAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific portal attribute",
+        "operationId": "delete-api-v2-portal-portalid-attribute-portalattributeid",
+        "tags": [
+          "Portal attribute"
+        ],
+        "description": "To delete a specific portal attribute:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portalAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PORTAL_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PORTAL_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portal": {
+      "get": {
+        "summary": "Viewing all portals",
+        "operationId": "get-api-v2-portal",
+        "tags": [
+          "Portal"
+        ],
+        "description": "To view all portals:",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new portal",
+        "operationId": "post-api-v2-portal",
+        "tags": [
+          "Portal"
+        ],
+        "description": "To create a new portal:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "portfolioId": {
+                    "type": "string"
+                  },
+                  "defaultHost": {
+                    "type": "string"
+                  },
+                  "subdomain": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title",
+                  "portfolioId",
+                  "defaultHost"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/{portalId}": {
+      "get": {
+        "summary": "Viewing a specific portal",
+        "operationId": "get-api-v2-portalid",
+        "tags": [
+          "Portal"
+        ],
+        "description": "To view details for a specific portal:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portal/{portalId}": {
+      "patch": {
+        "summary": "Updating a specific portal",
+        "operationId": "patch-api-v2-portal-portalid",
+        "tags": [
+          "Portal"
+        ],
+        "description": "To update a specific portal:",
+        "parameters": [
+          {
+            "name": "portalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "portfolioId": {
+                    "type": "string"
+                  },
+                  "defaultHost": {
+                    "type": "string"
+                  },
+                  "subdomain": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/portfolioAddress/{portfolioAddressId}/attribute": {
+      "get": {
+        "summary": "Viewing all portfolio address attributes for a portfolio address",
+        "operationId": "get-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid-attribute",
+        "tags": [
+          "Portfolio address attribute"
+        ],
+        "description": "To view all attributes for a specific portfolio address:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new portfolio address attribute",
+        "operationId": "post-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid-attribute",
+        "tags": [
+          "Portfolio address attribute"
+        ],
+        "description": "To create a new portfolio address attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/portfolioAddress/{portfolioAddressId}/attribute/{portfolioAddressAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific portfolio address attribute",
+        "operationId": "get-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid-attribute-portfolioaddressattributeid",
+        "tags": [
+          "Portfolio address attribute"
+        ],
+        "description": "To view details for a specific portfolio address attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific portfolio address attribute",
+        "operationId": "patch-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid-attribute-portfolioaddressattributeid",
+        "tags": [
+          "Portfolio address attribute"
+        ],
+        "description": "To update a specific portfolio address attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific portfolio address attribute",
+        "operationId": "delete-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid-attribute-portfolioaddressattributeid",
+        "tags": [
+          "Portfolio address attribute"
+        ],
+        "description": "To delete a specific portfolio address attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PORTFOLIO_ADDRESS_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PORTFOLIO_ADDRESS_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/portfolioAddress": {
+      "get": {
+        "summary": "Viewing all portfolio addresses",
+        "operationId": "get-api-v2-portfolio-portfolioid-portfolioaddress",
+        "tags": [
+          "Portfolio address"
+        ],
+        "description": "To view all portfolio addresses:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "portfolioAddressId": {
+                        "type": "string"
+                      },
+                      "portfolioId": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "companyName": {
+                        "type": "string"
+                      },
+                      "friendlyName": {},
+                      "addressType": {
+                        "type": "string"
+                      },
+                      "addressLine1": {
+                        "type": "string"
+                      },
+                      "addressLine2": {},
+                      "townOrCity": {
+                        "type": "string"
+                      },
+                      "countyOrState": {
+                        "type": "string"
+                      },
+                      "countryCode": {
+                        "type": "string"
+                      },
+                      "postCode": {
+                        "type": "string"
+                      },
+                      "mobileNumber": {
+                        "type": "integer"
+                      },
+                      "landLineNumber": {},
+                      "emailAddress": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "attributes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "portfolioAddressAttributeId": {
+                              "type": "integer"
+                            },
+                            "portfolioAddressId": {
+                              "type": "string"
+                            },
+                            "attribute": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "portfolioAddressId": "f20bc36623274be6a73fa62a5b9b354c",
+                    "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                    "firstName": "Rachel",
+                    "lastName": "Smith",
+                    "companyName": "Simple IoT Solutions",
+                    "friendlyName": null,
+                    "addressType": "billing",
+                    "addressLine1": "123 Test Street",
+                    "addressLine2": null,
+                    "townOrCity": "Exampleton",
+                    "countyOrState": "Test Valley",
+                    "countryCode": "GB",
+                    "postCode": "XX12 6ZZ",
+                    "mobileNumber": 7912345678,
+                    "landLineNumber": null,
+                    "emailAddress": "accounts@simpleIoTsolutions.com",
+                    "status": "active",
+                    "attributes": [
+                      {
+                        "portfolioAddressAttributeId": 38625,
+                        "portfolioAddressId": "f20bc36623274be6a73fa62a5b9b354c",
+                        "attribute": "defaultAddress",
+                        "value": "yes",
+                        "status": "active"
+                      },
+                      {
+                        "portfolioAddressAttributeId": 38626,
+                        "portfolioAddressId": "f20bc36623274be6a73fa62a5b9b354c",
+                        "attribute": "taxReference",
+                        "value": "12345 67890",
+                        "status": "active"
+                      }
+                    ]
+                  },
+                  {
+                    "portfolioAddressId": "ebdc7678a1404f2c856a6a0b7ecbb186",
+                    "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                    "firstName": "Harrison",
+                    "lastName": "Lopez",
+                    "companyName": "Simple IoT Solutions",
+                    "friendlyName": "Logistics",
+                    "addressType": "shipping",
+                    "addressLine1": "456 Dockyards",
+                    "addressLine2": null,
+                    "townOrCity": "Exampleton",
+                    "countyOrState": "Test Valley",
+                    "countryCode": "GB",
+                    "postCode": "XX15 3ZZ",
+                    "mobileNumber": 7987654321,
+                    "landLineNumber": null,
+                    "emailAddress": "logistics@simpleIoTsolutions.com",
+                    "status": "setup"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new portfolio address",
+        "operationId": "post-api-v2-portfolio-portfolioid-portfolioaddress",
+        "tags": [
+          "Portfolio address"
+        ],
+        "description": "To create a new portfolio address:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "companyName": {
+                    "type": "string"
+                  },
+                  "friendlyName": {
+                    "type": "string"
+                  },
+                  "addressType": {
+                    "type": "string"
+                  },
+                  "addressLine1": {
+                    "type": "string"
+                  },
+                  "addressLine2": {
+                    "type": "string"
+                  },
+                  "townOrCity": {
+                    "type": "string"
+                  },
+                  "countyOrState": {
+                    "type": "string"
+                  },
+                  "countryCodeId": {
+                    "type": "string"
+                  },
+                  "postCode": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "landLineNumber": {
+                    "type": "string"
+                  },
+                  "emailAddress": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "companyName",
+                  "addressType",
+                  "addressLine1",
+                  "townOrCity",
+                  "countyOrState",
+                  "countryCodeId",
+                  "postCode",
+                  "mobileNumber",
+                  "emailAddress"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/portfolioAddress/{portfolioAddressId}": {
+      "get": {
+        "summary": "Viewing a specific portfolio address",
+        "operationId": "get-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid",
+        "tags": [
+          "Portfolio address"
+        ],
+        "description": "To view details for a specific portfolio address:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "portfolioAddressId": {
+                      "type": "string"
+                    },
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "companyName": {
+                      "type": "string"
+                    },
+                    "friendlyName": {},
+                    "addressType": {
+                      "type": "string"
+                    },
+                    "addressLine1": {
+                      "type": "string"
+                    },
+                    "addressLine2": {},
+                    "townOrCity": {
+                      "type": "string"
+                    },
+                    "countyOrState": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string"
+                    },
+                    "postCode": {
+                      "type": "string"
+                    },
+                    "mobileNumber": {
+                      "type": "integer"
+                    },
+                    "landLineNumber": {},
+                    "emailAddress": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "portfolioAddressAttributeId": {
+                            "type": "integer"
+                          },
+                          "portfolioAddressId": {
+                            "type": "string"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "portfolioAddressId": "f20bc36623274be6a73fa62a5b9b354c",
+                  "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                  "firstName": "Rachel",
+                  "lastName": "Smith",
+                  "companyName": "Simple IoT Solutions",
+                  "friendlyName": null,
+                  "addressType": "billing",
+                  "addressLine1": "123 Test Street",
+                  "addressLine2": null,
+                  "townOrCity": "Exampleton",
+                  "countyOrState": "Test Valley",
+                  "countryCode": "GB",
+                  "postCode": "XX12 6ZZ",
+                  "mobileNumber": 7912345678,
+                  "landLineNumber": null,
+                  "emailAddress": "accounts@simpleIoTsolutions.com",
+                  "status": "active",
+                  "attributes": [
+                    {
+                      "portfolioAddressAttributeId": 38625,
+                      "portfolioAddressId": "f20bc36623274be6a73fa62a5b9b354c",
+                      "attribute": "defaultAddress",
+                      "value": "yes",
+                      "status": "active"
+                    },
+                    {
+                      "portfolioAddressAttributeId": 38626,
+                      "portfolioAddressId": "f20bc36623274be6a73fa62a5b9b354c",
+                      "attribute": "taxReference",
+                      "value": "12345 67890",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific portfolio address",
+        "operationId": "patch-api-v2-portfolio-portfolioid-portfolioaddress-portfolioaddressid",
+        "tags": [
+          "Portfolio address"
+        ],
+        "description": "To update a specific portfolio address:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "companyName": {
+                    "type": "string"
+                  },
+                  "friendlyName": {
+                    "type": "string"
+                  },
+                  "addressType": {
+                    "type": "string"
+                  },
+                  "addressLine1": {
+                    "type": "string"
+                  },
+                  "addressLine2": {
+                    "type": "string"
+                  },
+                  "townOrCity": {
+                    "type": "string"
+                  },
+                  "countyOrState": {
+                    "type": "string"
+                  },
+                  "countryCodeId": {
+                    "type": "string"
+                  },
+                  "postCode": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "landLineNumber": {
+                    "type": "string"
+                  },
+                  "emailAddress": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "portfolioAddressId": {
+                      "type": "string"
+                    },
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "companyName": {
+                      "type": "string"
+                    },
+                    "friendlyName": {
+                      "type": "string"
+                    },
+                    "addressType": {
+                      "type": "string"
+                    },
+                    "addressLine1": {
+                      "type": "string"
+                    },
+                    "addressLine2": {},
+                    "townOrCity": {
+                      "type": "string"
+                    },
+                    "countyOrState": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string"
+                    },
+                    "postCode": {
+                      "type": "string"
+                    },
+                    "mobileNumber": {
+                      "type": "integer"
+                    },
+                    "landLineNumber": {},
+                    "emailAddress": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "portfolioAddressId": "ebdc7678a1404f2c856a6a0b7ecbb186",
+                  "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                  "firstName": "Harrison",
+                  "lastName": "Lopez",
+                  "companyName": "Simple IoT Solutions",
+                  "friendlyName": "Logistics",
+                  "addressType": "shipping",
+                  "addressLine1": "456 Dockyards",
+                  "addressLine2": null,
+                  "townOrCity": "Exampleton",
+                  "countyOrState": "Test Valley",
+                  "countryCode": "GB",
+                  "postCode": "XX15 3ZZ",
+                  "mobileNumber": 7987654321,
+                  "landLineNumber": null,
+                  "emailAddress": "logistics@simpleIoTsolutions.com",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/attribute": {
+      "get": {
+        "summary": "Viewing all portfolio attributes for a portfolio",
+        "operationId": "get-api-v2-portfolio-portfolioid-attribute",
+        "tags": [
+          "Portfolio attribute"
+        ],
+        "description": "To view all attributes for a specific portfolio:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new portfolio attribute",
+        "operationId": "post-api-v2-portfolio-portfolioid-attribute",
+        "tags": [
+          "Portfolio attribute"
+        ],
+        "description": "To create a new portfolio attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/attribute/{portfolioAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific portfolio attribute",
+        "operationId": "get-api-v2-portfolio-portfolioid-attribute-portfolioattributeid",
+        "tags": [
+          "Portfolio attribute"
+        ],
+        "description": "To view details for a specific portfolio attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific portfolio attribute",
+        "operationId": "patch-api-v2-portfolio-portfolioid-attribute-portfolioattributeid",
+        "tags": [
+          "Portfolio attribute"
+        ],
+        "description": "To update a specific portfolio attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific portfolio attribute",
+        "operationId": "delete-api-v2-portfolio-portfolioid-attribute-portfolioattributeid",
+        "tags": [
+          "Portfolio attribute"
+        ],
+        "description": "To delete a specific portfolio attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PORTFOLIO_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PORTFOLIO_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio": {
+      "get": {
+        "summary": "Viewing all portfolios",
+        "operationId": "get-api-v2-portfolio",
+        "tags": [
+          "Portfolio"
+        ],
+        "description": "To view all portfolios:",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new portfolio",
+        "operationId": "post-api-v2-portfolio",
+        "tags": [
+          "Portfolio"
+        ],
+        "description": "To create a new portfolio:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "businessCodeId": {
+                    "type": "string"
+                  },
+                  "taxCodeId": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "paymentMethod": {
+                    "type": "string"
+                  },
+                  "invoicingEntityId": {
+                    "type": "string"
+                  },
+                  "billingDayOfMonth": {
+                    "type": "string"
+                  },
+                  "parentPortfolioId": {
+                    "type": "string"
+                  },
+                  "portalId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title",
+                  "businessCodeId",
+                  "taxCodeId",
+                  "currencyId",
+                  "paymentMethod",
+                  "invoicingEntityId",
+                  "billingDayOfMonth"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}": {
+      "get": {
+        "summary": "Viewing a specific portfolio",
+        "operationId": "get-api-v2-portfolio-portfolioid",
+        "tags": [
+          "Portfolio"
+        ],
+        "description": "To view details for a specific portfolio:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "parentPortfolioId": {
+                      "type": "string"
+                    },
+                    "portalId": {
+                      "type": "string"
+                    },
+                    "systemSuspend": {
+                      "type": "string"
+                    },
+                    "adminSuspend": {
+                      "type": "string"
+                    },
+                    "customerSuspend": {
+                      "type": "string"
+                    },
+                    "businessCodeId": {
+                      "type": "integer"
+                    },
+                    "taxCodeId": {
+                      "type": "integer"
+                    },
+                    "currencyId": {
+                      "type": "integer"
+                    },
+                    "paymentMethodId": {
+                      "type": "integer"
+                    },
+                    "invoicingEntityId": {
+                      "type": "integer"
+                    },
+                    "billingDayOfMonth": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "portfolioAttributeId": {
+                            "type": "integer"
+                          },
+                          "portfolioId": {
+                            "type": "string"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                  "name": "Simple IoT Solutions",
+                  "title": "SimpleIoTSolutions",
+                  "parentPortfolioId": "69dacdf663020de7a7b19cfc1af85b11",
+                  "portalId": "5a67f8c024606d1a5c4b96720517734a",
+                  "systemSuspend": "no",
+                  "adminSuspend": "no",
+                  "customerSuspend": "no",
+                  "businessCodeId": 3,
+                  "taxCodeId": 3,
+                  "currencyId": 472,
+                  "paymentMethodId": 3,
+                  "invoicingEntityId": 6,
+                  "billingDayOfMonth": 1,
+                  "status": "setup",
+                  "attributes": [
+                    {
+                      "portfolioAttributeId": 120934,
+                      "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                      "attribute": "repeatBillingAuthorized",
+                      "value": "yes",
+                      "status": "active"
+                    },
+                    {
+                      "portfolioAttributeId": 120937,
+                      "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                      "attribute": "autoProvision",
+                      "value": "yes",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific portfolio",
+        "operationId": "patch-api-v2-portfolio-portfolioid",
+        "tags": [
+          "Portfolio"
+        ],
+        "description": "To update a specific portfolio:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "parentPortfolioId": {
+                    "type": "string"
+                  },
+                  "portalId": {
+                    "type": "string"
+                  },
+                  "businessCodeId": {
+                    "type": "string"
+                  },
+                  "taxCodeId": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "invoicingEntityId": {
+                    "type": "string"
+                  },
+                  "paymentMethodId": {
+                    "type": "string"
+                  },
+                  "billingDayOfMonth": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "parentPortfolioId": {
+                      "type": "string"
+                    },
+                    "portalId": {
+                      "type": "string"
+                    },
+                    "systemSuspend": {
+                      "type": "string"
+                    },
+                    "adminSuspend": {
+                      "type": "string"
+                    },
+                    "customerSuspend": {
+                      "type": "string"
+                    },
+                    "businessCodeId": {
+                      "type": "integer"
+                    },
+                    "taxCodeId": {
+                      "type": "integer"
+                    },
+                    "currencyId": {
+                      "type": "integer"
+                    },
+                    "paymentMethodId": {
+                      "type": "integer"
+                    },
+                    "invoicingEntityId": {
+                      "type": "integer"
+                    },
+                    "billingDayOfMonth": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "portfolioAttributeId": {
+                            "type": "integer"
+                          },
+                          "portfolioId": {
+                            "type": "string"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                  "name": "Simple IoT Solutions",
+                  "title": "SimpleIoTSolutions",
+                  "parentPortfolioId": "69dacdf663020de7a7b19cfc1af85b11",
+                  "portalId": "5a67f8c024606d1a5c4b96720517734a",
+                  "systemSuspend": "no",
+                  "adminSuspend": "no",
+                  "customerSuspend": "no",
+                  "businessCodeId": 3,
+                  "taxCodeId": 3,
+                  "currencyId": 472,
+                  "paymentMethodId": 3,
+                  "invoicingEntityId": 6,
+                  "billingDayOfMonth": 1,
+                  "status": "active",
+                  "attributes": [
+                    {
+                      "portfolioAttributeId": 120934,
+                      "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                      "attribute": "repeatBillingAuthorized",
+                      "value": "yes",
+                      "status": "active"
+                    },
+                    {
+                      "portfolioAttributeId": 120937,
+                      "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                      "attribute": "autoProvision",
+                      "value": "yes",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/taxCode": {
+      "get": {
+        "summary": "Viewing all tax codes",
+        "operationId": "get-api-v2-taxcode",
+        "tags": [
+          "Tax code"
+        ],
+        "description": "To view all tax codes:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "taxCodeId": {
+                            "type": "integer"
+                          },
+                          "taxCode": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 3,
+                  "items": [
+                    {
+                      "taxCodeId": 1,
+                      "taxCode": "STANDARD",
+                      "name": "The company is local to the legal billing entity (where the company is billed from), standard tax rates apply.",
+                      "title": "STANDARD",
+                      "status": "active"
+                    },
+                    {
+                      "taxCodeId": 2,
+                      "taxCode": "ESZ",
+                      "name": "The company is based within the European Union, EU tax rates apply.",
+                      "title": "ESZ",
+                      "status": "setup"
+                    },
+                    {
+                      "taxCodeId": 3,
+                      "taxCode": "ZERO",
+                      "name": "The company is neither local, nor in the European Union, and is therefore tax exempt.",
+                      "title": "ZERO",
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new tax code",
+        "operationId": "post-api-v2-taxcode",
+        "tags": [
+          "Tax code"
+        ],
+        "description": "To create a new tax code:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taxCode": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "taxCode",
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/taxCode/{taxCodeId}": {
+      "get": {
+        "summary": "Viewing a specific tax code",
+        "operationId": "get-api-v2-taxcode-taxcodeid",
+        "tags": [
+          "Tax code"
+        ],
+        "description": "To view details for a specific tax code:",
+        "parameters": [
+          {
+            "name": "taxCodeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "taxCodeId": {
+                      "type": "string"
+                    },
+                    "taxCode": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "taxCodeId": "2",
+                  "taxCode": "ESZ",
+                  "name": "The company is based within the European Union, EU tax rates apply.",
+                  "title": "ESZ",
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific tax code",
+        "operationId": "patch-api-v2-taxcode-taxcodeid",
+        "tags": [
+          "Tax code"
+        ],
+        "description": "To update a specific tax code:",
+        "parameters": [
+          {
+            "name": "taxCodeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "taxCodeId": {
+                      "type": "string"
+                    },
+                    "taxCode": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "taxCodeId": "2",
+                  "taxCode": "ESZ",
+                  "name": "The company is based within the European Union, EU tax rates apply.",
+                  "title": "ESZ",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/user/{userId}/attribute": {
+      "get": {
+        "summary": "Viewing all user attributes for a user",
+        "operationId": "get-api-v2-portfolio-portfolioid-user-userid-attribute",
+        "tags": [
+          "User attribute"
+        ],
+        "description": "To view all attributes for a specific user:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new user attribute",
+        "operationId": "post-api-v2-portfolio-portfolioid-user-userid-attribute",
+        "tags": [
+          "User attribute"
+        ],
+        "description": "To create a new user attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/user/{userId}/attribute/{userAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific user attribute",
+        "operationId": "get-api-v2-portfolio-portfolioid-user-userid-attribute-userattributeid",
+        "tags": [
+          "User attribute"
+        ],
+        "description": "To view details for a specific user attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific user attribute",
+        "operationId": "patch-api-v2-portfolio-portfolioid-user-userid-attribute-userattributeid",
+        "tags": [
+          "User attribute"
+        ],
+        "description": "To update a specific user attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific user attribute",
+        "operationId": "delete-api-v2-portfolio-portfolioid-user-userid-attribute-userattributeid",
+        "tags": [
+          "User attribute"
+        ],
+        "description": "To delete a specific user attribute:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "USER_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "USER_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/user": {
+      "get": {
+        "summary": "Viewing all users",
+        "operationId": "get-api-v2-portfolio-portfolioid-user",
+        "tags": [
+          "User"
+        ],
+        "description": "To view all users:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new user",
+        "operationId": "post-api-v2-portfolio-portfolioid-user",
+        "tags": [
+          "User"
+        ],
+        "description": "To create a new user:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "emailAddress": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "userTypeId": {
+                    "type": "string"
+                  },
+                  "landLineNumber": {
+                    "type": "string"
+                  },
+                  "jobTitleId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "emailAddress",
+                  "username",
+                  "mobileNumber",
+                  "userTypeId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/user/{userId}": {
+      "get": {
+        "summary": "Viewing a specific user",
+        "operationId": "get-api-v2-portfolio-portfolioid-user-userid",
+        "tags": [
+          "User"
+        ],
+        "description": "To view details for a specific user:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific user",
+        "operationId": "patch-api-v2-portfolio-portfolioid-user-userid",
+        "tags": [
+          "User"
+        ],
+        "description": "To update a specific user:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "portfolioId": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "emailAddress": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "userTypeId": {
+                    "type": "string"
+                  },
+                  "landLineNumber": {
+                    "type": "string"
+                  },
+                  "jobTitleId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/user/{userId}/userPermission": {
+      "get": {
+        "summary": "Viewing all user permissions for a specific user",
+        "operationId": "get-api-v2-portfolio-portfolioid-user-userid-userpermission",
+        "tags": [
+          "User permission"
+        ],
+        "description": "To view all users:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userPermissionId": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "permissionId": {
+                        "type": "integer"
+                      },
+                      "userId": {
+                        "type": "string"
+                      },
+                      "portfolioId": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "userPermissionId": 813238,
+                    "name": "iccGet",
+                    "title": "iccGet",
+                    "permissionId": 1489,
+                    "userId": "8d9cde45a21f3f6cb52a368e7fc70b9c",
+                    "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                    "status": "setup",
+                    "permission": []
+                  },
+                  {
+                    "userPermissionId": 748627,
+                    "name": "jobTitleApprover",
+                    "title": "jobTitleApprover",
+                    "permissionId": 4171,
+                    "userId": "8d9cde45a21f3f6cb52a368e7fc70b9c",
+                    "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                    "status": "setup",
+                    "permission": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new user permission",
+        "operationId": "post-api-v2-portfolio-portfolioid-user-userid-userpermission",
+        "tags": [
+          "User permission"
+        ],
+        "description": "To create a new user permission:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "permissionId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title",
+                  "permissionId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/portfolio/{portfolioId}/user/{userId}/userPermission/{userPermissionId}": {
+      "get": {
+        "summary": "Viewing a specific user permission",
+        "operationId": "get-api-v2-portfolio-portfolioid-user-userid-userpermission-userpermissionid",
+        "tags": [
+          "User permission"
+        ],
+        "description": "To view details for a specific user permission:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userPermissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userPermissionId": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "permissionId": {
+                        "type": "integer"
+                      },
+                      "userId": {
+                        "type": "string"
+                      },
+                      "portfolioId": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "userPermissionId": 748627,
+                    "name": "jobTitleApprover",
+                    "title": "jobTitleApprover",
+                    "permissionId": 4171,
+                    "userId": "8d9cde45a21f3f6cb52a368e7fc70b9c",
+                    "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                    "status": "setup",
+                    "permission": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific user permission",
+        "operationId": "patch-api-v2-portfolio-portfolioid-user-userid-userpermission-userpermissionid",
+        "tags": [
+          "User permission"
+        ],
+        "description": "To update a specific user permission:",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userPermissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "permissionId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userPermissionId": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "permissionId": {
+                        "type": "integer"
+                      },
+                      "userId": {
+                        "type": "string"
+                      },
+                      "portfolioId": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "userPermissionId": 748627,
+                    "name": "jobTitleApprover",
+                    "title": "jobTitleApprover",
+                    "permissionId": 4171,
+                    "userId": "8d9cde45a21f3f6cb52a368e7fc70b9c",
+                    "portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",
+                    "status": "active",
+                    "permission": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/userType": {
+      "get": {
+        "summary": "Viewing all user types",
+        "operationId": "get-api-v2-usertype",
+        "tags": [
+          "User type"
+        ],
+        "description": "To view all users types:",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "userTypeId": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 2,
+                  "items": [
+                    {
+                      "userTypeId": 1,
+                      "name": "user",
+                      "title": "user",
+                      "status": "setup"
+                    },
+                    {
+                      "userTypeId": 4,
+                      "name": "service",
+                      "title": "service",
+                      "status": "setup"
+                    },
+                    {
+                      "userTypeId": 7,
+                      "name": "sftp",
+                      "title": "sftp",
+                      "status": "setup"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new user type",
+        "operationId": "post-api-v2-usertype",
+        "tags": [
+          "User type"
+        ],
+        "description": "To create a new user type:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/userType/{userTypeId}": {
+      "get": {
+        "summary": "Viewing a specific user type",
+        "operationId": "get-api-v2-usertype-usertypeid",
+        "tags": [
+          "User type"
+        ],
+        "description": "To view details for a specific user type:",
+        "parameters": [
+          {
+            "name": "userTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userTypeId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "userTypeId": 4,
+                  "name": "service",
+                  "title": "service",
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific user type",
+        "operationId": "patch-api-v2-usertype-usertypeid",
+        "tags": [
+          "User type"
+        ],
+        "description": "To update a specific user type:",
+        "parameters": [
+          {
+            "name": "userTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userTypeId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "userTypeId": 4,
+                  "name": "service",
+                  "title": "service",
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

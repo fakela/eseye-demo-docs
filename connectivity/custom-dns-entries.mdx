@@ -1,0 +1,52 @@
+---
+title: "About custom DNS entries"
+description: "Some customers require a customised DNS service for their devices, which overrides the domain name values set with the domain registrar."
+---
+
+<p>Some customers require a customised DNS service for their devices, which overrides the domain name values set with the domain registrar.</p>
+
+<p>This is most often required to enable devices to connect to a central network in different ways, such as when some devices use a VPN connection and others connect over the public internet. If both types of connection use the same domain name for the central network, the DNS service resolving the domain name needs to determine which IP address is required for each device.</p>
+
+<Note>While you can use custom DNS within a secure subnet to prevent unauthorised DNS lookups, customers must configure their devices correctly to prevent them from looking up DNS entries outside of the Allowlist during their normal operation. As many devices retry DNS lookups if they fail, this will cause high data usage and create a high load on Eseye's DNS server.</Note>
+
+<p>The examples below show scenarios in which this customised DNS service is required.</p>
+
+<h3>Example 1 – cellular fallback connection:</h3>
+
+<p>A device can connect to a central network in two ways:</p>
+
+<ul> <li> Using a Digital Subscriber Line (DSL) to connect over the internet </li> <li> As a fallback, using a cellular connection to connect via a VPN </li> </ul>
+
+<p>Both types of connection use the same domain name. Public DNS services resolve this to the IP address that the customer configured for the domain (the public IP address).</p>
+
+<p>To enable the devices connecting via cellular to use the private IP address for the VPN, the devices must use a DNS service that can supply the private IP address, rather than resolving the domain name with the authoritative name server for the domain.</p>
+
+<h3>Example 2 – VPN and non-VPN connections:</h3>
+
+<p>All the devices in an IoT deployment connect to the central network using a cellular connection. Some devices in the deployment use a VPN from the APN while others are NAT'd straight onto the internet.</p>
+
+<p>The customer requires all devices to use the same software, so it is not possible for the devices to use different domain names for the different connection types. The devices must therefore use a DNS service that can supply the private IP address to devices that use the VPN. For other devices, it can resolve the domain name with the authoritative name server for the domain.</p>
+
+<h3>Example 3 – test devices vs real devices:</h3>
+
+<p>Customers need to test if their DNS server settings work before rolling out the configuration to real devices. A DNS service can direct test device DNS lookups to a test server, while real devices are directed to the existing internet address. </p>
+
+<h2 id="AnyNetCustomDNSentries">AnyNet Custom DNS entries</h2>
+
+<p>The AnyNet DNS service can include custom DNS entries for deployments that require customer-specific resolutions for domain names.</p>
+
+<p>Using the AnyNet solution, devices are grouped into a secure subnet. This enables customers to configure security options for the devices, such as VPNs and ACL rules. In addition, custom DNS entries can be configured for a subnet. These custom entries enable mappings between Fully Qualified Domain Names (FQDNs) and the IP addresses that they should resolve to.</p>
+
+<p>The AnyNet DNS service operates as follows:</p>
+
+<ul> <li> If a name resolution request is from a device in a subnet: <ul> <li> If there is a custom DNS entry for the requested domain name, it returns the IP address configured for that domain name to the device </li> <li> If there isn’t a custom DNS entry for the requested domain name, it resolves the name using the Authoritative Name Server for the domain </li> </ul> </li> <li> If the device is not in a subnet, it resolves the name using the Authoritative Name Server for the domain </li> </ul>
+
+<h3>Alternatives to custom DNS entries</h3>
+
+<p>Configuring custom DNS entries can be avoided if different domain names can be used for different types of connections and the devices can be programmed to know which domain name they should use when they connect.</p>
+
+<p>Some devices use hardcoded IP addresses to connect to a central network. This is not recommended as it prevents any changes to the server IP address being made in the future.</p>
+
+<Tip>Contact your Account Manager if you have specific DNS requirements.</Tip>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/device-configuration">Device configuration best practices</a> </li> <li><a href="/connectivity/understanding-pops">About Eseye PoPs</a> </li> <li><a href="/connectivity/ip-addresses">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> <li><a href="/connectivity/access-point-name">About Access Point Names (APNs)</a> </li> <li><a href="/connectivity/anynet-dns-service">Understanding the AnyNet Domain Name Service (DNS)</a> </li> </ul> <h2 id="Resources">Resources</h2> <p><a href="https://docs.eseye.com/Content/Resources/Files/8663-AnyNet-Security-Options-Order-Form.xlsx">AnyNet Subnet and Security Options Order Form template (XLS, download)</a> </p> </div>

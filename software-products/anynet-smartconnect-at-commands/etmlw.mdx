@@ -1,0 +1,62 @@
+---
+title: "ETMLW – handles the LwM2M protocol"
+description: "Manages the LwM2M protocol, which enables you to add, delete and update LwM2M resource values. Before you can use ETMLW, ensure that you have enabled the LwM2M protocol using AT+ETMSTATE='startlwm2m'. For more inform..."
+---
+
+<p>Manages the LwM2M protocol, which enables you to add, delete and update LwM2M resource values. Before you can use ETMLW, ensure that you have enabled the LwM2M protocol using <span>AT+ETMSTATE="startlwm2m"</span>. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/etmstate">ETMSTATE – check current state</a>.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+ETMLW=?</span>  </td> <td> <span>+ETMLW: "add",&lt;<var>id</var>&gt;,&lt;<var>uri</var>&gt;,&lt;<var>datatype</var>&gt;,&lt;<var>value</var>&gt;</span>  <br /><span>+ETMLW: "remove",&lt;<var>id</var>|<var>uri</var>&gt;</span>  <br /><span>+ETMLW: "update",&lt;<var>id</var>|<var>uri</var>&gt;,&lt;<var>send</var>&gt;&lt;,&lt;<var>value</var>&gt;&gt;</span>  <br />  <br />OK </td> </tr> <tr> <td>Read</td> <td> <span>AT+ETMLW?</span> – returns the current list of user resources, which were added using <span>AT+ETMLW="add"...</span>, as well as resources specified in the lwm2m&#95;resources.ini file. <br />  <br />  </td> <td> +ETMLW: &lt;<var>id</var>&gt;,&lt;<var>uri</var>&gt;,&lt;<var>datatype</var>&gt;,&lt;<var>status</var>&gt; <br />+ETMLW: &lt;<var>id</var>&gt;,&lt;<var>uri</var>&gt;,&lt;<var>datatype</var>&gt;,&lt;<var>status</var>&gt; <br />... <br />  <br />  <br />OK  <br />where: <ul> <li><span>id</span> – the unique identifier for the LwM2M resource</li> <li><span>uri</span> – the unique URI for the LwM2M resource</li> <li><span>datatype</span> – the data format (either <span>"Integer"</span>, <span>"String"</span>, or <span>"Boolean"</span>).</li> <li><span>&lt;status&gt;</span> – indicates the resource status, either:<ul><li><span>"adding"</span> – waiting to register the resource on the server</li><li><span>"removing"</span> – waiting to de-register (delete) the resource from the server</li><li><span>"ready"</span> – resource registered on the server</li></ul></li> </ul> <br />or <br /><span>ERROR</span>  </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMLW=&lt;<var>parameters</var>&gt;</span>  <br />where <span>&lt;<var>parameters</var>&gt;</span> is either: <ul> <li><span>"add",&lt;<var>id</var>&gt;,&lt;<var>uri</var>&gt;,&lt;<var>datatype</var>&gt;,&lt;<var>value</var>&gt;</span> – adds a new LwM2M resource.</li> <li><span>"remove",&lt;<var>id</var>|"<var>uri</var>"&gt;</span> – deletes the current LwM2M resource.</li> <li><span>"update",&lt;<var>id</var>|"<var>uri</var>"&gt;,&lt;<var>send</var>&gt;&lt;,&lt;<var>value</var>&gt;&gt;</span> – modifies the LwM2M resource value.</li> </ul> <br />and: <ul> <li> <span>id</span> – the unique identifier for the LwM2M resource. Minimum value: -1; Maximum value: 65535. <br />If the id is <span>-1</span> with the <span>"add"</span> command, AnyNet SMARTconnect™ will assign the first available ID to the new resource. <span><strong>Note: </strong><span>id</span> is only used internally by AnyNet SMARTconnect™. </span> </li> <li> <span>uri</span> – the unique LwM2M uniform resource identifier for the resource, in the following format: <br />"/&lt;objectId&gt;/&lt;objectInstanceId&gt;/&lt;resourceId&gt;/&lt;resourceInstanceId&gt;".  <br />For example: <span>"/5/2/0"</span> or <span>"/6/1/1/2"</span>. <br />The following URIs are reserved and you cannot delete or modify them: <ul> <li><span>/1/0</span> – LwM2M server instance object.</li> <li><span>/3/0</span> – Device object instance, contains information about the BG95 modem.</li> <li><span>/3/1</span> – Device object instance, contains information about AnyNet SMARTconnect™.</li> <li><span>/4/0</span> – Connectivity monitoring object instance.</li> </ul> </li> <li><span>datatype</span> – for classifying the LwM2M resource data value, either <span>"Integer"</span>, <span>"String"</span>, or <span>"Boolean"</span>. </li> <li> <span>value</span> – the data sent in the specified datatype.  <br />For <span>"Integer"</span>, the value is an integer without quotes. For example: <span>23</span>. The integer range is -(2^63) to 2^63 - 1.  <br />For <span>"String"</span>, enclose the value in double quotes. For example: <span>"This is a literal string."</span> The modem may impose a limit on string length. We recommend you do not exceed 1024 characters. <br />For <span>"Boolean"</span> enclose <span>"true"</span> or <span>"false"</span> with double quotes. For example: <span>"true"</span> </li> <li> <span>send</span> – indicates whether the data is sent immediately to the LwM2M server. Use either: <br /><span>0</span> – the new value is saved locally in AnyNet SMARTconnect™. The LwM2M server must fetch the value. <br /><span>1</span> – the new value is saved locally and AnyNet SMARTconnect™ immediately pushes the data to the LwM2M server. <span><strong>Note: </strong>Ensure the value you are sending as an update is configured in the correct format for the resource datatype (as an integer, string or boolean value).</span> </li> </ul> </td> <td> OK <br />  <br />+ETMLW: &lt;<var>id</var>&gt;,&lt;<var>uri</var>&gt;,"ADD"|"REMOVE"|"UPDATE",&lt;<var>statusCode</var>&gt; <br />where <var>statusCode</var> is the returned operation status code, either: <ul> <li><span>0</span> – Successful operation – LwM2M resource either added, deleted or modified.</li> </ul> <br />or any of the following errors: <ul> <li><span>-1</span> – Parameters not valid. Check that the command syntax is correct.</li> <li><span>-2</span> – ID not found. The resource must first exist before you can delete or update it.</li> <li><span>-3</span> – ID not valid. Check the format and number is correct.</li> <li><span>-4</span> – ID already exists. You cannot add a new resource using an existing resource's ID.</li> <li><span>-5</span> – URI not found. The URI must first exist before you can delete or update the associated resource.</li> <li><span>-6</span> – URI not valid. Check the URI syntax.</li> <li><span>-7</span> – URI resource instance required. Include a <span>resourceInstanceId</span> in the URI.</li> <li><span>-8</span> – URI resource instance not required. Exclude the <span>resourceInstanceId</span> from the URI.</li> <li><span>-9</span> – URI already exists. You cannot add a new resource using an existing resource's URI.</li> <li><span>-10</span> – System object. You cannot add, delete or update a reserved URI resource. Check the URI is correct.</li> <li><span>-11</span> – Data type not supported. Only use either integer, string, or boolean.</li> <li><span>-12</span> – Data type not allowed. A different data type was previously set in the URI hierarchy.</li> <li><span>-13</span> – Data encode failed. The data type value was not added or updated. Check that the sent value is the correct data type.</li> <li><span>-14</span> AnyNet SMARTconnect™ memory allocation failed. Contact Support: <a href="mailto:support@eseye.com">support@eseye.com</a>.</li> <li><span>-15</span> AnyNet SMARTconnect™ internal error. Contact Support.</li> </ul> <br />or <br /><span>ERROR</span> – returned when the command fails, for example a parameter is missing or incorrect. Check your syntax. Ensure you have sent <span>AT+ETMSTATE="startlwm2m"</span> to enable the LwM2M protocol.  </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+ETMLW="add",-1,"/32769/0/1","Integer",123</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+ETMLW: 0,"/32769/0/1","ADD",0</p>
+
+<p> </p>
+
+<p>AT+ETMLW="add",-1,"/32769/1/1","String","Temp: 17°C"</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+ETMLW: 0,"/32769/1/1","ADD",-12</p>
+
+<p> </p>
+
+<p>AT+ETMLW="add",-1,"/32769/1/1","Integer",17</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+ETMLW: 1,"/32769/1/1","ADD",0</p>
+
+<p> </p>
+
+<p>AT+ETMLW?</p>
+
+<p>+ETMLW: 0,"/32769/0/1","integer","ready"</p>
+
+<p>+ETMLW: 1,"/32769/1/1","integer","ready"</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/connectingto-lw-m2-mserver">Connecting the Quectel BGxx module to a LwM2M server</a> </li> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands">MQTT AT commands</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> </ul> </div>

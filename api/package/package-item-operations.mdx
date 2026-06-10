@@ -1,0 +1,556 @@
+---
+title: "About package item endpoints"
+description: "The Package API enables you to:"
+---
+
+<p>The Package API enables you to: </p>
+
+<ul> <li>View details for <a href="#Viewing2">single</a> or <a href="#Viewing">multiple</a> package items on a specific package</li> <li><a href="#Creating">Create</a>, <a href="#Deleting">delete</a>, and <a href="#Updating">update</a> package items on a specific package</li> </ul>
+
+<p>You can also:</p>
+
+<ul> <li>Create, update, delete and view <a href="/api/package/package-item-attributes-operations" target="_blank">package item attributes</a>.</li> <li>Create, update, delete and view <a href="/api/package/package-operations" target="_blank">packages</a>.</li> <li>Create, update, delete and view <a href="/api/package/package-attribute-operations" target="_blank">package attributes</a>.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<p>For more information, see <a href="/api/package/package-api-intro" target="_blank">Package API Introduction</a>.</p>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/package/headers" target="_blank">Configuring Package API headers</a>.</p>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download the following resources to test the Package API:</p>
+
+<p> <img src="/images/resources/images/icons/postman-icon-svgrepo-com_24x24.png" alt="Postman Icon Svgrepo Com 24X24" /> <a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPackageAPI.postman_environment.json" target="_blank" rel="noopener">AnyNetPackageAPI.postman&#95;environment.json</a></p>
+
+<p> <img src="/images/resources/images/icons/postman-icon-svgrepo-com_24x24.png" alt="Postman Icon Svgrepo Com 24X24" /> <a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPackageAPI.postman_collection.json" target="_blank" rel="noopener">AnyNetPackageAPI.postman&#95;collection.json</a></p>
+
+<p>For more information, see <a href="/api/package/package-api-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</p>
+
+<h2 id="Viewingallpackageitemsforapackage">Viewing all package items for a package</h2>
+
+<p>To view all package items for a specific package:</p>
+
+<ul> <li> Call <span>GET /api/v2/package/&#123;<var>packageId</var>&#125;/packageItem/</span> <br />where &#123;<var>packageId</var>&#125; identifies the parent package containing the package items you want to view. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <span><strong>Tip: </strong>You can apply filters in the request path to limit the results, using one or more parameters. The API returns exactly matching records only. Alternatively, remove all filters from the path to return all records. For example, adding <span><span>?status=active</span></span> to the end of the path will return <span>active</span> objects only.</span> <br />The API returns all the package items for the specified package. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://package.api.anynetiot.com/api/v2/package/12345/packageItem/</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Schema</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><span>pageToken</span> </td> <td> <div> <div> string </div> <div> minLength: 1 </div> </div> <br />The start record for the page. </td> <td>0</td> </tr> <tr> <td><span>pageSize</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The maximum number of records requested per page. </td> <td>50</td> </tr> <tr> <td><span>nextPageToken</span> </td> <td>This only appears if the number of records exceeds the requestedPageSize. For more information, see<a href="/api/package/package-api-reference#nextPage" target="_blank">Handling the nextPageToken tag</a>.</td> <td>ApBHMkC8flM6kpi6wpm6tYuwZkCpirBY</td> </tr> <tr> <td><span>itemCount</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The number of records returned. </td> <td>2</td> </tr> <tr> <td><span>items</span> </td> <td> The <span>items</span> array. <br />Each returned <span>packageItem</span> includes:  <br /><span>packageItemId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>packageId</span>; <span>inBundleRounding</span>; <span>outOfBundleRounding</span>; <span>transmissionTypeId</span>; <span>transmissionTypeGroupId</span>; <span>testBundleAmount</span>; <span>bundleAmount</span>; <span>outOfBundlePrice</span>; <span>price</span>; <span>packageItemCategoryId</span>; <span>packageCategoryId</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#Package3" target="_blank">Package item definition</a>.</span> <br />If a <span>packageItem</span> contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes: <br /><span>packageItemAttributeId</span>; <span>packageItemId</span>; <span>attribute</span>; <span>value</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#Package4" target="_blank">Package item attribute definition</a>.</span> <br />Each <span>packageItem</span> may also include the <span>mcc</span> array, which describes where the package item applies. Each returned <span>mcc</span> includes: <br /><span>mcc</span>, <span>mnc</span>, <span>mnoId</span>; <span>profileId</span>; <span>apnId</span>; <span>ratTypeId</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#MCC" target="_blank">Package item MCC definition</a>.</span> </td> <td> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"pageToken": "0",</p>
+
+<p>"requestedPageSize": 50,</p>
+
+<p>"itemCount": 2,</p>
+
+<p>"items": [</p>
+
+<p>&#123;</p>
+
+<p>"packageItemId": 206647,</p>
+
+<p>"name": "Zone 1 Data",</p>
+
+<p>"title": "Zone1Data",</p>
+
+<p>"description": "Zone 1 Data",</p>
+
+<p>"packageId": 23434,</p>
+
+<p>"inBundleRounding": 1024,</p>
+
+<p>"outOfBundleRounding": 1024,</p>
+
+<p>"transmissionType": "Data",</p>
+
+<p>"transmissionTypeGroup": "Data services",</p>
+
+<p>"testBundleAmount": 0,</p>
+
+<p>"bundleAmount": 1048576,</p>
+
+<p>"outOfBundlePrice": 1.00,</p>
+
+<p>"price": 0.10,</p>
+
+<p>"packageItemCategoryId": 105,</p>
+
+<p>"packageCategoryId": 5,</p>
+
+<p>"status": "active",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"packageItemAttributeId": 17512,</p>
+
+<p>"packageItemId": 206647,</p>
+
+<p>"attribute": "doNotPool",</p>
+
+<p>"value": "yes",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemAttributeId": 27583,</p>
+
+<p>"packageItemId": 206647,</p>
+
+<p>"attribute": "friendlyName",</p>
+
+<p>"value": "test",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>],</p>
+
+<p>"mcc": [</p>
+
+<p>&#123;</p>
+
+<p>"mcc": "202",</p>
+
+<p>"mnc": null,</p>
+
+<p>"mnoId": null,</p>
+
+<p>"profileId": null,</p>
+
+<p>"apnId": null,</p>
+
+<p>"ratTypeId": null,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"mcc": "204",</p>
+
+<p>"mnc": null,</p>
+
+<p>"mnoId": null,</p>
+
+<p>"profileId": null,</p>
+
+<p>"apnId": null,</p>
+
+<p>"ratTypeId": null,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"mcc": "206",</p>
+
+<p>"mnc": null,</p>
+
+<p>"mnoId": null,</p>
+
+<p>"profileId": null,</p>
+
+<p>"apnId": null,</p>
+
+<p>"ratTypeId": null,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemId": 206854,</p>
+
+<p>"name": "Zone 1 SMS MO",</p>
+
+<p>"title": "Zone1SMSMO",</p>
+
+<p>"description": "Zone 1 API SMS MO",</p>
+
+<p>"packageId": 23434,</p>
+
+<p>"inBundleRounding": 1,</p>
+
+<p>"outOfBundleRounding": 1,</p>
+
+<p>"transmissionType": "APISMSMO",</p>
+
+<p>"transmissionTypeGroup": "API",</p>
+
+<p>"testBundleAmount": 0,</p>
+
+<p>"bundleAmount": 3,</p>
+
+<p>"outOfBundlePrice": 2.00,</p>
+
+<p>"price": 0.01,</p>
+
+<p>"packageItemCategoryId": 117,</p>
+
+<p>"packageCategoryId": 13,</p>
+
+<p>"status": "active",</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="Viewingaspecificpackageitem">Viewing a specific package item</h2>
+
+<p>To view details for a specific package item:</p>
+
+<ul> <li> Call <span>GET /api/v2/package/&#123;<var>packageId</var>&#125;/packageItem/&#123;<var>packageItemId</var>&#125;</span>, where &#123;<var>packageId</var>&#125; identifies the parent package, and &#123;<var>packageItemId</var>&#125; identifies which package item you want to view. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b>; <span>packageItemId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the specified package item details. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://package.api.anynetiot.com/api/v2/package/12345/packageItem/206647</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>packageItemId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>packageId</span>; <span>inBundleRounding</span>; <span>outOfBundleRounding</span>; <span>transmissionTypeId</span>; <span>transmissionTypeGroupId</span>; <span>testBundleAmount</span>; <span>bundleAmount</span>; <span>outOfBundlePrice</span>; <span>price</span>; <span>packageItemCategoryId</span>; <span>packageCategoryId</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package3" target="_blank">Package item definition</a>.</Note>
+
+<p>If a <span>packageItem</span> contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>packageItemAttributeId</span>; <span>packageItemId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package4" target="_blank">Package item attribute definition</a>.</Note>
+
+<p>Each <span>packageItem</span> may also include the <span>mcc</span> array, which describes where the package item applies. Each returned <span>mcc</span> includes:</p>
+
+<p><span>mcc</span>, <span>mnc</span>, <span>mnoId</span>; <span>profileId</span>; <span>apnId</span>; <span>ratTypeId</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#MCC" target="_blank">Package item MCC definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"packageItemId": 206647,</p>
+
+<p>"name": "Zone 1 Data",</p>
+
+<p>"title": "Zone1Data",</p>
+
+<p>"description": "Zone 1 Data",</p>
+
+<p>"packageId": 23434,</p>
+
+<p>"inBundleRounding": 1024,</p>
+
+<p>"outOfBundleRounding": 1024,</p>
+
+<p>"transmissionType": "Data",</p>
+
+<p>"transmissionTypeGroup": "Data services",</p>
+
+<p>"testBundleAmount": 0,</p>
+
+<p>"bundleAmount": 1048576,</p>
+
+<p>"outOfBundlePrice": 1.00,</p>
+
+<p>"price": 0.10,</p>
+
+<p>"packageItemCategoryId": 105,</p>
+
+<p>"packageCategoryId": 5,</p>
+
+<p>"status": "active",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"packageItemAttributeId": 17512,</p>
+
+<p>"packageItemId": 206647,</p>
+
+<p>"attribute": "doNotPool",</p>
+
+<p>"value": "yes",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemAttributeId": 27583,</p>
+
+<p>"packageItemId": 206647,</p>
+
+<p>"attribute": "friendlyName",</p>
+
+<p>"value": "test",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>],</p>
+
+<p>"mcc": [</p>
+
+<p>&#123;</p>
+
+<p>"mcc": "202",</p>
+
+<p>"mnc": null,</p>
+
+<p>"mnoId": null,</p>
+
+<p>"profileId": null,</p>
+
+<p>"apnId": null,</p>
+
+<p>"ratTypeId": null,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"mcc": "204",</p>
+
+<p>"mnc": null,</p>
+
+<p>"mnoId": null,</p>
+
+<p>"profileId": null,</p>
+
+<p>"apnId": null,</p>
+
+<p>"ratTypeId": null,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"mcc": "206",</p>
+
+<p>"mnc": null,</p>
+
+<p>"mnoId": null,</p>
+
+<p>"profileId": null,</p>
+
+<p>"apnId": null,</p>
+
+<p>"ratTypeId": null,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="Creatinganewpackageitem">Creating a new package item</h2>
+
+<p>To create a new package item:</p>
+
+<ul> <li> Call <span>POST /api/v2/package/&#123;<var>packageId</var>&#125;/packageItem/</span>, where &#123;<var>packageId</var>&#125; identifies the parent package where you want to create the new package item. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b> <br /><span>Body parameters:</span> <span>name</span><b>&#42;</b>; <span>title</span><b>&#42;</b>; <span>packageItemCategoryId</span><b>&#42;</b>; <span>packageCategoryId</span><b>&#42;</b>; <span>description</span>; <span>transmissionTypeId</span>; <span>transmissionTypeGroupId</span>; <span>inBundleRounding</span>; <span>outOfBundleRounding</span>; <span>testBundleAmount</span>; <span>bundleAmount</span>; <span>outOfBundlePrice</span>; <span>price</span> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />Do not use <span>null</span> or <span>""</span> (empty) for mandatory parameters. <br />The <span>packageItemCategoryId</span> and <span>packageCategoryId</span> values must already exist in the system. <br />If required, you can use more than one optional parameter. </span> <br />The API creates a new package item. </li> </ul>
+
+<h4>Example</h4>
+
+<p>POST https://package.api.anynetiot.com/api/v2/package/12345/packageItem/</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"name": "Zone 1 SMS MO",</p>
+
+<p>"title": "Zone1SMSMO",</p>
+
+<p>"description": "Zone 1 SMS MO",</p>
+
+<p>"inBundleRounding": 1,</p>
+
+<p>"outOfBundleRounding": 1,</p>
+
+<p>"testBundleAmount": 0,</p>
+
+<p>"bundleAmount": 3,</p>
+
+<p>"outOfBundlePrice": 1.00,</p>
+
+<p>"price": 0.10,</p>
+
+<p>"packageItemCategoryId": 117,</p>
+
+<p>"packageCategoryId": 13</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>packageItemId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>packageId</span>; <span>inBundleRounding</span>; <span>outOfBundleRounding</span>; <span>transmissionTypeId</span>; <span>transmissionTypeGroupId</span>; <span>testBundleAmount</span>; <span>bundleAmount</span>; <span>outOfBundlePrice</span>; <span>price</span>; <span>packageItemCategoryId</span>; <span>packageCategoryId</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package3" target="_blank">Package item definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"packageItemId": 216913,</p>
+
+<p>"name": "Zone 1 SMS MO",</p>
+
+<p>"title": "Zone1SMSMO",</p>
+
+<p>"description": "Zone 1 SMS MO",</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"inBundleRounding": 1,</p>
+
+<p>"outOfBundleRounding": 1,</p>
+
+<p>"transmissionType": null,</p>
+
+<p>"transmissionTypeGroup": null,</p>
+
+<p>"testBundleAmount": 0,</p>
+
+<p>"bundleAmount": 3,</p>
+
+<p>"outOfBundlePrice": 1.0,</p>
+
+<p>"price": 0.1,</p>
+
+<p>"packageItemCategoryId": 117,</p>
+
+<p>"packageCategoryId": 13,</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;</p>
+
+<h2 id="Updatingaspecificpackageitem">Updating a specific package item</h2>
+
+<p>To update a specific package item:</p>
+
+<ul> <li> Call <span>PATCH /api/v2/package/&#123;<var>packageId</var>&#125;/packageItem/&#123;<var>packageItemId</var>&#125;</span>, where &#123;<var>packageId</var>&#125; identifies the parent package, and &#123;<var>packageItemId</var>&#125; identifies which package item you want to update. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b>; <span>packageItemId</span><b>&#42;</b> <br /><span>Body:</span> You can use one or more of the following parameters: <span>name</span>; <span>title</span>; <span>description</span>; <span>inBundleRounding</span>; <span>outOfBundleRounding</span>; <span>transmissionTypeId</span>; <span>transmissionTypeGroupId</span>; <span>testBundleAmount</span>; <span>bundleAmount</span>; <span>outOfBundlePrice</span>; <span>price</span>; <span>packageItemCategoryId</span>; <span>packageCategoryId</span>; <span>status</span> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />The <span>packageItemCategoryId</span> and <span>packageCategoryId</span> values must already exist in the system. <br />If required, you can update more than one optional parameter. </span> <br />The API updates the specified package item parameters with the new details. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://package.api.anynetiot.com/api/v2/package/12345/packageItem/216913</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>packageItemId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>packageId</span>; <span>inBundleRounding</span>; <span>outOfBundleRounding</span>; <span>transmissionTypeId</span>; <span>transmissionTypeGroupId</span>; <span>testBundleAmount</span>; <span>bundleAmount</span>; <span>outOfBundlePrice</span>; <span>price</span>; <span>packageItemCategoryId</span>; <span>packageCategoryId</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package3" target="_blank">Package item definition</a>.</Note>
+
+<p>If a <span>packageItem</span> contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>packageItemAttributeId</span>; <span>packageItemId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package4" target="_blank">Package item attribute definition</a>.</Note>
+
+<p>Each <span>packageItem</span> may also include the <span>mcc</span> array, which describes where the package item applies. Each returned <span>mcc</span> includes:</p>
+
+<p><span>mcc</span>, <span>mnc</span>, <span>mnoId</span>; <span>profileId</span>; <span>apnId</span>; <span>ratTypeId</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#MCC" target="_blank">Package item MCC definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"packageItemId": 216913,</p>
+
+<p>"name": "Zone 1 SMS MO",</p>
+
+<p>"title": "Zone1SMSMO",</p>
+
+<p>"description": "Zone 1 SMS MO",</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"inBundleRounding": 1,</p>
+
+<p>"outOfBundleRounding": 1,</p>
+
+<p>"transmissionType": null,</p>
+
+<p>"transmissionTypeGroup": null,</p>
+
+<p>"testBundleAmount": 0,</p>
+
+<p>"bundleAmount": 3,</p>
+
+<p>"outOfBundlePrice": 1.0,</p>
+
+<p>"price": 0.1,</p>
+
+<p>"packageItemCategoryId": 117,</p>
+
+<p>"packageCategoryId": 13,</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Deletingaspecificpackageitem">Deleting a specific package item</h2>
+
+<p>To delete a specific package item:</p>
+
+<ul> <li> Call <span>DELETE /api/v2/package/&#123;<var>packageId</var>&#125;/packageItem/&#123;<var>packageItemId</var>&#125;</span>, where &#123;<var>packageId</var>&#125; identifies the parent package, and &#123;<var>packageItemId</var>&#125; identifies which package item you want to delete. <br /><span>Path parameters:</span><span>packageId</span><b>&#42;</b>; <span>packageItemId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API removes the specified package item. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://package.api.anynetiot.com/api/v2/package/12345/packageItem/206647</p>
+
+<h3>Response schema application/json: </h3>
+
+<p>&#123;</p>
+
+<p>"PACKAGE&#95;ITEM": 1</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/package/package-api-intro">Package API Introduction</a> </li> <li><a href="/api/package/package-operations" target="_blank">About package endpoints</a> </li> <li><a href="/api/package/package-attribute-operations" target="_blank">About package attribute endpoints</a> </li> <li><a href="/api/package/package-item-attributes-operations" target="_blank">About package item attribute endpoints</a> </li> <li><a href="/api/package/package-api-reference" target="_blank">Package API reference tables</a> </li> <li><a href="/api/package/package-api-reference#Error" target="_blank">Package API errors</a> </li> </ul> </div>

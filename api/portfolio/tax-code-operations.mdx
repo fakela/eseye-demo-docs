@@ -1,0 +1,184 @@
+---
+title: "About tax code endpoints"
+description: "The Portfolio API enables you to:"
+---
+
+<Note>This API is for internal use only.</Note>
+
+<p>The Portfolio API enables you to: </p>
+
+<ul> <li>View details for <a href="#Viewing2">single</a> or <a href="#Viewing">multiple</a> tax codes</li> <li><a href="#Creating">Create</a> and <a href="#Updating">update</a> tax codes</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-intro" target="_blank">Portfolio API Introduction</a>.</Note>
+
+<h2 id="Headers">Headers</h2>
+
+<Note>For information about headers, see <a href="/api/portfolio/headers" target="_blank">Configuring Portfolio API headers</a>.</Note>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download and extract the following resource to test the Portfolio API:</p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPortfolioAPI.postman_collection_environment.zip" target="_blank" rel="noopener">AnyNetPortfolioAPI.postman&#95;collection&#95;environment.zip</a> </p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</Note>
+
+<h2 id="Viewingalltaxcodes">Viewing all tax codes</h2>
+
+<p>To view all tax codes:</p>
+
+<ul> <li> Call <span>GET /api/v2/taxCode/</span> <span><strong>Tip: </strong>You can apply filters in the request path to limit the results, using one or more parameters. The API returns exactly matching records only. Alternatively, remove all filters from the path to return all records. For example, adding <span><span>?status=active</span></span> to the end of the path will return <span>active</span> objects only.</span> <br />The API returns all the tax codes. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/taxCode/</span> </p>
+
+<p>or</p>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/taxCode/?status=active</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Schema</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><span>pageToken</span> </td> <td> <div> <div> string </div> <div> minLength: 1 </div> </div> <br />The start record for the page. </td> <td>0</td> </tr> <tr> <td><span>requestedPageSize</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The maximum number of records requested per page. </td> <td>50</td> </tr> <tr> <td><span>nextPageToken</span> </td> <td>This only appears if the number of records exceeds the requestedPageSize. For more information, see<a href="/api/portfolio/portfolio-api-reference#nextPage" target="_blank">Handling the nextPageToken tag</a>.</td> <td>ApBHMkC8flM6kpi6wpm6tYuwZkCpirBY</td> </tr> <tr> <td><span>itemCount</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The number of records returned. </td> <td>2</td> </tr> <tr> <td><span>items</span> </td> <td> The <span>items</span> array. <br />Each returned <span>taxCode</span> includes:  <br /><span>taxCodeId</span>; <span>taxCode</span>; <span>name</span>; <span>title</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/portfolio/portfolio-api-reference#Tax" target="_blank">Tax code definition</a>.</span> </td> <td> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"pageToken": "0",</p>
+
+<p>"requestedPageSize": 50,</p>
+
+<p>"itemCount": 3,</p>
+
+<p>"items": [</p>
+
+<p>&#123;</p>
+
+<p>"taxCodeId": 1,</p>
+
+<p>"taxCode": "STANDARD",</p>
+
+<p>"name": "The company is local to the legal billing entity (where the company is billed from), standard tax rates apply.",</p>
+
+<p>"title": "STANDARD",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"taxCodeId": 2,</p>
+
+<p>"taxCode": "ESZ",</p>
+
+<p>"name": "The company is based within the European Union, EU tax rates apply.",</p>
+
+<p>"title": "ESZ",</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"taxCodeId": 3,</p>
+
+<p>"taxCode": "ZERO",</p>
+
+<p>"name": "The company is neither local, nor in the European Union, and is therefore tax exempt.",</p>
+
+<p>"title": "ZERO",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="Viewingaspecifictaxcode">Viewing a specific tax code</h2>
+
+<p>To view details for a specific tax code:</p>
+
+<ul> <li> Call <span>GET /api/v2/taxCode/&#123;<var>taxCodeId</var>&#125;</span> <br /> where &#123;<var>taxCodeId</var>&#125; identifies which tax code you want to view. <br /><span>Path parameters:</span>[CDATA[ ]]<span>taxCodeId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the specified tax code details. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/taxCode/1</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>taxCodeId</span>; <span>taxCode</span>; <span>name</span>; <span>title</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Tax" target="_blank">Tax code definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"taxCodeId": "2",</p>
+
+<p>"taxCode": "ESZ",</p>
+
+<p>"name": "The company is based within the European Union, EU tax rates apply.",</p>
+
+<p>"title": "ESZ",</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;</p>
+
+<h2 id="Creatinganewtaxcode">Creating a new tax code</h2>
+
+<p>To create a new tax code:</p>
+
+<ul> <li> Call <span>POST /api/v2/taxCode/</span> <br /><span>Body parameters:</span> <span>taxCode</span><b>&#42;</b>; <span>name</span><b>&#42;</b>; <span>title</span><b>&#42;</b> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />Do not use <span>null</span> or <span>""</span> (empty) for mandatory parameters. </span> <br />The API creates a new tax code. </li> </ul>
+
+<h2 id="Updatingaspecifictaxcode">Updating a specific tax code</h2>
+
+<p>To update a specific tax code:</p>
+
+<ul> <li> Call <span>PATCH /api/v2/taxCode/&#123;<var>taxCodeId</var>&#125;</span>, where &#123;<var>taxCodeId</var>&#125; identifies which tax code you want to update. <br /><span>Path parameters:</span> <span>taxCodeId</span><b>&#42;</b>;  <br /><span>Body:</span> <span>name</span>; <span>title</span>; <span>status</span> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />Do not use <span>null</span> or <span>""</span> (empty) for mandatory parameters. <br />If required, you can update more than one optional parameter. </span> <br />The API updates the specified tax code parameters with the new details. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://portfolio.api.anynetiot.com/api/v2/taxCode/2</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>taxCodeId</span>; <span>taxCode</span>; <span>name</span>; <span>title</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Tax" target="_blank">Tax code definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"taxCodeId": "2",</p>
+
+<p>"taxCode": "ESZ",</p>
+
+<p>"name": "The company is based within the European Union, EU tax rates apply.",</p>
+
+<p>"title": "ESZ",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/portfolio/portfolio-api-intro">Portfolio API Introduction</a> </li> <li><a href="/api/portfolio/portfolio-operations" target="_blank">About portfolio endpoints</a> </li> <li><a href="/api/portfolio/portfolio-api-reference" target="_blank">Portfolio API reference tables</a> </li> <li><a href="/api/portfolio/portfolio-api-reference#Error" target="_blank">Error responses definition</a> </li> </ul> </div>

@@ -1,0 +1,72 @@
+---
+title: "Understanding VPNs"
+description: "A Virtual Private Network (VPN) enables a high level of security and control for data transfer between two networks across the internet. Data is encrypted, and access to the VPN is authorised and controlled."
+---
+
+<p>A Virtual Private Network (VPN) enables a high level of security and control for data transfer between two networks across the internet. Data is encrypted, and access to the VPN is authorised and controlled. </p>
+
+<p>We often recommend implementing a VPN for transferring data across the internet, in addition to the essential task of encrypting the data within the device. For more information, see <a href="/connectivity/device-configuration" target="_blank">Device configuration best practices</a>.</p>
+
+<p>In certain circumstances, customers do not require a VPN. For example, when using IoT messaging protocols with some cloud services, such as AWS IoT core or Azure IoT Hub. The cloud services typically offer internet-facing addresses for device communications. For more information, see <a href="/connectivity/non-vpn-network-traffic">Routing non-VPN network traffic</a>.</p>
+
+<h2 id="AboutIPsectunnels">About IPsec tunnels</h2>
+
+<p>The Internet Engineering Task Force (IETF) created Internet Protocol Security (IPsec), a suite of IP protocols that provide security services at the network level. IPsec is based on advanced cryptographic technology that provides secure data authentication, integrity, and privacy on large networks.</p>
+
+<p>IPsec provides secure tunnels between two peers, such as two routers. Configuration rules determine which data is sent through the tunnels. By encrypting and authenticating the traffic at the IP level, IPsec ensures secure networking both for applications with good security mechanisms and for those that do not have adequate security provision.</p>
+
+<p>We use IPsec tunnels to provide secure access between the Eseye PoPs and customer networks.</p>
+
+<h2 id="AboutAnyNetVPNs">About AnyNet VPNs</h2>
+
+<p>Connectivity within the AnyNet solution is complex, as a single device may connect to different global PoPs worldwide, depending on the current IMSI or profile in use. For more information, see <a href="/connectivity/connecting-over-mobile-network#Configur" target="_blank">Configuring a device to access the correct network</a>. Multiple devices within a single deployment may also connect to different PoPs, depending on where they are deployed and which cellular network they are connected to.</p>
+
+<p>Eseye may also route data through different PoPs for performance and resilience reasons. </p>
+
+<p>Setting up a VPN tunnel between every Eseye PoP and the customer network is expensive, cumbersome, and difficult to manage. Instead, the AnyNet VPN solution provides an efficient, flexible way to use VPN tunnels, using the global high-speed <a href="/glossary/mpls">MPLS</a> core that connects the PoPs. </p>
+
+<p>The diagrams below show an example configuration. </p>
+
+<Note>For simplicity, the diagrams do not show the cellular connectivity stage, or any configuration of dual failover sites or backup tunnels that connect to more than one Eseye PoP for high availability.</Note>
+
+<p>Together, Eseye and the customer configure a VPN tunnel between one Eseye PoP (DC A in the example) and the customer network. The customer configures their network to receive data from a range of IP addresses, which includes the IP address for each Eseye PoP, in the event that data is diverted through a different PoP. For more information, see <a href="/connectivity/anynet-public-ip-address-ranges" target="_blank">Egress IP addresses</a>.</p>
+
+<p><img src="/images/resources/images/connectivity/vpndata1.png" title="Data from device" alt="Vpndata1" /> </p>
+
+<p>When an Eseye PoP (for example, DC B) receives data from a device, it translates the device’s private IP address to its public IP address using NAT and transfers the data through the MPLS core to DC A for onward transmission through the tunnel.</p>
+
+<p>The diagram below shows the central system responding with data for the device. DC A receives the data and transfers it through the MPLS core to DC B. When DC B receives the data, it uses NAT to identify the private IP address and sends the data to the device.</p>
+
+<p><img src="/images/resources/images/connectivity/vpndata2.png" title="Data to device" alt="Vpndata2" /> </p>
+
+<h2 id="ConfiguringAnyNetVPNs">Configuring AnyNet VPNs</h2>
+
+<p>The Eseye network and the customer network that are joined by an AnyNet VPN tunnel must both provide the range of IP addresses that are authorised to transfer data through the tunnel.</p>
+
+<p>Using a range (or pool) of IP addresses provides the flexibility to add or change infrastructure at one side, without the other side needing to know or re-configure servers. For example, if Eseye adds another PoP to our network, it is assigned an unused IP address from the pool. The new PoP can then start transmitting and receiving data through the tunnel, without any re-configuration on the customer side.</p>
+
+<p>AnyNet VPN tunnels are also configured with data routing rules so that only the required traffic is routed through the tunnel.</p>
+
+<Tip>We highly recommend configuring backup VPN tunnels for resilience.</Tip>
+
+<Note>Contact your Account Manager if you want to configure AnyNet VPNs.</Note>
+
+<h3>About LAN-LAN or client VPNs</h3>
+
+<p>Eseye do not recommend setting up a LAN-LAN or client VPN to transfer data, as they are expensive to implement, and limit the resilience, scalability, and flexibility that the AnyNet solution offers. For more information, see <a href="#Limitati">Limitations of LAN-LAN and client VPNs</a>.</p>
+
+<p>AnyNet VPN is the best solution for ensuring device connectivity as it provides the AnyNet Connectivity Management Platform with full freedom to select the routing options for device data, while ensuring that data is secure in transit between the device and the customer network. </p>
+
+<p>However, in some situations, it may not meet customer requirements. For example, the AnyNet VPN solution is not compatible with devices that need public IP addresses, or if a central system needs to initiate communication with devices.</p>
+
+<Tip>We recommend you adhere to best practices when designing a device, including ensuring that the device initiates communication at all times. For more information, see <a href="/connectivity/device-configuration" target="_blank">Device configuration best practices</a>.</Tip>
+
+<p>In these situations, Eseye can implement other options, such as LAN-LAN or client VPNs. </p>
+
+<p>When a LAN-LAN VPN is configured to join an Eseye PoP and a cloud or central system, it enables customer applications to communicate directly with the devices in the secure subnet. NAT is not used on data that is sent from devices through the VPN.</p>
+
+<h4>Limitations of LAN-LAN and client VPNs</h4>
+
+<ul> <li> Devices are restricted to use one private IP address so that the customer network can identify each device, therefore they are limited to using a single cellular network <br />For more information, see <a href="/connectivity/about-secure-subnets#How" target="_blank">How IP addresses are allocated to a SIM</a> and <a href="/connectivity/about-secure-subnets#How2" target="_blank">How IMSI switching affects IP address allocation</a>. </li> <li> Limiting devices to a single cellular network means that devices cannot switch to a different cellular network for optimum connectivity. </li> <li> For client VPNs, each time the customer establishes a connection with an Eseye PoP, the customer computer is assigned a new IP address. Devices will not know the assigned IP address, which means that the customer network must always initiate communication with devices. This does not adhere to IoT best practices. For more information, see <a href="/connectivity/device-configuration#Understa" target="_blank">Configuring devices to initiate communication</a>. </li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro" target="_blank">Eseye connectivity overview</a> </li> <li><a href="/connectivity/ip-addresses" target="_blank">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> <li><a href="/connectivity/non-vpn-network-traffic" target="_blank">Routing non-VPN network traffic</a> </li> <li><a href="/connectivity/manage-monitor-overview">SIM management and monitoring</a> </li> </ul> <h2 id="Resources">Resources</h2> <p><a href="https://docs.eseye.com/Content/Resources/Files/8663-AnyNet-Security-Options-Order-Form.xlsx">AnyNet Subnet and Security Options Order Form template (XLS, download)</a> </p> </div>

@@ -1,0 +1,133 @@
+---
+title: "GET /Japi/Diam/getCellularInformation"
+description: "Retrieves a set of cellular WAN information relating to a specific Hera 604 router."
+openapi: "/api-specs/legacy/tigrina.json GET /Japi/Diam/getCellularInformation"
+---
+
+<p>Retrieves a set of cellular WAN information relating to a specific Hera 604 router.</p>
+
+<h2 id="Requestkey">Request key</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Description </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> The router electronic serial number </td> </tr> </tbody> </table>
+
+<h3>Request example</h3>
+
+<p>&#123;</p>
+
+<p>“ESN”: “12345678901234567890”</p>
+
+<p>&#125;</p>
+
+<h2 id="Responsekeys">Response keys</h2>
+
+<p>Parameters are always named in a response, but can have a <span>null</span>, <span>""</span>, or <span>[ ]</span> value to indicate they are not provided.</p>
+
+<h3>Status object</h3>
+
+<p>API standard status object.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> status </td> <td> String </td> <td> Between 0 and 36 characters in length. <br /><span>"OK"</span> – the request processed successfully <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td> errorCode </td> <td> String </td> <td> 5 characters in length, in the following format: <br />E&lt;4 digit numeric code&gt; <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeNumber"</span> – the request failed because of this specific error. <span><strong>Note: </strong>For information about errors, see <a href="/api/tigrina/troubleshooting">Troubleshooting errors: Tigrina API</a>.</span> </td> </tr> <tr> <td> errorMessage </td> <td> String </td> <td> Between 0 and 255 characters in length. <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeMessage"</span> – displays an explanation of the error if the request failed </td> </tr> </tbody> </table>
+
+<h3>Router object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> Hera 604 router serial number </td> </tr> <tr> <td> ICCID </td> <td> 19 digit numeric </td> <td> SIM serial number  </td> </tr> <tr> <td> IMEI </td> <td> 15 or 16 digit numeric </td> <td>Modem serial number</td> </tr> <tr> <td> SIMProfile </td> <td> varchar(32) </td> <td>SIM profile name</td> </tr> <tr> <td>CellularConnection</td> <td> CellularConnection object </td> <td>Cellular connection information. For details, see below.</td> </tr> </tbody> </table>
+
+<h3>CellularConnection object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> Sims </td> <td> Sims object </td> <td> SIMs status. For details about the Sims object, see below. </td> </tr> <tr> <td> NetworkStatus </td> <td>NetworkStatus object</td> <td> Network Status </td> </tr> <tr> <td> Location </td> <td> Location object </td> <td> Location information. For details, see below. </td> </tr> </tbody> </table>
+
+<h3>Sims object</h3>
+
+<Note>It is possible to receive an empty string for the JSON keys in the SIMs object, meaning that the SIM is not active and therefore no parameters are available. For example, if the ChipSIM is not active, [ ] is returned. For more information, see <a href="#Response">Response example</a>.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> ChipSim </td> <td> Sim object </td> <td> Chip SIM information. For details about the Sim object, see below. </td> </tr> <tr> <td> Sim1 </td> <td> Sim object </td> <td> First SIM information. </td> </tr> <tr> <td> Sim2 </td> <td> Sim object </td> <td> Second SIM information </td> </tr> </tbody> </table>
+
+<h3>Sim object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> ICCID </td> <td> 19 digit numeric </td> <td>SIM Number </td> </tr> <tr> <td>IMSI</td> <td>15 digit numeric</td> <td>TBD (To Be Developed)</td> </tr> </tbody> </table>
+
+<h3>NetworkStatus object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> RSSI </td> <td> 7 char string </td> <td> Received Signal Strength Indicator </td> </tr> <tr> <td> Timestamp </td> <td> DateTime </td> <td> Date and time the RSSI was last recorded </td> </tr> <tr> <td> NetworkName </td> <td> 8 char string </td> <td> Cellular network name </td> </tr> <tr> <td> RAT </td> <td> String </td> <td> Radio Access Technology used </td> </tr> <tr> <td> IPAddress </td> <td> IP string </td> <td> WAN IP address </td> </tr> </tbody> </table>
+
+<h3>Location object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> Lat </td> <td> Up to 10 digit signed </td> <td>Device latitude</td> </tr> <tr> <td> Lon </td> <td> Up to 10 digit signed </td> <td>Device longitude</td> </tr> </tbody> </table>
+
+<h3>Response example</h3>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "",</p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;,</p>
+
+<p>"Router": &#123;</p>
+
+<p>"ESN": "12345678901234567890",</p>
+
+<p>"ICCID": "8944538523001234567",</p>
+
+<p>"IMEI": "359076061234567", </p>
+
+<p>"SIMProfile": "Sim1", </p>
+
+<p>"CellularConnection": &#123; </p>
+
+<p>"Sims": &#123;</p>
+
+<p>"ChipSim": [],</p>
+
+<p>"Sim1": &#123;</p>
+
+<p>"ICCID": "8944538523001234567",</p>
+
+<p>"IMSI": "TBD"</p>
+
+<p>&#125;,</p>
+
+<p>"Sim2": &#123;</p>
+
+<p>"ICCID": "8944538523001234568",</p>
+
+<p>"IMSI": "TBD"</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<p>&#125;,</p>
+
+<p>"NetworkStatus": &#123;</p>
+
+<p>"RSSI": "-87dBm",</p>
+
+<p>"Timestamp": "2015-05-02 00:12:45",</p>
+
+<p>"NetworkName": "vodaUK",</p>
+
+<p>"RAT": "lte",</p>
+
+<p>"IPAddress": "10.12.34.56"</p>
+
+<p>&#125;,</p>
+
+<p>"location": &#123;</p>
+
+<p>"Lat": "53.1234562",</p>
+
+<p>"Lon": "-1.54678"</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API Introduction</a> </li> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

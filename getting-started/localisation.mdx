@@ -1,0 +1,34 @@
+---
+title: "Understanding localisation"
+description: "Localisation is the process of switching the IMSI (or network profile) of a roaming subscriber to that of a local network operator. Eseye maintains control of the SIM management at all times."
+---
+
+<p>Localisation is the process of <a href="/getting-started/multi-imsi#ImsiSwitching">switching the IMSI (or network profile)</a> of a roaming subscriber to that of a local network operator. Eseye maintains control of the SIM management at all times.</p>
+
+<Note>For <a href="/getting-started/multi-imsi">multi-IMSI</a> or <a href="/getting-started/esim/euicc">eUICC</a>-enabled SIMs, you can localise a device over-the-air (OTA). For IoT devices with SIMs that do not support these features, localising a subscriber requires physically swapping the SIMs in the device.</Note>
+
+<p>On multi-IMSI or eUICC-enabled SIMs, customers can automate localisation and profile switching using Eseye's advanced rules engine.. </p>
+
+<p>Eseye uses localisation to solve the manufacturing and deployment issues that arise because of <a href="/getting-started/roaming">roaming</a> limitations, such as data sovereignty, roaming network policies, and latency.</p>
+
+<p> <img src="/images/resources/images/multiimsi/localisation.svg" alt="Localisation" /> </p>
+
+<p>We can use additional roaming IMSIs from iBasis (KPN), Vodafone, Manx, TELUS and Three. </p>
+
+<h2 id="HowEseyeuseslocalisation">How Eseye uses localisation</h2>
+
+<p>Eseye supplies SIMs with multi-IMSI functionality that enables the device to use an IMSI that is suitable for where the device is deployed. Typically, we use two or three IMSIs from our global AnyNet Federation to deliver service to the device. These IMSIs are activated post-deployment. They may make use of roaming agreements, depending on local restrictions.</p>
+
+<p>For more information, see <a href="/getting-started/anynet-federation" target="_blank">About the AnyNet Federation</a>.</p>
+
+<h2 id="Localisationconsiderations">Localisation considerations</h2>
+
+<p>Customers must take their unique device requirements into account when considering localisation. For example, localisation will impact battery consumption in battery-operated devices. In such cases, the best solution may require leaving the device on a single roaming profile.</p>
+
+<p>Customers must also consider if the device is truly mobile (like a tracking device) versus a device in a fixed position (like a smart meter). This will impact how many networks the device needs to access.</p>
+
+<p>The deployment context will impact how many networks are available, and dictate which legislation and network policies the device is subject to, such as whether it can remain on <a href="/getting-started/roaming#About">permanent roaming</a>.</p>
+
+<h2 id="LocalisationrulesintheConnectivityManagementPlatform">Localisation rules in the Connectivity Management Platform</h2>
+
+<p>Eseye's <a href="/connectivity/connectivity-management-platform">Connectivity Management Platform</a> uses pre-defined rules to automatically identify when to localise devices, then triggers an IMSI switch, or downloads and enables a new <a href="/getting-started/esim/profiles">profile</a> on the SIM. In cases where it is better for devices to continue roaming, the Connectivity Management Platform can <a href="/getting-started/roaming#Steering">steer devices to roam on different networks</a>. For example, localising a device that is at the edge of your home network coverage may cause it to switch between roaming and localising, thus increasing downtime.</p>

@@ -1,0 +1,20 @@
+---
+title: "Configuring System Settings"
+description: "Model: Hera 604 Version: v5"
+---
+
+<div> <p><span>Model:</span> Hera 604 <span>Version:</span> v5</p> </div>
+
+<p>Configure system settings here:</p>
+
+<p><span>Diagnostics &amp; Maintenance</span> &gt; <span>System Settings</span></p>
+
+<h2 id="ConfiguringtheNetworktimeprotocolNTP">Configuring the Network time protocol (NTP)</h2>
+
+<p>The Hera enables clock synchronisation between systems to Coordinated Universal Time (UTC). You can use the default tier 3 service (0.openwrt.pool.ntp.org), or add your own. For each additional server, the tier increases by 1. For example, a tier 3 service will become a tier 4 service if you add another server.</p>
+
+<div> <h3>Before you begin</h3> <ul> <li>Install and configure an NTP server on your network.</li> </ul> </div>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Local NTP server</span> </td> <td> Disabled – default setting. <br />Enabled – allows the Hera to connect to a local NTP server. </td> </tr> <tr> <td><span>NTP servers</span> </td> <td> Pool of NTP server hostnames to poll the time from. <br />Select <span>+</span> to add another server, then type the hostname in the box. Select <span>Save</span> to save your changes. <br />Select <span>-</span> alongside an existing server to delete it. </td> </tr> <tr> <td><span>Use ipv4 for NTP server name resolution</span> </td> <td> Select: <br /><span>Yes</span> – enables the DNS server to resolve the host name to an IP address <br /><span>No</span> – prevents the DNS server resolving the host name to an IP address </td> </tr> <tr> <td><span>Minimum poll time</span> </td> <td>Minimum time between NTP server poll requests. Select the required value from the drop-down list.</td> </tr> <tr> <td><span>Maximum poll time</span> </td> <td>Maximum time between NTP server poll requests. Select the required value from the drop-down list.</td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/hardware-products/hera/600-series/dashboard604v5" target="_blank">Using the Hera series router web interface</a> </li> <li><a href="/hardware-products/hera/600-series/setup-wizards604v5" target="_blank">Using the Setup Wizards</a> </li> <li><a href="/hardware-products/hera/600-series/basic-settings604v5" target="_blank">Configuring Basic Settings</a> </li> <li><a href="/hardware-products/hera/600-series/file-management604v5">Performing File Management</a> </li> <li><a href="#">Configuring System Settings</a> </li> <li><a href="/hardware-products/hera/600-series/user-management604v5" target="_blank">Configuring User Management</a> </li> <li><a href="/hardware-products/hera/600-series/data-logging604v5" target="_blank">Using data logging to track events</a> </li> <li><a href="/hardware-products/hera/600-series/performance604v5" target="_blank">Viewing Hera data performance</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8435-Hera-604v5-Series-Router-Quick-Start-Guide.pdf" target="_blank">8435 Hera 604v5 Series Router Quick Start Guide (PDF)</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8792-Hera-604v5-Configuration-Administrator-Guide.pdf" target="_blank">8792 Hera 604v5 Configuration Administrator Guide (PDF)</a> </li> </ul> </div>

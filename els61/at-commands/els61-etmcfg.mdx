@@ -1,0 +1,24 @@
+---
+title: "ETMCFG – read and write configuration file values"
+description: "Read and write configuration file values. For information about the configuration file parameters, see Using the Cinterion® ELS61 Wireless Module configuration file."
+---
+
+<p>Read and write configuration file values. For information about the configuration file parameters, see <a href="/els61/els61-configuration-file">Using the Cinterion® ELS61 Wireless Module configuration file</a>.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Read</td> <td> <span>AT+ETMCFG?</span>  </td> <td> </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMCFG=[</span><span>&lt;<var>cmd</var>&gt;</span><span>,][</span><span>&lt;<var>section</var>&gt;</span><span>,&lt;<var>parameter</var>&gt;[,&lt;value&gt;]]</span>  <br />where:  <br /><span>&lt;<var>cmd</var>&gt;</span> is the command in lowercase, either: <ul> <li><span>default</span> – resets the configuration file values to the default firmware values in the factory settings. After resetting to default, send the <span>save</span> &lt;cmd&gt; to keep the default settings, then reboot the modem.</li> <li><span>get</span> – returns the current configuration value for the requested parameters.</li> <li><span>revert</span> – undoes any changes to the values in the configuration file up until the last save. If you want to keep the reverted values, send the <span>save</span> &lt;cmd&gt;, then reboot the modem.</li> <li> <span>save</span> – saves the current configuration values as a new version. After saving, you must reboot the modem to apply the changes. <span><strong>Tip: </strong>Use <span>AT+ETMRESET</span> to reboot the modem.</span> </li> <li><span>show</span> – returns the entire current configuration file content. The response is sent as multiple URCs, with each line beginning <span>+ETMCFG</span>.</li> </ul> <br />If you do not supply &lt;cmd&gt;, the value is applied to the configuration file in the following format: <br /><span>AT+ETMCFG=&lt;<var>section</var>&gt;,&lt;<var>parameter</var>&gt;,&lt;value&gt;</span>  <br />where: <span>section</span> is the configuration file section, <span>parameter</span> is the parameter name, and <span>value</span> is the new parameter value. </td> <td> OK <br />or <br /><span>ERROR</span>  </td> </tr> </tbody> </table>
+
+<h4>Examples</h4>
+
+<p>AT+ETMCFG=get,mqtt,urcautoformat</p>
+
+<p>OK</p>
+
+<p>+ETMCFG: 0</p>
+
+<p>AT+ETMCFG=mqtt,keepalive,1800</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> <li><a href="/els61/at-commands/els61-etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

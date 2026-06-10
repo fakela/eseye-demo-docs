@@ -1,0 +1,16 @@
+---
+title: "ETMHFWCONF – confirms the new host firmware is applied"
+description: "Confirms the new host firmware image is applied and then deletes the image from the modem flash memory."
+---
+
+<p>Confirms the new host firmware image is applied and then deletes the image from the modem flash memory.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td> Execute </td> <td> <span>AT+ETMHFWCONF</span>  </td> <td> OK <br />or <br /><span>+ETM ERROR: &lt;errormessage&gt;</span> – may indicate that the host firmware has not successfully downloaded onto the Quectel module. Ensure <span>AT+ETMHFWGET</span> completed successfully, and you have seen the <span>+ETMHFWGET: available</span> URC. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/etmhfwget">ETMHFWGET – checks for new host firmware</a>. </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p><span>AT+ETMHFWCONF</span> </p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

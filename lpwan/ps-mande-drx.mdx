@@ -1,0 +1,84 @@
+---
+title: "Optimising power conservation in cellular Low Power Wide Area Networks (LPWAN)"
+description: "Devices enabled for NB-IoT and LTE-M can use two features that conserve energy and extend their battery life:"
+---
+
+<p>Devices enabled for NB-IoT and LTE-M can use two features that conserve energy and extend their battery life:</p>
+
+<ul> <li>Power Saving Mode (PSM)</li> <li>Extended Discontinuous Reception (eDRX)</li> </ul>
+
+<p>These features allow the User Equipment (UE) to become dormant for periods of time agreed by the Mobile Network Operator (MNO). In both cases, the UE remains attached to the cellular network in its dormant state, which conserves a small amount of energy. Over the UE lifetime, the cumulative amount of energy saved can significantly extend the battery life, depending on the device design and use.</p>
+
+<p>You can use these features independently or simultaneously to obtain additional power savings. </p>
+
+<p>MNOs may not provide support for either, or both, of these features.</p>
+
+<p>For more information about PSM and eDRX, see 3GPP TS 23.682 and 3GPP TS 24.301.</p>
+
+<h2 id="AboutPowerSavingModePSM">About Power Saving Mode (PSM)</h2>
+
+<p>PSM is designed to allow the UE cellular radio module to become dormant in a low power sleep mode (using a few microamps) but remain registered on the network for an agreed amount of time. The UE requests a PSM time interval from the network using two timers, the T3324 Active Timer and the T3412 extended periodic Tracking Area Update (TAU) timer. The network may accept or overwrite these timer values based on the MNO policies. The length of time the UE can remain in PSM is the difference between these two timers (T3412-T3324). The network then retains state information so that the UE can remain registered on it.</p>
+
+<p>The UE host device controls when it is time to transmit to the network, based on internal logic or a timer. If the UE becomes active and transmits data within the agreed PSM time interval, the reattach procedure is not required.</p>
+
+<div> <p><img src="/images/resources/images/lpwan/psm.png" title="Power profile of UE in Power Saving Mode (PSM)" alt="Psm" /> </p> <p>Power profile of UE in Power Saving Mode (PSM)</p> </div>
+
+<p>During the PSM state, the radio is switched off. The network cannot contact the UE while it is dormant. After mobile originated (MO) data transmission (TX), the UE remains in receive (RX) mode for a short time to receive mobile terminated (MT) traffic. The network buffers the MT traffic until this RX period, but usually only stores a small amount of data, depending on the MNO policies. If new data arrives when the buffer is full, the oldest data is discarded. Most networks store and forward the last received packet of approximately 100 bytes. </p>
+
+<Tip>We recommend you establish a clear agreement with the MNO on their store and forward policy for PSM-enabled UEs.</Tip>
+
+<p><span>Maximum PSM dormancy time:</span> approximately 413 days (set by 3GPP Release 13 for TAU value T3412).</p>
+
+<p><span>Maximum PSM active time:</span> 186 minutes (the maximum value of the Active timer T3324)</p>
+
+<p>An LTE-M1 UE that transmits once per day in full PSM mode could last over 10 years on two AA batteries.</p>
+
+<h3>Things to consider</h3>
+
+<ul> <li>The power required to connect to the network from power up is equivalent to approximately four days of the device running in PSM. Therefore, if you need to connect and send at intervals of less than four days, it is more efficient to use PSM than to reconnect to the network. However, if the device is mobile, the savings are significantly reduced as the device may not use the same mast, channel, or potentially band, to reconnect. If the UE is roaming, it may not use the same MNO, which means all network connection settings must change and subsequently the UE does not save power.</li> <li>You can use PSM to manage the active periods of your UEs so that they do not attempt to access the network at the same time, which can help prevent network congestion.</li> <li>MT traffic packet loss may occur if the received data exceeds the network buffering allowance.</li> <li>If the network has an IP Packet Exchange (IPX) firewall, it clears the unused GPRS Tunnelling Protocol (GTP) sessions of those SIMs that are not transferring traffic. Each UE then needs to re-establish the Packet Data Network (PDN) connection when it becomes active. To preserve the PDN connection, ensure the PSM cycle length is shorter than the GTP idle timer.</li> </ul>
+
+<h3>Beneficial for:</h3>
+
+<p>Mostly static devices needing to transmit (MO traffic) but not receive (MT traffic) data. For example:</p>
+
+<p>Smart meters, agricultural monitoring, remote weather or status monitoring.</p>
+
+<h2 id="AboutExtendedDiscontinuousReceptioneDRX">About Extended Discontinuous Reception (eDRX)</h2>
+
+<p>eDRX enables the UE to switch off the receive section of the radio module for a short period between paging cycles. During this time, the UE will not listen for paging or downlink control channels. During the paging time window (PTW), the receiver listens for the Physical Control Channel. At this point, the network can contact the UE if traffic is queued for that UE.</p>
+
+<p>The normal LTE PTW is 1.28s. The eDRX cycle is measured in hyper-frames of 10.24s.</p>
+
+<div> <p><img src="/images/resources/images/lpwan/edrx.png" alt="Edrx" /> </p> <p>Power profile of UE in eDRX mode</p> </div>
+
+<p>While the UE offers a preferred eDRX cycle and PTW to the network, the network may accept or overwrite these values depending on the MNO policies.</p>
+
+<p>Any data or messages sent to the UE are queued by the network and delivered when the UE receiver becomes active during the PTW.</p>
+
+<p>In general, eDRX dormancy periods are much shorter than PSM, which means the UE is quicker to wake up and has a shorter listening time, although the energy conservation is lower (eDRX sleep power uses 10-30 microamps). Adjusting the eDRX cycle length enables you to balance the UE’s reachability with its battery consumption.</p>
+
+<p>During eDRX, if the Elementary Files are set, you can turn off the SIM (UICC) or eSIM (eUICC), which further improves battery life.</p>
+
+<p><span>Minimum eDRX dormancy time:</span> LTE-M – 320 milliseconds; NB-IoT – 10.24 seconds</p>
+
+<p><span>Maximum eDRX dormancy time:</span> LTE-M – approximately 40 minutes; NB-IoT – approximately 174 minutes</p>
+
+<p>An LTE-M1 UE that transmits data once per day, and wakes up every 60 hyper frames to check for commands (approximately every 10 minutes), could last over 4.5 years on two AA batteries.</p>
+
+<h3>Things to consider</h3>
+
+<p>eDRX has set dormancy periods:</p>
+
+<ul> <li>20.48 seconds</li> <li>40.96 seconds</li> <li>81.92 seconds (~1 minute)</li> <li>163.84 seconds (~3 minutes)</li> <li>327.68 seconds (~5 minutes)</li> <li>655.36 seconds (~11 minutes)</li> <li>1310.72 seconds (~22 minutes)</li> <li>2621.44 seconds (~44 minutes)</li> <li>5242.88 seconds (~87 minutes)</li> <li>10485.76 seconds (~174 minutes)</li> </ul>
+
+<h3>Beneficial for:</h3>
+
+<p>Devices that need to preserve battery power and check for incoming data from the network regularly, but where the reachability does not have to be instantaneous (between five seconds to six hours). For example:</p>
+
+<p>Smart meters; UEs requiring less frequent updates, such as location devices (for pets or expensive items) and tracking services.</p>
+
+<h2 id="GeneralconsiderationsforimplementingPSMandeDRX">General considerations for implementing PSM and eDRX</h2>
+
+<ul> <li>Using timing-sensitive protocols and applications in your system and device design may cause issues. For example:<ul><li>A typical TCP-based session may fail as the timing windows for TCP ACK and retransmit are much shorter than the timing windows used on LPWAN.</li><li>The MQTT heartbeat timing must fall within TX/RX windows, or the network will think the UE is offline.</li></ul></li> <li>We do not recommend application-initiated sessions for the following reasons:<ul><li>Server-side sessions may fail because the UE may not respond within a timeout period.</li><li>The network can drop or flush packets pending delivery without informing the application.</li></ul></li> <li>Because different MNOs dictate different timer values, a UE that works on one network may fail on a different one, or cause changes in the end-to-end behaviour. You need to take different networks into account when you test your UEs.</li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/lpwan/configuring-nutaqfor-psm">Configuring Nutaq PicoLTE for GSM power saving mode</a> </li> </ul> </div>

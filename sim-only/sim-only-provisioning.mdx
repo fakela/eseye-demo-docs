@@ -1,0 +1,20 @@
+---
+title: "Provisioning the AnyNet Secure SIM"
+description: "Eseye automatically provisions the AnyNet Secure SIM. During this process, the security and identity information is downloaded and programmed into the SIM."
+---
+
+<h2 id="ProvisioningtheAnyNetSecureSIM">Provisioning the AnyNet Secure SIM</h2>
+
+<p>Eseye automatically provisions the AnyNet Secure SIM. During this process, the security and identity information is downloaded and programmed into the SIM. </p>
+
+<p>You can observe the provisioning progress in the AWS device shadow. You can access the shadow using Lambda functions, programatically, or through the <span>AWS IoT Console</span>. For more information, see the AWS documentation.</p>
+
+<Note>If the device regularly restarts the modem, the security and identity information delivery may slow down. We highly recommend that the device allows the modem to register on the network and remain registered for long enough to download the required file updates. Most devices will receive the file updates within 10 minutes, although the process may take up to an hour. If your AnyNet Secure SIM has not connected in 24 hours, contact Support: <a href="mailto:support@eseye.com">support@eseye.com</a></Note>
+
+<Note>Provisioning normally takes 5-10 minutes to complete, although the process may take up to an hour. Some modules may reset up to four times during the process. If your AnyNet Secure SIM has not connected in 24 hours, contact Support: <a href="mailto:support@eseye.com">support@eseye.com</a>. </Note>
+
+<Note>For information about setting up a terminal emulator, see.</Note>
+
+<p>You must wait until you receive the <span>+ETM: IDLE</span> URC before you can use the device to send and receive commands.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/sim-only/sim-only-reading-files">About AnyNet Secure SIM files</a> </li> <li>Read about <a href="/sim-only/sim-only-policy-management">Limiting the AWS IoT Core policy </a></li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8424-AnyNet-Secure-SIM-Device-Integration-Developer-Guide.pdf">AnyNet Secure SIM Device Integration Developer Guide (PDF)</a> </li> </ul> </div>

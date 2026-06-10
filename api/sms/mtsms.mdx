@@ -1,0 +1,54 @@
+---
+title: "Sending mobile terminated SMS messages"
+description: "Delivers Mobile Terminated (MT) SMS messages to an AnyNet or third party SIM when the following conditions are met:"
+---
+
+<p>Delivers Mobile Terminated (MT) SMS messages to an AnyNet or third party SIM when the following conditions are met:</p>
+
+<ul> <li>The authenticated user has access rights to send an SMS</li> <li>If an optional IP address Allowlist exists, the source device is listed on it</li> <li> The SIM is not barred from receiving SMS messages <span><strong>Note: </strong>Enabling or disabling SMS Messages is linked to the SIM package, which is outside the scope of the SMS API.</span> </li> </ul>
+
+<h2 id="MTSMSpathway">MT SMS pathway</h2>
+
+<p>The following diagram displays the main pathways used by mobile terminated SMS, with the codes for the pathway in square brackets. The SMS API serves the message to the AnyNet Messaging Service, which then distributes the message to the correct SIM.</p>
+
+<p><img src="/images/resources/images/apis/smsoriginal/smsmtpathway.png" alt="Smsmtpathway" /> </p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>SMS API credentials</li> </ul>
+
+<h2 id="Requestapplicationxwwwformurlencoded">Request application/x-www-form-urlencoded</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Parameters</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td> username </td> <td>The Eseye-assigned SMS API username</td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> </td> </tr> <tr> <td>password</td> <td>The Eseye-assigned SMS API password</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> <tr> <td>destination</td> <td>The destination Mobile Station International ISDN Number (MSISDN).</td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> </td> </tr> <tr> <td>text</td> <td> The SMS message content. For 7-bit mode, SMS API only supports characters from the ETSI USSD default alphabet, as defined in <a href="https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_.2F_GSM_03.38" target="_blank">GSM 03.38</a>.  <br />Uses <span>mode</span> to validate how the data is transported. <br />If both <span>text</span> and <span>short&#95;message</span> are defined, then <span>text</span> is given priority. <span><strong>Note: </strong>Use <span>data&#95;coding</span> and <span>short&#95;message</span> for 16-bit Unicode messages.</span> <span><strong>Tip: </strong>For a quick reference on non-alphanumeric ASCII characters, see <a href="/api/sms/ascii-characters" target="_blank">Coding non-alphanumeric ASCII characters</a>.</span> </td> <td> <img src="/images/resources/images/icons/checkmark_9x9.png" alt="Checkmark 9X9" /> (or short&#95;message)</td> </tr> <tr> <td>short&#95;message</td> <td> The hex-encoded short message octets (user data). <br />Uses <span>data&#95;coding</span> to validate how the data is transported. <br />If both <span>text</span> and <span>short&#95;message</span> are defined, then <span>text</span> is given priority. <span><strong>Note: </strong>Use <span>data&#95;coding</span> and <span>short&#95;message</span> for 16-bit Unicode messages.</span> <br />Encode 16-bit ASCII characters using the Unicode equivalent. For example, where A is <span>65</span> (8-bit Hex), instead use <span>0065</span> (16-bit Unicode). </td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> (or text)</td> </tr> <tr> <td>message&#95;id</td> <td>A user-generated unique message identifier for tracking responses.</td> <td> </td> </tr> <tr> <td>receipt&#95;url</td> <td>The URL where the delivery receipt is sent.</td> <td> </td> </tr> <tr> <td>source</td> <td>The source MSISDN. If blank, then the AnyNet Messaging Service sends the message.</td> <td> </td> </tr> <tr> <td>mode</td> <td> <div> How <span>text</span> data is transported, either as:  <table> <col /> <col /> <col /> <thead> <tr> <th>Value</th> <th>Description</th> <th>Maximum length</th> </tr> </thead> <tbody> <tr> <td><span>7</span> </td> <td>7-bit encoded (default)</td> <td>160 characters</td> </tr> <tr> <td><span>8</span> </td> <td>8-bit encoded</td> <td>140 bytes</td> </tr> </tbody> </table> <span><strong>Note: </strong>If the <span>mode</span> value is left blank when <span>text</span> is specified, the default value is used.</span> </div> </td> <td> </td> </tr> <tr> <td>expiry</td> <td> The date and time that the message will expire if undelivered, in the format: <br />YYYY-MM-DD hh:mm:ss </td> <td> </td> </tr> <tr> <td>data&#95;coding</td> <td> <div> How the <span>short&#95;message</span> data is processed. For more information, see <a href="https://en.wikipedia.org/wiki/Data_Coding_Scheme" target="_blank">Data Coding Scheme</a>. <br />Allowed values include: <table> <col /> <col /> <col /> <col /> <thead> <tr> <th>Value</th> <th>Character/Data set</th> <th>Message class</th> <th>Maximum length</th> </tr> </thead> <tbody> <tr> <td><span>0</span> </td> <td>GSM 7-bit, ASCII (default)</td> <td>Default</td> <td>160 characters</td> </tr> <tr> <td><span>4</span> </td> <td>8-bit data</td> <td>Default</td> <td>140 bytes</td> </tr> <tr> <td><span>8</span> </td> <td>UCS2, 16-bit</td> <td>Default</td> <td>70 characters</td> </tr> <tr> <td><span>F6</span> </td> <td>8-bit data</td> <td>Class 2 (SIM/USIM-specific)</td> <td>140 bytes</td> </tr> </tbody> </table> <span><strong>Note: </strong>If the <span>data&#95;coding</span> value is left blank when <span>short&#95;message</span> is specified, the default value is used.</span> </div> </td> <td> </td> </tr> <tr> <td>pid</td> <td>For Eseye use only. Protocol identifier that indicates the protocol used. The default value is <span>0</span> – default store and forward short message.</td> <td> </td> </tr> <tr> <td>esm</td> <td> For Eseye use only. User data header that indicates special message attributes associated with <span>short&#95;message</span>. <br /><span>40</span> indicates the user data header is included. </td> <td> </td> </tr> <tr> <td>Replace</td> <td>Cancel any queued messages</td> <td> </td> </tr> </tbody> </table>
+
+<h3>Creating 16-bit Unicode messages</h3>
+
+<p>You can convert text into Unicode using freely available internet tools, such as <a href="http://smstools3.kekekasvi.com/topic.php?id=288" target="_blank">http://smstools3.kekekasvi.com/topic.php?id=288</a>.</p>
+
+<h4>Example</h4>
+
+<p>The Chinese characters for <span>Hello World</span> are: 你好世界</p>
+
+<ol> <li>Using the <span>SMS Server Tools 3 PDU Converter</span>, select an <span>Alphabet Size</span> of <span>16</span>.</li> <li>Type 你好世界 into the <span>PDU SMS message creator</span> <span>Text</span> box.</li> <li> Select <span>Convert &gt;</span>. <br />The USSD Entry/Display returns the Unicode for 你好世界, which is <span>4F60597D4E16754C</span>.  <br /><img src="/images/resources/images/apis/smsoriginal/pduconverterexample.png" alt="Pduconverterexample" />  </li> <li> Copy and paste the Unicode into your request. </li> </ol>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>HTTP POST request</div> <div><pre><code>http://messaging.eseye.com/mtsmsapi/index/post</code></pre> </div> </div>
+
+<p>Example <span>POST parameters</span> for this request:</p>
+
+<ul> <li><span>username</span> – <span>UserName</span></li> <li><span>password</span> – <span>UserPassword</span></li> <li><span>destination</span> – <span>447924939016</span></li> <li><span>text</span> (message content) – <span>Hello World</span></li> </ul>
+
+<p>Example <span>POST</span> request using 16-bit Unicode:</p>
+
+<p>http://messaging.eseye.com?username=UserName&amp;password=UserPassword&amp;destination=447924939016&amp;message&#95;id=20220302155049&amp;data&#95;coding=8&amp;short&#95;message=4F60597D4E16754C</p>
+
+<div> <h2 id="Responsetexthtml">Response text/html</h2> <p>Simple text, either:</p> <ul> <li><span>OK!</span> </li> <li> <span>Error&lt;ErrorNumber&gt;: &lt;ErrorDescription&gt;</span>  <br />For more information, see <a href="/api/sms/smsapi-troubleshooting">Troubleshooting errors: SMS API</a>. </li> </ul> </div>
+
+<h3>Example</h3>
+
+<p>OK!</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sms/smsapi-intro">SMS API introduction</a> </li> <li><a href="/api/sms/delivery-receipt">Delivery receipts for MT and MO SMS messages</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8297-SMS-API-Developer-Guide.pdf" target="_blank">8297 SMS API Developer Guide (PDF)</a> </li> </ul> </div>

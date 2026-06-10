@@ -1,0 +1,56 @@
+---
+title: "Understanding SMS"
+description: "The Short Message Service (SMS) is a text messaging service supported on circuit-switched radio access networks (2G, 3G) and also compatible with packet-switched networks (4G, 5G) by using either circuit switched fall..."
+---
+
+<p>The Short Message Service (SMS) is a text messaging service supported on circuit-switched radio access networks (2G, 3G) and also compatible with packet-switched networks (4G, 5G) by using either circuit switched fallback or SMS over IMS. </p>
+
+<Note>Eseye do not currently support SMS over IMS. For more information, contact your Account Manager.</Note>
+
+<p>IoT devices use <a href="/glossary/sms">SMS</a> messages send data to devices or applications, or to receive SMS messages and/or over-the-air (OTA) network commands. </p>
+
+<h2 id="AnyNetMessagingService">AnyNet Messaging Service</h2>
+
+<p>The Eseye AnyNet Messaging Service controls the SMS messages sent to and from IoT devices with Eseye SIMs using interconnects with partner MNO core networks. </p>
+
+<p> <img src="/images/resources/images/getstarted/anynetmessagingservice.svg" alt="Anynetmessagingservice" /> </p>
+
+<p>The AnyNet Messaging Service treats incoming messages and outgoing messages separately. The delivery paths are logically separated into:</p>
+
+<ul> <li>Mobile-originated (MO) – path originating from an IoT device with an AnyNet SIM.</li> <li>Mobile-terminated (MT) – path terminating on messages delivered to an IoT device with an AnyNet SIM.</li> </ul>
+
+<Note>Incoming and outgoing SMS messages are queued at each Eseye PoP and not distributed across them. </Note>
+
+<p>Eseye also provide an <a href="/api/sms/smsapi-intro">SMS API</a> that customers can use to create applications to send and receive SMS messages via the AnyNet Messaging Service. These SMS API generated messages are charged according to the charges outlines on your SMS API contract.</p>
+
+<p>To add or remove IP addresses from which the SMS API accepts requests:</p>
+
+<ol> <li>In Infinity Classic, display the <a href="/infinity-classic/settings#Messaging">Settings &gt; Messaging API</a> page. </li> <li> For the API username, under <span>Action</span>, select <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> to edit the Messaging API information.  <br /><img src="/images/resources/images/infinityclassic/messagingapiedit.png" alt="Messagingapiedit" />  </li> <li>Select the <span>API Whitelist Enable</span> checkbox.</li> <li>In the <span>API Whitelist of IP Addresses</span>, specify a list of comma-separated IP addresses, from which the SMS API accepts requests.</li> </ol>
+
+<h3>SMS billing records</h3>
+
+<p>For more information about SMS billing records, see <a href="/billing/billing-sm-scharges">Understanding SMS charges on the CSV invoice</a>.</p>
+
+<h3>Allowlists and Blocklists</h3>
+
+<p>Eseye provides a database of allowed and blocked MSISDNs it checks when sending SMS messages. To add or remove MSISDNs from the database, contact Support.</p>
+
+<h2 id="MobileoriginatedMOSMSmessages">Mobile originated (MO) SMS messages</h2>
+
+<p>MO SMS messages originate from IoT devices with an AnyNet SIM can send:</p>
+
+<ul> <li>Text messages to a user device</li> <li>Send data to a customer application that is integrated with the SMS API</li> </ul>
+
+<p>SMS messages are sent through the radio access network and are intercepted by the Eseye AnyNet Messaging Service, which controls the routing and <a href="/billing/billing-sm-scharges">billing of SMS messages</a>.</p>
+
+<p>IoT devices can send MO messages to the MSISDN(s) configured in Infinity Classic on the <a href="/infinity-classic/settings#Messaging">Settings &gt; Messaging API</a> page. For each account, Infinity Classic supports creating multiple MSISDNs to which to send MO SMS messages, with each MSISDN being configured to forward the message to a different URL.</p>
+
+<h2 id="MobileterminatedMTSMSmessages">Mobile terminated (MT) SMS messages</h2>
+
+<p>Customers with IoT devices using AnyNet SIMs can send SMS messages to their device (MT) using any of the following methods:</p>
+
+<ul> <li>By sending a text message to the primary MSISDN for the device.</li> <li>Using an application that is integrated with Eseye's <a href="/api/sms/smsapi-intro">SMS API</a>.</li> </ul>
+
+<p>When sending SMS messages to devices with <a href="/getting-started/multi-imsi">multi-IMSI</a> AnyNet SIMs, the AnyNet Messaging Service sends SMS messages to the primary MSISDN associated with every IMSI on the SIM. This ensures that the SMS is delivered irrespective of the currently active IMSI. All SMS messages sent to non-active IMSIs will not be delivered and so only the SMS sent to the currently active IMSI will be successful and charged. </p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/billing/billing-sm-scharges">Understanding SMS charges on the CSV invoice</a> </li> <li><a href="/api/sms/smsapi-intro">SMS API introduction</a> </li> <li><a href="/api/sms/smsapi-troubleshooting">Troubleshooting errors: SMS API</a> </li> <li><a href="/api/sms/delivery-receipt">Delivery receipts for MT and MO SMS messages</a> </li> <li><a href="/getting-started/sms/troubleshooting-sms">Troubleshooting SMS</a> </li> </ul> </div>

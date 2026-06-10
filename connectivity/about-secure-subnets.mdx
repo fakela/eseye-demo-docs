@@ -1,0 +1,42 @@
+---
+title: "About secure subnets"
+description: "Each mobile network operator (MNO) supplies Eseye with a pool of private IP addresses to distribute to customer devices. To differentiate between customers that are connected on a single mobile network, Eseye uses sec..."
+---
+
+<p>Each mobile network operator (MNO) supplies Eseye with a pool of private IP addresses to distribute to customer devices. To differentiate between customers that are connected on a single mobile network, Eseye uses secure subnets, which are segmented sections of these private IP address ranges. Eseye provides each customer with one subnet for every operator network that their devices use.</p>
+
+<p><img src="/images/resources/images/connectivity/subnetipaddressallocation.png" alt="Subnetipaddressallocation" /> </p>
+
+<h2 id="HowIPaddressesareallocatedtoaSIM">How IP addresses are allocated to a SIM</h2>
+
+<p>During the device authentication process, Eseye allocates the IP addresses from within a customer’s subnet to the customer’s provisioned SIMs. Usually, a SIM is allocated a dedicated (static) <a href="/connectivity/ip-addresses#Support" target="_blank">IPv4</a> address for each profile or IMSI that is installed on it. This IP address is assigned for the lifetime of the device. For those SIMs where this is unnecessary, the IP address is dynamic, which means that it will change every time the SIM is authenticated.</p>
+
+<p>The following diagram shows how an IP address is assigned to a specific IMSI. For the purposes of simplicity, the diagram does not describe any translation that occurs on the IP address:</p>
+
+<p><img src="/images/resources/images/connectivity/ipaddressallocation.png" alt="Ipaddressallocation" /> </p>
+
+<p>For more information, see <a href="/connectivity/nat-overview" target="_blank">About Network Address Translation (NAT)</a>.</p>
+
+<h2 id="HowIMSIswitchingaffectsIPaddressallocation">How IMSI switching affects IP address allocation</h2>
+
+<p>The following diagram shows how, depending on which SIM profile is currently in use, Eseye will allocate a different IP address (and the data may route through a different PoP). In other words, the device may have multiple IP addresses assigned to it during its lifetime as connectivity shifts between mobile networks:</p>
+
+<p><img src="/images/resources/images/connectivity/ipaddressallocationallnetworks.png" alt="Ipaddressallocationallnetworks" /> </p>
+
+<p>The secure subnets ensure that all devices within a specific subnet are allocated IP addresses within a contiguous range. This enables efficient device management and is required for security options, such as VPNs and ACL rules, which we will discuss later. For more information, see <a href="/connectivity/anynet-vpns" target="_blank">Understanding VPNs</a> and <a href="/connectivity/non-vpn-network-traffic#About" target="_blank">About the AnyNet ACL service</a>.</p>
+
+<p>Eseye usually uses Network Address Translation to process the IP addresses for data routing across the internet. For more information, see <a href="/connectivity/nat-overview">About Network Address Translation (NAT)</a>.</p>
+
+<h2 id="Whathappensnext">What happens next?</h2>
+
+<p>Eseye manages the complexities of mobile network switching between multiple IMSIs on a single SIM, ensuring that data can move securely and quickly between the device and the customer network.</p>
+
+<p>Devices may have multiple static private IP addresses, depending on the number of IMSIs that exist on the SIM. This enables the device to access multiple mobile networks for increased connectivity.</p>
+
+<p>After connectivity is established, the device can send data to the customer network.</p>
+
+<p>You can learn about:</p>
+
+<ul> <li>How the data traverses the Eseye MPLS network. For more information, see <a href="/connectivity/connecting-over-mpls-network">Section B – Connecting over Eseye's MPLS network</a>.</li> <li>The options you have for configuring how data enters your network or third party network (such as the cloud). For more information, see <a href="/connectivity/connecting-over-internet">Section C – Connecting over the internet</a>.</li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/device-configuration">Device configuration best practices</a> </li> <li><a href="/connectivity/understanding-pops">About Eseye PoPs</a> </li> <li><a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a> </li> <li><a href="/connectivity/authorising-device-to-use-network">How Eseye authorises the device to use the IP network</a> </li> <li><a href="/connectivity/ip-addresses">About IP addresses</a> </li> <li>Order a secure subnet: <a href="https://docs.eseye.com/Content/Resources/Files/8663-AnyNet-Security-Options-Order-Form.xlsx" target="_blank">AnyNet Security Options Order Form (Spreadsheet)</a></li> </ul> </div>

@@ -1,0 +1,996 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Tigrillo API",
+    "version": "1.0.0",
+    "description": "Tigrillo API reference, generated from the Eseye documentation."
+  },
+  "servers": [
+    {
+      "url": "https://siam.eseye.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tigrillo API"
+    }
+  ],
+  "paths": {
+    "/Japi/Tigrillo/activateSIMs": {
+      "post": {
+        "summary": "activateSIMs",
+        "operationId": "post-japi-tigrillo-activatesims",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Activates single or multiple SIMs. Eseye SIMs are available, ready to become active. Before you make one or more SIMs active, you must have a signed Service Contract form agreeing to the associated costs. You must ass...",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sims": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "ICCID": {
+                          "type": "string"
+                        },
+                        "friendlyName": {},
+                        "IMEI": {}
+                      }
+                    }
+                  },
+                  "tariffID": {},
+                  "group": {},
+                  "device": {}
+                },
+                "required": [
+                  "sims"
+                ]
+              },
+              "example": {
+                "sims": [
+                  {
+                    "ICCID": "8944538523012555999",
+                    "friendlyName": null,
+                    "IMEI": null
+                  },
+                  {
+                    "ICCID": "8944538523013333111",
+                    "friendlyName": null,
+                    "IMEI": null
+                  }
+                ],
+                "tariffID": null,
+                "group": null,
+                "device": null
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "simStatuses": {
+                      "type": "object",
+                      "properties": {
+                        "8944538523013333111": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "simStatuses": {
+                    "8944538523013333111": "SIM is pending activation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/getCookieName": {
+      "post": {
+        "summary": "getCookieName",
+        "operationId": "post-japi-tigrillo-getcookiename",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Returns the name of the HTTP cookie needed for sessions to continue without the need to log in each time. A cookie is valid for 4 hours after it is generated.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "PHPSESSID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/getSIMBilling": {
+      "post": {
+        "summary": "getSIMBilling",
+        "operationId": "post-japi-tigrillo-getsimbilling",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Returns billing information for a single SIM card.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ICCID": {
+                    "type": "string"
+                  },
+                  "startDate": {},
+                  "endDate": {
+                    "type": "string"
+                  },
+                  "sortOrder": {},
+                  "startRec": {},
+                  "numRecs": {},
+                  "filter": {}
+                },
+                "required": [
+                  "ICCID"
+                ]
+              },
+              "example": {
+                "ICCID": "8944538523013522377",
+                "startDate": null,
+                "endDate": "2018-11-15",
+                "sortOrder": null,
+                "startRec": null,
+                "numRecs": null,
+                "filter": null
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totalRecs": {
+                      "type": "integer"
+                    },
+                    "recs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "activity": {
+                            "type": "string"
+                          },
+                          "start": {
+                            "type": "string"
+                          },
+                          "stop": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "integer"
+                          },
+                          "price": {
+                            "type": "string"
+                          },
+                          "mcc": {
+                            "type": "string"
+                          },
+                          "mnc": {
+                            "type": "string"
+                          },
+                          "packageID": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "totalRecs": 2,
+                  "recs": [
+                    {
+                      "activity": "Data",
+                      "start": "2018-11-14 23:41:47",
+                      "stop": "2018-11-15 02:34:46",
+                      "description": "Data",
+                      "quantity": 2048,
+                      "price": "9.37",
+                      "mcc": "310",
+                      "mnc": "410",
+                      "packageID": 10001
+                    },
+                    {
+                      "activity": "Data",
+                      "start": "2018-10-31 22:20:58",
+                      "stop": "2018-10-31 23:59:59",
+                      "description": "EU",
+                      "quantity": 2000,
+                      "price": "0.56",
+                      "mcc": "310",
+                      "mnc": "410",
+                      "packageID": 13518
+                    }
+                  ],
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/getSIMLastActivity": {
+      "post": {
+        "summary": "getSIMLastActivity",
+        "operationId": "post-japi-tigrillo-getsimlastactivity",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Returns details of the most recent recorded activity on the specified SIM.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ICCID": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ICCID"
+                ]
+              },
+              "example": {
+                "ICCID": "8944538523012560937"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/getSIMStateOptions": {
+      "post": {
+        "summary": "getSIMStateOptions",
+        "operationId": "post-japi-tigrillo-getsimstateoptions",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Returns the state options you can apply to the current SIM, based on the current state:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ICCID": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ICCID"
+                ]
+              },
+              "example": {
+                "ICCID": "8944538523016999555"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "stateOptions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ID": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "stateOptions": [
+                    {
+                      "ID": "suspend",
+                      "title": "Suspend SIM"
+                    },
+                    {
+                      "ID": "terminate",
+                      "title": "Terminate the SIM"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/getSIMs": {
+      "post": {
+        "summary": "getSIMs",
+        "operationId": "post-japi-tigrillo-getsims",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Returns a list of SIM records containing data about each SIM. You can set search parameters to restrict your search.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "searchCriteria": {
+                    "type": "object",
+                    "properties": {
+                      "state": {},
+                      "group": {},
+                      "tariff": {},
+                      "matchString": {},
+                      "matchType": {},
+                      "matchFields": {}
+                    }
+                  },
+                  "sortOrder": {},
+                  "startRec": {
+                    "type": "integer"
+                  },
+                  "numRecs": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "searchCriteria": {
+                  "state": null,
+                  "group": null,
+                  "tariff": null,
+                  "matchString": null,
+                  "matchType": null,
+                  "matchFields": null
+                },
+                "sortOrder": null,
+                "startRec": 0,
+                "numRecs": 23
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/login": {
+      "post": {
+        "summary": "login",
+        "operationId": "post-japi-tigrillo-login",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Logs the user into Infinity Classic.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "portfolioID": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "portfolioID"
+                ]
+              },
+              "example": {
+                "username": "Example@Username.com",
+                "password": "examplepassword",
+                "portfolioID": "CustomerPortfolioID"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "cookie": {
+                      "type": "string"
+                    },
+                    "permissions": {
+                      "type": "string"
+                    },
+                    "canActivate": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "errorCode": "",
+                    "errorMessage": "",
+                    "status": "OK"
+                  },
+                  "cookie": "01eq42isi4e2ksr2p6dq7jfut2",
+                  "permissions": "UEFLA",
+                  "canActivate": "yes"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/logout": {
+      "post": {
+        "summary": "logout",
+        "operationId": "post-japi-tigrillo-logout",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Logs the user out of the Tigrillo API.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/ping": {
+      "post": {
+        "summary": "ping",
+        "operationId": "post-japi-tigrillo-ping",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Tests whether the server is running.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "pong"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/setSIMDetail": {
+      "post": {
+        "summary": "setSIMDetail",
+        "operationId": "post-japi-tigrillo-setsimdetail",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Updates the details of a single SIM.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ICCID": {
+                    "type": "string"
+                  },
+                  "friendlyName": {
+                    "type": "string"
+                  },
+                  "group": {}
+                },
+                "required": [
+                  "ICCID"
+                ]
+              },
+              "example": {
+                "ICCID": "8944538523012555999",
+                "friendlyName": "Warehouse1 Hera604",
+                "group": null
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/setSIMState": {
+      "post": {
+        "summary": "setSIMState",
+        "operationId": "post-japi-tigrillo-setsimstate",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Changes the state of a single SIM to either of the following states:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ICCID": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ICCID"
+                ]
+              },
+              "example": {
+                "ICCID": "8944538523012999555",
+                "state": "suspend"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/suspendSIMs": {
+      "post": {
+        "summary": "suspendSIMs",
+        "operationId": "post-japi-tigrillo-suspendsims",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Suspends multiple SIMs. The current SIM state must allow suspension – you cannot suspend a SIM that is already suspended, pending termination, or terminated.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sims": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "sims"
+                ]
+              },
+              "example": {
+                "sims": [
+                  "8944538523013777333",
+                  "8944538523014222888"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "simStatuses": {
+                      "type": "object",
+                      "properties": {
+                        "8944538523013777333": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "simStatuses": {
+                    "8944538523013777333": "E0137:Invalid SIM no. provided"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/terminateSIMs": {
+      "post": {
+        "summary": "terminateSIMs",
+        "operationId": "post-japi-tigrillo-terminatesims",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Terminates multiple SIMs, and assigns them a pendingDeprovision status. If terminated (unprovisioned), the SIM will stop connecting to the network. Service charges will stop unless the SIM is in contract, in which cas...",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sims": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "sims"
+                ]
+              },
+              "example": {
+                "sims": [
+                  "8944538523013777333",
+                  "8944538523014222888"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Tigrillo/unsuspendSIMs": {
+      "post": {
+        "summary": "unsuspendSIMs",
+        "operationId": "post-japi-tigrillo-unsuspendsims",
+        "tags": [
+          "Tigrillo API"
+        ],
+        "description": "Unsuspends multiple SIMs that are currently suspended.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sims": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": {
+                "sims": [
+                  "8944538523013111555",
+                  "8944538523014444777"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "simStatuses": {
+                      "type": "object",
+                      "properties": {
+                        "8944538523013111555": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "simStatuses": {
+                    "8944538523013111555": "E0144:SIM cannot be unsuspended"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

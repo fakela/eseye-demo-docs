@@ -1,0 +1,136 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SMS API",
+    "version": "1.0.0",
+    "description": "SMS API reference, generated from the Eseye documentation. Send mobile terminated (MT) SMS messages, cancel undelivered messages, and request delivery status. Requests use application/x-www-form-urlencoded and return XML."
+  },
+  "servers": [
+    {
+      "url": "https://messaging.eseye.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "SMS API"
+    }
+  ],
+  "paths": {
+    "/mtsmsapi/index/post": {
+      "post": {
+        "summary": "Send MT SMS",
+        "operationId": "post-mt-sms",
+        "tags": ["SMS API"],
+        "description": "Delivers a Mobile Terminated (MT) SMS message to an AnyNet or third party SIM. Provide either text or short_message.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": ["username", "password", "destination"],
+                "properties": {
+                  "username": { "type": "string", "description": "The Eseye-assigned SMS API username." },
+                  "password": { "type": "string", "description": "The Eseye-assigned SMS API password." },
+                  "destination": { "type": "string", "description": "The destination MSISDN." },
+                  "text": { "type": "string", "description": "The SMS message content (7/8-bit). Use either text or short_message; text takes priority." },
+                  "short_message": { "type": "string", "description": "Hex-encoded short message octets. Use either text or short_message." },
+                  "message_id": { "type": "string", "description": "A user-generated unique message identifier for tracking responses." },
+                  "receipt_url": { "type": "string", "description": "The URL where the delivery receipt is sent." },
+                  "source": { "type": "string", "description": "The source MSISDN. If blank, the AnyNet Messaging Service sends the message." },
+                  "mode": { "type": "string", "enum": ["7", "8"], "description": "How text data is transported: 7-bit (default) or 8-bit." },
+                  "expiry": { "type": "string", "description": "Expiry date/time if undelivered: YYYY-MM-DD hh:mm:ss." },
+                  "data_coding": { "type": "string", "description": "How short_message data is processed (e.g. 0, 4, 8, F6)." },
+                  "pid": { "type": "string", "description": "For Eseye use only. Protocol identifier. Default 0." },
+                  "esm": { "type": "string", "description": "For Eseye use only. User data header attributes (e.g. 40)." },
+                  "Replace": { "type": "string", "description": "Cancel any queued messages." }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status response",
+            "content": {
+              "application/xml": {
+                "schema": { "type": "string" },
+                "example": "<statusResponse>\n  <status>sent</status>\n  <description>Message queued on network</description>\n</statusResponse>"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mtcancelapi/index/post": {
+      "post": {
+        "summary": "Cancel SMS",
+        "operationId": "post-mt-cancel",
+        "tags": ["SMS API"],
+        "description": "Cancels a sent or queued MT SMS message. If the message is already delivered, the API cannot cancel it.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": ["username", "password", "message_id"],
+                "properties": {
+                  "username": { "type": "string", "description": "The Eseye-assigned SMS API username." },
+                  "password": { "type": "string", "description": "The Eseye-assigned SMS API password." },
+                  "message_id": { "type": "string", "description": "The message_id of the message you want to cancel." }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status response",
+            "content": {
+              "application/xml": {
+                "schema": { "type": "string" },
+                "example": "<statusResponse>\n  <status>queued</status>\n  <description>Message awaiting routing</description>\n</statusResponse>"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mtstatusapi/index/post": {
+      "post": {
+        "summary": "Get SMS status",
+        "operationId": "post-mt-status",
+        "tags": ["SMS API"],
+        "description": "Requests a status update for existing AnyNet Messaging Service messages.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": ["username", "password", "message_id"],
+                "properties": {
+                  "username": { "type": "string", "description": "The Eseye-assigned SMS API username." },
+                  "password": { "type": "string", "description": "The Eseye-assigned SMS API password." },
+                  "message_id": { "type": "string", "description": "The message_id of the message to check." }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status response",
+            "content": {
+              "application/xml": {
+                "schema": { "type": "string" },
+                "example": "<statusResponse>\n  <status>delivered</status>\n  <description>Message delivered</description>\n</statusResponse>"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

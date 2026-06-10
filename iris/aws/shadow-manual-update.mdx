@@ -1,0 +1,10 @@
+---
+title: "Manually update the Device Shadow metadata"
+description: "You can manually request a Device Shadow update."
+---
+
+<p>You can manually request a Device Shadow update. </p>
+
+<ol> <li> Using AWS IoT Console, select <span>Manage</span> &gt; <span>Things</span>. <br />The <span>Things</span> section appears, listing all your thing s. </li> <li>Select a thing to view the <span>Details</span> page.</li> <li> On the right-hand side, select <span>Edit</span>. <br /><img src="/images/resources/images/thingarn.png" alt="Thingarn" />  </li> <li> In the <span>Set searchable thing attributes (optional)</span> section, alongside <span>ActionRequest</span>, type the <span>Value</span> as <span>ObtainMetadata</span>. <br /><img src="/images/resources/images/editthing.png" alt="Editthing" />  </li> <li> Select <span>Update</span>. <br />A Success message appears at the top of the Details page. </li> <li>In the left-hand menu, select <span>Shadows</span>.</li> <li>Select <span>Classic Shadow</span> to view the updated details.</li> </ol>
+
+<Note>Certificate Delivery is not included when the request is manually requested.</Note>

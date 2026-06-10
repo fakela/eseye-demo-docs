@@ -1,0 +1,20 @@
+---
+title: "About eSIM technology"
+description: "An eSIM (embedded SIM) is an embedded chip that is manufactured onto a board in your device to replace the removable SIM. The information within it is rewritable, which means you can change mobile networks and enable..."
+---
+
+<p>An eSIM (embedded SIM) is an embedded chip that is manufactured onto a board in your device to replace the removable SIM. The information within it is rewritable, which means you can change mobile networks and enable SIM provisioning over-the-air (OTA) without needing to physically swap SIM cards. </p>
+
+<p>eSIM technology is especially important for IoT devices, which may exist in remote locations and may contain embedded SIMs (without eSIM technology) that an engineer cannot swap without replacing an entire board. It also avoids the need to design a physical enclosure for multiple SIMs, saving space and simplifying device design, manufacturing, and provisioning.</p>
+
+<Note>The GSMA defines different eSIM architectures for machine to machine (M2M) and consumer device use cases. The Eseye eSIM solution uses the M2M eSIM architecture.</Note>
+
+<p>eSIM technology requires devices with <a href="/getting-started/esim/euicc">eUICC SIMs</a> that support the use of operator <a href="/getting-started/esim/profiles">profiles</a>, and <a href="/getting-started/esim/remote-sim-provisioning">remote SIM provisioning</a> systems in the network to perform the updates. Both the eUICC SIMs and remote provisioning systems must achieve GSMA certification and operator-specific certification before you can use them on a live network. This ensures security and interoperability between operators.</p>
+
+<p> <img src="/images/resources/images/esim/esim.svg" alt="Esim" /> </p>
+
+<h2 id="EseyeseSIMsolution">Eseye's eSIM solution</h2>
+
+<p>Eseye has agreements in place with multiple operators that enables Eseye to download profiles from operators with the best connectivity or services for the connected IoT device. The <a href="/connectivity/connectivity-management-platform">Connectivity Management Platform</a> can use predetermined rules to trigger the remote SIM provisioning systems to download and enable different profiles depending on the regional requirements. The available operators and services for an IoT device depend on the <a href="/billing/billing-packages">package</a> assigned to the device.</p>
+
+<p>For IoT devices that include an <a href="/hardware-products/hera/hera-introduction">Eseye Hera router</a> (EU/USA/RoW model only), there is an embedded eUICC SIM as well as a physical SIM card within the Hera hardware.</p>

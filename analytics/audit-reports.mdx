@@ -1,0 +1,270 @@
+---
+title: "Templates"
+description: "Infinity The following audit reports give you visibility on your user interactions with Managing Infinity reports:"
+---
+
+<p>Infinity The following audit reports give you visibility on your user interactions with <a href="/analytics/reports" target="_blank">Managing Infinity reports</a>:</p>
+
+<p>The header row for each of the reports is displayed as REPORTTITLE-YYYY-MM-DD-FILEID-GROUPING</p>
+
+<h4>About Heading row attributes</h4>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Report Title</span> </td> <td> A friendly description for identifying how a report is formatted. </td> </tr> <tr> <td><span>Date</span> </td> <td> The date and time of the change, formatted as dd/mm/yyyy hh:mm:ss. </td> </tr> <tr> <td><span>File ID</span> </td> <td> The unique file identifier. </td> </tr> <tr> <td><span>Grouping</span> </td> <td> Organising the data of a report by categories such as Portal, Portfolio, Invoice, or Device. </td> </tr> </tbody> </table>
+
+<ul> <li><a href="#Account">Templates</a> </li> <li>Account Audit Report (PDF): For more information, see <a href="#Viewing">Viewing logging details </a></li> <li>Account Snapshot Report (CSV)</li> <li><a href="#Viewing2">Viewing SIM card estate details </a> </li> <li><a href="#Viewing3">Viewing billing information details</a> </li> <li><a href="#Viewing4">Viewing order details </a> </li> <li><a href="#Viewing5">Viewing package details</a> </li> <li><a href="#Viewing6">Viewing messaging details</a> </li> <li><a href="#Networking">Templates</a> </li> <li><a href="#SIM">Templates</a> </li> <li><a href="#SIMLogSim">Templates</a> </li> <li><a href="#SIMLogEstate">Templates</a> </li> </ul>
+
+<h2 id="AuditingICC">Auditing ICC</h2>
+
+<p>The <span>ICC Audit</span> report offers a chronological record of actions and changes related to SIMs across various portfolios. It records user actions, portfolio modifications, SIM activations, provisioning requests, and IP address assignments.</p>
+
+<Tip>It enables thorough tracking and auditing of ICC lifecycle events and management activities. Allows users to monitor modifications made to ICC configurations, helping to identify who made changes, when they occurred, and what specific alterations were implemented.</Tip>
+
+<p><img src="/images/resources/images/infinity/iccauditreport.png" alt="Iccauditreport" /> </p>
+
+<p>It displays the <a href="#ICC6">ICC Audit attributes</a>.</p>
+
+<h3><span>ICC Audit</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>User ID</span> </td> <td> The unique user identifier. The user represents the human user or workload that can use the current portfolio. Users are assigned a type, which grants permissions and restricts access to system functions. </td> </tr> <tr> <td><span>Portfolio ID</span> </td> <td> The unique portfolio identifier. The portfolio is the overall customer account that contains user, package, network and SIM information, and includes details such as linked addresses, contact phone numbers, tax information and billing currency information. </td> </tr> <tr> <td><span>Date</span> </td> <td> The date and time of the change, formatted as dd/mm/yyyy hh:mm:ss. </td> </tr> <tr> <td><span>Reference</span> </td> <td> The <a href="/glossary/iccid">ICCID</a> of the SIM on which the user made the change. </td> </tr> <tr> <td><span>Information</span> </td> <td>The specific data or details regarding the <a href="/glossary/iccid">ICCID</a>. </td> </tr> <tr> <td><span>Description</span> </td> <td> Report template description. Notes about the report template, for internal use only. The report template description can contain details or provide other customer-related information. For example: <ul> <li>Anynet SIM queued for provisioning</li> <li>IP address assigned</li> <li>SIM Usage alert triggered</li> </ul> </td> </tr> </tbody> </table>
+
+<h2 id="TrackingAPNchanges">Tracking APN changes</h2>
+
+<p>The <span>APN Modification Report</span> tracks changes made to APNs within a specified time period. It helps monitor and audit APN configurations. </p>
+
+<p><img src="/images/resources/images/infinity/apn-modification.png" alt="Apn Modification" /> </p>
+
+<p>It displays the <a href="#APN">APN Modification attributes</a>.</p>
+
+<Note>For developer purposes, see <a href="/api/sim/simapi-reference#billingSnap" target="_blank">Billing snapshot definition</a>.</Note>
+
+<h3><span>APN Modification</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>APN ID</span> </td> <td> The unique <a href="/glossary/apn">APN</a> identifier.  </td> </tr> <tr> <td><span>Field</span> </td> <td> Lists all the APN parameters. For example, name, title, mnoId, mnoApnId, status and so on. </td> </tr> <tr> <td><span>Old Value</span> </td> <td> The previous field input before it was modified.  </td> </tr> <tr> <td><span>New Value</span> </td> <td> The updated input.  </td> </tr> <tr> <td><span>Change Date</span> </td> <td> The date and time that the object was modified by a user. </td> </tr> <tr> <td><span>Modified User Id</span> </td> <td> The unique identifier of the user who created or changed the object. If the database updates the object, the modifiedUserId is <span>0</span>. </td> </tr> </tbody> </table>
+
+<h2 id="ViewingAPNconfigurations">Viewing APN configurations</h2>
+
+<p>The <span>APN Snapshot</span> report provides a comprehensive view of all the current APN configurations at a specific point in time, offering a detailed overview including MNOID, status etc. across the network.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<h2 id="Viewingloggingdetails">Viewing logging details </h2>
+
+<p>The <span>Account Audit Report</span> tracks Infinity access and who is responsible for received notifications. It displays:</p>
+
+<ul> <li>Login date and time stamp or the date and time you have accessed your account.</li> </ul>
+
+<ul> <li>Name of the user who has accessed their account.</li> </ul>
+
+<p><img src="/images/resources/images/management/reports/accountaudit.png" alt="Accountaudit" /> </p>
+
+<h3>About <span>Account Audit Report</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Portfolio Name</span> </td> <td>The portfolio name associated with the user account.</td> </tr> <tr> <td><span>Period Start</span> </td> <td> The initial date range on which the reports were first generated. For more information, see <a href="/analytics/reports#Filter" target="_blank">Managing Infinity reports</a>. </td> </tr> <tr> <td><span>Period End</span> </td> <td> The final date range before which, the reports were generated entered in the filter criteria. For more information, see <a href="/analytics/reports#Filter" target="_blank">Managing Infinity reports</a>. </td> </tr> <tr> <td><span>ID</span> </td> <td> Portfolio ID associated with the user account. </td> </tr> <tr> <td><span>Date</span> </td> <td> Date when this report was generated. </td> </tr> <tr> <td><span>Reference</span> </td> <td> Summary of user activity. </td> </tr> <tr> <td><span>Information</span> </td> <td> Description of user activity. </td> </tr> <tr> <td><span>User</span> </td> <td> Name with the user has registered on Infinity interface. For more information, see <a href="/infinity/introduction#Accessin" target="_blank">Accessing the Infinity interface</a>. </td> </tr> </tbody> </table>
+
+<p>To find the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity &gt; Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinity/reportsview.png" alt="Reportsview" />  <br />Select the report and then select <img src="/images/resources/images/infinity/pdf-icons_24x24.png" alt="Pdf Icons 24X24" />, <img src="/images/resources/images/infinity/csv-icon_24x24.png" alt="Csv Icon 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export the information displayed on the page. </li> <li>Alongside <span>Account Audit Report</span>, select the preferred export icon.</li> </ol>
+
+<h2 id="ViewingSIMcardestatedetails">Viewing SIM card estate details </h2>
+
+<p>The <span>Account Snapshot Report</span> provides broad understanding of the estate data consumed by your SIM. It displays:</p>
+
+<ul> <li>Portfolio details, including active users, current packages, total data usage.</li> </ul>
+
+<ul> <li> Person accessing the estate. <br /><img src="/images/resources/images/infinity/accountestatereport.png" alt="Accountestatereport" />  </li> </ul>
+
+<h3>About <span>Account Snapshot Report</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Portfolio Name</span> </td> <td>The portfolio name associated with the user account.</td> </tr> <tr> <td><span>Active Users on the Account</span> </td> <td> Name and time of the user who has accessed the estate report. </td> </tr> <tr> <td><span>Packages</span> </td> <td> Details of the package. For more information, see <a href="/packages/viewing-packages#Package3" target="_blank">About viewing packages using Infinity</a>. </td> </tr> <tr> <td><span>Total Data Use this Month</span> </td> <td> The data used by the specific package. </td> </tr> </tbody> </table>
+
+<h2 id="Viewingbillinginformationdetails">Viewing billing information details</h2>
+
+<p>The <span>Finance Audit Report</span> helps you understand your agreed contract. It displays:</p>
+
+<ul> <li> Current costs across your entire SIM card estate, or per SIM card.</li> <li>Date and time stamps when the user made changes to billing information, such as password and address updates, or payment method approval and so forth.</li> </ul>
+
+<h3>Viewing billing overview for your SIM estate</h3>
+
+<p>This is the first page of the bill that displays a summary of:</p>
+
+<ul> <li> Summary of the charges </li> <li> The <span>TOTAL</span> amount (including VAT)</li> <li> The Eseye-specific payment information </li> </ul>
+
+<Tip>You may want to print this first page (as shown below) to keep a record of the financial overview bill.</Tip>
+
+<p>If your estate manages below 1000 SIMs, a list of individual SIM cost is summarised in the bill ( PDF).</p>
+
+<p> If your estate manages over 1000 SIMs, these records are not provided in the bill (PDF). In such a scenario, use <span>Detailed Invoice</span> (as shown below) to view the individual SIM records in detail.</p>
+
+<p><img src="/images/resources/images/infinity/financereport2.png" alt="Financereport2" /> </p>
+
+<p>If pooled usage is applied to the current invoice, the <span>Data Charges</span> are displayed in the billing report. If the usage is applied in excess of pooled allowance, data, SMS or voice charges are detailed in the bill. For more information, see<a href="/billing/billing-pooling#Understa" target="_blank">Understanding pooling</a>.</p>
+
+<Note>Further invoice details are listed in the.CSV file, for example, the package that incurred the charge. </Note>
+
+<p><img src="/images/resources/images/infinity/financereport3.png" alt="Financereport3" /> </p>
+
+<p>To generate a single type of report in Infinity:</p>
+
+<ol> <li>From the left menu, select <span>Reports</span> &gt; <span>View / Download</span> tab.</li> <li>On the top right, select <span>Actions</span>&gt; <span>Run a single report</span> to display the <span>Generate a Single Report</span> dialog.</li> <li>Select a <span>Reporting Profile</span> or a <span>Portfolio</span> report. </li> <li> Select the <span>Report</span> to generate and select <span>OK</span>. <br /><img src="/images/resources/images/infinity/generate-single report.png" alt="Generate Single Report" />  </li> </ol>
+
+<p>To schedule a single type of report in Infinity:</p>
+
+<ol> <li>The type of report you have selected is displayed under <span>Select a source of the data for the report</span>.</li> <li> Select the type of <span>Portfolio</span> report from the <span>Report</span> drop-down list. <br /><img src="/images/resources/images/infinity/generate-scheduled report.png" alt="Generate Scheduled Report" />  </li> </ol>
+
+<Note>A green notification appears at the bottom of the screen that the report will be created as soon as possible.</Note>
+
+<h2 id="Viewingorderdetails">Viewing order details </h2>
+
+<p>The <span>Logistics Audit Report</span> displays:</p>
+
+<ul> <li>Date and time stamps of user activity on an order, such as:<ul><li> when the order is placed.</li><li> shipping prepared, or dispatched.</li></ul></li> </ul>
+
+<p><img src="/images/resources/images/management/reports/logisticsaudit.png" alt="Logisticsaudit" /> </p>
+
+<p>To find the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity &gt; Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinityclassic/reports.png" alt="Reports" />  <br />Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page. </li> <li>Alongside <span>Logistics Audit Report</span>, select the preferred option to export the file.</li> </ol>
+
+<h2 id="Viewingpackagedetails">Viewing package details</h2>
+
+<p>The <span>Packages Audit Report</span> displays:</p>
+
+<ul> <li>Date and time stamps when the user has signed the <span>Service Contract</span> form that is uploaded on a SIM package.</li> <li>Name of the user responsible for the change.</li> </ul>
+
+<p><img src="/images/resources/images/management/reports/packagesaudit.png" alt="Packagesaudit" /> </p>
+
+<p>To generate the report in Infinity Classic:</p>
+
+<ol> <li> From the menu, select <span>Account</span> &gt; <span>Reports</span> to display the <a href="/infinity-classic/account#Reports">Account Reports page</a>. </li> <li>Select the <span>Enable</span> checkbox for each report you want to generate.</li> <li>  Select <span>Run Now</span> to generate the report. </li> </ol>
+
+<p>To find the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity &gt; Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinity/reportsview.png" alt="Reportsview" />  <br />Select the report and then select <img src="/images/resources/images/infinity/pdf-icons_24x24.png" alt="Pdf Icons 24X24" />, <img src="/images/resources/images/infinity/csv-icon_24x24.png" alt="Csv Icon 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export the information displayed on the page. </li> <li>Alongside <span>Packages Audit Report</span>, select the preferred export icon.</li> </ol>
+
+<h2 id="Viewingreportingprofiledetails">Viewing reporting profile details</h2>
+
+<p>The <span>Profiles Audit Report</span> summarises the user activity on the <span>Reporting Profile</span>. For more information, see <a href="/analytics/reports#Creating">Managing Infinity reports</a>:</p>
+
+<p>It displays:</p>
+
+<ul> <li>Date and time stamps when the user had created or edited the reporting profile.</li> </ul>
+
+<p> </p>
+
+<p><img src="/images/resources/images/management/reports/profilesaudit.png" alt="Profilesaudit" /> </p>
+
+<p>To generate the report in Infinity Classic:</p>
+
+<ol> <li> From the menu, select <span>Account</span> &gt; <span>Reports</span> to display the <a href="/infinity-classic/account#Reports">Account Reports page</a>. </li> <li>Select the <span>Enable</span> checkbox for each report you want to generate.</li> <li>  Select <span>Run Now</span> to generate the report. </li> </ol>
+
+<p>To find the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity &gt; Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinity/reportsview.png" alt="Reportsview" />  <br />Select the report and then select <img src="/images/resources/images/infinity/pdf-icons_24x24.png" alt="Pdf Icons 24X24" />, <img src="/images/resources/images/infinity/csv-icon_24x24.png" alt="Csv Icon 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export the information displayed on the page. </li> <li>Alongside <span>Profiles Audit Report</span>, select the preferred export icon.</li> </ol>
+
+<h2 id="Viewingmessagingdetails">Viewing messaging details</h2>
+
+<p>The <span>Messaging Audit Report</span> displays:</p>
+
+<ul> <li>Date and time stamps of user activity on the SMS API or against an individual SIM card such as:<ul><li>Password</li><li> MO POST URL changes</li></ul></li> </ul>
+
+<p><img src="/images/resources/images/management/reports/messagingaudit.png" alt="Messagingaudit" /> </p>
+
+<p>To generate a single type of report in Infinity:</p>
+
+<ol> <li>From the left menu, select <span>Reports</span> &gt; <span>View / Download</span> tab.</li> <li>On the top right, select <span>Actions</span>&gt; <span>Run a single report</span> to display the <span>Generate a Single Report</span> dialog.</li> <li>Select a <span>Reporting Profile</span> or a <span>Portfolio</span> report. </li> <li> Select the <span>Report</span> to generate and select <span>OK</span>. <br /><img src="/images/resources/images/infinity/generate-single report.png" alt="Generate Single Report" />  </li> </ol>
+
+<p>To find the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity &gt; Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinity/reportsview.png" alt="Reportsview" />  <br />Select the report and then select <img src="/images/resources/images/infinity/pdf-icons_24x24.png" alt="Pdf Icons 24X24" />, <img src="/images/resources/images/infinity/csv-icon_24x24.png" alt="Csv Icon 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export the information displayed on the page. </li> <li>Alongside <span>Messaging Audit Report</span>, select the preferred export icon.</li> </ol>
+
+<h2 id="Viewingnetworkingdetails">Viewing networking details</h2>
+
+<p>The <span>Networking Audit Report</span> displays:</p>
+
+<ul> <li>Visibility of network changes to help assess the impact of changes on devices.</li> <li>Assigned IP addresses</li> </ul>
+
+<p><img src="/images/resources/images/management/reports/networkingaudit.png" alt="Networkingaudit" /> </p>
+
+<p>To generate the report in Infinity Classic:</p>
+
+<ol> <li> From the menu, select <span>Account</span> &gt; <span>Reports</span> to display the <a href="/infinity-classic/account#Reports">Account Reports page</a>. </li> <li>Select the <span>Enable</span> checkbox for each report you want to generate.</li> <li>  Select <span>Run Now</span> to generate the report. </li> </ol>
+
+<p>To find the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity &gt; Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinity/reportsview.png" alt="Reportsview" />  <br />Select the report and then select <img src="/images/resources/images/infinity/pdf-icons_24x24.png" alt="Pdf Icons 24X24" />, <img src="/images/resources/images/infinity/csv-icon_24x24.png" alt="Csv Icon 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export the information displayed on the page. </li> <li>Alongside <span>Networking Audit Report</span>, select the preferred export icon.</li> </ol>
+
+<h2 id="ViewingSIMauditingdetails">Viewing SIM auditing details </h2>
+
+<p>The <span>SIM Audit Report</span> helps you track SIMs that use high usage SIMs and limiting costs. It displays:</p>
+
+<ul> <li>Details of alert triggers on specified SIMs and to whom they are sent to.</li> <li>Person responsible for using high usage SIMs.</li> </ul>
+
+<p><img src="/images/resources/images/management/reports/simaudit.png" alt="Simaudit" /> </p>
+
+<p>To generate the report in Infinity Classic:</p>
+
+<ul> <li>See <a href="/analytics/reports#Creating" target="_blank">Managing Infinity reports</a>.</li> </ul>
+
+<p>To find and generate the report in Infinity:</p>
+
+<ol> <li> From the menu, select <span>Activity Reports</span> to display the <span>Reports</span> page.  <br />The <span>Reports</span> page displays a history of the generated reports.  <br /><img src="/images/resources/images/infinity/reportsview.png" alt="Reportsview" />  <br />Select the report and then select <img src="/images/resources/images/infinity/pdf-icons_24x24.png" alt="Pdf Icons 24X24" />, <img src="/images/resources/images/infinity/csv-icon_24x24.png" alt="Csv Icon 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export the information displayed on the page. </li> <li>Alongside <span>SIM Audit Report</span>, select the preferred export icon.</li> </ol>
+
+<h2 id="ViewingauditlogforeachSIM">Viewing audit log for each SIM</h2>
+
+<p>The <span>SIM Audit Log </span> helps you track the details of every action implemented on a selected SIM. It displays:</p>
+
+<ul> <li>Description of the action taken</li> <li>Date stamp of the action taken</li> <li>Name of the user who had actioned upon the SIM</li> <li> Reference ID of the action</li> <li>Additional information of the described action</li> </ul>
+
+<p> For example, a new SIM audit log entry is added when a SIM is queued for provisioning or for every usage alert that is triggered on the SIM.</p>
+
+<p><img src="/images/resources/images/management/reports/simauditlogpersim.png" alt="Simauditlogpersim" /> </p>
+
+<p>To find and generate the report in Infinity Classic:</p>
+
+<h2 id="ViewingSIMauditlogfortheestate">Viewing SIM audit log for the estate</h2>
+
+<p>The <span>SIM Estate Audit Log</span> helps you track the details of every action implemented on a selected SIM estate. It displays:</p>
+
+<ul> <li>Description of the action taken on the estate</li> <li>Date stamp of the action taken on the estate</li> <li>Name of the user who had actioned upon the SIM estate</li> <li> Reference ID of the action taken on the estate</li> <li>Additional information of the described action on the SIM estate</li> </ul>
+
+<p> </p>
+
+<p><img src="/images/resources/images/management/reports/simauditlogperestate.png" alt="Simauditlogperestate" /> </p>
+
+<p>To find and generate the report in Infinity Classic:</p>
+
+<ol> <li> From the menu, select <span>SIMs</span> &gt; <span>Audit Log</span>. </li> <li>  To download the information in a particular format, select either: <img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" /> or <img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />. </li> </ol>
+
+<h2 id="Viewingbillingaccountdetails">Viewing billing account details</h2>
+
+<p>The <span>Account Statement Report</span> helps you to view your billing statement. It displays:</p>
+
+<ul> <li> Outstanding balance you owe to the Eseye. </li> </ul>
+
+<Note>Your connectivity will cease functioning when bills are unpaid.</Note>
+
+<p><img src="/images/resources/images/infinity/accountstatementreport.png" alt="Accountstatementreport" /> </p>
+
+<h2 id="ReviewingICCchanges">Reviewing ICC changes</h2>
+
+<p>The <span>ICC Audit</span> report provides a chronological log of actions and changes associated with SIMs across various portfolios. It records user activities, portfolio updates, SIM activations, provisioning requests, and IP address allocations. </p>
+
+<Tip>It enables comprehensive tracking and auditing of ICC lifecycle events and management processes.</Tip>
+
+<p><img src="/images/resources/images/infinity/icc-audit.png" alt="Icc Audit" /> </p>
+
+<p>It displays the <a href="#ICC2">ICC Audit attributes</a>.</p>
+
+<h3><span>ICC Audit</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>User ID</span> </td> <td> The unique user identifier. The user represents the human user or workload that can use the current portfolio. Users are assigned a type, which grants permissions and restricts access to system functions. </td> </tr> <tr> <td><span>Portfolio ID</span> </td> <td> The unique portfolio identifier. The portfolio is the overall customer account that contains user, package, network and SIM information, and includes details such as linked addresses, contact phone numbers, tax information and billing currency information. </td> </tr> <tr> <td><span>Date</span> </td> <td> The date and time of the change, formatted as dd/mm/yyyy hh:mm:ss. </td> </tr> <tr> <td><span>Reference</span> </td> <td> The <a href="/glossary/iccid">ICCID</a> of the SIM on which the user made the change. </td> </tr> <tr> <td><span>Information</span> </td> <td> The specific data or details regarding the <a href="/glossary/iccid">ICCID</a>.  </td> </tr> <tr> <td><span>Description</span> </td> <td> Report template description. Notes about the report template, for internal use only. The report template description can contain details or provide other customer-related information. For example: <ul> <li>Anynet SIM queued for provisioning</li> <li>IP address assigned</li> <li>SIM Usage alert triggered</li> </ul> </td> </tr> </tbody> </table>
+
+<p> </p>

@@ -1,0 +1,569 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Icc Type Mno API",
+    "version": "2.0.0",
+    "description": "Icc Type Mno API reference, generated from the Eseye Postman collection."
+  },
+  "servers": [
+    {
+      "url": "https://{URL}",
+      "variables": {
+        "URL": {
+          "default": "api.eseye.com",
+          "description": "Your AnyNet API host (provided by Eseye)."
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Icc type mno"
+    }
+  ],
+  "paths": {
+    "/api/v2/iccType/{iccTypeId}/iccTypeMno/attribute": {
+      "get": {
+        "summary": "View all attributes for a specific icc type mno",
+        "operationId": "view-all-attributes-for-a-specific-icc-type-mno",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoAttributeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "attribute",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccType/{iccTypeId}/iccTypeMno/{iccTypeMnoId}/attribute/{iccTypeMnoAttributeId}": {
+      "get": {
+        "summary": "View specific icc type mno attribute",
+        "operationId": "view-specific-icc-type-mno-attribute",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoId"
+          },
+          {
+            "name": "iccTypeMnoAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific icc type mno attribute",
+        "operationId": "update-specific-icc-type-mno-attribute",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoId"
+          },
+          {
+            "name": "iccTypeMnoAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete specific icc type attribute",
+        "operationId": "delete-specific-icc-type-attribute",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoId"
+          },
+          {
+            "name": "iccTypeMnoAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccType/{iccTypeId}/iccTypeMno/{iccTypeMnoId}/attribute": {
+      "post": {
+        "summary": "Create new icc type mno attribute",
+        "operationId": "create-new-icc-type-mno-attribute",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "attribute": "fallback",
+                "value": "yes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccType/{iccTypeId}/iccTypeMno": {
+      "get": {
+        "summary": "View all icc type mnos",
+        "operationId": "view-all-icc-type-mnos",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "imsiMnoId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccTypeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "profileId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccSlotId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new icc type",
+        "operationId": "create-new-icc-type",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profileId": {
+                    "type": "string"
+                  },
+                  "imsiMnoId": {
+                    "type": "integer"
+                  },
+                  "iccTypeId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "profileId": "12",
+                "imsiMnoId": 13363,
+                "iccTypeId": "1234"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccType/{iccTypeId}/iccTypeMno/{iccTypeMnoId}": {
+      "get": {
+        "summary": "View specific icc type mno",
+        "operationId": "view-specific-icc-type-mno",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific imsi range",
+        "operationId": "update-specific-imsi-range",
+        "tags": [
+          "Icc type mno"
+        ],
+        "parameters": [
+          {
+            "name": "iccTypeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeId"
+          },
+          {
+            "name": "iccTypeMnoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccTypeMnoId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "OAuth 2.0 client-credentials access token. See the developer guide for how to obtain one."
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+---
+title: "Cancelling undelivered SMS messages"
+description: "Cancels a sent or queued message when the following conditions are met:"
+---
+
+<p>Cancels a sent or queued message when the following conditions are met:</p>
+
+<ul> <li>The authenticated user has access rights to send an SMS</li> <li>If an optional IP address Allowlist exists, the source device is listed on it</li> <li> The SIM is not barred from receiving SMS messages <span><strong>Note: </strong>Enabling or disabling SMS Messages is linked to the SIM package, which is outside the scope of the SMS API.</span> </li> </ul>
+
+<Note>If the message is already delivered, the API cannot cancel it.</Note>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>SMS API credentials </li> </ul>
+
+<h2 id="Requestapplicationxwwwformurlencoded">Request application/x-www-form-urlencoded</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>POST parameters</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td> username </td> <td>The Eseye-assigned SMS API username</td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> </td> </tr> <tr> <td>password</td> <td>The Eseye-assigned SMS API password</td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> </td> </tr> <tr> <td>message&#95;id</td> <td>A user-generated unique message identifier for tracking responses. The value must match the message&#95;id of the message you want to cancel.</td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<p>The following example uses the <span>POST parameters</span> described in the above table.</p>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>HTTP POST request</div> <div><pre><code>POST http://messaging.eseye.com/mtcancelapi/index/post</code></pre> </div> </div>
+
+<p>Example POST parameters for this request:</p>
+
+<ul> <li><span>username</span> – <span>UserName</span></li> <li><span>password</span> – <span>UserPassword</span></li> <li><span>message&#95;id</span> – <span>2554f63f1e5d6ac862fa2b6883edb5b1</span></li> </ul>
+
+<h2 id="Responseapplicationxml">Response application/xml</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Parameters</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The status is either: <br /><span>blocked</span> – Message blocked by rule <br /><span>sent</span> – Message queued on network <br /><span>error</span> – An error occurred. For more information, see <a href="/api/sms/smsapi-troubleshooting">Troubleshooting errors: SMS API</a>. <br /><span>queued</span> – Not delivered yet, message awaiting routing <br /><span>delivered</span> – Successful delivery </td> </tr> <tr> <td>message&#95;id</td> <td>The returned message identifier, for tracking responses.</td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<p>&lt;statusResponse&gt;</p>
+
+<p>&lt;status&gt;delivered&lt;/status&gt;</p>
+
+<p>&lt;description&gt;Message delivered&lt;/description&gt;</p>
+
+<p>&lt;/statusResponse&gt;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sms/smsapi-intro">SMS API introduction</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8297-SMS-API-Developer-Guide.pdf" target="_blank">8297 SMS API Developer Guide (PDF)</a> </li> </ul> </div>

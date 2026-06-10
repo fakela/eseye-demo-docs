@@ -1,0 +1,80 @@
+---
+title: "Understanding pooling"
+description: "If you have allocated bundles with your SIMs, you can request to accumulate them into a pool, where a set amount of service usage is shared across multiple SIMs. For example, 5 SIMs that are each on a 10 SMS bundle ca..."
+---
+
+<Note>You must request pooling for your service contract. </Note>
+
+<p>If you have allocated bundles with your SIMs, you can request to accumulate them into a pool, where a set amount of service usage is shared across multiple SIMs. For example, 5 SIMs that are each on a 10 SMS bundle can be pooled to share the 50 SMS total between them. This means that if 1 SIM uses 5 SMSs, and another uses 15 SMSs, no overage is charged between them as they have pooled resources. If the 5 SIMs use more than the 50 SMSs allocated in the pool, you are charged for the overage (usage in excess of the pooled allowance). The overage is charged according to the <span>OutOfBundle</span> tariff listed on your contract. </p>
+
+<Note>A pooled usage line is only listed at the bottom of an invoice when there is an overage. </Note>
+
+<p>Pooling only applies when it is set up for specific services on your service contract. For example, it might apply to data but not SMS messages.</p>
+
+<p>On your CSV invoice, the pool type is identified using the <span>ItemRef</span>, <span>PackageID</span> and <span>PackageItemID</span>.</p>
+
+<p>If a SIM is pooled, its usage is recorded against the individual SIM, but any associated costs are calculated against the pooled allowance.</p>
+
+<p>If a pooled usage line appears on the CSV invoice, the following columns show the pooled usage: </p>
+
+<ul> <li> <span>Quantity</span> – pooled allowance overage </li> <li><span>Amount</span> – the overage cost</li> <li><span>BundleQuantity</span> – total pooled allowance</li> <li> <span>InBundleQuantity</span> – usage amount within the pooled allowance</li> </ul>
+
+<Note>Late billed usage will not cause a recalculation of pooled data.</Note>
+
+<h4>Using no pooling vs pooling scenario</h4>
+
+<h6>Without pooling:</h6>
+
+<p>Each SIM has an individual data plan.</p>
+
+<p>Plan: 10 GB per month per SIM.</p>
+
+<p>Amount (overage cost): &#36;10 per GB over the limit.</p>
+
+<h6>With pooling:</h6>
+
+<p>Multiple SIMs share a combined data pool.</p>
+
+<p>Combined data pool: Total data allocated to all SIMs.</p>
+
+<Tip>Overage costs are calculated only if the entire pool exceeds the combined data limit.</Tip>
+
+<h4>Example </h4>
+
+<ul> <li>SIM A: Uses 8 GB.</li> <li>SIM B: Uses 15 GB.</li> <li>SIM C: Uses 6 GB.</li> <li>SIM D: Uses 12 GB.</li> </ul>
+
+<p>Total data available (Without pooling): 10 GB per SIM x 4 SIMs = 40 GB.</p>
+
+<p>Overage cost: &#36;10 per GB.</p>
+
+<h6>Without pooling:</h6>
+
+<p>Each SIM has its own 10 GB limit.</p>
+
+<ul> <li>SIM A:<ul><li>Usage: 8 GB</li><li>No overage</li></ul></li> </ul>
+
+<ul> <li>SIM B:<ul><li>Usage: 15 GB</li><li>Over 10 GB limit by 5 GB</li><li>Overage cost: 5 GB x &#36;10 = &#36;50</li></ul></li> </ul>
+
+<ul> <li>SIM C:<ul><li>Usage: 6 GB</li><li>No overage cost</li></ul></li> </ul>
+
+<ul> <li>SIM D:<ul><li>Usage: 12 GB</li><li>Over 10 GB limit by 2 GB</li><li>Overage cost: 2 GB x &#36;10 = &#36;20</li></ul></li> </ul>
+
+<p>Total overage cost without pooling = &#36;50 (SIM B) + &#36;20 (SIM D) = &#36;70.</p>
+
+<h6>With pooling:</h6>
+
+<p>Total pooled data available = 40 GB.</p>
+
+<p>Total usage: 8 GB (A) + 15 GB (B) + 6 GB (C) + 12 GB (D) = 41 GB</p>
+
+<p>Total data exceeding pool: 41 GB - 40 GB = 1 GB</p>
+
+<p>Overage: 1 GB x &#36;10 = &#36;10</p>
+
+<p>Total overage cost with pooling = &#36;10.</p>
+
+<h4>Summary</h4>
+
+<ul> <li>Without Pooling: Overage cost: &#36;70</li> <li>With Pooling: Overage cost: &#36;10</li> </ul>
+
+<p>Without pooling, the customer incurs an extra cost of &#36;70 - &#36;10 = &#36;60.</p>

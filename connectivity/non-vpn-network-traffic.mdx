@@ -1,0 +1,18 @@
+---
+title: "Routing non-VPN network traffic"
+description: "Some customers may choose to route only some, or no network traffic through VPN tunnels. For example, they may not require a VPN, or may have some data for transferring to destinations other than their central system,..."
+---
+
+<p>Some customers may choose to route only some, or no network traffic through <a href="/glossary/vpn">VPN</a> tunnels. For example, they may not require a VPN, or may have some data for transferring to destinations other than their central system, such as partner systems. </p>
+
+<p>The AnyNet solution provides two options for routing non-VPN traffic:</p>
+
+<ul> <li> If full internet access is allowed, the traffic is permitted to egress onto the internet for onward routing to its destination, with no restrictions. </li> <li> With restricted internet access, the traffic is checked against a customer-supplied Access Control List (ACL) and discarded unless the destination matches one of the destinations in the list.  </li> </ul>
+
+<h2 id="AbouttheAnyNetACLservice">About the AnyNet ACL service</h2>
+
+<p>Access Control List (ACL) rules are configured on the Eseye PoP and customer firewalls to control non-VPN traffic from devices:</p>
+
+<ul> <li> Rules on Eseye PoP firewalls determine whether incoming non-VPN traffic from devices is allowed to egress onto the internet <span><strong>Note: </strong>If you want to use ACL rules for this, Eseye must configure secure subnets for your devices. You must supply the configuration information for the rules, using the <a href="https://docs.eseye.com/Content/Resources/Files/8663-AnyNet-Security-Options-Order-Form.xlsx">AnyNet Subnet and Security Options Order Form (XLS, download)</a>. </span> <span><strong>Tip: </strong>Contact your Account Manager if you want to configure ACL rules at the Eseye PoPs.</span> </li> <li> Rules on customer firewalls permit non-VPN traffic received from an Eseye PoP to route to its destination <span><strong>Note: </strong>If you want to use ACL rules for this, you must add the Eseye PoP public IP addresses or address ranges to your rules to ensure that device traffic can route to its destination. For more information, see <a href="/connectivity/anynet-public-ip-address-ranges">Egress IP addresses</a>.</span> <span><strong>Note: </strong>If your devices have static (fixed) <a href="/connectivity/ip-addresses" target="_blank">IP addresses</a>, you must also add these addresses to your ACL rules.</span> </li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro" target="_blank">Eseye connectivity overview</a> </li> <li><a href="/connectivity/ip-addresses" target="_blank">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> <li><a href="/connectivity/anynet-vpns" target="_blank">Understanding VPNs</a> </li> <li><a href="/connectivity/manage-monitor-overview">SIM management and monitoring</a> </li> </ul> </div>

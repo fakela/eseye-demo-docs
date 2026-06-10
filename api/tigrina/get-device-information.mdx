@@ -1,0 +1,83 @@
+---
+title: "GET /Japi/Diam/getDeviceInformation"
+description: "Retrieves device information relating to a specific Hera 604 router."
+openapi: "/api-specs/legacy/tigrina.json GET /Japi/Diam/getDeviceInformation"
+---
+
+<p>Retrieves device information relating to a specific Hera 604 router.</p>
+
+<h2 id="Requestkey">Request key</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Description </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> The router electronic serial number </td> </tr> </tbody> </table>
+
+<h3>Request example</h3>
+
+<p>&#123;</p>
+
+<p>“ESN”: “12345678901234567890”</p>
+
+<p>&#125;</p>
+
+<h2 id="Responsekeys">Response keys</h2>
+
+<p>Parameters are always named in a response, but can have a <span>null</span>, <span>""</span>, or <span>[ ]</span> value to indicate they are not provided.</p>
+
+<h3>Status object</h3>
+
+<p>API standard status object.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> status </td> <td> String </td> <td> Between 0 and 36 characters in length. <br /><span>"OK"</span> – the request processed successfully <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td> errorCode </td> <td> String </td> <td> 5 characters in length, in the following format: <br />E&lt;4 digit numeric code&gt; <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeNumber"</span> – the request failed because of this specific error. <span><strong>Note: </strong>For information about errors, see <a href="/api/tigrina/troubleshooting">Troubleshooting errors: Tigrina API</a>.</span> </td> </tr> <tr> <td> errorMessage </td> <td> String </td> <td> Between 0 and 255 characters in length. <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeMessage"</span> – displays an explanation of the error if the request failed </td> </tr> </tbody> </table>
+
+<h3>Router object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> Hera 604 router serial number </td> </tr> <tr> <td> ICCID </td> <td> 19 digit numeric </td> <td> SIM serial number  </td> </tr> <tr> <td> PowerStatus </td> <td> PowerStatus object </td> <td> PowerStatus information. For details, see below. </td> </tr> <tr> <td> SiteName </td> <td> 128 char string </td> <td>  User configured. Friendly name of the site where the Hera 604 exists. </td> </tr> <tr> <td> SiteLocation </td> <td> 128 char string </td> <td> User configured. Site address where the Hera 604 exists. </td> </tr> <tr> <td> firmware-version </td> <td> 128 char string </td> <td> Hera 604 router firmware version </td> </tr> <tr> <td> configuration </td> <td> 128 char string </td> <td> Hera 604 router configuration version </td> </tr> </tbody> </table>
+
+<h3>Power status object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> uptime </td> <td> 32 bit unsigned integer, Min = 0 </td> <td> Amount of time (in seconds) that the Hera 604 is successfully in operation. A power cut or reboot will reset this parameter. </td> </tr> <tr> <td> connecteddevicestatus </td> <td> varchar(64) </td> <td> Device Status (TBD) </td> </tr> <tr> <td> powerup </td> <td> DateTime </td> <td> Last Power Up (TBD) </td> </tr> <tr> <td> powerdown </td> <td> DateTime </td> <td> Last Power Down (TBD) </td> </tr> </tbody> </table>
+
+<h3>Response example</h3>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "",</p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;</p>
+
+<p>"Router": &#123;</p>
+
+<p>"ESN": "12345678901234567890",</p>
+
+<p>"ICCID": "8944538523001234567",</p>
+
+<p>"PowerStatus": &#123;</p>
+
+<p>"uptime": "12345",</p>
+
+<p>"connecteddevicestatus": "TBD",</p>
+
+<p>"powerup": "TBD",</p>
+
+<p>"powerdown": "TBD"</p>
+
+<p>&#125;,</p>
+
+<p>"SiteName": "Office1",</p>
+
+<p>"SiteLocation": "Street2",</p>
+
+<p>"firmware-version": "Hera600;1.1.4GA",</p>
+
+<p>"configuration": "1043-4"</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API Introduction</a> </li> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

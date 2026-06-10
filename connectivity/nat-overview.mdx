@@ -1,0 +1,22 @@
+---
+title: "About Network Address Translation (NAT)"
+description: "Eseye uses Network Address Translation (NAT) to map the many private IP addresses within a secure subnet to a single public IP address and port number for communication across the internet, whether through a VPN or di..."
+---
+
+<p>Eseye uses Network Address Translation (NAT) to map the many private IP addresses within a <a href="/connectivity/about-secure-subnets" target="_blank">secure subnet</a> to a single public IP address and port number for communication across the internet, whether through a VPN or direct access to the internet. </p>
+
+<p>APN routers at each Eseye PoP manage how data is transferred from a device, as well as ensure that any responses to that data find their way back to the correct device. Any data that is not part of a session created from a customer device is dropped, ensuring that unsolicited data cannot route directly to the devices.</p>
+
+<Note>Devices whose IP addresses are processed using NAT must initiate communication so that the APN routers can set up the reverse route. </Note>
+
+<h2 id="AdvantagesofusingNAT">Advantages of using NAT</h2>
+
+<p>We use NAT for several reasons:</p>
+
+<ul> <li><span>Increased security:</span> Private IP addresses ensure that customer devices remain unrouteable from the internet, thereby preventing unauthorised access to those devices. This means that at all times, each device must initiate communication with other systems and users, which is in keeping with IoT best practices. For more information, see <a href="/connectivity/device-configuration#Understa">Configuring devices to initiate communication</a>.</li> <li> <span>Cost and scalability:</span> IPv4 address exhaustion means that obtaining public IP addresses in large numbers is expensive, difficult, and restricts scalability. Using NAT ensures that the number of devices within a customer subnet can easily grow, and the cost is minimal.  <br />For more information, see <a href="https://en.wikipedia.org/wiki/IPv4_address_exhaustion" target="_blank">IPv4 address exhaustion</a>. </li> <li><span>Flexibility and resilience:</span> Using NAT ensures that a device can connect on any available mobile network. It also ensures continued connectivity in the event of an Eseye PoP outage. For more information, see <a href="/connectivity/understanding-pops" target="_blank">About Eseye PoPs</a>.</li> </ul>
+
+<h2 id="AlternativetoNATforegressontotheinternet">Alternative to NAT for egress onto the internet</h2>
+
+<p>If a device must use a static public IP address, it is restricted to a single network that connects to a single PoP. It cannot benefit from Eseye’s network switching to ensure high levels of connectivity. A static public IP address also means that the device cannot benefit from PoP failover in the event of an outage. For more information, see <a href="/connectivity/ip-addresses#Assignin" target="_blank">Assigning static public IP addresses to devices</a>.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro" target="_blank">Eseye connectivity overview</a> </li> <li><a href="/connectivity/ip-addresses" target="_blank">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> <li><a href="/connectivity/anynet-vpns" target="_blank">Understanding VPNs</a> </li> <li><a href="/connectivity/non-vpn-network-traffic" target="_blank">Routing non-VPN network traffic</a> </li> <li><a href="/connectivity/manage-monitor-overview">SIM management and monitoring</a> </li> </ul> </div>

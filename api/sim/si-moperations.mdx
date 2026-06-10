@@ -1,0 +1,386 @@
+---
+title: "About SIM endpoints"
+description: "The SIM API enables you to:"
+---
+
+<p>The SIM API enables you to: </p>
+
+<ul> <li>View details for <a href="#Viewing2">single</a> or <a href="#Viewing">multiple</a> SIMs</li> <li><a href="#Creating">Create</a> and <a href="#Updating">update</a> SIMs</li> </ul>
+
+<p>You can also:</p>
+
+<ul> <li>Create, update, delete and view <a href="/api/sim/icc-attribute-operations#Viewing" target="_blank">SIM attributes</a>.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<Note>For more information, see <a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a>.</Note>
+
+<h2 id="Headers">Headers</h2>
+
+<Note>For information about headers, see <a href="/api/sim/headers" target="_blank">Configuring SIM API headers</a>.</Note>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download and extract the following resource to test the SIM API:</p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetSIMAPI.postman_collection_environment.zip" target="_blank" rel="noopener">AnyNetSIMAPI.postman&#95;collection&#95;environment.zip</a> </p>
+
+<Note>For more information, see <a href="/api/sim/simapi-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</Note>
+
+<h2 id="ViewingallSIMs">Viewing all SIMs</h2>
+
+<p>To view all SIMs:</p>
+
+<ul> <li> Call <span>GET /api/v2/sim/</span> <span><strong>Tip: </strong>You can apply filters in the request path to limit the results, using one or more parameters. The API returns exactly matching records only. Alternatively, remove all filters from the path to return all records. For example, adding <span><span>?status=active</span></span> to the end of the path will return <span>active</span> objects only.</span> <br />The API returns all the SIMs. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://sim.api.anynetiot.com/api/v2/sim/</span> </p>
+
+<p>or</p>
+
+<p><span>GET https://sim.api.anynetiot.com/api/v2/sim?status=active</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Schema</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><span>pageToken</span> </td> <td> <div> <div> string </div> <div> minLength: 1 </div> </div> <br />The start record for the page. </td> <td>0</td> </tr> <tr> <td><span>requestedPageSize</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The maximum number of records requested per page. </td> <td>50</td> </tr> <tr> <td><span>nextPageToken</span> </td> <td>This only appears if the number of records exceeds the requestedPageSize. For more information, see<a href="/api/portfolio/portfolio-api-reference#nextPage" target="_blank">Handling the nextPageToken tag</a>.</td> <td>ApBHMkC8flM6kpi6wpm6tYuwZkCpirBY</td> </tr> <tr> <td><span>itemCount</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The number of records returned. </td> <td>2</td> </tr> <tr> <td><span>items</span> </td> <td> The <span>items</span> array. <br />Each returned <span>ICC</span> includes:  <br /><span>iccId</span>; <span>simId</span>; <span>iccMnoId</span>; <span>iccSpecId</span>; <span>iccTypeId</span>; <span>adminSuspend</span>; <span>systemSuspend</span>; <span>customerSuspend</span>; <span>eId</span>; <span>status</span>; <span>activatedDate</span>; <span>portfolioPackage</span> <span><strong>Note: </strong>For more information, see <a href="/api/sim/simapi-reference#SIM" target="_blank">SIM definition</a>.</span> <br />If a SIM contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes: <br /><span>iccAttributeId</span>; <span>iccId</span>; <span>attribute</span>; <span>value</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/sim/simapi-reference#SIM2" target="_blank">SIM attribute definition</a>.</span> </td> <td> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"pageToken": "0",</p>
+
+<p>"nextPageToken": "50",</p>
+
+<p>"requestedPageSize": 50,</p>
+
+<p>"itemCount": 50,</p>
+
+<p>"items": [</p>
+
+<p>&#123;</p>
+
+<p>"iccId": "8953449647428546",</p>
+
+<p>"simId": "8953449647428546",</p>
+
+<p>"iccMnoId": "9953",</p>
+
+<p>"iccSpecId": 2539,</p>
+
+<p>"iccTypeId": 47,</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"systemSuspend": "no",</p>
+
+<p>"customerSuspend": "yes",</p>
+
+<p>"eId": 89011223344556677889900112233445,</p>
+
+<p>"status": "active",</p>
+
+<p>"activatedDate": "2024-04-11T11:22:37Z",</p>
+
+<p>"portfolioPackage": &#123;</p>
+
+<p>"packageId": 8750,</p>
+
+<p>"portfolioId": "0",</p>
+
+<p>"contractStartDate": null,</p>
+
+<p>"contractEndDate": null</p>
+
+<p>&#125;</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"simId": "8953448576492474",</p>
+
+<p>"iccMnoId": "9953",</p>
+
+<p>"iccSpecId": 3196,</p>
+
+<p>"iccTypeId": 47,</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"systemSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"eId": null,</p>
+
+<p>"status": "available",</p>
+
+<p>"activatedDate": "2020-07-22T10:35:09Z",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506792,</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"attribute": "orderId",</p>
+
+<p>"value": "5791",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"attribute": "orderItemId",</p>
+
+<p>"value": "1",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>"portfolioPackage": &#123;</p>
+
+<p>"packageId": 6685,</p>
+
+<p>"portfolioId": "bda77e837fa3b2a8cf9fd0923346dc88",</p>
+
+<p>"contractStartDate": "2024-07-22T10:35:09Z",</p>
+
+<p>"contractEndDate": "2027-08-22T10:35:09Z"</p>
+
+<p>&#125;</p>
+
+<p>&#125;,</p>
+
+<p>...</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="ViewingaspecificSIM">Viewing a specific SIM</h2>
+
+<p>To view details for a specific SIM:</p>
+
+<ul> <li> Call <span>GET /api/v2/&#123;<var>iccId</var>&#125;</span>, where &#123;<var>iccId</var>&#125; identifies which SIM you want to view. <br /><span>Path parameters:</span> <span>iccId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the specified SIM details. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://sim.api.anynetiot.com/api/v2/sim/8953448576492474</span> </p>
+
+<h3>Response schema application/json:</h3>
+
+<p><span>iccId</span>; <span>simId</span>; <span>iccMnoId</span>; <span>iccSpecId</span>; <span>iccTypeId</span>; <span>adminSuspend</span>; <span>systemSuspend</span>; <span>customerSuspend</span>; <span>eId</span>; <span>status</span>; <span>activatedDate</span>; <span>portfolioPackage</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#SIM" target="_blank">SIM definition</a>.</Note>
+
+<p>Each SIM has a <span>portfolioPackage</span> array, which includes: </p>
+
+<p><span>packageId</span>; <span>portfolioId</span>; <span>contractStartDate</span>; <span>contractEndDate</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#PackageP" target="_blank">SIM API reference tables</a>.</Note>
+
+<p>If a SIM contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>iccAttributeId</span>; <span>iccId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#SIM2" target="_blank">SIM attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"simId": "8953448576492474",</p>
+
+<p>"iccMnoId": "9953",</p>
+
+<p>"iccSpecId": 3196,</p>
+
+<p>"iccTypeId": 47,</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"systemSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"eId": null,</p>
+
+<p>"status": "available",</p>
+
+<p>"activatedDate": "2020-07-22T10:35:09Z",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506792,</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"attribute": "orderId",</p>
+
+<p>"value": "5791",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"attribute": "orderItemId",</p>
+
+<p>"value": "1",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>"portfolioPackage": &#123;</p>
+
+<p>"packageId": 6685,</p>
+
+<p>"portfolioId": "bda77e837fa3b2a8cf9fd0923346dc88",</p>
+
+<p>"contractStartDate": "2024-07-22T10:35:09Z",</p>
+
+<p>"contractEndDate": "2027-08-22T10:35:09Z"</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<h2 id="UpdatingaspecificSIM">Updating a specific SIM</h2>
+
+<p>To update a specific SIM:</p>
+
+<ul> <li> Call <span>PATCH /api/v2/sim/&#123;<var>iccId</var>&#125;</span>, where &#123;<var>iccId</var>&#125; identifies which SIM you want to update. <br /><span>Path parameters:</span> <span>iccId</span><b>&#42;</b> <br /><span>Body:</span> <span>iccMnoId</span>; <span>iccSpecId</span>; <span>iccTypeId</span>; <span>adminSuspend</span>; <span>systemSuspend</span>; <span>customerSuspend</span>; <span>eId</span>; <span>status</span> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />Do not use <span>null</span> or <span>""</span> (empty) for mandatory parameters. <br />If required, you can update more than one optional parameter. <br />If you are updating the following: <span>iccMnoId</span>, <span>iccSpecId</span>, <span>iccSpecId</span>, then that value must already exist in the system. </span> <br />The API updates the specified SIM parameters with the new details. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://sim.api.anynetiot.com/api/v2/sim/8953448576492474</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>iccId</span>; <span>simId</span>; <span>iccMnoId</span>; <span>iccSpecId</span>; <span>iccTypeId</span>; <span>adminSuspend</span>; <span>systemSuspend</span>; <span>customerSuspend</span>; <span>eId</span>; <span>status</span>; <span>activatedDate</span>; <span>portfolioPackage</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#SIM" target="_blank">SIM definition</a>.</Note>
+
+<p>Each SIM has a <span>portfolioPackage</span> array, which includes: </p>
+
+<p><span>packageId</span>; <span>portfolioId</span>; <span>contractStartDate</span>; <span>contractEndDate</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#PackageP" target="_blank">SIM API reference tables</a>.</Note>
+
+<p>If a SIM contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>iccAttributeId</span>; <span>iccId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#SIM2" target="_blank">SIM attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"simId": "8953448576492474",</p>
+
+<p>"iccMnoId": "9953",</p>
+
+<p>"iccSpecId": 3196,</p>
+
+<p>"iccTypeId": 47,</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"systemSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"eId": null,</p>
+
+<p>"status": "active",</p>
+
+<p>"activatedDate": "2020-07-22T10:35:09Z",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506792,</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"attribute": "orderId",</p>
+
+<p>"value": "5791",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"attribute": "orderItemId",</p>
+
+<p>"value": "1",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>"portfolioPackage": &#123;</p>
+
+<p>"packageId": 6685,</p>
+
+<p>"portfolioId": "bda77e837fa3b2a8cf9fd0923346dc88",</p>
+
+<p>"contractStartDate": "2024-07-22T10:35:09Z",</p>
+
+<p>"contractEndDate": "2027-08-22T10:35:09Z"</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a> </li> <li><a href="/api/sim/simapi-how-tos">SIM API How To guide</a> </li> <li><a href="/api/sim/icc-attribute-operations" target="_blank">About SIM attribute endpoints</a> </li> <li><a href="/api/sim/portfolio-package-operations">About iccPortfolioPackage endpoints</a> </li> <li><a href="/api/sim/billing-snapshot-operations">About the billing snapshot endpoint</a> </li> <li><a href="/api/sim/network-snapshot-operations">About the network snapshot endpoint</a> </li> <li><a href="/api/sim/simapi-reference" target="_blank">SIM API reference tables</a> </li> <li><a href="/api/sim/simapi-reference#Error" target="_blank">SIM API errors</a> </li> </ul> </div>

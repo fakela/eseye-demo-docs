@@ -1,0 +1,28 @@
+---
+title: "About AnyNet Secure SIM files"
+description: "Read AnyNet Secure SIM files using AT+CRSM. For more information, see AT+CRSM – reading files from the SIM."
+---
+
+<p>Read AnyNet Secure SIM files using <span>AT+CRSM</span>. For more information, see <a href="/sim-only/at-commands/sim-only-crsm">AT+CRSM – reading files from the SIM</a>.</p>
+
+<h2 id="Fileformat">File format</h2>
+
+<p>All files follow the same basic format:</p>
+
+<p><span>&lt;length&gt;&lt;checksum&gt;&lt;package&gt;</span> </p>
+
+<p>where:</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Variable</th> <th>Parameter</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>length</span> </td> <td> 2-byte unsigned 16-bit integer</td> <td><span>package</span> byte length, part of the file header</td> </tr> <tr> <td><span>checksum</span> </td> <td>4-byte unsigned 32-bit integer, stored by most significant byte first</td> <td><span>package</span> CRC-32 checksum, part of the file header</td> </tr> <tr> <td><span>package</span> </td> <td>Binary data</td> <td>The data field. Encryption keys and certificates may require some post-processing. For information about file location and post-processing requirements, see <a href="#Availabl">Available files and sizes</a>.</td> </tr> </tbody> </table>
+
+<h2 id="Availablefilesandsizes">Available files and sizes</h2>
+
+<p>Eseye delivers the following files to your AnyNet Secure SIM. <span>File Max Size</span> indicates the maximum amount of data available. The file header describes the length of the actual data.</p>
+
+<p><span>Usable Bytes</span> refers to the number of bytes available after the header is accounted for. For more information, see <a href="/sim-only/sim-only-basic-read-process#Reading">Reading the file header</a>.</p>
+
+<table> <col /> <col /> <col /> <col /> <col /> <thead> <tr> <th>File Name</th> <th>File ID (decimal)</th> <th>File ID (hexadecimal)</th> <th>File Max Size (bytes)</th> <th>Usable bytes</th> </tr> </thead> <tbody> <tr> <td><span>Thing Name</span> </td> <td>28640</td> <td>6FE0</td> <td>256</td> <td>250</td> </tr> <tr> <td><span>Root CA</span> </td> <td>28641</td> <td>6FE1</td> <td>2048</td> <td>2042</td> </tr> <tr> <td><span>Public signed certificate</span> </td> <td>28642</td> <td>6FE2</td> <td>2048</td> <td>2042</td> </tr> <tr> <td><span>Private key</span> </td> <td>28643</td> <td>6FE3</td> <td> 2048 (not encrypted) <br />4096 (encrypted) </td> <td> 2042 <br />  <br />4090 </td> </tr> <tr> <td><span>MQTT Endpoint</span> </td> <td>28644</td> <td>6FE4</td> <td>256</td> <td>250</td> </tr> </tbody> </table>
+
+<Tip>The default path ID for the available files is: <span>"3F007FEE"</span>. For more information, see <a href="/sim-only/at-commands/sim-only-crsm">AT+CRSM – reading files from the SIM</a>.</Tip>
+
+<Tip>For information about the basic data read process for each of the listed files, see <a href="/sim-only/sim-only-basic-read-process">Basic data read process</a>.</Tip>

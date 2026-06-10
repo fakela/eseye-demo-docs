@@ -1,0 +1,24 @@
+---
+title: "About AnyNet Secure SIM device integration"
+description: "The AnyNet SIM provides simple, easy integration and secure cellular connection between your thing and your chosen cloud provider, from anywhere in the world. This enables you to remotely extract data from your thing..."
+---
+
+<p>The AnyNet SIM provides simple, easy integration and secure cellular connection between your thing and your chosen cloud provider, from anywhere in the world. This enables you to remotely extract data from your thing for a variety of industrial and commercial applications, such as metering, monitoring, transportation, security, and so on.</p>
+
+<div> <h3>Before you begin</h3> <ul> <li> Sign up for an Amazon Web Services (AWS) account, or log into an existing account: <a href="https://aws.amazon.com/" target="_blank">https://aws.amazon.com</a> <br />For instructions, see: <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank">https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/</a> </li> <li>Create a thing in AWS IoT Core, using an AnyNet Secure SIM number as an identifier. For more information, see <a href="/sim-only/anynet-thing-type">Creating a thing with AnyNetThingType</a>.</li> <li>Ensure that the AnyNet Secure SIM with the matching number is correctly installed in your IoT device. </li> <li>Power on the modem. </li> <li>Ensure the modem can acquire a network signal. To do this, ensure you have a GPS antenna connected to the device, and the network signal strength is good.</li> </ul> </div>
+
+<h2 id="ConnectingsecurelytoAWS">Connecting securely to AWS</h2>
+
+<p>AWS provisions the AnyNet Secure SIM over a cellular network. During provisioning, the AnyNet Secure service transfers the following identity and security information to your AnyNet Secure SIM:</p>
+
+<ul> <li> The unique AWS thing name </li> <li>The Amazon Resource Name (ARN) that defines which AWS endpoint supports the thing</li> <li>A set of X.509 certificates</li> <li>An encrypted private key – AWS and the modem use key pairs for signing data</li> </ul>
+
+<p>You must extract this information into the modem to enable the secure data connection from your device to the AWS IoT Core platform.</p>
+
+<p>For information about monitoring provisioning progress, see <a href="/sim-only/sim-only-provisioning">Provisioning the AnyNet Secure SIM</a>.</p>
+
+<p>For information about which files to extract from the AnyNet Secure SIM, see <a href="/sim-only/sim-only-reading-files">About AnyNet Secure SIM files</a>.</p>
+
+<p>For information about how to extract the files, see <a href="/sim-only/at-commands/sim-only-crsm">AT+CRSM – reading files from the SIM</a>.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/sim-only/sim-only-enabling-sim-toolkit">Enabling SIM Toolkit</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8424-AnyNet-Secure-SIM-Device-Integration-Developer-Guide.pdf">AnyNet Secure SIM Device Integration Developer Guide (PDF)</a> </li> </ul> </div>

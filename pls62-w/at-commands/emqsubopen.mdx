@@ -1,0 +1,48 @@
+---
+title: "EMQSUBOPEN – create a subscribe message topic"
+description: "Create and view subscribe message topics, which will enable you to send data from AWS to your thing."
+---
+
+<h2>EMQSUBOPEN – create a subscribe message topic</h2>
+
+<p>Create and view subscribe message topics, which will enable you to send data from AWS to your thing. </p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQSUBOPEN=? </td> <td> OK <br />  <br />+EMQSUBOPEN:(0-7),&lt;topic&gt; <br />+EMQSUBOPEN: "topiclist" </td> </tr> <tr> <td>Read</td> <td> AT+EMQSUBOPEN? </td> <td> List of subscribe topics. <br />OK <br />  <br />+EMQSUBOPEN topics: <br />0 &lt;subscribetopic0&gt;/&lt;AWS thingName&gt; <br />1 &lt;subscribetopic1&gt;/&lt;AWS thingName&gt; <br />2 null <br />3 null <br />4 null <br />5 null <br />6 null <br />7 null <br />where:  <ul> <li>0, 1, and so on are the index numbers</li> <li><span>&lt;subscribetopic<i>n</i>&gt;</span> is the unique name for each subscribe index</li> <li> <span>&lt;AWS thingName&gt;</span> is the unique name for the thing that you defined in AWS. For more information, see <a href="/sim-only/sim-only-reading-files">Available files and sizes</a>. <span><strong>Note: </strong>The AWS thingName has a maximum length of 128 characters. The sum of <span>&lt;publishtopic<var>n</var>&gt;</span> and <span>&lt;AWS thingName&gt;</span> must not exceed 255 characters. Escaped characters count as 1 character each. </span> </li> <li><span>null</span> is an empty publish topic</li> </ul> </td> </tr> <tr> <td>Write</td> <td> AT+EMQSUBOPEN=(<var>0-7</var>), &lt;<var>topic</var>&gt;  <br />where:  <ul> <li><span>(<var>0-7</var>)</span> is a subscribe index number in the range from 0, up to and including 7.</li> <li><span>&lt;<var>topic</var>&gt;</span> is the subscribe topic title with a maximum length of 255 characters (including /AWS thingName or /IMEI). Topic titles cannot contain special characters.</li> </ul> </td> <td> OK <br />+EMQSUBOPEN: (0-7),&lt;status&gt; <br />where  <ul> <li><span>(0-7)</span> is the subscribe index number you selected from the range</li> <li><span>&lt;status&gt;</span> is:<ul><li><span>0</span> – successfully installed the subscribe topic</li><li><span>-1</span> – AWS rejected the subscribe request</li><li><span>-2</span> – socket already in use</li></ul></li> </ul> <br />or <br /><span>ERROR</span> – the command failed </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQSUBOPEN=1,SubscribeFromCloud1</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQSUBOPEN: 1,0</p>
+
+<p> </p>
+
+<p>AT+EMQSUBOPEN?</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQSUBOPEN topics:</p>
+
+<p>0 SubscribeFromCloud0/AWS thingName</p>
+
+<p>1 SubscribeFromCloud1/AWS thingName</p>
+
+<p>2 null</p>
+
+<p>3 null</p>
+
+<p>4 null</p>
+
+<p>5 null</p>
+
+<p>6 null</p>
+
+<p>7 null</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/pls62-w/introduction">About the Eseye-enabled Cinterion® PLS62‑W Wireless Module</a> </li> <li><a href="/pls62-w/at-commands/at-commands">General AT Commands for the Cinterion® PLS62‑W Wireless Module </a> </li> <li><a href="/pls62-w/at-commands/mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> <li><a href="/pls62-w/at-commands/emq-urcs">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/pls62-w/at-commands/etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8589-Eseye-enabled-Cinterion®-PLS62‑W-Wireless-Module-Developer-Guide.pdf" target="_blank">8589 Eseye-enabled Cinterion® PLS62‑W Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

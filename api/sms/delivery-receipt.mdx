@@ -1,0 +1,24 @@
+---
+title: "Delivery receipts for MT and MO SMS messages"
+description: "If required, SMS API can automatically send delivery receipts (DR) to your server in response to both MT SMS and MO SMS messages. The original MT SMS and MO SMS messages must include a valid <receiptUrl> before the SM..."
+---
+
+<p>If required, SMS API can automatically send delivery receipts (DR) to your server in response to both MT SMS and MO SMS messages. The original MT SMS and MO SMS messages must include a valid <span>&lt;receiptUrl&gt;</span> before the SMS API can post a DR.</p>
+
+<p>The following conditions apply:</p>
+
+<ul> <li>If required, MO SMS is enabled on the customer's SMS API configuration</li> <li>The source device MSISDN is included on the SMS Allowlist</li> <li>If an optional IP address Allowlist exists, the source device is included</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>None</li> </ul>
+
+<h2 id="Responsetexthtml">Response text/html</h2>
+
+<table> <col /> <col /> <thead> <tr> <th>Parameters</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>messageid</td> <td> A user-generated unique message identifier for tracking the original message </td> </tr> <tr> <td>referenceid</td> <td>Eseye internally generated reference</td> </tr> <tr> <td>statuscode</td> <td>Delivery status code</td> </tr> <tr> <td>status</td> <td> Either: <ul> <li><span>delivered</span> – The original message was delivered successfully</li> <li><span>failed</span> – No delivery confirmation was received</li> </ul> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<p><span>http://ota.yourcompany.net/callback.php?messageid=9946e3025608c7106944658dfb1318a8&amp;referenceid=3fd515e674835bb233538f9d218a31d9&amp;statuscode=delivered&amp;status=delivered</span> </p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sms/smsapi-intro">SMS API introduction</a> </li> <li><a href="/api/sms/mtsms">Sending mobile terminated SMS messages</a> </li> <li><a href="/api/sms/mosms">Receiving mobile originated SMS messages</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8297-SMS-API-Developer-Guide.pdf" target="_blank">8297 SMS API Developer Guide (PDF)</a> </li> </ul> </div>

@@ -1,0 +1,35 @@
+---
+title: "POST /Japi/Tigrillo/getCookieName"
+description: "Returns the name of the HTTP cookie needed for sessions to continue without the need to log in each time. A cookie is valid for 4 hours after it is generated."
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/getCookieName"
+---
+
+<p>Returns the name of the HTTP cookie needed for sessions to continue without the need to log in each time. A cookie is valid for 4 hours after it is generated.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> </ul>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<p>None</p>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>PHPSESSID</td> <td>The identification number that is generated on the server side to assign user requests to a session. This session ID is stored locally with the user and transferred in the form of cookies.</td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>"PHPSESSID"</code></pre> </div> </div>
+
+<h3>Viewing the latest cookie</h3>
+
+<p>To view the PHPSESSID value, select <span>Cookies</span>.</p>
+
+<p>The displayed value is the latest cookie, used in the last successful login.</p>
+
+<p>For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

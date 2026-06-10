@@ -1,0 +1,24 @@
+---
+title: "Troubleshooting errors: Location API"
+description: "When an error occurs, an error code and message are generated in the returned result:"
+---
+
+<p>When an error occurs, an error code and message are generated in the returned result:</p>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "Error",</p>
+
+<p>"errorCode": "&lt;ErrorCodeNumber&gt;", </p>
+
+<p>"errorMessage": "&lt;ErrorCodeMessage&gt;"</p>
+
+<p>&#125;,</p>
+
+<p>The following table can help you diagnose the error:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Error Code and Message</th> <th>Reason for error</th> </tr> </thead> <tbody> <tr> <td>0 – Decoding failed: Syntax error</td> <td> The JSON text is structured incorrectly. Ensure the JSON text follows the format described.  <span><strong>Note: </strong>You may receive this error if you copied and pasted text from Microsoft Word. Some MS Word characters are slightly different from ASCII text. To avoid this, either type the text directly into Postman, or configure Microsoft Word to use basic ASCII text.</span> </td> </tr> <tr> <td>1 – The number of cells is 0</td> <td>The mast, power, or ta values are absent or entered incorrectly.</td> </tr> <tr> <td> 601 – Missing parameter ICCID/MSISDN </td> <td> The ICCID or MSISDN is absent or entered incorrectly, or the "s" in the https section of the request URL was not entered. </td> </tr> <tr> <td>602 – Unauthorised Access, Invalid Account, or Invalid Password</td> <td> This may indicate: <ul> <li>The username or password is incorrect.</li> <li>The account does not exist in Infinity Classic. Speak to your Account Manager for more information.</li> <li>The account is not authorised to use the Location API. Speak to your Account Manager for more information.</li> </ul> </td> </tr> <tr> <td> 603 – Parameter &lt;parameter&gt; value missing <br />where &lt;parameter&gt; is the missing parameter </td> <td> The reported parameter field name or value is absent or entered incorrectly.  <br />If the parameter is one of two parameters that you can use in the request, then the error refers to either parameter. For example, for <span>locatecalculate</span>, <span>Parameter cellid value missing</span> may also refer to the <span>ci</span> parameter.  </td> </tr> <tr> <td>605 – No msisdn found</td> <td> The ICCID or MSISDN is absent or entered incorrectly, or the "s" in the https section of the request URL was not entered. </td> </tr> <tr> <td>606 – NoLookupFound</td> <td>The location service cannot find the latitude or longitude for the device.</td> </tr> <tr> <td>611 – invalid</td> <td>The ICCID or MSISDN is entered incorrectly, or not available from this account.</td> </tr> <tr> <td> &lt;!DOCTYPE html&gt; </td> <td> <div> Error message begins as follows: <br />&lt;!DOCTYPE html&gt; <br />... <br />Indicates that one or more of the following sections in the Request URL is incorrect: <ul> <li>location</li> <li> index/&lt;request&gt; <br />where &lt;request&gt; is the request command, for example, <span>locatedevice</span> </li> </ul> </div> </td> </tr> <tr> <td> Could not get any response </td> <td> Error connecting to the server, for any of the following reasons: <ul> <li>You are not connected to the internet.</li> <li> The Request URL is incorrect in one or more of the following sections:  <br />http  <br />://  <br />.eseye.com </li> <li>The server backend is not working properly.</li> <li>SSL connections were blocked: fix this by importing SSL certificates in Chrome.</li> <li>Cookies were not sent: fix this by using the Postman Interceptor extension.</li> <li>Restricted headers were not sent: fix this by using the Postman Interceptor extension.</li> <li>Request timeout: fix this by changing request timeout settings.</li> </ul> </td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="#">Troubleshooting errors: Location API</a> </li> <li><a href="/api/location/using-postman">Location API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8313-Location-API-1.0-Developer-Guide.pdf" target="_blank">8313 Location API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

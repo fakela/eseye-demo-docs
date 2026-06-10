@@ -1,0 +1,14 @@
+---
+title: "+ETM Unsolicited Response Codes (URCs)"
+description: "AnyNet SMARTconnect™ adds the following Eseye URCs to the modem. All ETM URCs are prefixed +ETM:."
+---
+
+<p>AnyNet SMARTconnect™ adds the following Eseye URCs to the modem. All ETM URCs are prefixed <span>+ETM:</span>.</p>
+
+<p>You will continue to observe other URCs from the Cinterion® ELS61 Wireless Module. </p>
+
+<Note>For information about all other URCs, see the relevant Thales documentation. For more information, contact Thales or their channel partner.</Note>
+
+<table> <col /> <col /> <thead> <tr> <th>URC</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> +ETM:EMQRDY </td> <td> ETM has entered MQTT mode and is ready to accept any <span>AT+EMQ...</span> commands. Prior to this, only <span>AT+ETM... </span>commands are accepted. </td> </tr> <tr> <td> +ETM:IDLE </td> <td> The modem has started up and is ready for commands. </td> </tr> <tr> <td> +ETM:REBOOTING </td> <td> The modem will shortly restart. Wait for <span>+ETM:</span><span>IDLE</span> before sending commands. Configure automatic rebooting using <span>update&#95;autoreboot</span> in the configuration file. For more information, see <a href="/els61/els61-configuration-file">Using the Cinterion® ELS61 Wireless Module configuration file</a>. </td> </tr> <tr> <td> +ETMSTATE:&lt;StateID&gt; <br />where <span>&lt;StateID&gt;</span> is the current connectivity state of the Cinterion® ELS61 Wireless Module. </td> <td> Enable this response using the <span>AT+ETMSTATE</span> write command. For more information, see <a href="/els61/at-commands/els61-etmstate">ETMSTATE – check current state</a>. </td> </tr> <tr> <td> +ETM:SYSSTART </td> <td>Indicates that AnyNet SMARTconnect™ application has started.</td> </tr> </tbody> </table>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

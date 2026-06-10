@@ -1,0 +1,24 @@
+---
+title: "Troubleshooting errors: Margay API"
+description: "When an error occurs, an error code and message are generated in the returned result:"
+---
+
+<p>When an error occurs, an error code and message are generated in the returned result:</p>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "ERR",</p>
+
+<p>"errorCode": "ErrorCodeNumber", </p>
+
+<p>"errorMessage": "ErrorCodeMessage"</p>
+
+<p>&#125;,</p>
+
+<p>The following table can help you diagnose the error:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Error Code and Message</th> <th>Reason for error</th> </tr> </thead> <tbody> <tr> <td> E0000 – Unknown username or password </td> <td> The password value is incorrect. </td> </tr> <tr> <td> E0006 – Permission denied </td> <td> Indicates that the user is already logged out. </td> </tr> <tr> <td> E0100 – Unknown username or password </td> <td> The username or password value is incorrect. </td> </tr> <tr> <td> E0101 – Invalid JSON </td> <td> The JSON text is structured incorrectly. Check that the JSON text follows the format described.  <span><strong>Note: </strong>You may receive this error if you copied and pasted text from Microsoft Word. Some MS Word characters are slightly different from ASCII text. To avoid this, either type the text directly into Postman, or configure Microsoft Word to use basic ASCII text.</span> </td> </tr> <tr> <td>E9991 – No recent data available for user</td> <td>No data passed within the time period.</td> </tr> <tr> <td> E9992 – User disabled for configuration  </td> <td> Indicates that the PortfolioID parameter is incorrect. </td> </tr> <tr> <td> E9998 - Other error  </td> <td> Restart the session. If this error appears repeatedly, contact Support: support@eseye.com.  </td> </tr> <tr> <td> Could not get any response </td> <td> Error connecting to the server, for any of the following reasons: <ul> <li>You are not connected to the internet</li> <li> The Request URL is incorrect in one or more of the following sections:  <br />http  <br />://  <br />.eseye.com </li> <li>The server backend is not working properly</li> <li>SSL connections were blocked: Fix this by importing SSL certificates in Chrome</li> <li>Cookies were not sent: Fix this by using the Postman Interceptor extension</li> <li>Restricted headers were not sent: Fix this by using the Postman Interceptor extension</li> <li>Request timeout: Fix this by changing request timeout settings</li> </ul> </td> </tr> <tr> <td> &lt;!DOCTYPE html&gt; </td> <td> Error message begins as follows: <br />&lt;!DOCTYPE html&gt; <br />&lt;!--[if IE 6]&gt; <br />&lt;html id=ie6" land="en-US"&gt; <br />&lt;![endif]--&gt; <br />&lt;!--[if IE 7&#125;&gt; <br />&lt;html id="ie7" lang="en-US"&gt; <br />... <br />Indicates that the Request URL servername (Margay) is incorrect. </td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="#">Troubleshooting errors: Margay API</a> </li> <li><a href="/api/margay/margay-api">Margay API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8732-Margay-API-1.0-Developer-Guide.pdf" target="_blank">8732 Margay API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

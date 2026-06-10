@@ -1,0 +1,434 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Location API",
+    "version": "1.0.0",
+    "description": "Location API reference, generated from the Eseye documentation."
+  },
+  "servers": [
+    {
+      "url": "https://location.eseye.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Location API"
+    }
+  ],
+  "paths": {
+    "/index/kmz": {
+      "post": {
+        "summary": "kmz",
+        "operationId": "post-index-kmz",
+        "tags": [
+          "Location API"
+        ],
+        "description": "Returns a compressed Keyhole Markup Language file detailing the Google Earth location of one or more SIMs. You will need to install Google Earth or Google My Maps in order to import the file and view the mapped locati...",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "request_id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "group": {
+                    "type": "string"
+                  },
+                  "iccid": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "example": {
+                "request_id": "1",
+                "username": "ExampleUsername",
+                "password": "ExamplePassword",
+                "group": "ExampleGroup",
+                "iccid": [
+                  "8944538523000000000",
+                  "8944538523000000001",
+                  "8944538523000000002"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/index/locatecalculate": {
+      "post": {
+        "summary": "locatecalculate",
+        "operationId": "post-index-locatecalculate",
+        "tags": [
+          "Location API"
+        ],
+        "description": "Returns an estimated device location radius, based upon information from three or more cell towers.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "request_id": {
+                    "type": "string"
+                  },
+                  "ICCID": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "mast": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "mcc": {
+                          "type": "string"
+                        },
+                        "mnc": {
+                          "type": "string"
+                        },
+                        "lac": {
+                          "type": "string"
+                        },
+                        "cellid": {
+                          "type": "string"
+                        },
+                        "ta": {
+                          "type": "string"
+                        },
+                        "power": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "example": {
+                "request_id": "1",
+                "ICCID": "8944122650264416971",
+                "username": "ExampleUsername",
+                "password": "ExamplePassword",
+                "mast": [
+                  {
+                    "mcc": "234",
+                    "mnc": "10",
+                    "lac": "13182",
+                    "cellid": "30151",
+                    "ta": "2",
+                    "power": "79"
+                  },
+                  {
+                    "mcc": "234",
+                    "mnc": "15",
+                    "lac": "179",
+                    "cellid": "25009",
+                    "ta": "5",
+                    "power": "93"
+                  },
+                  {
+                    "mcc": "234",
+                    "mnc": "33",
+                    "lac": "638",
+                    "cellid": "1769",
+                    "ta": "2",
+                    "power": "88"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "mast": {
+                      "type": "object",
+                      "properties": {
+                        "lat": {
+                          "type": "number"
+                        },
+                        "lon": {
+                          "type": "number"
+                        },
+                        "radius": {
+                          "type": "number"
+                        },
+                        "confidence": {
+                          "type": "number"
+                        },
+                        "countryname": {
+                          "type": "string"
+                        },
+                        "countrycode": {
+                          "type": "string"
+                        },
+                        "timezone": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "request_id": "1",
+                  "mast": {
+                    "lat": 51.2275,
+                    "lon": -0.639,
+                    "radius": 3.23,
+                    "confidence": 0.32,
+                    "countryname": "United Kingdom",
+                    "countrycode": "GB",
+                    "timezone": "Europe/London"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/index/locatedevice": {
+      "post": {
+        "summary": "locatedevice",
+        "operationId": "post-index-locatedevice",
+        "tags": [
+          "Location API"
+        ],
+        "description": "Interrogates the network for current location information. If the device is offline or the current location is not available, returns the last recorded value.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "request_id": {
+                    "type": "string"
+                  },
+                  "iccid": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "iccid",
+                  "username",
+                  "password"
+                ]
+              },
+              "example": {
+                "request_id": "42",
+                "iccid": "8944538523007980017",
+                "username": "ExampleUsername",
+                "password": "ExamplePassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "iccid": {
+                      "type": "string"
+                    },
+                    "msisdn": {
+                      "type": "string"
+                    },
+                    "lat": {
+                      "type": "number"
+                    },
+                    "lon": {
+                      "type": "number"
+                    },
+                    "countryname": {
+                      "type": "string"
+                    },
+                    "countrycode": {
+                      "type": "string"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "request_id": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "iccid": "8944538523007980017",
+                  "msisdn": "447924167590",
+                  "lat": 51.2394,
+                  "lon": -0.6036,
+                  "countryname": "United Kingdom",
+                  "countrycode": "GB",
+                  "timezone": "Europe/London",
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "request_id": "42"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/index/locatemast": {
+      "post": {
+        "summary": "locatemast",
+        "operationId": "post-index-locatemast",
+        "tags": [
+          "Location API"
+        ],
+        "description": "Interrogates the network for the latitude, longitude, country name, country code, operator name and time zone of a specific cell tower. If the tower is unavailable, returns the last recorded values for that tower.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "request_id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "mast": {
+                    "type": "object",
+                    "properties": {
+                      "mcc": {
+                        "type": "string"
+                      },
+                      "mnc": {
+                        "type": "string"
+                      },
+                      "lai": {
+                        "type": "string"
+                      },
+                      "ci": {
+                        "type": "string"
+                      },
+                      "lac": {
+                        "type": "string"
+                      },
+                      "cellid": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "example": {
+                "request_id": "1",
+                "username": "ExampleUsername",
+                "password": "ExamplePassword ",
+                "mast": {
+                  "mcc": "234",
+                  "mnc": "30",
+                  "lai": "47A",
+                  "ci": "c0f6",
+                  "lac": "1234",
+                  "cellid": "4567"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  }
+}

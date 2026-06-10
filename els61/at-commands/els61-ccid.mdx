@@ -1,0 +1,20 @@
+---
+title: "CCID – request unique SIM number (ICCID)"
+description: "This command returns the unique Integrated Circuit Card Identifier (ICCID) of the installed SIM card."
+---
+
+<p>This command returns the unique Integrated Circuit Card Identifier (ICCID) of the installed SIM card.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+CCID=? </td> <td> OK </td> </tr> <tr> <td>Execute</td> <td> AT+CCID </td> <td> +CCID: &lt;SIMnumber&gt; <br />  <br />OK <br />where <span>&lt;SIMnumber&gt;</span> is the unique ICCID for the attached SIM. <br />or <br /><span>ERROR</span> – the command failed. </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+CCID</p>
+
+<p>+CCID: 8944531233020460000</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/els61/at-commands/els61-system-urcs">System Unsolicited Response Codes (URCs)</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

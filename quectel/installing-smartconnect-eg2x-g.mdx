@@ -1,0 +1,86 @@
+---
+title: "Installing AnyNet SMARTconnect™ on a Quectel EG2x-G module"
+description: "You can optionally install AnyNet SMARTconnect™ on a Quectel EG2x-G module to facilitate data transfer from your device to the cloud. For more information, see About AnyNet SMARTconnect™."
+---
+
+<p>You can optionally install AnyNet SMARTconnect™ on a Quectel EG2x-G module to facilitate data transfer from your device to the cloud. For more information, see <a href="/software-products/anynet-smartconnect-intro" target="_blank">About AnyNet SMARTconnect™</a>.</p>
+
+<div> <h3>Before you begin</h3> <p>Ensure you have completed updating the modem firmware, which includes installing the required drivers and files for Windows. For more information, see <a href="/quectel/upgrading-firmware" target="_blank">Upgrading the Quectel module firmware</a>.</p> <p>Contact your Account Manager to receive a dropbox link to AnyNet SMARTconnect™ files. Please specify if you require Windows or Linux-based files.</p> <span><strong>Note: </strong>If you are using AnyNet SMARTconnect™, you must install the Eseye-supplied <span>&lt;<var>Module</var>&gt;...</span> firmware file in place of the Quectel-supplied <span>&lt;<var>Module</var>&gt;...</span> file, where &lt;<var>Module</var>&gt; is the module variant, for example: <span>EG21G...</span>.</span> <p>Using the supplied dropbox link, download and extract the following zip files:</p> <ul> <li>For Windows users: <ul><li>Quectel Windows adb driver – <span>Quectel&#95;ADB&#95;Drivers&#95;V&lt;<var>version</var>&gt;.zip</span></li><li>Eseye-supplied Android-specific SDK platform tools (adb and fastboot) – <span>platform-tools&#95;&lt;<var>version</var>&gt;-windows.zip</span></li></ul></li> <li>For Linux users:<ul><li>Eseye-supplied Android-specific SDK platform tools (adb and fastboot) – <span>platform-tools&#95;&lt;<var>version</var>&gt;-linux.zip</span></li></ul></li> <li> Quectel firmware: <br />Eseye-supplied <span>&lt;<var>Module</var>&gt;...zip</span> firmware file – for example, <span>EG21...zip</span>. </li> <li>AnyNet SMARTconnect™, which includes: <ul><li>AnyNet SMARTconnect™ files</li><li>A kernel image – <span>EG2...img</span></li><li>For some modules, a rootfs image – <span>EG2...ubi</span></li></ul></li> </ul> <p>We recommend you use a terminal emulator (such as <span>PuTTY</span> or <span>Tera Term</span>) to connect to the relevant USB interface. Use the following serial settings: <span>115200 8-N-1</span></p> </div>
+
+<h2 id="Installationoverview">Installation overview</h2>
+
+<p>These instructions presume that you have set up your computer and development board containing the Quectel EG2x-G module to upgrade the firmware, and that the board remains connected to the computer via USB and a separate serial port for developer purposes.</p>
+
+<Note>The USB port is for loading the firmware onto the Quectel EG2x-G module. The serial port is for sending AT commands to the module. </Note>
+
+<ol> <li>Choose the <a href="#Installi">Windows</a> or <a href="#Installi2">Linux</a> installation.</li> <li>For Windows installation only, install the adb driver on your computer.</li> <li>Use a terminal emulator to enable the adb endpoint on the Quectel EG2x-G module.</li> <li>Use adb and fastboot to update the Quectel EG2x-G module kernel and rootfs so that they are AnyNet SMARTconnect™ compatible.</li> <li>Use adb to install AnyNet SMARTconnect™ on the Quectel EG2x-G module.</li> </ol>
+
+<Note>After installation, you can configure AnyNet SMARTconnect™, as well as change the Quectel EG2x-G module root password so that you can log into the debug UART console.</Note>
+
+<h2 id="InstallingAnyNetSMARTconnectusingWindows">Installing AnyNet SMARTconnect™ using Windows</h2>
+
+<h3>Installing the Windows adb driver</h3>
+
+<p>To install the Windows adb driver on your computer:</p>
+
+<ol> <li> In the extracted <span>Quectel&#95;ADB&#95;Drivers&#95;V&lt;<var>version</var>&gt;</span> folder, locate and run <b>Adb&#95;Installer.exe</b> to start the installation wizard. </li> <li> Select <span>Install Adb Driver</span>. <br />The adb driver installs. </li> </ol>
+
+<h3>Installing and using Windows SDK platform tools</h3>
+
+<p>Eseye has tested the module firmware and AnyNet SMARTconnect™ using a particular version of the Windows SDK platform tools, which we supply. We recommend you use the supplied version to ensure compatibility with AnyNet SMARTconnect™.</p>
+
+<h3>Enabling adb on the Quectel EG2x-G module</h3>
+
+<Note>Use a terminal emulator connected to the USB AT endpoint. Serial settings: <span>115200 8-N-1</span></Note>
+
+<p>To enable adb on the Quectel EG2x-G module:</p>
+
+<ol> <li> Using a terminal emulator, send: <br /><span>AT+QCFG="usbcfg"</span>  </li> <li> For an <span>EG21</span> Quectel module, if the module returns: <br />+QCFG: "usbcfg",0x2C7C,0x121,1,1,1,1,1,<span>0</span>,0 <br />  <br />OK <br />where the highlighted value is <span>0</span>, then send the following to enable the adb endpoint: <br /><span>AT+QCFG="usbcfg",0x2C7C,0x121,1,1,1,1,1,1,0</span>  <br /><span>OK</span>  <span><strong>Note: </strong>If the value is already <span>1</span>, make no change.</span> </li> <li> For an <span>EG25</span> Quectel module, if the module returns: <br />+QCFG: "usbcfg",0x2C7C,0x125,1,1,1,1,1,<span>0</span>,0 <br />  <br />OK <br />where the highlighted value is <span>0</span>, then send the following to enable the adb endpoint: <br /><span>AT+QCFG="usbcfg",0x2C7C,0x125,1,1,1,1,1,1,0</span>  <br /><span>OK</span>  <span><strong>Note: </strong>If the value is already <span>1</span>, make no change.</span> </li> </ol>
+
+<h3>Uploading AnyNet SMARTconnect™ to the Quectel EG2x-G module</h3>
+
+<p>To load AnyNet SMARTconnect™ files onto the Quectel module:</p>
+
+<ol> <li> In the extracted <span>platform-tools&#95;&lt;<var>version</var>&gt;-windows</span> folder, navigate to the adb application, then use the right-click MS Explorer menu to <span>Open in Terminal</span>. <br />A Windows Powershell terminal opens with the directory path to the Windows platform tools folder.  </li> <li> Place the Quectel EG2x-G module into bootloader mode. Enter the command:  <br /><span>.&#92;adb reboot bootloader</span>  <br />The daemon starts successfully. </li> <li> Update the Quectel EG2x-G module kernel image. Enter the command: <br /><span>.&#92;fastboot flash boot &lt;<var>download-path</var>&gt;&#92;EG2&lt;<var>n</var>&gt;-mdm9607-boot.img</span>  <br />where &lt;<var>download-path</var>&gt; is the path to your local copy of the kernel image, and &lt;<var>n</var>&gt; is the EG2x variant, for example <span>EG21-mdm9607-boot.img</span>. </li> <li> If Eseye supplied you with a <span>rootfs&#95;image</span> folder alongside the <span>kernel&#95;image</span> folder, update the Quectel EG2x-G module root file system.  <span><strong>Note: </strong>This step does not apply to all modules.</span> <br />Enter the command: <br /><span>.&#92;fastboot flash system &lt;<var>download-path</var>&gt;&#92;EG2&lt;<var>n</var>&gt;-mdm9607-sysfs.ubi</span>  <br />where &lt;<var>download-path</var>&gt; is the path to your local copy of the rootfs image, and &lt;<var>n</var>&gt; is the EG2x variant, for example <span>EG21-mdm9607-sysfs.ubi</span>. </li> <li> Reboot the Quectel EG2x-G module to load and start the AnyNet SMARTconnect™ application.. Enter the command: <br /><span>.&#92;fastboot reboot</span>  </li> <li> Load the AnyNet SMARTconnect™ application. Enter the following four commands: <ul> <li> <span>.&#92;adb push &lt;<var>download-path</var>&gt;&#92;client&#95;console /usrdata</span>  </li> <li> <span>.&#92;adb push &lt;<var>download-path</var>&gt;&#92;etm /usrdata</span>  </li> <li> <span>.&#92;adb push &lt;<var>download-path</var>&gt;&#92;etmrun /usrdata</span>  </li> <li> <span>.&#92;adb push &lt;<var>download-path</var>&gt;&#92;eseye&#95;telemetry&#95;module /etc/init.d/</span>  </li> </ul> <br />where &lt;<var>download-path</var>&gt; is the path to your local copy of the AnyNet SMARTconnect™ files. </li> <li> Set the access permissions to AnyNet SMARTconnect™. Enter the following four commands: <br /><span>.&#92;adb shell chmod +x /usrdata/client&#95;console</span>  <br /><span>.&#92;adb shell chmod +x /usrdata/etm</span>  <br /><span>.&#92;adb shell chmod +x /usrdata/etmrun</span>  <br /><span>.&#92;adb shell chmod +x /etc/init.d/eseye&#95;telemetry&#95;module</span>  </li> <li> Ensure that AnyNet SMARTconnect™ is running. Enter the command: <br /><span>.&#92;adb shell /usrdata/etmrun start</span>  <br />You should see the following response: <br /><span>Starting Eseye-Telemetry-module: done</span>  <br />For more information, see <a href="#Running2">Running AnyNet SMARTconnect™ (Windows)</a>. </li> <li> Use a terminal emulator connected to the physical AT UART port on your developer board to send the following: <br /><span>AT+ETMINFO=version</span>  <br />The returned version should match the AnyNet SMARTconnect™ version you installed. </li> </ol>
+
+<h3>Running AnyNet SMARTconnect™ (Windows)</h3>
+
+<p>When AnyNet SMARTconnect™ runs, you can use the <span>client&#95;console</span> application to issue AT commands directly to the AnyNet SMARTconnect™ application. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands">AnyNet SMARTconnect™ AT Commands</a>.</p>
+
+<p>You can enable different trace levels for debug purposes to monitor AnyNet SMARTconnect™ operation. For more information, see <a href="/software-products/configuration-file">Using the AnyNet SMARTconnect™ configuration file</a>.</p>
+
+<p>Use the following commands to start, stop, and persist the AnyNet SMARTconnect™ application:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Command</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>.&#92;adb shell /usrdata/etmrun start</span> </td> <td>Starts the AnyNet SMARTconnect™ application running.</td> </tr> <tr> <td><span>.&#92;adb shell /usrdata/etmrun stop</span> </td> <td>Terminates the AnyNet SMARTconnect™ application.</td> </tr> <tr> <td><span>.&#92;adb shell /usrdata/etmrun enable</span> </td> <td>Persists the application to run after reboot (for Linux, this is rc5.d).</td> </tr> <tr> <td><span>.&#92;adb shell /usrdata/etmrun disable</span> </td> <td>Terminates the application at reboot.</td> </tr> </tbody> </table>
+
+<h2 id="InstallingAnyNetSMARTconnectusingLinux">Installing AnyNet SMARTconnect™ using Linux</h2>
+
+<h3>Installing and using Linux SDK platform tools</h3>
+
+<p>Eseye has tested the module firmware and AnyNet SMARTconnect™ using a particular version of the Linux SDK platform tools, which we supply. We recommend you use the supplied version to ensure compatibility with AnyNet SMARTconnect™.</p>
+
+<h3>Enabling adb on the Quectel EG2x-G module</h3>
+
+<Note>Use a terminal emulator connected to the USB AT endpoint. Serial settings: <span>115200 8-N-1</span></Note>
+
+<p>To enable adb on the Quectel EG2x-G module:</p>
+
+<ol> <li> Using a terminal emulator, send: <br /><span>AT+QCFG="usbcfg"</span>  </li> <li> If the module returns: <br />+QCFG: "usbcfg",0x2C7C,0x121,1,1,1,1,1,<span>0</span>,0 <br />  <br />OK <br />where the highlighted value is <span>0</span>, then send the following to enable the adb endpoint: <br /><span>AT+QCFG="usbcfg",0x2C7C,0x121,1,1,1,1,1,1,0</span>  <br /><span>OK</span>  </li> </ol>
+
+<h3>Uploading AnyNet SMARTconnect™ to the Quectel EG2x-G module</h3>
+
+<p>To load AnyNet SMARTconnect™ files onto the Quectel module:</p>
+
+<ol> <li>In the extracted <span>platform-tools&#95;&lt;<var>version</var>&gt;-linux</span> folder, navigate to the adb application, then open a terminal shell from this location.</li> <li> Place the Quectel EG2x-G module into bootloader mode. Enter the command:  <br /><span>sudo./adb reboot bootloader</span>  <br />The daemon starts successfully. </li> <li> Update the Quectel EG2x-G module kernel image. Enter the command: <br /><span>sudo./fastboot flash boot &lt;<var>download-path</var>&gt;/EG21-mdm9607-boot.img</span>  <br />where &lt;<var>download-path</var>&gt; is the path to your local copy of the kernel image. </li> <li> If Eseye supplied you with a <span>rootfs&#95;image</span> folder alongside the <span>kernel&#95;image</span> folder, update the Quectel EG2x-G module root file system.  <span><strong>Note: </strong>This step does not apply to all modules.</span> <br />Enter the command: <br /><span>sudo./fastboot flash system &lt;<var>download-path</var>&gt;/EG21-mdm9607-sysfs.ubi</span>  <br />where &lt;<var>download-path</var>&gt; is the path to your local copy of the rootfs image. </li> <li> Reboot the Quectel EG2x-G module to load and start the AnyNet SMARTconnect™ application. Enter the command: <br /><span>sudo./fastboot reboot</span>  </li> <li> Load the AnyNet SMARTconnect™ application. Enter the following four commands: <ul> <li> <span>sudo./adb push &lt;<var>download-path</var>&gt;/etm /usrdata</span>  </li> <li> <span>sudo./adb push &lt;<var>download-path</var>&gt;/client&#95;console /usrdata</span>  </li> <li> <span>sudo./adb push &lt;<var>download-path</var>&gt;/etmrun /usrdata</span>  </li> <li> <span>sudo./adb push &lt;<var>download-path</var>&gt;/eseye&#95;telemetry&#95;module /etc/init.d/</span>  </li> </ul> <br />where &lt;<var>download-path</var>&gt; is the path to your local copy of the AnyNet SMARTconnect™ files. </li> <li> Ensure that AnyNet SMARTconnect™ is running. Enter the command: <br /><span>sudo./adb shell /usrdata/etmrun start</span>  <br />You should see the following response: <br /><span>Starting Eseye-Telemetry-module: done</span>  <br />For more information, see <a href="#Running">Running AnyNet SMARTconnect™ (Linux)</a>. </li> <li> Use a terminal emulator connected to the physical UART port on your developer board to send the following: <br /><span>AT+ETMINFO=version</span>  <br />The returned version should match the AnyNet SMARTconnect™ version you installed. </li> </ol>
+
+<h3>Running AnyNet SMARTconnect™ (Linux)</h3>
+
+<p>When AnyNet SMARTconnect™ runs, you can use the <span>client&#95;console</span> application to issue AT commands directly to the AnyNet SMARTconnect™ application. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands">AnyNet SMARTconnect™ AT Commands</a>.</p>
+
+<p>You can enable different trace levels for debug purposes to monitor AnyNet SMARTconnect™ operation. For more information, see <a href="/software-products/configuration-file">Using the AnyNet SMARTconnect™ configuration file</a>.</p>
+
+<p>Use the following commands to start, stop, and persist the AnyNet SMARTconnect™ application:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Command</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>sudo./adb shell /usrdata/etmrun start</span> </td> <td>Starts the AnyNet SMARTconnect™ application running.</td> </tr> <tr> <td><span>sudo./adb shell /usrdata/etmrun stop</span> </td> <td>Terminates the AnyNet SMARTconnect™ application.</td> </tr> <tr> <td><span>sudo./adb shell /usrdata/etmrun enable</span> </td> <td>Persists the application to run after reboot (for Linux, this is rc5.d).</td> </tr> <tr> <td><span>sudo./adb shell /usrdata/etmrun disable</span> </td> <td>Terminates the application at reboot.</td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> <li><a href="/software-products/update-software-firmware">Updating AnyNet SMARTconnect™ software and host module firmware</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8618-Eseye-enabled-Quectel-BG96-module-Developer-Guide.pdf" target="_blank">8618 Eseye-enabled Quectel BG96 module Developer Guide (PDF)</a> </li> </ul> </div>

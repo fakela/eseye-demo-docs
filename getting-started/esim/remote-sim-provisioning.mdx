@@ -1,0 +1,58 @@
+---
+title: "Understanding the GSMA RSP M2M general architecture"
+description: "Remote SIM Provisioning (RSP) is governed by GSMA (Global System for Mobile Communications) standards, ensuring that it works across different networks globally, and adheres to regulatory and security requirements. Th..."
+---
+
+<p>Remote SIM Provisioning (RSP) is governed by GSMA (Global System for Mobile Communications) standards, ensuring that it works across different networks globally, and adheres to regulatory and security requirements. The GSMA provides the following general architecture for the roles and interfaces associated with RSP:</p>
+
+<p><img src="/images/resources/images/esim/rsparchitecture.png" alt="Rsparchitecture" /> </p>
+
+<h2 id="KeyRSPcomponents">Key RSP components</h2>
+
+<p>RSP relies on secure communications between servers and devices to download, install, enable, update, disable, and delete network profiles on eUICC SIMs. </p>
+
+<p>The following core elements are required to support these processes:</p>
+
+<h3>Subscription Manager - Data Preparation (SM-DP)</h3>
+
+<p>The SM-DP is a server-based network component that securely prepares subscription data, including subscriber profiles and security keys, for delivery to eUICC SIMs. The SM-DP enforces security measures to protect the confidentiality and integrity of the data, including encryption and authentication. </p>
+
+<p>The SM-DP communicates with devices via an SM-SR. MNOs have their own SM-DP servers that can send SIM profiles directly to SM-SRs, or donate the SIM profiles directly to Eseye. Eseye has two SM-DPs, hosted by Thales and Kigen.</p>
+
+<p>The available functions depend on how the SM-DP is uniquely configured for a specific MNO. The MNO can use the SM-DP to enable a profile on the eUICC, after it is downloaded and installed. Eseye manages this process on behalf of customers and the MNOs.</p>
+
+<h3>Subscription Manager - Secure Routing (SM-SR)</h3>
+
+<p>The SM-SR is a server-based network component that ensures the subscription data is securely and reliably routed from the SM-DP to the target eUICC SIMs. The SM-SR manages the end-to-end security of the data transfer, validating the legitimacy of requests, ensuring the correct profile is sent for the module type, and securely delivering the subscription data to the eSIMs.</p>
+
+<p>The SM-SR plays a crucial role in ensuring the overall security of RSP, preventing unauthorized access to subscriber profiles during the data transfer. Eseye has two SM-SRs, hosted by Thales and Kigen. Eseye manages this process on behalf of customers and the MNOs.</p>
+
+<h3>eUICC </h3>
+
+<p>eUICC is the eSIM software component that runs on a UICC. For more information, see <a href="/getting-started/esim/euicc">eUICC overview</a>. </p>
+
+<p>During RSP, the eUICC securely stores the prepared subscription data (subscriber profiles and cryptographic keys), enabling subscribers to access mobile networks and services. eSIMs are designed with strong security features to protect stored data and resist tampering.</p>
+
+<h3>Mobile Network Operators (MNOs)</h3>
+
+<p>The MNO interacts with the SM-DP and SM-SR to manage and deliver subscriber profiles to eUICC SIMs. MNOs use RSP to remotely provision, update, and personalise eUICC s for their subscribers. Eseye manage the profile stock to ensure near 100% availability for customer needs.</p>
+
+<h2 id="FurtherRSPcomponentsandinterfaces">Further RSP components and interfaces</h2>
+
+<h3>Entity and User Module Manager (EUM Manager)</h3>
+
+<p>The EUM Manager manages the entity and user modules with an eUICC SIM, ensuring their security and integrity. The entity module stores device manufacturer data, and the user module stores subscriber-specific data. The EUM Manager assists with securely loading and managing eUICC profiles, and is managed indirectly through the SM-DP and SM-SR by the MNO that owns or operates the eUICC.</p>
+
+<h3>GSMA Certificate Issuer (CI)</h3>
+
+<p>The CI is responsible for issuing digital certificates used for various RSP and eSIM security and authentication purposes. The digital certificates are vital for maintaining the security and integrity of communication between different entities and components within the mobile network, including the eUICC, SM-DP, and SM-SR. The certificates are used for authentication, encryption, and the establishment of secure connections to protect sensitive information, such as subscriber profiles and encryption keys.</p>
+
+<h3>Interfaces</h3>
+
+<p>The GSMA RSP M2M general architecture components communicate via a number of different interfaces. The table below briefly describes each interface. For more in-depth understanding, refer to the latest GSMA specifications.</p>
+
+<p> </p>
+
+<table> <col /> <col /> <thead> <tr> <th>Interface</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>ES1</td> <td>eUICC Manufacturer (EUM)-to-SM-SR interface. Enables the eUICC Manufacturer to register the eUICC based on its eUICC Information Set (EIS). The EIS contains initial information provided at registration time, such as the eid, which remains unchanged during the eUICC lifetime.</td> </tr> <tr> <td>ES2</td> <td> MNO-to-SM-DP interface: Enables the caller MNO to:  <ul> <li> Securely retrieve the EIS information and instruct the SM-DP to download a profile (identified by its ICCID) to the eUICC (identified by its EID) via the SM-SR. </li> <li> Update the current profile's policy rules.  </li> <li> Replace the profile subscription address (such as the MSISDN and/or IMSI) through which the eUICC is accessible from the SM-SR via the mobile network when the profile is enabled. </li> <li> Request the SM-DP to enable or disable a target profile in a specified eUICC (identified by its EID). The target profile is owned by the caller MNO. </li> <li> Request the SM-DP to delete a target profile. This function request is passed to the SM-SR. </li> </ul> <br />Enables the SM-DP to: <ul> <li> Send notifications to the MNO when the target profile is enabled, disabled, or deleted. </li> <li> Send a notification to all MNOs with profiles on the eUICC when the SM-SR changes. </li> </ul> </td> </tr> <tr> <td>ES3</td> <td> SM-DP-to-SM-SR interface. Enables the SM-DP to download and install a target profile, specifically to:  <ul> <li>Establish a link with an SM-SR that is previously unknown to the SM-DP.</li> <li> Retrieve the target profile EIS from the SM-SR. The target profile is identified using the EID. Only EIS data that is applicable for the specific SM-DP is retrieved. The information verifies the eligibility of the eUICC for storing the profile (for example, type, certificate, and memory).  </li> <li> Retrieve up-to-date EIS information. </li> <li> Use secure commands to request that the SM-SR creates a new Issuer Security Domain Profile (the ISD-P that hosts a unique profile) in the eUICC. If the data is too large for the eUICC to handle at once, the SM-SR may send commands in several steps. </li> <li> Inform the SM-SR that the profile download is complete. The subscription address may be set at this point, or updated later. </li> <li> Replace the profile's subscription address in the EIS. The subscription address is the identifier (such as the MSISDN and/or IMSI) through which the eUICC is accessible from the SM-SR via the mobile network when the profile is enabled. </li> <li> Request the SM-SR to enable or disable a profile. </li> <li> Request the SM-SR to delete a target ISD-P containing a specific profile. </li> <li> Update the Connectivity Parameters store on instruction by the MNO, for enabling or disabling the target profile. </li> <li> Send notifications to the MNO when the target profile is enabled, disabled, or deleted. </li> <li> Send a notification to all MNOs with profiles on the eUICC when the SM-SR changes. </li> </ul> </td> </tr> <tr> <td>ES4</td> <td> MNO-to-SM-SR interface. Enables secure communication between the MNO and SM-SR for profile delivery, activation, and management (including fall-back), ensuring that the MNO's network is appropriately configured and secured for remote SIM provisioning. Specifically, the MNO can:  <ul> <li> Retrieve EIS data that is applicable for that particular MNO. </li> <li> Request the SM-SR to update the profile policy rules. </li> <li> Request the SM-SR replace the target profile subscription address. </li> <li> Request up-to-date information for the MNOs profiles. </li> <li> Request that the SM-SR enable or disable a profile. </li> <li> Request that the SM-SR delete the target ISD-P that contains a profile owned by the MNO. </li> <li> Request a change in SM-SR. </li> </ul> <br />Enables the SM-SR to: <ul> <li> Send notifications to the MNO when the target profile is enabled, disabled, or deleted. </li> <li> Send a notification to all MNOs with profiles on the eUICC when the SM-SR changes. </li> </ul> </td> </tr> <tr> <td>ES5</td> <td> SM-SR-to-eUICC interface. The SM-SR exclusively handles over-the-air (OTA) communication with the eUICC via either SMS, CAT&#95;TP, or HTTPS. Specifically, this interface enables the ISD-R to: <ul> <li> Create an ISD-P on the eUICC </li> <li> Enable and disable the target profile on the eUICC </li> <li> Delete a disabled profile from the eUICC that is not the fall-back profile </li> <li> Query the eUICC status </li> <li> Assign the fall-back attribute to one profile on the eUICC. </li> <li> Establish the ISD-R key set during an SM-SR change, for mutual authentication between the new SM-SR and the eUICC and to establish a shared secret key set between the new SM-SR and the ISD-R. </li> <li> Clear previous SM-SR keys from the ISD-R. </li> <li> Request that the ISD-R updates the SM-SR addressing parameters after an SM-SR change. </li> <li> Notify the SM-SR about a change in the target profile network attachment state. </li> <li> Confirm a notification about the change in network attachment state and trigger follow-up activities. </li> </ul> </td> </tr> <tr> <td>ES6</td> <td> MNO-to-eUICC interface. The secure interface between the MNO OTA platform and the target profile in the eUICC. Enables the MNO to: <ul> <li> Update policy rules (POL1) on the eUICC. </li> <li> Update Connectivity Parameter rules on the eUICC. </li> </ul> </td> </tr> <tr> <td>ES7</td> <td>SM-SR to SM-SR interface. Enables secure communication between the SM-SR and another SM-SR for the specific purpose of securely changing or updating the SM-SR. Specifically, this enables a new SM-SR to request that a new key set is created in the ISD-R. The new key set belongs to the new SM-SR and is unknown to the current SM-SR. This enables the secure and authenticated handover of the eUICC from one SM-SR to another.</td> </tr> <tr> <td>ES8</td> <td>SM-DP-to-eUICC interface. This secure interface is between the SM-DP and the ISD-P, and goes through the SM-SR. The SM-DP and its ISD-P are mutually authenticated. All commands and responses sent between the SM-DP and ISD-P are signed and encrypted. </td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/getting-started/esim/remote-sim-provisioning-overview">About Remote SIM Provisioning (RSP)</a> </li> <li><a href="/getting-started/esim/modules-supporting-rsp">Modules supporting Remote SIM Provisioning (RSP)</a> </li> <li> <a href="/getting-started/esim/esim">About eSIM technology</a>  </li> <li><a href="/getting-started/imsi-rotation-switching">Understanding IMSI rotation vs IMSI switching</a> </li> <li><a href="/hardware-products/sims-intro">AnyNet SIMs</a> </li> </ul> </div>

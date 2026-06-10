@@ -1,0 +1,24 @@
+---
+title: "Troubleshooting errors: Tigrina API"
+description: "When an error occurs, an error code and message are generated in the returned result:"
+---
+
+<p>When an error occurs, an error code and message are generated in the returned result: </p>
+
+<p>&#123; </p>
+
+<p><span>"status": &#123;</span> </p>
+
+<p><span>"status": "ERR",</span> </p>
+
+<p><span>"errorCode": "ErrorCodeNumber",</span> </p>
+
+<p><span>"errorMessage": "ErrorCodeMessage"</span> </p>
+
+<p><span>&#125;,</span> </p>
+
+<p>The following table can help you diagnose the error:</p>
+
+<table> <col /> <col /> <thead> <tr> <th> Error number </th> <th> Reason for error </th> </tr> </thead> <tbody> <tr> <td><span>E0002</span> </td> <td>Permission denied</td> </tr> <tr> <td> <span>E0100</span>  </td> <td> Unknown username or password </td> </tr> <tr> <td><span>E1005</span> </td> <td>Device does not exist</td> </tr> <tr> <td><span>E9992</span> </td> <td> ESN does not exist in your Tigrillo account </td> </tr> <tr> <td> <span>E9998</span>  </td> <td> Some other error occurred – login was aborted, try again </td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API Introduction</a> </li> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

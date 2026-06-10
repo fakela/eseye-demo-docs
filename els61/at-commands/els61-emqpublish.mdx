@@ -1,0 +1,20 @@
+---
+title: "EMQPUBLISH – publish data to a message topic"
+description: "Publish data to a created message topic. Data is sent to your thing in the cloud."
+---
+
+<p>Publish data to a created message topic. Data is sent to your thing in the cloud.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQPUBLISH=? </td> <td> OK <br />  <br />+EMQPUBLISH: (0-7),(0-1),&lt;pubdata&gt; </td> </tr> <tr> <td>Read</td> <td> AT+EMQPUBLISH? </td> <td> <span>OK</span>  </td> </tr> <tr> <td>Write</td> <td> AT+EMQPUBLISH<span>=(<span>0-7</span>),(<span>0-1</span>),<span>&lt;pubdata&gt;</span></span> <br />where:  <ul> <li><span>(<var>0-7</var>)</span> is the publish index number</li> <li><span>(<var>0-1</var>)</span> is the Quality of Service, either:<ul><li><span>0</span> – sends the message without guaranteeing message receipt. The message is not stored on the sender, and is not acknowledged.</li><li><span>1</span> – guarantees the message is delivered at least once.</li></ul></li> <li> <span>&lt;pubdata&gt;</span> – is the published message. The maximum payload length is 1000 characters. All characters must be printable.  <br />AnyNet SMARTconnect™ handles <span>&lt;pubdata&gt;</span> as ASCII-hex if it contains an even number of valid ASCII-hex characters (<span>0</span>-<span>9</span>, <span>a</span>-<span>f</span>, <span>A</span>-<span>F</span>). ASCII-hex is converted to binary for transmission. <br /> AnyNet SMARTconnect™ handles all other data as text. For text messages, <span>&#92;</span> (escape characters) are removed.  </li> </ul> </td> <td> <span>OK</span> – successfully wrote the command <br /><span>ERROR</span> – the command failed. Check your syntax, and that you have already set up the publish topic using <span>at+emqpubopen?</span>.  <br /><span>SEND OK</span> – send confirmation relating to Quality of Service. This response is for: <ul> <li><span>QoS=0</span> – message is published </li> <li><span>QoS=1</span> – MQTT broker generates a <span>PUBACK</span> to confirm receipt of the MQTT message</li> </ul> <br /><span>SEND FAIL</span> - send failure for <span>QoS=1</span> only.  </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQPUBLISH=1,1,"&#123;&#92;"BatteryPower&#92;": &#92;"Low&#92;"&#125;"</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>SEND OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> <li><a href="/els61/at-commands/els61-emq-urcs">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

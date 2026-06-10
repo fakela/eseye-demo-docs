@@ -1,0 +1,16 @@
+---
+title: "Configuring Nutaq PicoLTE for GSM power saving mode"
+description: "You can configure a Nutaq PicoLTE with an AnyNet SIM to use power saving mode (PSM) on a GSM network. The following procedure describes enabling and setting the required Nutaq PicoLTE PSM timers:"
+---
+
+<p>You can configure a Nutaq PicoLTE with an AnyNet SIM to use power saving mode (PSM) on a GSM network. The following procedure describes enabling and setting the required Nutaq PicoLTE PSM timers:</p>
+
+<ul> <li><span>t3412</span> – base timer, indicates the amount of time (in seconds) that the network must store data and SMS messages that arrive during a UE sleep period, before forwarding them to the UE. </li> <li><span>t3412&#95;low&#95;priority</span> – extension of t3412, indicates the amount of time (in seconds) that the UE will accept lower prioritisation from the network during periods of high congestion. The network may delay or drop packets during high congestion. </li> <li><span>t3412&#95;extended&#95;forced</span> – extension of t3412, indicates the amount of time (in seconds) that the UE is willing to extend the TAU if the network is congested.</li> <li><span>t3324&#95;forced</span> – defines the amount of time (in seconds) the UE remains active after the Attach or Tracking Area Update (TAU) procedure.</li> </ul>
+
+<div> <h3>Before you begin</h3> <ul> <li>Open the MME configuration file (<span>&#42;/EPC/MME.cfg</span>) in a text editor, such as Nano or VI.</li> </ul> </div>
+
+<p>To configure a Nutaq PicoLTE for PSM:</p>
+
+<ol> <li> Add the following to the MME config file: <br />/&#42; Enable PSM &#42;/ <br />psm: true <br />  <br />/&#42; Periodic Tracking Area Update (TAU) – used for store and forward during UE sleep periods &#42;/ <br />t3412: 14400, /&#42; 4 hours &#42;/ <br />  <br />/&#42; Device accepts lower priority from network, packets may be delayed or dropped during high congestion &#42;/ <br />t3412&#95;low&#95;priority: 153600, /&#42; 42 hours &#42;/ <br />  <br />/&#42; Longer TAU if UE indicates support &#42;/ <br />t3412&#95;extended&#95;forced: 273600, /&#42; Force T3412 Extended Timer to 76 hours &#42;/ <br />  <br />/&#42; Sets duration that device remains reachable for MT transaction &#42;/ <br />t3324&#95;forced: 180, /&#42; Set Active Timer to 3 minutes &#42;/&gt; </li> <li> Save the changes, then exit the text editor. </li> </ol>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/lpwan/ps-mande-drx">Optimising power conservation in cellular Low Power Wide Area Networks (LPWAN)</a> </li> <li>Anritsu test profile</li> </ul> </div>

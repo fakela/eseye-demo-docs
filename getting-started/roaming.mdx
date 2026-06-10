@@ -1,0 +1,56 @@
+---
+title: "Understanding roaming"
+description: "Roaming occurs when a device connects on a different local cellular network to its home network in order to access services, such as sending and receiving data. Usually this occurs when the device is outside the geogr..."
+---
+
+<p>Roaming occurs when a device connects on a different local cellular network to its <a href="/glossary/home-network">home network</a> in order to access services, such as sending and receiving data. Usually this occurs when the device is outside the geographical coverage area of the home network.</p>
+
+<p>Roaming is either temporary (for a short period of time), or permanent (for the lifetime of the device). It can only occur if there are commercial <a href="/glossary/roaming-agreement">roaming agreements</a> in place between the home network operator and the roaming network operator, and the roaming network operator dictates the cellular footprint and services that the device IMSI can access.</p>
+
+<p> <img src="/images/resources/images/multiimsi/roaming.svg" alt="Roaming" /> </p>
+
+<p>Typically, this will give the device access to most other network operators, at varying economic rates, although this won’t necessarily give access to every operator in every country. In certain countries, such as North Korea, roaming is not permitted.</p>
+
+<h2 id="Howthedevicechoosesaroamingpartner">How the device chooses a roaming partner</h2>
+
+<p>If the home operator has multiple roaming agreements, the device chooses between them using the preferred Public Land Mobile Network (PLMN) list, which is defined in the SIM.</p>
+
+<h2 id="Aboutrestrictedgrouppermanentroaming">About restricted group permanent roaming</h2>
+
+<p>Some operator partner groups allow permanent roaming, but only within their own networks. These often have a designated rate that only covers partners in the group. For example, Three and Three Ireland; or Airtel and Airtel Jersey.</p>
+
+<h2 id="Roaminglimitations">Roaming limitations</h2>
+
+<p>Roaming on a local network may have some of the following limitations compared to connecting to your home network:</p>
+
+<ul> <li>Limits to how long a device can roam in a country before the subscriber must switch to a local operator, depending on local <a href="#Data">data sovereignty and network policies</a>.</li> <li>Increased costs, for example a higher rate for voice, data or SMS services.</li> <li>Reduced services, for example no support for <a href="/lpwan/ps-mande-drx">power saving features</a> when roaming.</li> <li><a href="#Latency">Latency</a> and performance issues because data is <a href="/glossary/backhaul">backhauled</a> to the home operator's core network.</li> </ul>
+
+<p>Customer preferences for <a href="#Customer" target="_blank">global data distribution</a> may also limit the available roaming networks. </p>
+
+<p>To avoid these limitations, you can <a href="/getting-started/localisation">localise</a> the SIM, or <a href="#Steering">steer</a> the SIM onto a roaming partner with a more favourable roaming agreement.</p>
+
+<h2 id="Datasovereigntyandnetworkpolicies">Data sovereignty and network policies</h2>
+
+<p>Roaming agreements are restricted by data sovereignty, where digital data is subject to the laws of the country in which it is processed. In some countries, certain types of data are not allowed to leave the country. Local legislation may also determine what safeguards must occur to protect data, and some legislation is deliberately set up to favour data flow for local operators over foreign firms. For example, in Brazil and China, devices are prohibited from existing permanently in a roaming state on a network.</p>
+
+<p>All data flow, including temporary or permanent roaming, is also subject to the varying policies and rules of the local network operators. Some MNOs block permanent roaming on their networks in order to prevent competition. Cancellation or changes to roaming agreements between network operators may also occur.</p>
+
+<h2 id="Latency">Latency</h2>
+
+<p>Latency is the time taken to send a data packet and receive a response between two points. This is increasingly becoming an issue for high data throughput as well as transaction speed, particularly in credit card type or phone-based transactions. </p>
+
+<p>Latency when roaming is typically higher than on a local profile. For more information, see <a href="/connectivity/measure-latency">Measuring latency</a>.</p>
+
+<h2 id="Customerpreferencesforglobaldatadistribution">Customer preferences for global data distribution</h2>
+
+<p>Some customers prefer certain networks over others, depending on where they have deployed their devices. For example, most large US companies prefer a US network solution, where data is routed via US data centres and taken into the rest of the world. In Europe, most companies prefer a European roaming solution, as long the device uses a European IMSI. </p>
+
+<p><a href="/glossary/roaming-agreement">GDPR</a> is also a global requirement.</p>
+
+<h2 id="Steeringofroaming">Steering of roaming</h2>
+
+<p>Steering of roaming is the process of switching roaming IoT devices to a different roaming partner network. Network operators often steer devices onto new operator networks irrespective of how it affects device connectivity or performance but Eseye can steer devices to operator networks that are beneficial to the IoT device. An example could be steering a device that does not require voice services onto a roaming partner that has reduced costs for data compared to voice services. </p>
+
+<p>Operators perform steering of roaming by:</p>
+
+<ul> <li>Sending SS7 or Diameter signalling messages</li> <li>Updating the preferred PLMN list in the subscriber's SIM</li> </ul>

@@ -1,0 +1,10 @@
+---
+title: "MQTT AT commands"
+description: "The MQTT client registers each topic with an index that is used to publish the messages. The response indicates acceptance or rejection of the topic. Optionally, you can configure a single fixed topic so the Cinterion..."
+---
+
+<p>The MQTT client registers each topic with an index that is used to publish the messages. The response indicates acceptance or rejection of the topic. Optionally, you can configure a single fixed topic so the Cinterion® ELS61 Wireless Module need not keep track of topic indices for sending or receiving data.</p>
+
+<p>The MQTT client supports QoS 0 and 1, and always connects to the broker as a clean session. All publish messages are queued in a non-volatile flash memory until they are sent to the broker. For QoS 1 messages, AnyNet SMARTconnect™ waits for a puback from the broker before discarding the sent data and transmitting the next message. This mechanism queues messages while a network connection is not available, and forwards messages when the connection establishes. </p>
+
+<div> <p>Use the following AT commands to send data between your thing and the cloud:</p> </div>

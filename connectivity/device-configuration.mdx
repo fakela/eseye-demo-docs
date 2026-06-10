@@ -1,0 +1,140 @@
+---
+title: "Device configuration best practices"
+description: "Secure, efficient connection with a network depends on how the device is developed. You must consider the following during device inception and design:"
+---
+
+<p>Secure, efficient connection with a network depends on how the device is developed. You must consider the following during device inception and design:</p>
+
+<ul> <li><a href="#Ensuring">Data security and integrity</a> </li> <li><a href="#Understa2">Using IoT protocols for standard communication</a> </li> <li><a href="#Understa">Configuring the device to initiate communication</a> with the customer system or cloud</li> <li>Staggering network connection attempts across thousands of devices (known as <a href="#Configur">device connection efficiency</a>)</li> <li><a href="#Configur2">Configuring devices to handle national emergency alerts</a> </li> <li>Ensuring devices stay awake long enough to receive <a href="#Configur3">SIM management</a>, for localisation and device maintenance purposes</li> </ul>
+
+<h2 id="Ensuringdatasecurityandintegrity">Ensuring data security and integrity</h2>
+
+<p>You must develop devices with data security and integrity in mind, ensuring that they are configured to handle SSH and SSL/TLS correctly, if required. This ensures that all IoT data is end-to-end encrypted at the application layer before it traverses across the mobile network.</p>
+
+<Tip>We highly recommend that you engage a third party penetration test company to perform full end-to-end penetration testing on your products and Eseye's network.</Tip>
+
+<p>Customers handling credit card information must ensure the device (such as a payment terminal) is <a href="/glossary/pci-compliant">PCI compliant</a>. This means ensuring that banking details are encrypted at the point that a credit or debit card is tapped onto the device to pay for an item.</p>
+
+<p>Depending on your security requirements, we can provide different solutions for how data egresses the Eseye network across the customer’s firewall and network.</p>
+
+<p>For information about providing security across your IoT deployment, see <a href="/connectivity/security-options-overview" target="_blank">AnyNet security options</a>.</p>
+
+<h2 id="UnderstandingIoTprotocolssuchasMQTTSCoAPandHTTPs">Understanding IoT protocols, such as MQTTS, CoAP and HTTPs</h2>
+
+<p>IoT protocols provide a set of rules for transmitting data between devices and the customer network, so that each device sends and receives information in a structured, uniform way. Protocols ensure that devices communicate in a compatible and reliable manner. </p>
+
+<p>Most modern IoT protocols are designed so that devices initiate communications, which means these protocols work well across a range of network topologies, including the AnyNet solution.</p>
+
+<p>We recommend customers use any of the following industry standard IoT protocols for their deployment:</p>
+
+<ul> <li><a href="/glossary/mqtts">Secure MQTT (MQTTS)</a> </li> <li><a href="/glossary/co-ap">Constrained Application Protocol (CoAP)</a> </li> <li><a href="/glossary/https">Hypertext Transfer Protocol Secure (HTTPS)</a> </li> </ul>
+
+<h3>Some benefits of using IoT protocols:</h3>
+
+<ul> <li>These provide standardised, industry-accepted solutions</li> <li>Proven to be robust across a range of network topologies</li> <li>Contain built-in security protocols</li> <li>Have the advantage of reusing community development and testing</li> </ul>
+
+<h3>Avoiding TCP in NB-IoT radio environments</h3>
+
+<p>Transmission Control Protocol (TCP) is a widely used protocol for communication between devices over the internet. However, we have observed that TCP-based applications in Narrowband Internet of Things (NB-IoT) radio environments are prone to disruption and premature session termination. </p>
+
+<h4>Factors that cause disruptions in TCP-based communication</h4>
+
+<p>Eseye has observed the following behaviours:</p>
+
+<ul> <li> TCP packets in NB-IoT radio environments often fail to get delivered within the expected or required protocol timeframes. </li> <li> TCP session control packets occur at a frequency that oversaturates the limited bandwidth capabilities of the NB-IoT radio environment.  <span><strong>Note: </strong>These control packets are redundant to the underlying application and data transfer. </span> </li> <li>The oversaturation causes packet stacking or buffering at the mast/ENB.</li> <li>The longer the TCP session is maintained, the worse this phenomenon grows exponentially. </li> <li>To compensate for the limitations, the client will try to renegotiate the TCP window session parameters with the server.</li> <li>When tolerances are exceeded, the client then closes the data session. </li> </ul>
+
+<p>We have observed that a small FTP-based download (30-40KB) is enough to disrupt the TCP-controlled timers and end a session prematurely. This is a significant obstacle for IoT applications that require reliable and continuous data transfer over a long period.</p>
+
+<p>As a result, we recommend that IoT developers consider alternative highly efficient communication protocols that are better suited for NB-IoT radio environments, such as User Datagam Protocol (UDP) with an application layer-based transmission control, and CoAP. Applications targeting NB-IoT services should limit redundant network traffic, especially traffic that is actively controlled by timers. A further consideration is using <a href="/lpwan/ps-mande-drx">Power Saving Mode</a> (PSM), which allows the device and ENB/mast to negotiate transmission control and avoid overloading either network segment. However, PSM availability varies between network operators and regions.</p>
+
+<h2 id="Configuringdevicestoinitiatecommunication">Configuring devices to initiate communication</h2>
+
+<p>In all circumstances, it is IoT best practice for a device to initiate all communication with the customer network. This:</p>
+
+<ul> <li>Reduces security risks, ensuring that devices are not accessible outside of the customer network.</li> <li> Optimises connectivity by ensuring that the device can access multiple networks for routing data. <br />Devices with a single public IP address are restricted to one network. For more information, see <a href="/connectivity/about-secure-subnets#How" target="_blank">How IP addresses are allocated to a SIM</a>. </li> <li>Increases scalability and decreases the costs incurred with assigning public IP addresses to devices. For more information, see <a href="/connectivity/ip-addresses#Assignin" target="_blank">Assigning static public IP addresses to devices</a>.</li> </ul>
+
+<p>For example, a payment terminal must initiate communication – the point of sale may occur at any time, and the banking information is pushed to the bank’s network. The terminal may also poll the customer network to see if software updates are available.</p>
+
+<p>In a case where different customers need to rent the same device for a set period of time, perhaps to send a message to the device (for example, with highway maintenance signage), then depending on what IoT protocol is used, the device will initiate communication with the cloud to see what new messages are available.</p>
+
+<h2 id="Configuringdevicesforconnectionefficiency">Configuring devices for connection efficiency</h2>
+
+<p>IoT devices can cause congestion on a network when communication requests are rejected and devices repeatedly try to connect. This is particularly a problem when thousands of devices try to connect simultaneously to a centralised network. </p>
+
+<p>Eseye adheres to GSMA guidelines for device connection efficiency, as described here: </p>
+
+<p><a href="https://www.gsma.com/newsroom/resources/ts-34-iot-device-connection-efficiency-guidelines/" target="_blank">TS.34 IoT Device Connection Efficiency Guidelines (external website, see Chapter 7.1)</a> </p>
+
+<p>It is IoT best practice to use delay timers to increase backoff time between communication attempts, as well as use a random element to avoid simultaneous requests, especially as the number of devices using any particular network is ever increasing.</p>
+
+<p>Eseye will charge extra if your devices connect inefficiently to a network. For more information, see <a href="/billing/billing-admin-charge">Understanding charges for inefficient network connection</a>.</p>
+
+<h2 id="ConfiguringdevicestoaccountforthemaximumtransmissionunitMTU">Configuring devices to account for the maximum transmission unit (MTU)</h2>
+
+<p>Some cellular networks require a lower than standard <a href="/glossary/mtu">MTU</a> (1500 bytes on an ethernet-based network). Networks will segment or discard packets that are larger than their maximum MTU value. We recommend you analyse your network path to understand the encapsulation requirements for your IoT devices, as well as investigate regional mobile network MTU settings where your devices are deployed. Typically, you will find that you need to set your MTU to less than 1400 bytes. For more information, see <a href="/connectivity/mtu">About the maximum transmission unit (MTU)</a>.</p>
+
+<h2 id="Configuringdevicestohandlenationalemergencyalerts">Configuring devices to handle national emergency alerts</h2>
+
+<p>Increasingly, governments have nationwide test alert systems that may send alerts over cellular networks, and may use different RAT types to distribute an alert.</p>
+
+<p>IoT devices that are connected to such a network at the time of an alert will automatically receive the alert.</p>
+
+<p>You must develop your devices to take appropriate action in response to emergency alerts, such as restarting, or activating a specific function. </p>
+
+<p>We recommend you configure your devices to receive emergency alerts from authorized sources only. It is important to restrict the sources of alerts to trusted authorities, to prevent the device from receiving false or malicious alerts.</p>
+
+<p>Eseye can offer test services, including operation verification, during and following a national emergency alert. Speak to your Account Manager for more information.</p>
+
+<h2 id="ConfiguringdevicestoacceptSIMmanagement">Configuring devices to accept SIM management</h2>
+
+<p>SIM management provides better connectivity control by enabling over-the-air (OTA) <a href="/getting-started/localisation" target="_blank">localisation</a> and SIM maintenance.</p>
+
+<p>IoT devices often contain embedded sensors, software, and other electronics that allow them to connect and communicate with other devices and networks through the internet. </p>
+
+<p>Like any other electronic device, IoT devices require maintenance to ensure their optimal performance, security, and longevity. Without proper maintenance, these devices may encounter various issues such as malfunctions, performance degradation, security breaches, and even complete failure. </p>
+
+<p>SIM management on battery operated devices presents additional challenges, where typically the device only connects to the network for short time periods and then goes to sleep. Often these devices are not awake for long enough periods of time to receive SIM management. We recommend best practices to counteract this issue. For more information, see <a href="#SIM%C2%A0mana">SIM management best practice recommendations</a>.</p>
+
+<h3>SIM management considerations</h3>
+
+<p>Configuring your IoT devices to accept SIM management enables the following:</p>
+
+<ul> <li><span>Localisation</span>: Eseye can send OTA localisation information to the device in a campaign that consists of multiple messages. Depending on the MNO and configuration required, the localisation campaign can vary in size. If the device only wakes up intermittently for short periods of time, a campaign may take months to download on the device, which limits connectivity choices.</li> <li><span>Firmware updates</span>: IoT devices often rely on firmware to operate, and firmware updates are necessary to fix bugs, improve performance, and enhance security. Regular firmware updates can help ensure that IoT devices continue to function optimally and securely.</li> <li><span>Security patches</span>: IoT devices are often connected to the internet, making them vulnerable to cyber attacks. Regular security patches and updates can help protect IoT devices from potential security threats and prevent data breaches.</li> <li><span>System integration</span>: IoT devices often work in tandem with other devices and systems. Regular maintenance may ensure that these devices continue to communicate effectively and that data is transmitted accurately.</li> </ul>
+
+<h3>How Eseye manages localisation</h3>
+
+<p>Eseye and the customer must first develop and agree a localisation plan and associated costs. Before we download an IMSI for a local network, we need to ensure that the network is available and the device can successfully connect to it. Typically, this means that we steer the device to an existing bootstrap IMSI with a roaming agreement on the desired network. When the device has successfully connected to the desired network via roaming, we then download the localised profile for that network and instruct the SIM to switch onto it. The length of time it takes to localise a SIM will vary, depending on the network and the device configuration.</p>
+
+<h3>How Eseye performs SIM management</h3>
+
+<p>When a device requiring SIM management authenticates on the network, it will receive an Mobile Terminated (MT) SMS from Eseye's Remote SIM Provisioning (RSP) system that initiates a secondary data context on a separate connectivity management APN. The APN will vary depending on the current MNO. Eseye assigns a unique IP address to the device specifically for SIM management, which is listed alongside the primary IP address. When the SIM management completes, the context is closed, and the IP address is either cleared or displayed as 0.0.0.0 (depending on the module type). </p>
+
+<Tip>You can request the module to list open contexts to the device firmware using AT commands.</Tip>
+
+<h4>Example 1 – SIM roaming on AT&amp;T with a standard primary data context open on the eseye1 APN.</h4>
+
+<p>The <span>AT+CGDCONT?</span> and <span>AT+CGPADDR</span> commands return all the open data contexts, and list the current APNs and the associated IP addresses if the data contexts are active.</p>
+
+<p> <img src="/images/resources/images/connectivity/example1.png" alt="Example1" /> </p>
+
+<h4>Example 2 – initial progression of a network operational profile download</h4>
+
+<p>The following image demonstrates the open secondary data context and newly assigned IP address for the context, showing it is active:</p>
+
+<p> <img src="/images/resources/images/connectivity/example2.png" alt="Example2" /> </p>
+
+<h4>Example 3 – SIM management completion and resulting closure of the secondary data context</h4>
+
+<p>The following image demonstrates the point at which the secondary data context changes from active to closed. The IP address becomes all 0s, as seen on a Quectel BG95 module:</p>
+
+<p> <img src="/images/resources/images/connectivity/example3.png" alt="Example3" /> </p>
+
+<Note>Results vary between modules and possibly between firmware versions. We highly recommend you test your current module and retest if a firmware change occurs. For example, on the Quectel BG96 module, the secondary data context disappears completely when the channel closes.</Note>
+
+<h3>SIM management best practice recommendations</h3>
+
+<p>We recommend you design your IoT devices to actively poll for SIM management requests at regular intervals, and stay awake long enough to receive the localisation or maintenance campaign, as follows:</p>
+
+<ul> <li>Devices that need to conserve power must authenticate on the network and stay awake for at least 20 seconds to receive the SIM management MT SMS, even if the main application communication has finished.</li> <li>During this time, the device firmware should poll the module to see if an active Remote SIM Provisioning (RSP) context is open.</li> <li>If an active RSP context exists, the device must not shut down, nor close the data contexts. </li> <li> The device firmware should repeatedly extend the module awake time by 20 seconds until the RSP context has closed and the IP address contains 0 values for nine sequential checks (three minutes).  <span><strong>Note: </strong>If the associated IP address changes from a non-zero value to 0.0.0.0 and then back to a non-zero value during the countdown, the firmware must continue to extend the awake time.</span> </li> <li>After this, the module can safely disconnect from the network and the device can power down.</li> <li> Occasionally when the maintenance is complete in some modules, the context may close, but the IP address is not cleared (appearing active). In these cases, if the timer is finished but the RSP IP address is not 0.0.0.0, the maintenance is most likely complete.  <span><strong>Tip: </strong>We recommend you use a watchdog to shut down the module after 30 checks (10 minutes), even if the context remains open.</span> </li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/understanding-pops">About Eseye PoPs</a> </li> <li><a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a> </li> </ul> </div>

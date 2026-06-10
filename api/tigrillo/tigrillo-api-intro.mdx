@@ -1,0 +1,56 @@
+---
+title: "Tigrillo API introduction"
+description: "The Tigrillo API enables you to access your Infinity Classic account to return SIM information, such as data usage, and configure specific fields, such as the friendlyName and SIM status. You can only view and configu..."
+---
+
+<p>The Tigrillo API enables you to access your Infinity Classic account to return SIM information, such as data usage, and configure specific fields, such as the friendlyName and SIM status. You can only view and configure information for SIMs that are already linked to your Infinity Classic account.</p>
+
+<p>Eseye makes data available for two months. You must store any historic data you want to retain.</p>
+
+<p>To request the Tigrillo API subscription:</p>
+
+<ol> <li> Select <span>Request Tigrillo API</span> (below) to display a pre-formatted email that you can use to subscribe to the Tigrillo API: <br /><a href="mailto:orders@eseye.com?subject=Subscribe%20to%20Tigrillo%20API&Body=Hello%20Sales%20Admin,%0D%0DPlease%20set%20up%20the%20Tigrillo%20API%20for%20the%20following%20account:%0D•%20Company%20Name:%20%3CcompanyName%3E%0D•%20My%20role:%20%3Crole%3E%0D•%20Phone%20number:%20%3CphoneNumber%3E%0D•%20Email%20address:%20%3CemailAddress%3E%0D%0DPlease%20notify%20me%20when%20the%20API%20is%20set%20up.%0D%0DKind%20regards,%0D%0D">Request Tigrillo API</a>  </li> <li>Edit the email to include your details.</li> <li> Alternatively, send your own email to Support (support@eseye.com), Sales Admin (salesadmin@eseye.com) and your Account Manager, which must include the following information: <br />Subject: <span>Subscribe to Tigrillo API</span> <br />Body text must include the following information: <ul> <li>Company Name</li> <li>Your role</li> <li>Contact phone number</li> <li>Contact email address</li> </ul> </li> <li> We will notify you when the API is set up. </li> </ol>
+
+<h2 id="AccessingtheAPI">Accessing the API</h2>
+
+<p>Use the following URL to access the latest version of the Tigrillo API:</p>
+
+<ul> <li> <span>https://siam.eseye.com/Japi/Tigrillo/&lt;<var>method</var>&gt;</span>  <br />where <span>&lt;<var>method</var>&gt;</span> is the method used, for example getSIMs. </li> </ul>
+
+<p>Use the following URL to access a specific version of the Tigrillo API:</p>
+
+<ul> <li> <span>https://siam.eseye.com/Japi/&lt;<var>version</var>&gt;Tigrillo/&lt;<var>method</var>&gt;</span>  <br />where <span>&lt;<var>version</var>&gt;</span> is the required version, for example: <br />https://siam.eseye.com/Japi/v1.0/Tigrillo/getSIMs </li> </ul>
+
+<h2 id="TigrilloAPIfunctionality">Tigrillo API functionality</h2>
+
+<p>I want to...</p>
+
+<h5>Change the state of a single SIM</h5>
+
+<ul> <li>Activate one or more SIMs – see <a href="/api/tigrillo/activate-sims">POST /Japi/Tigrillo/activateSIMs</a></li> <li>Suspend, reactivate or terminate a single SIM – see <a href="/api/tigrillo/set-sim-state">POST /Japi/Tigrillo/setSIMState</a></li> </ul>
+
+<h5>Change the state of multiple SIMs</h5>
+
+<ul> <li>Activate one or more SIMs – see <a href="/api/tigrillo/activate-sims">POST /Japi/Tigrillo/activateSIMs</a></li> <li>Suspend multiple SIMs – <a href="/api/tigrillo/suspend-sims">POST /Japi/Tigrillo/suspendSIMs</a></li> <li>Unsuspend (re-enable) multiple SIMs – see <a href="/api/tigrillo/unsuspend-sims">POST /Japi/Tigrillo/unsuspendSIMs</a></li> <li>Terminate multiple SIMs – see <a href="/api/tigrillo/terminate-sims">POST /Japi/Tigrillo/terminateSIMs</a></li> </ul>
+
+<h5>Understand the current state of a single SIM, and what states are available</h5>
+
+<ul> <li>See <a href="/api/tigrillo/get-sim-state-options">POST /Japi/Tigrillo/getSIMStateOptions</a>.</li> </ul>
+
+<h5>Update the details of a single SIM</h5>
+
+<ul> <li>See <a href="/api/tigrillo/set-sim-detail">POST /Japi/Tigrillo/setSIMDetail</a>.</li> </ul>
+
+<h5>View the SIM estate for the account, or a portion thereof (such as the total number of activated SIMs)</h5>
+
+<ul> <li>See <a href="/api/tigrillo/get-sims">POST /Japi/Tigrillo/getSIMs</a>.</li> </ul>
+
+<h5>View billing information for a single SIM</h5>
+
+<ul> <li>See <a href="/api/tigrillo/get-sim-billing">POST /Japi/Tigrillo/getSIMBilling</a>.</li> </ul>
+
+<h5>View the last recorded details for a SIM, for the purposes of tracking or viewing <span>data usage</span></h5>
+
+<ul> <li>See <a href="/api/tigrillo/get-sim-last-activity">POST /Japi/Tigrillo/getSIMLastActivity</a>.</li> </ul>
+
+<div> <h3>Where to next?</h3> <ul> <li><a href="/billing/billing-sim-lifecycle">Understanding the SIM lifecycle</a> </li> <li><a href="/billing/billing-intro">Billing overview</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

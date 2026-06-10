@@ -1,0 +1,46 @@
+---
+title: "EMQPUBOPEN – create a publish message topic"
+description: "Create and view publish message topics, which will enable you to publish data to thing s in AWS IoT Console."
+---
+
+<p>Create and view publish message topics, which will enable you to publish data to thing s in AWS IoT Console.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+EMQPUBOPEN=?</span>  </td> <td> OK <br />  <br />+EMQPUBOPEN:(0-7),&lt;topic&gt; </td> </tr> <tr> <td>Read</td> <td> <span>AT+EMQPUBOPEN?</span>  </td> <td> List of publish topics. <br />OK <br />  <br />+EMQPUBOPEN topics: <br />0 &lt;publishtopic0&gt;/&lt;AWS thingName&gt; <br />1 &lt;publishtopic1&gt;/&lt;AWS thingName&gt; <br />2 null <br />3 null <br />4 null <br />5 null <br />6 null <br />7 null <br />where:  <ul> <li>0, 1, and so on are the index numbers</li> <li><span>&lt;publishtopic<i>n</i>&gt;</span> is the unique name for each publish index</li> <li> <span>&lt;AWS thingName&gt;</span> is the unique name for the thing that you defined in AWS. For more information, see <a href="/sim-only/sim-only-reading-files">Available files and sizes</a>. <span><strong>Note: </strong>The AWS thingName has a maximum length of 128 characters. The sum of <span>&lt;publishtopic<var>n</var>&gt;</span> and <span>&lt;AWS thingName&gt;</span> must not exceed 255 characters. Escaped characters count as 1 character each. </span> </li> <li><span>null</span> is an empty publish topic</li> </ul> </td> </tr> <tr> <td>Write</td> <td> AT+EMQPUBOPEN=(<var>0-7</var>),&lt;<var>topic</var>&gt; <br />where:  <ul> <li><span>(<var>0-7</var>)</span> is a publish index number in the range from 0, up to and including 7.</li> <li><span>&lt;<var>topic</var>&gt;</span> is the publish topic title with a maximum length of 255 characters (including /AWS thingName or /IMEI). Topic titles cannot contain special characters.</li> <li>"<span>&lt;<var>topic</var>&gt;</span>" can exist within quotation marks.</li> </ul> </td> <td> OK <br />  <br />+EMQPUBOPEN: (0-7),&lt;status&gt; <br />where  <ul> <li><span>(0-7)</span> is the publish index number you selected from the range</li> <li><span>&lt;status&gt;</span> is:<ul><li><span>0</span> – successfully installed the publish topic</li><li><span>-2</span> – socket already in use</li></ul></li> </ul> <br />or <br /><span>ERROR</span> – the command failed </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQPUBOPEN=1,PublishToCloud1</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQPUBOPEN: 1,0</p>
+
+<p> </p>
+
+<p>AT+EMQPUBOPEN?</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQPUBOPEN topics:</p>
+
+<p>0 PublishToCloud0/AWS thingName</p>
+
+<p>1 PublishToCloud1/AWS thingName</p>
+
+<p>2 null</p>
+
+<p>3 null</p>
+
+<p>4 null</p>
+
+<p>5 null</p>
+
+<p>6 null</p>
+
+<p>7 null</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> <li><a href="/els61/at-commands/els61-emq-urcs">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

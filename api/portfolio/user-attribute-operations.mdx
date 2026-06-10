@@ -1,0 +1,222 @@
+---
+title: "About user attribute endpoints"
+description: "The Portfolio API enables you to:"
+---
+
+<p>The Portfolio API enables you to: </p>
+
+<ul> <li>View details for <a href="#Viewing2">single</a> or <a href="#Viewing">multiple</a> attributes on a specific user</li> <li><a href="#Creating">Create</a>, <a href="#Updating">update</a>, and <a href="#Deleting">delete</a> user attributes on a specific user</li> </ul>
+
+<p>You can also:</p>
+
+<ul> <li>Create, update and view <a href="/api/portfolio/user-operations" target="_blank">users</a>.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-intro" target="_blank">Portfolio API Introduction</a>.</Note>
+
+<h2 id="Headers">Headers</h2>
+
+<Note>For information about headers, see <a href="/api/portfolio/headers" target="_blank">Configuring Portfolio API headers</a>.</Note>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download and extract the following resource to test the Portfolio API:</p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPortfolioAPI.postman_collection_environment.zip" target="_blank" rel="noopener">AnyNetPortfolioAPI.postman&#95;collection&#95;environment.zip</a> </p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</Note>
+
+<h2 id="Viewingalluserattributesforauser">Viewing all user attributes for a user</h2>
+
+<p>To view all attributes for a specific user:</p>
+
+<ul> <li> Call <span>GET /api/v2/portfolio/&#123;<var>portfolioId</var>&#125;/user/&#123;<var>userId</var>&#125;/attribute/</span> <br />where &#123;<var>portfolioId</var>&#125; identifies the parent portfolio, and &#123;<var>userId</var>&#125; identifies the user containing the attributes you want to view. <br /><span>Path parameters:</span> <span>portfolioId</span><b>&#42;</b>; <span>userId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <span><strong>Tip: </strong>You can apply filters in the request path to limit the results, using one or more parameters. The API returns exactly matching records only. Alternatively, remove all filters from the path to return all records. For example, adding <span><span>?status=active</span></span> to the end of the path will return <span>active</span> objects only.</span> <br />The API returns all the user attribute details for the specified user. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/portfolio/a628ebc659f7dac01f9fdcbd1116307a/user/8d9cde45a21f3f6cb52a368e7fc70b9c/attribute/</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Schema</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><span>pageToken</span> </td> <td> <div> <div> string </div> <div> minLength: 1 </div> </div> <br />The start record for the page. </td> <td>0</td> </tr> <tr> <td><span>requestedPageSize</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The maximum number of records requested per page. </td> <td>50</td> </tr> <tr> <td><span>nextPageToken</span> </td> <td>This only appears if the number of records exceeds the requestedPageSize. For more information, see<a href="/api/portfolio/portfolio-api-reference#nextPage" target="_blank">Handling the nextPageToken tag</a>.</td> <td>ApBHMkC8flM6kpi6wpm6tYuwZkCpirBY</td> </tr> <tr> <td><span>itemCount</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The number of records returned. </td> <td>2</td> </tr> <tr> <td><span>items</span> </td> <td> The <span>items</span> array. <br />Each returned <span>userAttribute</span> includes:  <br /><span>portfolioAddressAttributeId</span>; <span>portfolioAddressId</span>; <span>attribute</span>; <span>value</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/portfolio/portfolio-api-reference#Portfoli2" target="_blank">Portfolio address attribute definition</a>.</span> </td> <td> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"pageToken": "0",</p>
+
+<p>"requestedPageSize": 50,</p>
+
+<p>"itemCount": 2,</p>
+
+<p>"items": [</p>
+
+<p>&#123;</p>
+
+<p>"userAttributeId": 1582,</p>
+
+<p>"userId": 8d9cde45a21f3f6cb52a368e7fc70b9c,</p>
+
+<p>"attribute": "taxReference",</p>
+
+<p>"value": "12345 67890"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"userAttributeId": 1606,</p>
+
+<p>"userId": 8d9cde45a21f3f6cb52a368e7fc70b9c,</p>
+
+<p>"attribute": "clientId",</p>
+
+<p>"value": "",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="Viewingaspecificuserattribute">Viewing a specific user attribute</h2>
+
+<p>To view details for a specific user attribute:</p>
+
+<ul> <li> Call <span>GET /api/v2/portfolio/&#123;<var>portfolioId</var>&#125;/user/&#123;<var>userId</var>&#125;/attribute/&#123;<var>userAttributeId</var>&#125;</span>, where &#123;<var>portfolioId</var>&#125; identifies the parent portfolio, &#123;<var>userId</var>&#125; identifies the parent user, and &#123;<var>userAttributeId</var>&#125; identifies which attribute you want to view. <br /><span>Path parameters:</span> <span>portfolioId</span><b>&#42;</b>; <span>userId</span><b>&#42;</b>; <span>userAttributeId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the specified user attribute details. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/portfolio/a628ebc659f7dac01f9fdcbd1116307a/user/8d9cde45a21f3f6cb52a368e7fc70b9c/attribute/1606</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>portfolioAddressAttributeId</span>; <span>portfolioAddressId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Portfoli2" target="_blank">Portfolio address attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"userAttributeId": 1606,</p>
+
+<p>"userId": 8d9cde45a21f3f6cb52a368e7fc70b9c,</p>
+
+<p>"attribute": "clientId",</p>
+
+<p>"value": ""</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Creatinganewuserattribute">Creating a new user attribute</h2>
+
+<p>To create a new user attribute:</p>
+
+<ul> <li> Call <span>POST /api/v2/portfolio/&#123;<var>portfolioId</var>&#125;/user/&#123;<var>userId</var>&#125;/attribute/</span>, where &#123;<var>portfolioId</var>&#125; identifies the parent portfolio, and &#123;<var>userId</var>&#125; identifies the parent user where you want to create the new attribute. <br /><span>Path parameters:</span> <span>portfolioId</span><b>&#42;</b>; <span>userId</span><b>&#42;</b> <br /><span>Body parameters:</span> <span>attribute</span><b>&#42;</b>; <span>value</span> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory. You can leave <span>value</span> empty <span>""</span>, but do not use <span>null</span>. </span> <br />The API creates a new user attribute. </li> </ul>
+
+<h4>Example</h4>
+
+<p>POST https://portfolio.api.anynetiot.com/api/v2/portfolio/a628ebc659f7dac01f9fdcbd1116307a/user/8d9cde45a21f3f6cb52a368e7fc70b9c/attribute/</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"attribute":"clientId"</p>
+
+<p>"value":""</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>portfolioAddressAttributeId</span>; <span>portfolioAddressId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Portfoli2" target="_blank">Portfolio address attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"userAttributeId": 1606,</p>
+
+<p>"userId": 8d9cde45a21f3f6cb52a368e7fc70b9c,</p>
+
+<p>"attribute": "clientId"</p>
+
+<p>"value": ""</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Updatingaspecificuserattribute">Updating a specific user attribute</h2>
+
+<p>To update a specific user attribute:</p>
+
+<ul> <li> Call <span>PATCH /api/v2/portfolio/&#123;<var>portfolioId</var>&#125;/user/&#123;<var>userId</var>&#125;/attribute/&#123;<var>userAttributeId</var>&#125;</span>, where &#123;<var>portfolioId</var>&#125; identifies the parent portfolio, &#123;<var>userId</var>&#125; identifies the parent user, and &#123;<var>userAttributeId</var>&#125; identifies which attribute you want to update. <br /><span>Path parameters:</span> <span>portfolioId</span><b>&#42;</b>; <span>userId</span><b>&#42;</b>; <span>userAttributeId</span><b>&#42;</b> <br /> <span>Body:</span> <span>value</span>; <span>status</span> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory. You can leave <span>value</span> empty <span>""</span>, but do not use <span>null</span>. </span> <br />The API updates the specified user attribute with the new details. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://portfolio.api.anynetiot.com/api/v2/portfolio/a628ebc659f7dac01f9fdcbd1116307a/user/8d9cde45a21f3f6cb52a368e7fc70b9c/attribute/1606</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"value": "807502883"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>portfolioAddressAttributeId</span>; <span>portfolioAddressId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Portfoli2" target="_blank">Portfolio address attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"userAttributeId": 1606,</p>
+
+<p>"userId": 8d9cde45a21f3f6cb52a368e7fc70b9c,</p>
+
+<p>"attribute": "clientId"</p>
+
+<p>"value": "807502883"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Deletingaspecificuserattribute">Deleting a specific user attribute</h2>
+
+<p>To delete a specific user attribute:</p>
+
+<ul> <li> Call <span>DELETE <span>/api/v2/portfolio/&#123;<var>portfolioId</var>&#125;/user/&#123;<var>userId</var>&#125;/attribute/&#123;<var>userAttributeId</var>&#125;</span></span>, where &#123;<var>portfolioId</var>&#125; identifies the parent portfolio, &#123;<var>userId</var>&#125; identifies the parent user, and &#123;<var>userAttributeId</var>&#125; identifies which attribute you want to delete. <br /><span>Path parameters:</span> <span>portfolioId</span><b>&#42;</b>; <span>userId</span><b>&#42;</b>; <span>userAttributeId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API removes the specified user attribute. </li> </ul>
+
+<h4>Example</h4>
+
+<p>DELETE https://portfolio.api.anynetiot.com/api/v2/portfolio/a628ebc659f7dac01f9fdcbd1116307a/user/8d9cde45a21f3f6cb52a368e7fc70b9c/attribute/1606</p>
+
+<h3>Response schema application/json: </h3>
+
+<p>&#123;</p>
+
+<p>"USER&#95;ATTRIBUTE": 1</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/portfolio/portfolio-api-intro">Portfolio API Introduction</a> </li> <li><a href="/api/portfolio/user-operations" target="_blank">About user endpoints</a> </li> <li><a href="/api/portfolio/user-permission-operations" target="_blank">About user permission endpoints</a> </li> <li><a href="/api/portfolio/user-type-operations" target="_blank">About user type endpoints</a> </li> <li><a href="/api/portfolio/job-title-operations" target="_blank">About job title endpoints</a> </li> <li><a href="/api/portfolio/portfolio-operations" target="_blank">About portfolio endpoints</a> </li> <li><a href="/api/portfolio/portfolio-api-reference" target="_blank">Portfolio API reference tables</a> </li> <li><a href="/api/portfolio/portfolio-api-reference#Error" target="_blank">Error responses definition</a> </li> </ul> </div>

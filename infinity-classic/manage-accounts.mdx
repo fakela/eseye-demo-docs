@@ -1,0 +1,76 @@
+---
+title: "Managing user accounts"
+description: "This section describes how to create new user accounts and sub accounts that can access Eseye tools to manage the SIM estate. You require user accounts to access Eseye's SIM Information And Management ( Infinity Clas..."
+---
+
+<p>This section describes how to create new <a href="#UserAccounts">user accounts</a> and <a href="#SubAccounts">sub accounts</a> that can access Eseye tools to manage the SIM estate. You require user accounts to access Eseye's <a href="/infinity-classic/introduction">SIM Information And Management (Infinity Classic) portal</a> and <a href="/developer-docs/start-using-apis">developer APIs</a>. </p>
+
+<h2 id="Useraccounts">User accounts</h2>
+
+<p>User accounts restrict access to Eseye tools and APIs. </p>
+
+<h3>User roles in Infinity Classic</h3>
+
+<p>Infinity Classic users are categorised into the following user roles: </p>
+
+<ul> <li><b>Admin</b> users can access all menus including the <a href="/infinity-classic/admin">admin menu</a>, which enables creating and managing users, creating and sending referral codes, managing and using sub accounts.<span><strong>Note: </strong>All Infinity Classic accounts have at least one Admin user, which has permissions to <a href="/infinity-classic/admin#Users">add additional users</a> and <a href="/infinity-classic/admin#Sub">sub accounts</a>. </span></li> <li><b>Finance</b> users can access and edit the <a href="/infinity-classic/finance">Finance</a>, <a href="/infinity-classic/ordering">Ordering</a> and <a href="/infinity-classic/support">Support</a> menus. Finance users also receive an emailed copy of all invoices.</li> <li><b>Logistics</b> users can access and edit the <a href="/infinity-classic/ordering">Ordering</a> menu, and can view (but not edit) the <a href="/infinity-classic/activity">Activity</a>, <a href="/infinity-classic/settings">Settings</a> and <a href="/infinity-classic/sims">SIMs</a> menus.</li> <li><b>Engineering</b> users can access the <a href="/infinity-classic/activity">Activity</a>, <a href="/infinity-classic/settings">Settings</a>, <a href="/infinity-classic/sims">SIMs</a> and <a href="/infinity-classic/support">Support</a> menus.</li> </ul>
+
+<p>Each role has access to different areas of the Infinity Classic portal, as defined in the following table.</p>
+
+<table> <col /> <col /> <col /> <col /> <col /> <thead> <tr> <th> Infinity Classic page</th> <th>Admin</th> <th>Finance</th> <th>Logistics</th> <th>Engineering</th> </tr> </thead> <tbody> <tr> <td> <a href="/infinity-classic/sims">SIMs menu</a> (SIM List, Bulk Activate, Bulk Termination, SIM Audit Log) </td> <td> Full access </td> <td> </td> <td> View only </td> <td>Full access</td> </tr> <tr> <td> <a href="/infinity-classic/sims">SIMs menu</a> (Activate) </td> <td>Full access</td> <td> </td> <td> </td> <td>Full access</td> </tr> <tr> <td> <a href="/infinity-classic/sim-actions">SIM List Actions</a> (Bulk Action &gt; Change Settings, SIM Control Panel) </td> <td>Full access</td> <td> </td> <td> </td> <td>Full access</td> </tr> <tr> <td> <a href="/infinity-classic/sim-actions">SIM List Actions</a> (SIM Summary, SIM Settings, Network Settings, Contract Settings, Billing, Messaging, Radius, NetFlow, Audit) </td> <td>Full access</td> <td> </td> <td>View only</td> <td>Full access</td> </tr> <tr> <td><a href="/infinity-classic/settings">Settings menu</a> (SIM Packages, Alert Profiles, Device Models, Reporting Profile, Messaging API, Audit Log)</td> <td>Full access</td> <td> </td> <td>View only</td> <td>Full access</td> </tr> <tr> <td><a href="/infinity-classic/settings">Settings menu</a> (Bulk Update and Bulk Activate)</td> <td>Full access</td> <td> </td> <td> </td> <td>Full access</td> </tr> <tr> <td><a href="/infinity-classic/activity">Activity menu</a> (Notifications, Alerts, Reports, Messaging API)</td> <td>Full access</td> <td> </td> <td>View only</td> <td>Full access</td> </tr> <tr> <td><a href="/infinity-classic/admin">Admin menu</a> (Users, Referral Codes, Sub Accounts, Admin Audit Log)</td> <td>Full access</td> <td> </td> <td> </td> <td> </td> </tr> <tr> <td><a href="/infinity-classic/finance">Finance menu</a> (Overview, Details, Transactions, Audit Log)</td> <td>Full access</td> <td>Full access</td> <td> </td> <td> </td> </tr> <tr> <td><a href="/infinity-classic/ordering">Ordering menu</a> (Shop, Cart, Order History, Delivery Address)</td> <td>Full access</td> <td>Full access</td> <td>Full access</td> <td> </td> </tr> <tr> <td><a href="/infinity-classic/support">Support menu</a> </td> <td>Full access</td> <td>Full access</td> <td>Full access</td> <td>Full access</td> </tr> <tr> <td><a href="/infinity-classic/account">Account menu</a> (Account Details, Notifications / Account Settings, Account Reports, Account Audit Log)</td> <td>Full access</td> <td> </td> <td> </td> <td> </td> </tr> </tbody> </table>
+
+<p>To change the user roles in Infinity Classic:</p>
+
+<ol> <li> Log in to Infinity Classic then go to: <span>Admin</span> &gt; <span>Users</span>. <br /><img src="/images/resources/images/infinityclassic/adminusers.png" alt="Adminusers" />  </li> <li>Use the check boxes to select the user roles for each user.</li> <li>Select <span>Save changes</span>.</li> </ol>
+
+<h3>Creating user accounts</h3>
+
+<p>To create a new Infinity Classic account:</p>
+
+<ol> <li>Log in to Infinity Classic then go to: <span>Admin</span> &gt; <span>Users</span>.</li> <li>Select <span>Add user</span>.</li> <li> Complete the fields on the <a href="/infinity-classic/admin#UserDetailsDialog">User Details</a> dialog. <br /><img src="/images/resources/images/infinityclassic/userdetailsdialog.png" alt="Userdetailsdialog" />  <br />Fields with an asterix are mandatory. </li> <li>Select one or more credential check boxes: <span>Admin</span>, <span>Finance</span>, <span>Logistics</span>, or <span>Engineering</span>.</li> <li> Select <span>Save</span>. <br />The User Details saves and closes. An automatic email is sent to the new user with the following details: <ul> <li>From: support@eseye.com</li> <li>Subject: Your account on https://siam3.eseye.com/</li> <li>Body: Contains an account verification link.</li> </ul> </li> </ol>
+
+<h2 id="Subaccounts">Sub accounts</h2>
+
+<p>Sub accounts are created by Infinity Classic users with one or more customers who wish to use Infinity Classic's functionality. SIMs which are moved to a sub account will be separate from those in the parent account, and any other child accounts. Sub accounts can be used to give customers access to a group of SIMs, rather than the entire portfolio.</p>
+
+<p>Account users can log in as sub account users and use the Infinity Classic portal as if they were the sub account user. </p>
+
+<h3>Creating sub accounts</h3>
+
+<p>Creating sub accounts involves sending referral codes to new users who can then gain access to Eseye's Infinity Classic portal. The new users will only have access to SIMs allocated to the sub account.</p>
+
+<Note>Once created, you can only edit or delete sub accounts by contacting Support.</Note>
+
+<p>To create sub accounts in Infinity Classic:</p>
+
+<ol> <li>Log in to Infinity Classic.</li> <li>Create a referral code as follows:<ol><li>Select <span>Admin</span> &gt; <span>Referral Codes</span>.</li><li>Select <span>Add Sub Account Referral Code</span>, which displays the following dialog:<br /><img src="/images/resources/images/infinityclassic/addsubaccountreferralcode.png" alt="Addsubaccountreferralcode" /></li><li>Specify a unique referral code, at least six characters in length, to send to the user. </li><li>Specify one of the following referral code types to send to the user:<ul><li><span>Single Use</span> – creates a code for a sub account that can only be used once.</li><li><span>Perpetual</span> – creates a reusable code for sub accounts.</li><li><span>Tie</span> – creates a new user on your account.</li></ul></li><li>Under <span>Billing</span>, select <span>Sub Account</span>.</li><li>Select <span>Create</span>.</li></ol></li> <li>Send the referral code to the sub account user as follows:<ol><li>On the <a href="/infinity-classic/admin#Referral">Referral Codes pages</a> page, select the message icon (<img src="/images/resources/images/infinityclassic/iconemail_24x24.png" alt="Iconemail 24X24" />).</li><li>Specify one or more email addresses to add to the sub account. Use a comma-separated list for multiple addresses.</li><li>Select <span>Send Email</span>.</li></ol></li> <li>Wait for the user to <a href="#ValidateSubAccount">validate the email</a>. </li> </ol>
+
+<p>To log in to a sub account:</p>
+
+<ol> <li>Log in to Infinity Classic then go to: <span>Admin</span> &gt; <span>Sub Accounts</span>.</li> <li>Select <img src="/images/resources/images/infinityclassic/iconuser_24x24.png" alt="Iconuser 24X24" /> alongside the relevant sub account. </li> <li> Confirm that you want to log out of your current account. <br />Infinity Classic logs in to the sub account, which has access to the <a href="/infinity-classic/sims">SIMs</a>, <a href="/infinity-classic/settings">Settings</a>, <a href="/infinity-classic/activity">Activity</a>, <a href="/infinity-classic/admin">Admin</a> and <a href="/infinity-classic/support">Support</a> menus. </li> </ol>
+
+<p>To validate a sub account after receiving a referral code:</p>
+
+<ol> <li> Check for an email from support@eseye.com with the following subject line: <span>Invitation to set up a SIM Management portal account</span>. </li> <li> Open the email and select the link to validate your account. <br />Infinity Classic displays the <span>Sign up account</span> page. <br /><img src="/images/resources/images/infinityclassic/signupaccountpage.png" alt="Signupaccountpage" />  <br />Required fields are indicated by a red star [&#42;]. Most fields are free text fields or dropdown menus, the only fields with text rules are: <ul> <li><span>Username </span>– must be between 6 and 32 characters in length, and should contain only letters, digits, '-', '&#95;', or be a valid email address.</li> <li><span>Password</span> – must be between 6 and 32 characters in length, and contain at least one lower case letter, one upper case letter, and a numeric digit.</li> <li><span>Phone number flag</span> – select the flag icon to select the appropriate international code for your phone number.</li> </ul> </li> <li>Complete the fields on the <span>Sign up account</span> page, then select <span>Sign up</span>.</li> </ol>
+
+<h2 id="Twofactorauthentication">Two factor authentication</h2>
+
+<p>Multi- factor authentication provides an additional layer of security by requiring two independent authentication factors:</p>
+
+<ol> <li> Enter user credentials in the <span>Login</span> screen. </li> <li> Use a third-party authenticator application to generate a six-digit authentication code. <span><strong>Note: </strong>Ensure that you enter this authentication code into the the <span>Login</span> screen before it expires.</span> </li> </ol>
+
+<p> </p>
+
+<p>Use either of the following authentication applications:</p>
+
+<ul> <li><a href="https://support.google.com/accounts/answer/1066447" target="_blank">Google Authenticator</a> </li> <li><a href="https://authy.com/" target="_blank">Authy</a> </li> <li><a href="https://lastpass.com/auth/" target="_blank">LastPass Authenticator</a> </li> </ul>
+
+<p>In Infinity Classic, two factor authentication must be requested to be enabled for a portfolio. If enabled, all users assigned to that portfolio will require two factor authentication when they log in. The first time they log in after two factor authentication is enabled will trigger an email with instructions to use it.</p>
+
+<p>To log in to Infinity Classic for the first time with two factor authentication:</p>
+
+<ol> <li>Navigate to the following URL: <a href="https://siam3.eseye.com/user/login/" target="_blank">https://siam3.eseye.com/user/login/</a></li> <li> Enter you supplied username and password and select <span>Sign In</span>. <br />After the first successful log in, Infinity Classic emails a QR code and two factor authentication instructions to the user's email address. <span><strong>Note: </strong>All subsequent log in attempts will require the following additional step.</span> </li> <li> Specify an authentication code and select <span>Submit</span>. <br /><img src="/images/resources/images/infinityclassic/2factorauthentication.png" alt="2Factorauthentication" />  </li> </ol>
+
+<p>To resend the two factor authentication QR code in Infinity Classic:</p>
+
+<ol> <li>Log in to Infinity Classic as an <span>Admin</span> user.</li> <li> Display the <span>Admin &gt; User</span> menu (shown below). <br /><img src="/images/resources/images/infinityclassic/adminusers2fa.png" alt="Adminusers2Fa" />  </li> <li> Next to the user to which to resend the QR code, select the <img src="/images/resources/images/infinityclassic/icon2fa_24x24.png" alt="Icon2Fa 24X24" /> icon. <br />Infinity Classic emails a QR code and two factor authentication instructions to the user's email address. </li> </ol>

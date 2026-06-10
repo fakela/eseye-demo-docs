@@ -1,0 +1,38 @@
+---
+title: "Understanding multi-IMSI functionality"
+description: "Eseye supplies different SIM card versions, which all support multi-IMSI functionality. This means that:"
+---
+
+<p>Eseye supplies different SIM card versions, which all support <a href="/glossary/multi-imsi">multi-IMSI</a> functionality. This means that:</p>
+
+<ul> <li> Standard SIMs (v5) are manufactured with up to ten International Mobile Subscriber Identities (<a href="/glossary/imsi">IMSIs</a>) from different MNOs.</li> <li> eUICC SIMs (v6 and v7) can support one multi-IMSI <span>bootstrap profile</span>, containing up to ten IMSIs, and up to three single-IMSI <span>operational profiles</span>. For more information, see <a href="/getting-started/esim/profiles" target="_blank">About eUICC SIM profiles</a>. <span><strong>Note: </strong>The v6 and v7 SIM cards comply with the eUICC standard. </span> </li> </ul>
+
+<p>The <a href="/connectivity/connectivity-management-platform">Connectivity Management Platform</a> (CMP) manages adding and deleting the IMSIs on the SIM card, and a SIM application controls which IMSI is active.</p>
+
+<p>When an IoT device first starts up, the device attempts to connect to a network using the currently active IMSI. </p>
+
+<p>Selecting a different IMSI enables the modem to register on a different available network, using an alternative set of credentials, without having to physically swap the SIM. </p>
+
+<Note>The mobile network that provides the active IMSI is known as the <span><a href="/glossary/home-network">home network</a></span>.</Note>
+
+<Note>Registration can only occur on one mobile network at a time, either on the home network, or roaming.</Note>
+
+<Note>For eUICC-enabled devices, the active IMSI may exist within a multi-IMSI <a href="/getting-started/esim/profiles#Bootstra">bootstrap</a> <span>profile</span>, or as one of the single-IMSI <a href="/getting-started/esim/profiles#Operatio">operational (step 2)</a> <span>profiles</span>. </Note>
+
+<h2 id="AboutmultiIMSIaccounts">About multi-IMSI accounts</h2>
+
+<p>A standard SIM or AnyNet eUICC SIM profile with multi-IMSI functionality supports up to 10 IMSI accounts, which each contain all the data needed for a modem to connect to a network. Each account is identified by its unique <a href="/glossary/imsi">IMSI</a>. The accounts enable the IoT device to use up to ten different operator networks and all their <a href="/getting-started/roaming">roaming</a> partners without having to physically change the SIM. </p>
+
+<p>Each IMSI account is provided by one of Eseye's <a href="/getting-started/anynet-federation" target="_blank">AnyNet Federation</a> MNO partners.</p>
+
+<p>Eseye preconfigures which IMSI accounts are available during SIM manufacture, before they are shipped to customers. During an IoT device lifetime, Eseye can load new IMSIs onto the SIM, delete IMSIs, and change how they are selected over-the-air (OTA). This is useful if you need to <a href="/getting-started/localisation" target="_blank">localise</a> a device.</p>
+
+<Note>For AnyNet <a href="/getting-started/esim/euicc" target="_blank">eUICC</a> SIMs, Eseye can download and enable multiple <a href="/getting-started/esim/profiles#Operatio">operational profiles</a> OTA. The <a href="/connectivity/connectivity-management-platform" target="_blank">Connectivity Management Platform</a> manages switching between these profiles, in a similar way to switching IMSIs within a multi-IMSI profile. For more information, see <a href="/getting-started/imsi-rotation-switching" target="_blank">Understanding IMSI rotation vs IMSI switching</a>.</Note>
+
+<h2 id="BenefitsofaccesstomultipleIMSIs">Benefits of access to multiple IMSIs</h2>
+
+<p>Having access to multiple IMSIs provides the following benefits for IoT devices:</p>
+
+<ul> <li><span>Greater network choice</span> – with access to more operators, the device is more likely to connect to a network.</li> <li><span>Network redundancy</span> – if the current network goes down, the device can <a href="#ImsiRotation">rotate</a> through different IMSIs until a different network connection is established.</li> <li><span><a href="/getting-started/localisation" target="_blank">Localisation</a></span> – when the IoT device uses a local network operator, this can resolve manufacturing and deployment issues, such as avoiding roaming restrictions in the local country.</li> <li><span>Legislative compliance</span> – comply with local legislative requirements, no matter where the device is deployed.</li> <li> <span>Roaming partner access</span> – access <a href="/getting-started/roaming">roaming agreements</a> either through the active IMSI, or by <a href="/getting-started/imsi-rotation-switching#ImsiSwitching">switching</a> IMSIs. This can enable IoT devices to connect to alternative networks.  </li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li>Understand <a href="/getting-started/roaming" target="_blank">roaming</a>, <a href="/getting-started/roaming#Steering" target="_blank">steering of roaming</a> and <a href="/getting-started/localisation" target="_blank">localisation</a></li> <li><a href="/getting-started/esim/esim" target="_blank">About eSIM technology</a> </li> <li><a href="/getting-started/esim/profiles" target="_blank">About eUICC SIM profiles</a> </li> <li><a href="/hardware-products/sims-intro" target="_blank">AnyNet SIMs</a> </li> <li><a href="/connectivity/connectivity-intro" target="_blank">Eseye connectivity overview</a> </li> <li><a href="/connectivity/mnos-by-pop" target="_blank">Mobile Network Operators by PoP</a> </li> <li><a href="/connectivity/ip-addresses" target="_blank">About IP addresses</a> </li> <li><a href="/getting-started/anynet-federation" target="_blank">About the AnyNet Federation</a> </li> <li><a href="/getting-started/localisation" target="_blank">Understanding localisation</a> </li> </ul> </div>

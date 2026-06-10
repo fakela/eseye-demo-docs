@@ -1,0 +1,48 @@
+---
+title: "General AT Commands for the Cinterion® ELS61 Wireless Module"
+description: "AT commands, or the Hayes command set, are instructions for controlling modules. The commands consist of a series of short text strings for a range of uses, including:"
+---
+
+<p>AT commands, or the Hayes command set, are instructions for controlling modules. The commands consist of a series of short text strings for a range of uses, including: </p>
+
+<ul> <li>Configuring a module</li> <li>Establishing the module's network connection</li> <li>Discovering module and connection status information, to ensure they are working correctly</li> <li>Managing the module</li> <li>Encrypting and transporting data to and from the module</li> <li>Directly accessing the cloud</li> </ul>
+
+<p>You can find a full set of the Cinterion® ELS61 Wireless Module AT commands here:</p>
+
+<p><a href="https://developer.gemalto.com/sites/default/files/els61-e2_atc_01000.pdf" target="_blank">Cinterion® ELS61-E2 AT Command Set PDF</a> </p>
+
+<Note>Your software will need to send test, read and write AT commands to the Cinterion® ELS61 Wireless Module.</Note>
+
+<div> <h3>Before you begin</h3> <p>Before you use any AT commands on the modem, ensure that it is ready to receive them. </p> <p> </p><p>To test that the modem is ready to receive AT commands:</p> <ol> <li> Using a terminal emulator that is connected to your modem, type: <br /><span>at</span>&lt;return&gt; <br />The terminal emulator will return any of the following: <br /><span>OK</span> – the modem and port are connected and ready to communicate <br /><span>ERROR</span> – the modem and port cannot communicate. Contact the modem supplier. <br />Nothing – ensure you have set the correct baud rate in your code. For more information, see <a href="/els61/els61-rs232-serial-connection">Connecting to the LTE Cat.1-xx click</a>. </li> </ol> </div>
+
+<h2>AT Command syntax</h2>
+
+<p>Use the following syntax:</p>
+
+<p>AT+&lt;COMMAND&gt;&lt;CR&gt;</p>
+
+<p>where: </p>
+
+<ul> <li><span>AT</span> is in upper or lowercase</li> <li><span>&lt;COMMAND&gt;</span> is a test, read or write command in upper or lower case</li> <li> <span>&lt;CR&gt;</span> is the end-of-line character marking the end of a command line (alias &#92;r <span>– carriage return)</span> <br />The modem will execute the command line after receiving the end-of-line character. </li> <li><span>&lt;LF&gt;</span> is the line feed, which will move the cursor to the next line</li> </ul>
+
+<Note>This document displays commands only. <span>&lt;CR&gt;&lt;LF&gt;</span> after a command is intentionally omitted.</Note>
+
+<p>AT commands are usually followed by a response that includes:</p>
+
+<p>&lt;CR&gt;&lt;LF&gt;&lt;RESPONSE&gt;&lt;CR&gt;&lt;LF&gt;</p>
+
+<p>where <span>&lt;RESPONSE&gt;</span> is the command response</p>
+
+<Note>This document displays responses only. <span>&lt;CR&gt;&lt;LF&gt;</span> is intentionally omitted.</Note>
+
+<p>The response may include:</p>
+
+<ul> <li><span>OK</span> – indicates the command executed with no errors</li> <li><span>ERROR</span> – indicates an invalid command, or that the command line was too long</li> </ul>
+
+<h2>Types of AT Commands and responses</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Command type</th> <th>Command syntax</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+&lt;COMMAND&gt;=? </td> <td> Returns a list of parameters and value ranges set by the corresponding Write command or internal processes. </td> </tr> <tr> <td>Read</td> <td> AT+&lt;COMMAND&gt;? </td> <td> Returns the currently set value of each parameter. </td> </tr> <tr> <td>Write</td> <td> AT+&lt;COMMAND&gt;= <br />&lt;<var>parameter</var>&gt; </td> <td> Sets the user-defined parameter values. </td> </tr> <tr> <td> Execute </td> <td> AT+&lt;COMMAND&gt; </td> <td> Reads non-variable parameters affected by internal processes in the Eseye-enabled modem. For example, see <a href="/els61/at-commands/els61-ccid">CCID – request unique SIM number (ICCID)</a>. </td> </tr> </tbody> </table>
+
+<Note> Thales supply a large set of AT commands that work with the Cinterion® ELS61 Wireless Module. You may find <span>AT+CCID</span>, <span>AT+CREG</span>, <span>AT+CEREG</span>, <span>AT+CGREG</span> and <span>AT+CSQ</span> useful. For more information, see the Thales AT command set documentation.</Note>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="#">General AT Commands for the Cinterion® ELS61 Wireless Module</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

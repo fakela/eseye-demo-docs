@@ -1,0 +1,54 @@
+---
+title: "Displaying SIM Timelines"
+description: "The SIM Timelines feature provides an interactive graphical view of the previous 24 hours of connectivity, messaging and data usage for a SIM. After displaying the timeline for a SIM, you can:"
+---
+
+<Note>Only available in <a href="/infinity-classic/introduction">Infinity Classic</a>.</Note>
+
+<p>The SIM Timelines feature provides an interactive graphical view of the previous 24 hours of connectivity, messaging and data usage for a SIM. After <a href="#ToDisplaySimTimeline">displaying the timeline for a SIM</a>, you can:</p>
+
+<ul> <li><a href="#ShowHideSeries">Show or hide information</a> </li> <li><a href="#Zoom">Zoom in to specific times</a> </li> <li><a href="#MoreInfo">Display detailed information for specific data points</a> </li> </ul>
+
+<p> <img src="/images/resources/images/management/simtimeline.svg" alt="Simtimeline" /> </p>
+
+<Note>All times shown on the SIM timeline are in <a href="/glossary/utc">UTC</a>.</Note>
+
+<p>The SIM timeline displays the following:</p>
+
+<ul> <li><span>Chosen ICCID</span> – displays the <a href="/glossary/iccid">ICCID</a> of the SIM for this SIM timeline.</li> <li><span>Reset view</span> – select to reset the SIM timeline view to the initial display.</li> <li><span>Export or print</span> – select to export the current view of the SIM timeline to an image (PNG, JPEG, SVG or PDF formats supported) or to print the current view of the SIM timeline.</li> <li><span>Status</span> – displays the current status of the SIM timeline:<ul><li><img src="/images/resources/images/management/simtimelinestatustickicon_24x24.png" alt="Simtimelinestatustickicon 24X24" /> – successful download of SIM data.</li><li><img src="/images/resources/images/management/simtimelinestatuserroricon_24x24.png" alt="Simtimelinestatuserroricon 24X24" /> – error downloading some data. Hover on the icon to see a breakdown of the data that failed to download. </li></ul></li> <li><span>Timeline information</span> – displays data related to the selected data point on the SIM timeline. For example, in the screenshot above, the timeline information pane displays the <a href="/glossary/radius">RADIUS</a> authentication data for the selected data point (circled in the above screenshot).</li> <li><span>Data series timelines</span> – see <a href="#DataSeries">data series timelines</a>.</li> <li><span>IMSI status timelines</span> – see <a href="#ImsiStatus">IMSI status timelines</a>.</li> <li><span>Data usage timelines</span> – displays the number of bytes uploaded (shown in red) and downloaded (shown in green).</li> </ul>
+
+<p>To display a SIM timeline for a SIM:</p>
+
+<ol> <li><a href="/infinity-classic/introduction#Accessing">Log in to the Infinity Classic user interface</a>.</li> <li>Go to: <span>SIMS</span> &gt; <span>SIMs List</span>.</li> <li> On the table row containing the ICCID of the required SIM, under <span>Action</span> select <img src="/images/resources/images/infinityclassic/simactioniconcontrol_24x24.png" alt="Simactioniconcontrol 24X24" /> (SIM Control Panel). <span><strong>Note: </strong>The SIM must be in an active state to display the SIM Control Panel. </span> </li> <li> On the <a href="/infinity-classic/sim-actions#Control">SIM Control Panel</a>, select <span>SIM Timeline</span>. <br />The Infinity Classic user interface opens a new tab and loads the SIM timeline for the selected SIM. </li> </ol>
+
+<p>To show or hide a timeline data series:</p>
+
+<p> Select the name of the data series in the margin.</p>
+
+<Tip>This can be useful to hide the RADIUS authentication data points, which can negatively impact the performance of the SIM timeline. </Tip>
+
+<p>To zoom in to a specific time on the timeline:</p>
+
+<p>Perform one of the following:</p>
+
+<ul> <li>Hold the CTRL key then left-click and drag your cursor across the region of the timeline to enlarge.</li> <li>Use the scroll wheel on your mice to zoom in and out of the timeline.</li> </ul>
+
+<p>To display more information about a data point on the SIM timeline:</p>
+
+<p>Select a data point (or series) on the timeline to display additional information about the data point (or series) in the <span>Timeline information</span> pane.</p>
+
+<h2 id="Dataseriestimelines">Data series timelines</h2>
+
+<p>Displays multiple network and messaging data series for the SIM. The colour of the data points for the Audit, RADIUS auth, Data session and Location update series represent different service networks.</p>
+
+<p>The following table describes the data series available on the SIM timeline.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Data series</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Audit </td> <td> Each data point represents an audit log entry for a change to the <a href="/billing/billing-sim-lifecycle">SIM lifecycle</a> state. </td> </tr> <tr> <td> RADIUS authentication </td> <td> Each data point represents a successful RADIUS authentication performed by the SIM. </td> </tr> <tr> <td> Data session </td> <td> Displays the start and end points of each data session. </td> </tr> <tr> <td> Location update </td> <td> Each data point represents a location update. Select a data point to display time stamp and status information retrieved from the live network via the MAP protocol. </td> </tr> <tr> <td> SMS MO </td> <td> Each data point represents a successful mobile originated SMS sent by the SIM. </td> </tr> <tr> <td> SMS MT </td> <td> Each data point represents a successful mobile terminated SMS received by the SIM. </td> </tr> <tr> <td>USSD</td> <td> Each data point represents a successful USSD message received by the SIM. </td> </tr> <tr> <td>OTA</td> <td> Each data point represents a successful over-the-air (OTA) message received by the SIM. </td> </tr> <tr> <td>Voice</td> <td> Displays the start and end of every voice session. </td> </tr> </tbody> </table>
+
+<h2 id="IMSIstatustimelines">IMSI status timelines</h2>
+
+<p>Displays the status of individual <a href="/glossary/imsi">IMSI</a>s in the SIM over time.</p>
+
+<p>The following table describes the data series on the IMSI status timelines.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Data series</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Package </td> <td> Displays the <a href="/glossary/package">package</a> assigned to the SIM. Select the package data series to display package information in the timeline information pane. </td> </tr> <tr> <td> &lt;IMSIs&gt; </td> <td> Displays the provisioning status of the IMSI, where the colour of the data points and lines differ for each IMSI provider. <br />Solid lines represent activated IMSIs and dotted lines represent provisioned but inactive IMSIs. </td> </tr> <tr> <td> Last active IMSI </td> <td> Displays the active IMSI in the SIM with each data point representing a change to a different IMSI. The colour of the data points and lines matches the colour of the individual IMSI series.  <span><strong>Note: </strong>This data series is calculated from the <span>RADIUS authentication</span> and <span>Location update</span> data series which must be visible. If either of these data series are disabled, the last active IMSI data will not display correctly.</span> </td> </tr> </tbody> </table>

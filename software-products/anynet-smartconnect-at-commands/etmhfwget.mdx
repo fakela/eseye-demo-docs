@@ -1,0 +1,24 @@
+---
+title: "ETMHFWGET – checks for new host firmware"
+description: "Requests a check for new host firmware. Use the Read function to check if new firmware is already downloaded and available."
+---
+
+<p>Requests a check for new host firmware. Use the <span>Read</span> function to check if new firmware is already downloaded and available.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td>   <span>AT+ETMHFWGET=?</span>  </td> <td> +ETMHFWGET: &lt;IMEI&gt; <br />OK </td> </tr> <tr> <td>Read</td> <td> Not currently available. </td> <td> </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMHFWGET=&lt;IMEI&gt;</span>  <br />where <span>&lt;IMEI&gt;</span> is the unique identity of the current device. </td> <td> OK <br />  <br /><span>+ETMHFWGET: checking...</span> – AnyNet SMARTconnect™ is searching the configuration file <span>[host] updateurl</span> for new firmware. If new firmware is available, the file is downloaded. For more information, see <a href="/software-products/configuration-file#updateurl">updateurl</a>. <span><strong>Note: </strong>The host can read the downloaded file using <span>AT+ETMHFWREAD</span>. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/etmhfwread">ETMHFWREAD – reads a section of the new host firmware image</a>.</span> <br /><span>+ETMHFWGET: none</span> – no host firmware is available. Ensure that the URL is configured and accessible <br />or <br /><span>+ETMHFWGET: available</span> – the latest host firmware is downloaded and available <br />or <br /><span>+ETM ERROR: &lt;errormessage&gt;</span>  </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p><span>AT+ETMHFWGET=862061234567890</span> </p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+ETMHFWGET: checking...</p>
+
+<p> </p>
+
+<p>+ETMHFWGET: none</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

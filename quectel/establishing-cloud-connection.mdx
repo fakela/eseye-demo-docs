@@ -1,0 +1,18 @@
+---
+title: "Connecting to the cloud"
+description: "An AnyNet SMARTconnect™ -enabled Quectel module, coupled with an AnyNet SIM, provides simple, easy integration and secure cellular connection between your thing and your chosen cloud provider, from anywhere in the wo..."
+---
+
+<p>An AnyNet SMARTconnect™-enabled Quectel module, coupled with an AnyNet SIM, provides simple, easy integration and secure cellular connection between your thing and your chosen cloud provider, from anywhere in the world. This enables you to remotely extract data from your thing for a variety of industrial and commercial applications, such as metering, monitoring, transportation, security, and so on.</p>
+
+<p>AnyNet SMARTconnect™ ensures that your thing has near constant connectivity to a cellular network. Connecting to cloud services provides a flexible and scalable solution for your Internet of Things enterprise.</p>
+
+<h2 id="Howconnectivityisestablishedwiththecloud">How connectivity is established with the cloud</h2>
+
+<p>AnyNet SMARTconnect™ uses the Message Queue Telemetry Transport (MQTT) protocol to connect one or more thing s (MQTT clients) with the cloud MQTT broker (for example, AWS IoT Core). </p>
+
+<p>You use an AT command interface to send and receive telemetry data to and from the cloud service. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands">AnyNet SMARTconnect™ AT Commands</a>.</p>
+
+<div> <p>AnyNet SMARTconnect™-enabled Quectel module s use the following:</p> <ul> <li> <span>MQTT URL</span> – the endpoint used to establish a connection between a thing and a cloud service such as AWS IoT Core, for example: <br />a2efgh321joea3-ats.iot.eu-west-1.amazonaws.com </li> <li> <span>Transport Layer Security</span> (TLS) – for the IP connection </li> <li><span>Publish</span> and <span>subscribe topics</span> – preconfigured in the AnyNet SMARTconnect™ application using AT commands</li> <li>MQTT ClientID </li> <li><span>Cloudthing name</span> – the MQTT client ID that uniquely identifies the client to the cloud provider and may be included in the topics</li> </ul> <span><strong>Note: </strong>For information about how to configure these settings, see <a href="/software-products/configuration-file" target="_blank">Using the AnyNet SMARTconnect™ configuration file</a>.</span> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/quectel/installing-smartconnect-bg9x#Creating" target="_blank">Creating the essential AnyNet files</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> <li><a href="/quectel/awsio-t-jobs">Updating the modem firmware using AWS IoT jobs – Quectel module</a> </li> </ul> </div>

@@ -1,0 +1,90 @@
+{
+  "sim-family": [
+    {
+      "title": "Form Factor API",
+      "spec": "/api-specs/sim-family/form-factor-api.json",
+      "key": "form-factor-api",
+      "operations": 4
+    },
+    {
+      "title": "IccCollection API",
+      "spec": "/api-specs/sim-family/icccollection-api.json",
+      "key": "icccollection-api",
+      "operations": 10
+    },
+    {
+      "title": "Icc Type API",
+      "spec": "/api-specs/sim-family/icc-type-api.json",
+      "key": "icc-type-api",
+      "operations": 9
+    },
+    {
+      "title": "Icc Type Mno API",
+      "spec": "/api-specs/sim-family/icc-type-mno-api.json",
+      "key": "icc-type-mno-api",
+      "operations": 9
+    },
+    {
+      "title": "Imsi API",
+      "spec": "/api-specs/sim-family/imsi-api.json",
+      "key": "imsi-api",
+      "operations": 9
+    },
+    {
+      "title": "Imsi Range API",
+      "spec": "/api-specs/sim-family/imsi-range-api.json",
+      "key": "imsi-range-api",
+      "operations": 9
+    },
+    {
+      "title": "Msisdn API",
+      "spec": "/api-specs/sim-family/msisdn-api.json",
+      "key": "msisdn-api",
+      "operations": 10
+    },
+    {
+      "title": "Msisdn Range API",
+      "spec": "/api-specs/sim-family/msisdn-range-api.json",
+      "key": "msisdn-range-api",
+      "operations": 9
+    },
+    {
+      "title": "Msisdn Type API",
+      "spec": "/api-specs/sim-family/msisdn-type-api.json",
+      "key": "msisdn-type-api",
+      "operations": 4
+    },
+    {
+      "title": "Sim API",
+      "spec": "/api-specs/sim-family/sim-api.json",
+      "key": "sim-api",
+      "operations": 32
+    }
+  ],
+  "invoice-family": [
+    {
+      "title": "Billing Subscription API",
+      "spec": "/api-specs/invoice-family/billing-subscription-api.json",
+      "key": "billing-subscription-api",
+      "operations": 9
+    },
+    {
+      "title": "Billing Transaction API",
+      "spec": "/api-specs/invoice-family/billing-transaction-api.json",
+      "key": "billing-transaction-api",
+      "operations": 9
+    },
+    {
+      "title": "Transaction API",
+      "spec": "/api-specs/invoice-family/transaction-api.json",
+      "key": "transaction-api",
+      "operations": 9
+    },
+    {
+      "title": "Transaction Type API",
+      "spec": "/api-specs/invoice-family/transaction-type-api.json",
+      "key": "transaction-type-api",
+      "operations": 4
+    }
+  ]
+}

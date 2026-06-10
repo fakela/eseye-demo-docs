@@ -1,0 +1,16 @@
+---
+title: "Creating a thing with AnyNetThingType"
+description: "When you create an AWS IoT thing that uses an AnyNet Secure SIM, it must have either of the following types:"
+---
+
+<p>When you create an AWS IoT thing that uses an AnyNet Secure SIM, it must have either of the following types:</p>
+
+<ul> <li><span>AnyNetThingType</span> – for Eseye-designed implementation</li> <li><span>CompatibleAnyNetThingType</span> – for bespoke implementation, to indicate that the Eseye service must manage the thing</li> </ul>
+
+<p>AnyNetThingType contains the following attributes:</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Attribute</th> <th>Description</th> <th>Mandatory?</th> </tr> </thead> <tbody> <tr> <td> ActionRequest </td> <td>Allows actions to be performed when updating the thing</td> <td><span>û</span> </td> </tr> <tr> <td> PolicySelector </td> <td> The name of the policy that you want to attach to the thing. The policy must exist in the same AWS Region where you are creating the thing. <br />Leave blank to use the Eseye-supplied default policy. For more information, see. </td> <td><span>û</span> </td> </tr> <tr> <td> SimID </td> <td>The SIM number of the Eseye SIM card associated with the device.</td> <td><span>ü</span> </td> </tr> </tbody> </table>
+
+<p> If you create custom thing s, CompatibleAnyNetThingType is mandatory and must contain the SimID attribute, along with your bespoke attributes.</p>
+
+<p>For information about the properties of a thing, see: <a href="http://docs.aws.amazon.com/iot/latest/apireference/API_ThingAttribute.html">http://docs.aws.amazon.com/iot/latest/apireference/API&#95;ThingAttribute.html</a>.</p>

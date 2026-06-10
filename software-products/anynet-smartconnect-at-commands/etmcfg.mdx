@@ -1,0 +1,50 @@
+---
+title: "ETMCFG – read and write configuration file values"
+description: "Read and write configuration file values. For information about the configuration file parameters, see Using the AnyNet SMARTconnect™ configuration file."
+---
+
+<p>Read and write configuration file values. For information about the configuration file parameters, see <a href="/software-products/configuration-file">Using the AnyNet SMARTconnect™ configuration file</a>.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+ETMCFG=?</span>  </td> <td> +ETMCFG: ("clearcreds","default","revert","save","show") <br />+ETMCFG: "get",&lt;section&gt;,&lt;parameter&gt; <br />+ETMCFG: &lt;section&gt;,&lt;parameter&gt;,&lt;value&gt; <br />  <br />OK </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMCFG=["&lt;cmd&gt;",]["&lt;section&gt;","&lt;parameter&gt;"[,&lt;value&gt;]]</span>  <br />where:  <br /><span>&lt;<var>cmd</var>&gt;</span> is the command, either: <ul> <li><span>clearcreds</span> – deletes the certificate from the device secure store, and all AnyNet SMARTconnect™ files from the <span>datatx</span> folder.</li> <li><span>default</span> – resets the configuration file values to the default firmware values in the factory settings. After resetting to default, send the <span>save</span> &lt;cmd&gt; to keep the default settings, then reboot the modem.</li> <li><span>get</span> – returns the current configuration value for the requested parameters.</li> <li><span>revert</span> – undoes any changes to the values in the configuration file up until the last save. If you want to keep the reverted values, send the <span>save</span> &lt;cmd&gt;, then reboot the modem.</li> <li> <span>save</span> – saves the current configuration values as a new version. After saving, you must reboot the modem to apply the changes. <span><strong>Tip: </strong>Use <span>AT+ETMRESET</span> to reboot the modem.</span> </li> <li><span>show</span> – returns the entire current configuration file content. The response is sent as multiple URCs, with each line beginning <span>+ETMCFG</span>.</li> </ul> <br />If you do not supply &lt;cmd&gt;, the value is applied to the configuration file in the following format: <br /><span>AT+ETMCFG=&lt;<var>section</var>&gt;,&lt;<var>parameter</var>&gt;,&lt;value&gt;</span>  <br />where: <span>section</span> is the configuration file section, <span>parameter</span> is the parameter name, and <span>value</span> is the new parameter value. </td> <td> +ETMCFG: &lt;value&gt; <br />  <br />OK <br />or <br /><span>+ETM ERROR: &lt;errormessage&gt;</span> – returned for an AT command-specific error <br />or <br /><span>ERROR</span> – returned when a command is invalid, for example a parameter is missing or incorrect </td> </tr> </tbody> </table>
+
+<h4>Examples</h4>
+
+<p>AT+ETMCFG="get","mqtt","port"</p>
+
+<p>+ETMCFG: 8883<br /></p>
+
+<p> </p>
+
+<p>OK</p>
+
+<p>AT+ETMCFG="get","mqtt","urcautoformat"</p>
+
+<p>+ETMCFG: 1</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<p>AT+ETMCFG="mqtt","keepalive",1800</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>AT+ETMCFG="operation","time&#95;format","%Y/%m/%d %T%z"</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>AT+ETMCFG="mqtt","enable&#95;msg&#95;tokens",1</p>
+
+<p><span>OK</span> </p>
+
+<p> </p>
+
+<p>AT+ETMCFG="save"</p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

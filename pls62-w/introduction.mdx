@@ -1,0 +1,16 @@
+---
+title: "About the Eseye -enabled Cinterion® PLS62‑W Wireless Module"
+description: "The Eseye-enabled Cinterion® PLS62‑W Wireless Module coupled with an AnyNet SIM provides simple, easy integration and secure cellular connection between your thing and your chosen cloud provider, from anywhere in the..."
+---
+
+<p>The Eseye-enabled Cinterion® PLS62‑W Wireless Module coupled with anAnyNet SIM provides simple, easy integration and secure cellular connection between your thing and your chosen cloud provider, from anywhere in the world. This enables you to remotely extract data from your thing for a variety of industrial and commercial applications, such as metering, monitoring, transportation, security, and so on.</p>
+
+<Accordion title="What do I need?">
+ <ul> <li>  Thales Cinterion® PLS62‑W Wireless Module with seamless fallback to 2G/3G – enables a secure connection to AWS after the Eseye security and identity information is installed </li> <li> Single Eseye SIM with multi-IMSI capability – enables worldwide <span>wireless connectivity</span> </li> <li>A basic understanding of serverless applications running on AWS. Training courses are available here: <a href="https://aws.amazon.com/" target="_blank">https://aws.amazon.com/</a></li> </ul> 
+</Accordion>
+
+<Accordion title="How connectivity is established with the cloud">
+ <p>Eseye uses the Message Queue Telemetry Transport (MQTT) protocol to connect one or more thing s (MQTT clients) with the cloud MQTT broker (for example, AWS IoT Core). </p> <p>You use an AT command interface to send and receive telemetry data to and from the cloud service. </p> <div> <p>The Eseye-enabled Cinterion® PLS62‑W Wireless Module uses the following:</p> <ul> <li> <span>MQTT URL</span> – the AWS Custom Endpoint used to establish a connection between a thing and AWS IoT Core, for example: <br />a2efgh321joea3-ats.iot.eu-west-1.amazonaws.com </li> <li> <span>Transport Layer Security</span> (TLS) – for the IP connection, established using the certificates from the SIM <br />For more information, see <a href="/pls62-w/security">Data security</a> . </li> <li><span>Publish</span> and <span>subscribe topics</span> – preconfigured in the Eseye Telemetry Module application using AT commands</li> <li><span>AWSthing name</span> – appended to the topics as a suffix to uniquely identify the thing in AWS IoT Core</li> </ul> </div> 
+</Accordion>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/pls62-w/configuring-system">Configuring your system to send and receive data</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8582-Intelligent-Cloud-Connect-Quick-Start-Guide.pdf" target="_blank">Intelligent Cloud Connect Quick Start Guide (PDF)</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8589-Eseye-enabled-Cinterion®-PLS62‑W-Wireless-Module-Developer-Guide.pdf" target="_blank">Cinterion® PLS62‑W Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

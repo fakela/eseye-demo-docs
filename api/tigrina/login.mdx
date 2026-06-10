@@ -1,0 +1,55 @@
+---
+title: "POST /Japi/Diam/login"
+description: "Logs in the user using the supplied credentials. The session times out after 1440 seconds of inactivity. If you attempt to use a session cookie after that session has timed out, you will need to log in again."
+openapi: "/api-specs/legacy/tigrina.json POST /Japi/Diam/login"
+---
+
+<p>Logs in the user using the supplied credentials. The session times out after 1440 seconds of inactivity. If you attempt to use a session cookie after that session has timed out, you will need to log in again.</p>
+
+<h2 id="Requestkeys">Request keys</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Description </th> </tr> </thead> <tbody> <tr> <td> username </td> <td> String </td> <td> End-user name, can contain from 6 to 255 characters </td> </tr> <tr> <td> password </td> <td> String </td> <td> End-user password, can contain from 6 to 255 characters </td> </tr> <tr> <td> portfolioID </td> <td> 32 digit hex </td> <td> End-user Portfolio ID. Must contain exactly 32 characters. </td> </tr> </tbody> </table>
+
+<h3>Request example</h3>
+
+<p>&#123;</p>
+
+<p>"username": "Example@Username.com",</p>
+
+<p>"password": "examplepassword",</p>
+
+<p>"portfolioID": "CustomerPortfolioID"</p>
+
+<p>&#125;</p>
+
+<h2 id="Responsekeys">Response keys</h2>
+
+<p>The response is a status structure, with a cookie value and account permissions on successful authentication.</p>
+
+<table> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> Cookie </td> <td> .&#123;0,36&#125; </td> <td> Session cookie ID </td> </tr> <tr> <td> Status </td> <td> Status object </td> <td> Request status </td> </tr> </tbody> </table>
+
+<h3>Status object</h3>
+
+<p>API standard status object.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> status </td> <td> String </td> <td> Between 0 and 36 characters in length. <br /><span>"OK"</span> – the request processed successfully <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td> errorCode </td> <td> String </td> <td> 5 characters in length, in the following format: <br />E&lt;4 digit numeric code&gt; <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeNumber"</span> – the request failed because of this specific error. <span><strong>Note: </strong>For information about errors, see <a href="/api/tigrina/troubleshooting">Troubleshooting errors: Tigrina API</a>.</span> </td> </tr> <tr> <td> errorMessage </td> <td> String </td> <td> Between 0 and 255 characters in length. <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeMessage"</span> – displays an explanation of the error if the request failed </td> </tr> </tbody> </table>
+
+<h3>Response example</h3>
+
+<p>&#123;</p>
+
+<p>"cookie": ".&#123;0,255&#125;",</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "",</p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API Introduction</a> </li> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

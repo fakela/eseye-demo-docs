@@ -1,0 +1,43 @@
+---
+title: "POST /Japi/Tigrillo/suspendSIMs"
+description: "Suspends multiple SIMs. The current SIM state must allow suspension – you cannot suspend a SIM that is already suspended, pending termination, or terminated."
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/suspendSIMs"
+---
+
+<p>Suspends multiple SIMs. The current SIM state must allow suspension – you cannot suspend a SIM that is already suspended, pending termination, or terminated. </p>
+
+<p>Suspension starts immediately, but the SIM will initially deprovision. The suspension process takes up to two hours until the status displays as suspended. You cannot use the SIM card in its suspended state. </p>
+
+<Note>When suspended, the SIM will continue to connect to the network, and service charges will continue. However, usage charges will not continue. For more information, see Understanding service charges.</Note>
+
+<p>If required, you can reverse the suspension and reactivate the SIM card. For more information, see <a href="/api/tigrillo/unsuspend-sims">POST /Japi/Tigrillo/unsuspendSIMs</a>.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login </li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/tigrillo/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Object name</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>sims</td> <td> The array, listing the SIM cards you want to suspend.  </td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> <tr> <td>ICCID</td> <td>The ICCID of a SIM you want to suspend.</td> <td> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123; "sims": [<br />"8944538523013777333",<br />"8944538523014222888"<br />]<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <div> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. </div> <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>simStatuses</td> <td>The simStatuses title, which includes the ICCID. If all SIMs are successfully suspended, this section does not appear in the returned results.</td> </tr> <tr> <td>"&lt;ICCID&gt;": errorMessage</td> <td>The ICCID of each SIM that was not suspended, with a reason for the error.</td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "",<br /> "errorMessage": ""<br /> &#125;,<br /> "simStatuses": &#123;<br /> "8944538523013777333": "E0137:Invalid SIM no. provided",<br /> &#125;<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> <li><a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

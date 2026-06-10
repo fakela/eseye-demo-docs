@@ -1,0 +1,1702 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Package API",
+    "version": "2.0.0",
+    "description": "Package API reference, generated from the Eseye documentation."
+  },
+  "servers": [
+    {
+      "url": "https://package.api.anynetiot.com"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Package attribute"
+    },
+    {
+      "name": "Package item attributes"
+    },
+    {
+      "name": "Package item"
+    },
+    {
+      "name": "Package"
+    }
+  ],
+  "paths": {
+    "/api/v2/package/{packageId}/attribute": {
+      "get": {
+        "summary": "Viewing all package attributes for a package",
+        "operationId": "get-api-v2-package-packageid-attribute",
+        "tags": [
+          "Package attribute"
+        ],
+        "description": "To view all attributes for a specific package:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new package attribute",
+        "operationId": "post-api-v2-package-packageid-attribute",
+        "tags": [
+          "Package attribute"
+        ],
+        "description": "To create a new package attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/package/{packageId}/attribute/{packageAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific package attribute",
+        "operationId": "get-api-v2-package-packageid-attribute-packageattributeid",
+        "tags": [
+          "Package attribute"
+        ],
+        "description": "To view details for a specific package attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific package attribute",
+        "operationId": "patch-api-v2-package-packageid-attribute-packageattributeid",
+        "tags": [
+          "Package attribute"
+        ],
+        "description": "To update a specific package attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific package attribute",
+        "operationId": "delete-api-v2-package-packageid-attribute-packageattributeid",
+        "tags": [
+          "Package attribute"
+        ],
+        "description": "To delete a specific package attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PACKAGE_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PACKAGE_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/package/{packageId}/packageItem/{packageItemId}/attribute": {
+      "get": {
+        "summary": "Viewing all package item attributes for a package item",
+        "operationId": "get-api-v2-package-packageid-packageitem-packageitemid-attribute",
+        "tags": [
+          "Package item attributes"
+        ],
+        "description": "To view all attributes for a specific package item:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new package item attribute",
+        "operationId": "post-api-v2-package-packageid-packageitem-packageitemid-attribute",
+        "tags": [
+          "Package item attributes"
+        ],
+        "description": "To create a new package item attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attribute"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/package/{packageId}/packageItem/{packageItemId}/attribute/{packageItemAttributeId}": {
+      "get": {
+        "summary": "Viewing a specific package item attribute",
+        "operationId": "get-api-v2-package-packageid-packageitem-packageitemid-attribute-packageitemattributeid",
+        "tags": [
+          "Package item attributes"
+        ],
+        "description": "To view details for a specific package item attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific package item attribute",
+        "operationId": "patch-api-v2-package-packageid-packageitem-packageitemid-attribute-packageitemattributeid",
+        "tags": [
+          "Package item attributes"
+        ],
+        "description": "To update a specific package item attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific package item attribute",
+        "operationId": "delete-api-v2-package-packageid-packageitem-packageitemid-attribute-packageitemattributeid",
+        "tags": [
+          "Package item attributes"
+        ],
+        "description": "To delete a specific package item attribute:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PACKAGE_ITEM_ATTRIBUTE": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PACKAGE_ITEM_ATTRIBUTE": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/package/{packageId}/packageItem": {
+      "get": {
+        "summary": "Viewing all package items for a package",
+        "operationId": "get-api-v2-package-packageid-packageitem",
+        "tags": [
+          "Package item"
+        ],
+        "description": "To view all package items for a specific package:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageToken": {
+                      "type": "string"
+                    },
+                    "requestedPageSize": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "packageItemId": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "packageId": {
+                            "type": "integer"
+                          },
+                          "inBundleRounding": {
+                            "type": "integer"
+                          },
+                          "outOfBundleRounding": {
+                            "type": "integer"
+                          },
+                          "transmissionType": {
+                            "type": "string"
+                          },
+                          "transmissionTypeGroup": {
+                            "type": "string"
+                          },
+                          "testBundleAmount": {
+                            "type": "integer"
+                          },
+                          "bundleAmount": {
+                            "type": "integer"
+                          },
+                          "outOfBundlePrice": {
+                            "type": "integer"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "packageItemCategoryId": {
+                            "type": "integer"
+                          },
+                          "packageCategoryId": {
+                            "type": "integer"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "attributes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "packageItemAttributeId": {
+                                  "type": "integer"
+                                },
+                                "packageItemId": {
+                                  "type": "integer"
+                                },
+                                "attribute": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "mcc": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "mcc": {
+                                  "type": "string"
+                                },
+                                "mnc": {},
+                                "mnoId": {},
+                                "profileId": {},
+                                "apnId": {},
+                                "ratTypeId": {},
+                                "status": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "pageToken": "0",
+                  "requestedPageSize": 50,
+                  "itemCount": 2,
+                  "items": [
+                    {
+                      "packageItemId": 206647,
+                      "name": "Zone 1 Data",
+                      "title": "Zone1Data",
+                      "description": "Zone 1 Data",
+                      "packageId": 23434,
+                      "inBundleRounding": 1024,
+                      "outOfBundleRounding": 1024,
+                      "transmissionType": "Data",
+                      "transmissionTypeGroup": "Data services",
+                      "testBundleAmount": 0,
+                      "bundleAmount": 1048576,
+                      "outOfBundlePrice": 1,
+                      "price": 0.1,
+                      "packageItemCategoryId": 105,
+                      "packageCategoryId": 5,
+                      "status": "active",
+                      "attributes": [
+                        {
+                          "packageItemAttributeId": 17512,
+                          "packageItemId": 206647,
+                          "attribute": "doNotPool",
+                          "value": "yes",
+                          "status": "active"
+                        },
+                        {
+                          "packageItemAttributeId": 27583,
+                          "packageItemId": 206647,
+                          "attribute": "friendlyName",
+                          "value": "test",
+                          "status": "active"
+                        }
+                      ],
+                      "mcc": [
+                        {
+                          "mcc": "202",
+                          "mnc": null,
+                          "mnoId": null,
+                          "profileId": null,
+                          "apnId": null,
+                          "ratTypeId": null,
+                          "status": "active"
+                        },
+                        {
+                          "mcc": "204",
+                          "mnc": null,
+                          "mnoId": null,
+                          "profileId": null,
+                          "apnId": null,
+                          "ratTypeId": null,
+                          "status": "active"
+                        },
+                        {
+                          "mcc": "206",
+                          "mnc": null,
+                          "mnoId": null,
+                          "profileId": null,
+                          "apnId": null,
+                          "ratTypeId": null,
+                          "status": "active"
+                        }
+                      ]
+                    },
+                    {
+                      "packageItemId": 206854,
+                      "name": "Zone 1 SMS MO",
+                      "title": "Zone1SMSMO",
+                      "description": "Zone 1 API SMS MO",
+                      "packageId": 23434,
+                      "inBundleRounding": 1,
+                      "outOfBundleRounding": 1,
+                      "transmissionType": "APISMSMO",
+                      "transmissionTypeGroup": "API",
+                      "testBundleAmount": 0,
+                      "bundleAmount": 3,
+                      "outOfBundlePrice": 2,
+                      "price": 0.01,
+                      "packageItemCategoryId": 117,
+                      "packageCategoryId": 13,
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new package item",
+        "operationId": "post-api-v2-package-packageid-packageitem",
+        "tags": [
+          "Package item"
+        ],
+        "description": "To create a new package item:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "packageItemCategoryId": {
+                    "type": "string"
+                  },
+                  "packageCategoryId": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "transmissionTypeId": {
+                    "type": "string"
+                  },
+                  "transmissionTypeGroupId": {
+                    "type": "string"
+                  },
+                  "inBundleRounding": {
+                    "type": "string"
+                  },
+                  "outOfBundleRounding": {
+                    "type": "string"
+                  },
+                  "testBundleAmount": {
+                    "type": "string"
+                  },
+                  "bundleAmount": {
+                    "type": "string"
+                  },
+                  "outOfBundlePrice": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title",
+                  "packageItemCategoryId",
+                  "packageCategoryId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "packageItemId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "packageId": {
+                      "type": "integer"
+                    },
+                    "inBundleRounding": {
+                      "type": "integer"
+                    },
+                    "outOfBundleRounding": {
+                      "type": "integer"
+                    },
+                    "transmissionType": {},
+                    "transmissionTypeGroup": {},
+                    "testBundleAmount": {
+                      "type": "integer"
+                    },
+                    "bundleAmount": {
+                      "type": "integer"
+                    },
+                    "outOfBundlePrice": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "packageItemCategoryId": {
+                      "type": "integer"
+                    },
+                    "packageCategoryId": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "packageItemId": 216913,
+                  "name": "Zone 1 SMS MO",
+                  "title": "Zone1SMSMO",
+                  "description": "Zone 1 SMS MO",
+                  "packageId": 12345,
+                  "inBundleRounding": 1,
+                  "outOfBundleRounding": 1,
+                  "transmissionType": null,
+                  "transmissionTypeGroup": null,
+                  "testBundleAmount": 0,
+                  "bundleAmount": 3,
+                  "outOfBundlePrice": 1,
+                  "price": 0.1,
+                  "packageItemCategoryId": 117,
+                  "packageCategoryId": 13,
+                  "status": "setup"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/package/{packageId}/packageItem/{packageItemId}": {
+      "get": {
+        "summary": "Viewing a specific package item",
+        "operationId": "get-api-v2-package-packageid-packageitem-packageitemid",
+        "tags": [
+          "Package item"
+        ],
+        "description": "To view details for a specific package item:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "packageItemId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "packageId": {
+                      "type": "integer"
+                    },
+                    "inBundleRounding": {
+                      "type": "integer"
+                    },
+                    "outOfBundleRounding": {
+                      "type": "integer"
+                    },
+                    "transmissionType": {
+                      "type": "string"
+                    },
+                    "transmissionTypeGroup": {
+                      "type": "string"
+                    },
+                    "testBundleAmount": {
+                      "type": "integer"
+                    },
+                    "bundleAmount": {
+                      "type": "integer"
+                    },
+                    "outOfBundlePrice": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "packageItemCategoryId": {
+                      "type": "integer"
+                    },
+                    "packageCategoryId": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "packageItemAttributeId": {
+                            "type": "integer"
+                          },
+                          "packageItemId": {
+                            "type": "integer"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "mcc": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mcc": {
+                            "type": "string"
+                          },
+                          "mnc": {},
+                          "mnoId": {},
+                          "profileId": {},
+                          "apnId": {},
+                          "ratTypeId": {},
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "packageItemId": 206647,
+                  "name": "Zone 1 Data",
+                  "title": "Zone1Data",
+                  "description": "Zone 1 Data",
+                  "packageId": 23434,
+                  "inBundleRounding": 1024,
+                  "outOfBundleRounding": 1024,
+                  "transmissionType": "Data",
+                  "transmissionTypeGroup": "Data services",
+                  "testBundleAmount": 0,
+                  "bundleAmount": 1048576,
+                  "outOfBundlePrice": 1,
+                  "price": 0.1,
+                  "packageItemCategoryId": 105,
+                  "packageCategoryId": 5,
+                  "status": "active",
+                  "attributes": [
+                    {
+                      "packageItemAttributeId": 17512,
+                      "packageItemId": 206647,
+                      "attribute": "doNotPool",
+                      "value": "yes",
+                      "status": "active"
+                    },
+                    {
+                      "packageItemAttributeId": 27583,
+                      "packageItemId": 206647,
+                      "attribute": "friendlyName",
+                      "value": "test",
+                      "status": "active"
+                    }
+                  ],
+                  "mcc": [
+                    {
+                      "mcc": "202",
+                      "mnc": null,
+                      "mnoId": null,
+                      "profileId": null,
+                      "apnId": null,
+                      "ratTypeId": null,
+                      "status": "active"
+                    },
+                    {
+                      "mcc": "204",
+                      "mnc": null,
+                      "mnoId": null,
+                      "profileId": null,
+                      "apnId": null,
+                      "ratTypeId": null,
+                      "status": "active"
+                    },
+                    {
+                      "mcc": "206",
+                      "mnc": null,
+                      "mnoId": null,
+                      "profileId": null,
+                      "apnId": null,
+                      "ratTypeId": null,
+                      "status": "active"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific package item",
+        "operationId": "patch-api-v2-package-packageid-packageitem-packageitemid",
+        "tags": [
+          "Package item"
+        ],
+        "description": "To update a specific package item:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "inBundleRounding": {
+                    "type": "string"
+                  },
+                  "outOfBundleRounding": {
+                    "type": "string"
+                  },
+                  "transmissionTypeId": {
+                    "type": "string"
+                  },
+                  "transmissionTypeGroupId": {
+                    "type": "string"
+                  },
+                  "testBundleAmount": {
+                    "type": "string"
+                  },
+                  "bundleAmount": {
+                    "type": "string"
+                  },
+                  "outOfBundlePrice": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string"
+                  },
+                  "packageItemCategoryId": {
+                    "type": "string"
+                  },
+                  "packageCategoryId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "packageItemId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "packageId": {
+                      "type": "integer"
+                    },
+                    "inBundleRounding": {
+                      "type": "integer"
+                    },
+                    "outOfBundleRounding": {
+                      "type": "integer"
+                    },
+                    "transmissionType": {},
+                    "transmissionTypeGroup": {},
+                    "testBundleAmount": {
+                      "type": "integer"
+                    },
+                    "bundleAmount": {
+                      "type": "integer"
+                    },
+                    "outOfBundlePrice": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "packageItemCategoryId": {
+                      "type": "integer"
+                    },
+                    "packageCategoryId": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "packageItemId": 216913,
+                  "name": "Zone 1 SMS MO",
+                  "title": "Zone1SMSMO",
+                  "description": "Zone 1 SMS MO",
+                  "packageId": 12345,
+                  "inBundleRounding": 1,
+                  "outOfBundleRounding": 1,
+                  "transmissionType": null,
+                  "transmissionTypeGroup": null,
+                  "testBundleAmount": 0,
+                  "bundleAmount": 3,
+                  "outOfBundlePrice": 1,
+                  "price": 0.1,
+                  "packageItemCategoryId": 117,
+                  "packageCategoryId": 13,
+                  "status": "active"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific package item",
+        "operationId": "delete-api-v2-package-packageid-packageitem-packageitemid",
+        "tags": [
+          "Package item"
+        ],
+        "description": "To delete a specific package item:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PACKAGE_ITEM": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PACKAGE_ITEM": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/package": {
+      "get": {
+        "summary": "Viewing all packages",
+        "operationId": "get-api-v2-package",
+        "tags": [
+          "Package"
+        ],
+        "description": "To view all packages:",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creating a new package",
+        "operationId": "post-api-v2-package",
+        "tags": [
+          "Package"
+        ],
+        "description": "To create a new package:",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "billingPeriod": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "defaultMccId": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "simPrice": {
+                    "type": "string"
+                  },
+                  "escapePrice": {
+                    "type": "string"
+                  },
+                  "unusedRebatePrice": {
+                    "type": "string"
+                  },
+                  "contractPeriod": {
+                    "type": "string"
+                  },
+                  "activationPrice": {
+                    "type": "string"
+                  },
+                  "terminationPrice": {
+                    "type": "string"
+                  },
+                  "freeActivationDay": {
+                    "type": "string"
+                  },
+                  "freeFirstUseDay": {
+                    "type": "string"
+                  },
+                  "testingPrice": {
+                    "type": "string"
+                  },
+                  "residualContractPrice": {
+                    "type": "string"
+                  },
+                  "subnetRangeType": {
+                    "type": "string"
+                  },
+                  "packageCategoryId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "title",
+                  "billingPeriod",
+                  "currencyId",
+                  "defaultMccId",
+                  "price"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/package/{packageId}": {
+      "get": {
+        "summary": "Viewing a specific package",
+        "operationId": "get-api-v2-package-packageid",
+        "tags": [
+          "Package"
+        ],
+        "description": "To view details for a specific package:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "packageId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "portalId": {},
+                    "currencyId": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "billingPeriod": {
+                      "type": "integer"
+                    },
+                    "simPrice": {
+                      "type": "number"
+                    },
+                    "escapePrice": {
+                      "type": "integer"
+                    },
+                    "unusedRebatePrice": {
+                      "type": "integer"
+                    },
+                    "contractPeriod": {
+                      "type": "integer"
+                    },
+                    "activationPrice": {
+                      "type": "number"
+                    },
+                    "terminationPrice": {
+                      "type": "number"
+                    },
+                    "packageCategoryId": {
+                      "type": "integer"
+                    },
+                    "freeActivationDay": {
+                      "type": "integer"
+                    },
+                    "freeFirstUseDay": {
+                      "type": "integer"
+                    },
+                    "testingPrice": {
+                      "type": "number"
+                    },
+                    "residualContractPrice": {
+                      "type": "number"
+                    },
+                    "subnetRangeType": {
+                      "type": "string"
+                    },
+                    "defaultMccId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "packageAttributeId": {
+                            "type": "integer"
+                          },
+                          "packageId": {
+                            "type": "integer"
+                          },
+                          "attribute": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "portfolios": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "packagePortfolioId": {
+                            "type": "integer"
+                          },
+                          "packageId": {
+                            "type": "integer"
+                          },
+                          "portfolioId": {
+                            "type": "string"
+                          },
+                          "adminSuspend": {
+                            "type": "string"
+                          },
+                          "customerSuspend": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "commsProfile": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "commsProfileId": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "packageId": 12345,
+                  "name": "2Gb / Month + SMS",
+                  "title": "2GbPerMonth",
+                  "description": "2 Gb / month + SMS, no voice",
+                  "portalId": null,
+                  "currencyId": "GBP",
+                  "price": 16.2,
+                  "billingPeriod": 1,
+                  "simPrice": 0.05,
+                  "escapePrice": 2,
+                  "unusedRebatePrice": 0,
+                  "contractPeriod": 36,
+                  "activationPrice": 1.5,
+                  "terminationPrice": 1.5,
+                  "packageCategoryId": 2,
+                  "freeActivationDay": 2,
+                  "freeFirstUseDay": 2,
+                  "testingPrice": 1.5,
+                  "residualContractPrice": 1.5,
+                  "subnetRangeType": "SIM4VPN",
+                  "defaultMccId": "311",
+                  "status": "active",
+                  "attributes": [
+                    {
+                      "packageAttributeId": 41365,
+                      "packageId": 12345,
+                      "attribute": "autoProvision",
+                      "value": "no",
+                      "status": "active"
+                    },
+                    {
+                      "packageAttributeId": 61684,
+                      "packageId": 12345,
+                      "attribute": "aws",
+                      "value": "no",
+                      "status": "active"
+                    }
+                  ],
+                  "portfolios": [
+                    {
+                      "packagePortfolioId": 67047,
+                      "packageId": 12345,
+                      "portfolioId": "c7e0de5b1d7aaeda2bcfd01dbacfdc83",
+                      "adminSuspend": "no",
+                      "customerSuspend": "no",
+                      "status": "setup"
+                    },
+                    {
+                      "packagePortfolioId": 77210,
+                      "packageId": 12345,
+                      "portfolioId": "b18baa00d1ddbdecdfc17ed2f5d7aacd",
+                      "adminSuspend": "no",
+                      "customerSuspend": "no",
+                      "status": "setup"
+                    }
+                  ],
+                  "commsProfile": [
+                    {
+                      "commsProfileId": 12345
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updating a specific package",
+        "operationId": "patch-api-v2-package-packageid",
+        "tags": [
+          "Package"
+        ],
+        "description": "To update a specific package:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "billingPeriod": {
+                    "type": "string"
+                  },
+                  "currencyId": {
+                    "type": "string"
+                  },
+                  "defaultMccId": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "simPrice": {
+                    "type": "string"
+                  },
+                  "escapePrice": {
+                    "type": "string"
+                  },
+                  "unusedRebatePrice": {
+                    "type": "string"
+                  },
+                  "contractPeriod": {
+                    "type": "string"
+                  },
+                  "activationPrice": {
+                    "type": "string"
+                  },
+                  "terminationPrice": {
+                    "type": "string"
+                  },
+                  "freeActivationDay": {
+                    "type": "string"
+                  },
+                  "freeFirstUseDay": {
+                    "type": "string"
+                  },
+                  "testingPrice": {
+                    "type": "string"
+                  },
+                  "residualContractPrice": {
+                    "type": "string"
+                  },
+                  "subnetRangeType": {
+                    "type": "string"
+                  },
+                  "packageCategoryId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleting a specific package",
+        "operationId": "delete-api-v2-package-packageid",
+        "tags": [
+          "Package"
+        ],
+        "description": "To delete a specific package:",
+        "parameters": [
+          {
+            "name": "packageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "PACKAGE_ITEM": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "PACKAGE_ITEM": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

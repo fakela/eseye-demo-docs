@@ -1,0 +1,162 @@
+---
+title: "About the network snapshot endpoint"
+description: "The SIM API enables you to view a network snapshot for a single SIM."
+---
+
+<p>The SIM API enables you to view a network snapshot for a <a href="#Viewing2">single</a> SIM.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<Note>For more information, see <a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a>.</Note>
+
+<h2 id="Headers">Headers</h2>
+
+<Note>For information about headers, see <a href="/api/sim/headers" target="_blank">Configuring SIM API headers</a>.</Note>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download and extract the following resource to test the SIM API:</p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetSIMAPI.postman_collection_environment.zip" target="_blank" rel="noopener">AnyNetSIMAPI.postman&#95;collection&#95;environment.zip</a> </p>
+
+<Note>For more information, see <a href="/api/sim/simapi-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</Note>
+
+<h2 id="ViewingthenetworksnapshotforaspecificSIM">Viewing the network snapshot for a specific SIM</h2>
+
+<p>To view the network snapshot for a specific SIM:</p>
+
+<ul> <li> Call <span>GET /api/v2/sim/&#123;<var>iccId</var>&#125;/networkSnapshot</span>, where &#123;<var>iccId</var>&#125; identifies the SIM for which you want to generate a network snapshot. <br /><span>Path parameters:</span> <span>iccId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the network details for the specified SIM. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://sim.api.anynetiot.com/api/v2/sim/8953448576492474/networkSnapshot</span> </p>
+
+<h3>Response schema application/json:</h3>
+
+<p><span>iccId</span>; <span>simId</span>; <span>price</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#networkSnap" target="_blank">Network snapshot definition</a>.</Note>
+
+<p>Each <span>networkSnapshot</span> includes the following arrays:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Array</th> <th>Returned parameters</th> </tr> </thead> <tbody> <tr> <td><span>network</span> </td> <td> <span>imsi</span>; <span>rat</span>; <span>mcc</span>; <span>mnc</span>; <span>updateTime</span> </td> </tr> <tr> <td><span>device</span> </td> <td> <span>imei</span>; <span>updateTime</span> </td> </tr> <tr> <td><span>location</span> </td> <td> <span>lat</span>; <span>lon</span>; <span>updateTime</span> </td> </tr> <tr> <td><span>data</span> </td> <td> <span>apn</span>; <span>ip</span>; <span>username</span>; <span>startTime</span>; <span>stopTime</span>; <span>updateTime</span> </td> </tr> <tr> <td><span>portfolioPackage</span> </td> <td> <span>portfolioId</span>; <span>packageId</span> </td> </tr> </tbody> </table>
+
+<p>If the SIM contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>iccAttributeId</span>; <span>iccId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"simId": "8953448576492474",</p>
+
+<p>"network": &#123;</p>
+
+<p>"imsi": "234108558496446",</p>
+
+<p>"rat": "LTE",</p>
+
+<p>"mcc": "234",</p>
+
+<p>"mnc": "02",</p>
+
+<p>"updateTime": "2024-08-10T07:10:52Z"</p>
+
+<p>&#125;,</p>
+
+<p>"device": &#123;</p>
+
+<p>"imei": "352099001234567",</p>
+
+<p>"updateTime": "2024-08-10T07:10:52Z"</p>
+
+<p>&#125;,</p>
+
+<p>"location": &#123;</p>
+
+<p>"lat": "51.18987299056362",</p>
+
+<p>"lon": "-0.6998162335422715",</p>
+
+<p>"updateTime": "2024-08-10T07:10:52Z"</p>
+
+<p>&#125;,</p>
+
+<p>"data": &#123;</p>
+
+<p>"apn": "eseye1",</p>
+
+<p>"ip": "172.16.0.0.19",</p>
+
+<p>"username": "USER",</p>
+
+<p>"startTime": "2024-08-03T11:23:01Z",</p>
+
+<p>"stopTime": "2024-08-03T11:27:01Z",</p>
+
+<p>"updateTime": "2024-08-10T07:10:52Z"</p>
+
+<p>&#125;,</p>
+
+<p>"portfolioPackage": &#123;</p>
+
+<p>"portfolioId": "a628ebc659f7dac01f9fdcbd1116307a",</p>
+
+<p>"packageId": 12345</p>
+
+<p>&#125;,</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": 8953448576492474,</p>
+
+<p>"attribute": "friendlyName"</p>
+
+<p>"value": "50kW – Rapid EV charger"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506792,</p>
+
+<p>"iccId": 8953448576492474,</p>
+
+<p>"attribute": "orderId",</p>
+
+<p>"value": "579"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": 8953448576492474,</p>
+
+<p>"attribute": "orderItemId",</p>
+
+<p>"value": "1",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a> </li> <li><a href="/api/sim/simapi-how-tos">SIM API How To guide</a> </li> <li><a href="#">About the network snapshot endpoint</a> </li> <li><a href="/api/sim/icc-attribute-operations" target="_blank">About SIM attribute endpoints</a> </li> <li><a href="/api/sim/portfolio-package-operations">About iccPortfolioPackage endpoints</a> </li> <li><a href="/api/sim/billing-snapshot-operations">About the billing snapshot endpoint</a> </li> <li><a href="/api/sim/simapi-reference" target="_blank">SIM API reference tables</a> </li> <li><a href="/api/sim/simapi-reference#Error" target="_blank">SIM API errors</a> </li> </ul> </div>

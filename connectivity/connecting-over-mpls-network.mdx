@@ -1,0 +1,24 @@
+---
+title: "Section B – Connecting over Eseye's MPLS network"
+description: "This section of topics unpacks the second part of the data journey between a device and the customer network."
+---
+
+<p>This section of topics unpacks the second part of the data journey between a device and the customer network. </p>
+
+<Note>Depending on your unique configuration, data either passes through the Eseye network or bypasses it altogether. This section describes how data passes through the Eseye MPLS network. </Note>
+
+<Note>Regardless of how data passes from a device to the customer network, Eseye provides the overall SIM management.</Note>
+
+<p><img src="/images/resources/images/connectivity/networkoverviewsection2.png" alt="Networkoverviewsection2" /> </p>
+
+<p>For an overview on Connectivity, see <a href="/connectivity/connectivity-intro" target="_blank">Eseye connectivity overview</a>.</p>
+
+<h2 id="AboutMultipleProtocolLabelSwitchingMPLS">About Multiple Protocol Label Switching (MPLS)</h2>
+
+<p>Multi-protocol Label Switching is a high-speed, protocol-independent networking technology that routes data traffic along preconfigured paths, to handle forwarding over private wide area networks. MPLS assigns labels to each data packet, rather than network addresses, to control the path each packet follows.</p>
+
+<ul> <li><span>High speed</span> – data passing through an MPLS network is labelled and forwarded in packets along preconfigured pathways through the network. This has a faster handling time than other encapsulation methods, where the source and destination IP addresses are checked at every point in the data journey in order to decide where to send the data. The journey between points in the preconfigured path is called a <span>hop</span>.</li> <li><span>Protocol-independent</span> – an MPLS network can handle data in any format, regardless of the connections used to send and receive it.</li> <li> <span>Preconfigured paths</span> – Eseye has set up the MPLS network between Eseye PoPs, which exist worldwide.  <br />For more information, see <a href="/connectivity/understanding-pops" target="_blank">About Eseye PoPs</a>. <br />Any data processed by the Eseye MPLS network ingresses the network at a preconfigured PoP (see <a href="/connectivity/mnos-by-pop" target="_blank">Mobile Network Operators by PoP</a>). The data then either egresses the network at the same PoP, or is sent in hops to a different PoP for egress across the internet to its destination.  <br />We can prioritise data in times of high traffic to ensure optimum connectivity for your devices. <br />For information about how Eseye can process the egress data, see <a href="/connectivity/connecting-over-internet" target="_blank">Section C – Connecting over the internet</a>. </li> <li><span>Security</span> – Eseye encrypts all data that passes through the MPLS network. For more information, see <a href="/connectivity/security-options-overview" target="_blank">AnyNet security options</a>.</li> </ul>
+
+<p>Eseye's MPLS network uses AWS cloud-based services for operation. It uses a combination of SDWAN and fiber optic technology for providing connectivity. The network is established as a mesh network to optimise availability.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/device-configuration">Device configuration best practices</a> </li> <li><a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a> </li> <li><a href="/connectivity/connecting-over-internet">Section C – Connecting over the internet</a> </li> </ul> </div>

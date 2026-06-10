@@ -1,0 +1,568 @@
+---
+title: "About package endpoints"
+description: "The Package API enables you to:"
+---
+
+<p>The Package API enables you to: </p>
+
+<ul> <li>View details for <a href="#Viewing2">single</a> or <a href="#Viewing">multiple</a> packages</li> <li><a href="#Creating">Create</a>, <a href="#Updating">update</a>, and <a href="#Deleting">delete</a> packages</li> </ul>
+
+<p>You can also:</p>
+
+<ul> <li>Create, update, delete and view <a href="/api/package/package-attribute-operations" target="_blank">package attributes</a>.</li> <li>Create, update, delete and view <a href="/api/package/package-item-operations" target="_blank">package items</a>.</li> <li>Create, update, delete and view <a href="/api/package/package-item-attributes-operations" target="_blank">package item attributes</a>.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<p>For more information, see <a href="/api/package/package-api-intro" target="_blank">Package API Introduction</a>.</p>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/package/headers" target="_blank">Configuring Package API headers</a>.</p>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download the following resources to test the Package API:</p>
+
+<p> <img src="/images/resources/images/icons/postman-icon-svgrepo-com_24x24.png" alt="Postman Icon Svgrepo Com 24X24" /> <a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPackageAPI.postman_environment.json" target="_blank" rel="noopener">AnyNetPackageAPI.postman&#95;environment.json</a></p>
+
+<p> <img src="/images/resources/images/icons/postman-icon-svgrepo-com_24x24.png" alt="Postman Icon Svgrepo Com 24X24" /> <a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPackageAPI.postman_collection.json" target="_blank" rel="noopener">AnyNetPackageAPI.postman&#95;collection.json</a></p>
+
+<p>For more information, see <a href="/api/package/package-api-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</p>
+
+<h2 id="Viewingallpackages">Viewing all packages</h2>
+
+<p>To view all packages:</p>
+
+<ul> <li> Call <span>GET /api/v2/package/</span> <span><strong>Tip: </strong>You can apply filters in the request path to limit the results, using one or more parameters. The API returns exactly matching records only. Alternatively, remove all filters from the path to return all records. For example, adding <span><span>?status=active</span></span> to the end of the path will return <span>active</span> objects only.</span> <br />The API returns all the packages. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://package.api.anynetiot.com/api/v2/package/</span> </p>
+
+<p>or</p>
+
+<p><span>GET https://package.api.anynetiot.com/api/v2/package/?subnetRangeType=Sim4VPN;status=active</span> – this will return all packages with a <span>Sim4VPN</span> subnetRangetype and <span>active</span> status.</p>
+
+<h3>Response schema application/json: </h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Schema</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><span>pageToken</span> </td> <td> <div> <div> string </div> <div> minLength: 1 </div> </div> <br />The start record for the page. </td> <td>0</td> </tr> <tr> <td><span>pageSize</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The maximum number of records requested per page. </td> <td>50</td> </tr> <tr> <td><span>nextPageToken</span> </td> <td>This only appears if the number of records exceeds the requested pageSize. For more information, see <a href="/api/package/package-api-reference#nextPage" target="_blank">Handling the nextPageToken tag</a>.</td> <td> </td> </tr> <tr> <td><span>itemCount</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The number of records returned. </td> <td>2</td> </tr> <tr> <td><span>items</span> </td> <td> The <span>items</span> array. <br />Each returned <span>package</span> includes:  <br /><span>ratingSourceId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>portalId</span>; <span>currencyId</span>; <span>price</span>; <span>billingPeriod</span>; <span>simPrice</span>; <span>escapePrice</span>; <span>unusedRebatePrice</span>; <span>contractPeriod</span>; <span>activationPrice</span>; <span>terminationPrice</span>; <span>categoryId</span>; <span>freeActivationDay</span>; <span>freeFirstUseDay</span>; <span>testingPrice</span>; <span>residualContractPrice</span>; <span>subnetRangeType</span>; <span>defaultMccId</span>;; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#Package" target="_blank">Package definition</a>.</span> <br />If a <span>package</span> contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes: <br /><span>packageAttributeId</span>; <span>packageId</span>; <span>attribute</span>; <span>value</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#Package2" target="_blank">Package attribute definition</a>.</span> <br />Each <span>package</span> may also include the <span>portfolios</span> array, which describes which customers use this package. Each returned <span>portfolio</span> includes: <br /><span>packagePortfolioId</span>, <span>packageId</span>, <span>portfolioId</span>; <span>adminSuspend</span>; <span>customerSuspend</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#PackageP" target="_blank">PackagePortfolio definition</a>.</span> <br />Each <span>package</span> may also include the <span>commsProfile</span> array, which describes which network settings are available on this package. Each returned <span>commsProfile</span> includes: <br /><span>commsProfileId</span>  <span><strong>Note: </strong>For more information, see <a href="/api/package/package-api-reference#Comms" target="_blank">Comms profile definition</a>.</span> </td> <td> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"pageToken": "0",</p>
+
+<p>"requestedPageSize": 50,</p>
+
+<p>"itemCount": 2,</p>
+
+<p>"items": [</p>
+
+<p>&#123;</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"name": "2Gb / Month + SMS",</p>
+
+<p>"title": "2GbPerMonth",</p>
+
+<p>"description": "2 Gb / month + SMS, no voice",</p>
+
+<p>"portalId": null,</p>
+
+<p>"currencyId": "GBP",</p>
+
+<p>"price": 16.20,</p>
+
+<p>"billingPeriod": 1,</p>
+
+<p>"simPrice": 0.05,</p>
+
+<p>"escapePrice": 2.0,</p>
+
+<p>"unusedRebatePrice": 0,</p>
+
+<p>"contractPeriod": 36,</p>
+
+<p>"activationPrice": 1.5,</p>
+
+<p>"terminationPrice": 1.5,</p>
+
+<p>"packageCategoryId": 2,</p>
+
+<p>"freeActivationDay": 2,</p>
+
+<p>"freeFirstUseDay": 2,</p>
+
+<p>"testingPrice": 1.5,</p>
+
+<p>"residualContractPrice": 1.5,</p>
+
+<p>"subnetRangeType": "SIM4VPN",</p>
+
+<p>"defaultMccId": "311",</p>
+
+<p>"status": "active",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"packageAttributeId": 41365,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"attribute": "autoProvision",</p>
+
+<p>"value": "no",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageAttributeId": 61684,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"attribute": "aws",</p>
+
+<p>"value": "no",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>"portfolios": [</p>
+
+<p>&#123;</p>
+
+<p>"packagePortfolioId": 67047,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"portfolioId": "c7e0de5b1d7aaeda2bcfd01dbacfdc83",</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packagePortfolioId": 77210,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"portfolioId": "b18baa00d1ddbdecdfc17ed2f5d7aacd",</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;,</p>
+
+<p>]</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageId": 13579,</p>
+
+<p>"name": "Company X - 5MB Pooled data - (2FF/3FF SIM)",</p>
+
+<p>"title": "GPSTrace1Package",</p>
+
+<p>"description": "Activate SIMs before shipping",</p>
+
+<p>"portalId": "93d4abf87082c6fd9022677c7b76a365",</p>
+
+<p>"currencyId": "USD",</p>
+
+<p>"price": 1.5,</p>
+
+<p>"billingPeriod": 1,</p>
+
+<p>"simPrice": 0.51,</p>
+
+<p>"escapePrice": 0.0,</p>
+
+<p>"unusedRebatePrice": 1.0,</p>
+
+<p>"contractPeriod": 1,</p>
+
+<p>"activationPrice": 0,</p>
+
+<p>"terminationPrice": 1.8,</p>
+
+<p>"packageCategoryId": 18,</p>
+
+<p>"freeActivationDay": null,</p>
+
+<p>"freeFirstUseDay": null,</p>
+
+<p>"testingPrice": 0.01,</p>
+
+<p>"residualContractPrice": null,</p>
+
+<p>"subnetRangeType": "default",</p>
+
+<p>"defaultMccId": "310",</p>
+
+<p>"status": "active",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"packageAttributeId": 11223,</p>
+
+<p>"packageId": 13579,</p>
+
+<p>"attribute": "autoProvision",</p>
+
+<p>"value": "yes",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>"commsProfile": [</p>
+
+<p>&#123;</p>
+
+<p>"commsProfileId": 2</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="Viewingaspecificpackage">Viewing a specific package</h2>
+
+<p>To view details for a specific package:</p>
+
+<ul> <li> Call <span>GET /api/v2/package/&#123;<var>packageId</var>&#125;</span>, where &#123;<var>packageId</var>&#125; identifies which package you want to view. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the specified package details. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://package.api.anynetiot.com/api/v2/package/12345</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>ratingSourceId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>portalId</span>; <span>currencyId</span>; <span>price</span>; <span>billingPeriod</span>; <span>simPrice</span>; <span>escapePrice</span>; <span>unusedRebatePrice</span>; <span>contractPeriod</span>; <span>activationPrice</span>; <span>terminationPrice</span>; <span>categoryId</span>; <span>freeActivationDay</span>; <span>freeFirstUseDay</span>; <span>testingPrice</span>; <span>residualContractPrice</span>; <span>subnetRangeType</span>; <span>defaultMccId</span>;; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package" target="_blank">Package definition</a>.</Note>
+
+<p>If a <span>package</span> contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>packageAttributeId</span>; <span>packageId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package2" target="_blank">Package attribute definition</a>.</Note>
+
+<p>Each <span>package</span> may also include the <span>portfolios</span> array, which describes which customers use this package. Each returned <span>portfolio</span> includes:</p>
+
+<p><span>packagePortfolioId</span>, <span>packageId</span>, <span>portfolioId</span>; <span>adminSuspend</span>; <span>customerSuspend</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#PackageP" target="_blank">PackagePortfolio definition</a>.</Note>
+
+<p>Each <span>package</span> may also include the <span>commsProfile</span> array, which describes which network settings are available on this package. Each returned <span>commsProfile</span> includes:</p>
+
+<p><span>commsProfileId</span> </p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Comms" target="_blank">Comms profile definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"name": "2Gb / Month + SMS",</p>
+
+<p>"title": "2GbPerMonth",</p>
+
+<p>"description": "2 Gb / month + SMS, no voice",</p>
+
+<p>"portalId": null,</p>
+
+<p>"currencyId": "GBP",</p>
+
+<p>"price": 16.20,</p>
+
+<p>"billingPeriod": 1,</p>
+
+<p>"simPrice": 0.05,</p>
+
+<p>"escapePrice": 2.0,</p>
+
+<p>"unusedRebatePrice": 0,</p>
+
+<p>"contractPeriod": 36,</p>
+
+<p>"activationPrice": 1.5,</p>
+
+<p>"terminationPrice": 1.5,</p>
+
+<p>"packageCategoryId": 2,</p>
+
+<p>"freeActivationDay": 2,</p>
+
+<p>"freeFirstUseDay": 2,</p>
+
+<p>"testingPrice": 1.5,</p>
+
+<p>"residualContractPrice": 1.5,</p>
+
+<p>"subnetRangeType": "SIM4VPN",</p>
+
+<p>"defaultMccId": "311",</p>
+
+<p>"status": "active",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"packageAttributeId": 41365,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"attribute": "autoProvision",</p>
+
+<p>"value": "no",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageAttributeId": 61684,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"attribute": "aws",</p>
+
+<p>"value": "no",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>"portfolios": [</p>
+
+<p>&#123;</p>
+
+<p>"packagePortfolioId": 67047,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"portfolioId": "c7e0de5b1d7aaeda2bcfd01dbacfdc83",</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packagePortfolioId": 77210,</p>
+
+<p>"packageId": 12345,</p>
+
+<p>"portfolioId": "b18baa00d1ddbdecdfc17ed2f5d7aacd",</p>
+
+<p>"adminSuspend": "no",</p>
+
+<p>"customerSuspend": "no",</p>
+
+<p>"status": "setup"</p>
+
+<p>&#125;,</p>
+
+<p>],</p>
+
+<p>"commsProfile": [</p>
+
+<p>&#123;</p>
+
+<p>"commsProfileId": 12345</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>&#125;</p>
+
+<p> </p>
+
+<h2 id="Creatinganewpackage">Creating a new package</h2>
+
+<p>To create a new package:</p>
+
+<ul> <li> Call <span>POST /api/v2/package/</span>. <br /><span>Body parameters:</span> <span>name</span><b>&#42;</b>; <span>title</span><b>&#42;</b>; <span>billingPeriod</span><b>&#42;</b>; <span>currencyId</span><b>&#42;</b>; <span>defaultMccId</span><b>&#42;</b>; <span>price</span><b>&#42;</b>; <span>description</span>;; <span>simPrice</span>; <span>escapePrice</span>; <span>unusedRebatePrice</span>; <span>contractPeriod</span>; <span>activationPrice</span>; <span>terminationPrice</span>; <span>freeActivationDay</span>; <span>freeFirstUseDay</span>; <span>testingPrice</span>; <span>residualContractPrice</span>; <span>subnetRangeType</span>; <span>packageCategoryId</span> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />Do not use <span>null</span> or <span>""</span> (empty) for mandatory parameters. <br />The <span>packageCategoryId</span> value must already exist in the system. <br />If required, you can use more than one optional parameter. </span> <br />The API creates a new package. </li> </ul>
+
+<h2 id="Updatingaspecificpackage">Updating a specific package</h2>
+
+<p>To update a specific package:</p>
+
+<ul> <li> Call <span>PATCH /api/v2/package/&#123;<var>packageId</var>&#125;</span>, where &#123;<var>packageId</var>&#125; identifies which package you want to update. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b> <br /><span>Body:</span> <span>name</span>; <span>title</span>; <span>billingPeriod</span>; <span>currencyId</span>; <span>defaultMccId</span>; <span>price</span>; <span>description</span>; <span>simPrice</span>; <span>escapePrice</span>; <span>unusedRebatePrice</span>; <span>contractPeriod</span>; <span>activationPrice</span>; <span>terminationPrice</span>; <span>freeActivationDay</span>; <span>freeFirstUseDay</span>; <span>testingPrice</span>; <span>residualContractPrice</span>; <span>subnetRangeType</span>; <span>packageCategoryId</span>; <span>status</span> <span><strong>Note: </strong> JSON keys marked <b>&#42;</b> are mandatory. <br />The <span>packageCategoryId</span> value must already exist in the system. <br />If required, you can update more than one optional parameter. </span> <br />The API updates the specified package parameters with the new details. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://package.api.anynetiot.com/api/v2/package/13579</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>ratingSourceId</span>; <span>name</span>; <span>title</span>; <span>description</span>; <span>portalId</span>; <span>currencyId</span>; <span>price</span>; <span>billingPeriod</span>; <span>simPrice</span>; <span>escapePrice</span>; <span>unusedRebatePrice</span>; <span>contractPeriod</span>; <span>activationPrice</span>; <span>terminationPrice</span>; <span>categoryId</span>; <span>freeActivationDay</span>; <span>freeFirstUseDay</span>; <span>testingPrice</span>; <span>residualContractPrice</span>; <span>subnetRangeType</span>; <span>defaultMccId</span>;; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package" target="_blank">Package definition</a>.</Note>
+
+<p>If a <span>package</span> contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>packageAttributeId</span>; <span>packageId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Package2" target="_blank">Package attribute definition</a>.</Note>
+
+<p>Each <span>package</span> may also include the <span>portfolios</span> array, which describes which customers use this package. Each returned <span>portfolio</span> includes:</p>
+
+<p><span>packagePortfolioId</span>, <span>packageId</span>, <span>portfolioId</span>; <span>adminSuspend</span>; <span>customerSuspend</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#PackageP" target="_blank">PackagePortfolio definition</a>.</Note>
+
+<p>Each <span>package</span> may also include the <span>commsProfile</span> array, which describes which network settings are available on this package. Each returned <span>commsProfile</span> includes:</p>
+
+<p><span>commsProfileId</span> </p>
+
+<Note>For more information, see <a href="/api/package/package-api-reference#Comms" target="_blank">Comms profile definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"packageId": 13579,</p>
+
+<p>"name": "Company X - 5MB Pooled data - (2FF/3FF SIM)",</p>
+
+<p>"title": "GPSTrace1Package",</p>
+
+<p>"description": "Activate SIMs before shipping",</p>
+
+<p>"portalId": "93d4abf87082c6fd9022677c7b76a365",</p>
+
+<p>"currencyId": "USD",</p>
+
+<p>"price": 1.5,</p>
+
+<p>"billingPeriod": 1,</p>
+
+<p>"simPrice": 0.51,</p>
+
+<p>"escapePrice": 0.0,</p>
+
+<p>"unusedRebatePrice": 1.0,</p>
+
+<p>"contractPeriod": 1,</p>
+
+<p>"activationPrice": 0,</p>
+
+<p>"terminationPrice": 1.8,</p>
+
+<p>"packageCategoryId": 18,</p>
+
+<p>"freeActivationDay": null,</p>
+
+<p>"freeFirstUseDay": null,</p>
+
+<p>"testingPrice": 0.01,</p>
+
+<p>"residualContractPrice": null,</p>
+
+<p>"subnetRangeType": "default",</p>
+
+<p>"defaultMccId": "310",</p>
+
+<p>"status": "active",</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"packageAttributeId": 11223,</p>
+
+<p>"packageId": 13579,</p>
+
+<p>"attribute": "autoProvision",</p>
+
+<p>"value": "yes",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>"commsProfile": [</p>
+
+<p>&#123;</p>
+
+<p>"commsProfileId": 2</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>&#125;</p>
+
+<h2 id="Deletingaspecificpackage">Deleting a specific package</h2>
+
+<p>To delete a specific package:</p>
+
+<ul> <li> Call <span>DELETE /api/v2/package/&#123;<var>packageId</var>&#125;</span>, where &#123;<var>packageId</var>&#125; identifies which package you want to delete. <br /><span>Path parameters:</span> <span>packageId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API removes the specified package. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://package.api.anynetiot.com/api/v2/package/12345</p>
+
+<h3>Response schema application/json: </h3>
+
+<p>&#123;</p>
+
+<p>"PACKAGE&#95;ITEM": 1</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/package/package-api-intro">Package API Introduction</a> </li> <li><a href="/api/package/package-attribute-operations" target="_blank">About package attribute endpoints</a> </li> <li><a href="/api/package/package-item-operations" target="_blank">About package item endpoints</a> </li> <li><a href="/api/package/package-item-attributes-operations" target="_blank">About package item attribute endpoints</a> </li> <li><a href="/api/package/package-api-reference" target="_blank">Package API reference tables</a> </li> <li><a href="/api/package/package-api-reference#Error" target="_blank">Package API errors</a> </li> </ul> </div>

@@ -1,0 +1,34 @@
+---
+title: "Suspending SIMs"
+description: "Suspending a SIM disables all services on it (i.e. Data, SMS and Voice), although you will still be charged the agreed monthly tariff. A suspended SIM is still provisioned. To re-enable services (i.e. Data, SMS and Vo..."
+---
+
+<p>Suspending a SIM disables all services on it (i.e. Data, SMS and Voice), although you will still be charged the agreed monthly tariff. A suspended SIM is still provisioned. To re-enable services (i.e. Data, SMS and Voice), the SIM should be unsuspended.</p>
+
+<Note>Unsuspending a SIM can only be achieved after at least two hours of suspension because the suspension process may take up to two hours to complete.</Note>
+
+<p>You can suspend SIMs using the:</p>
+
+<ul> <li><b>Infinity Classic portal</b>, which enables you to:<ul><li><a href="#Individual">Suspend or unsuspend individual SIMs</a></li><li><a href="#Bulk">Bulk suspend SIMs</a> (via email)</li><li><a href="/infinity-classic/managing-alerts">Configure alert profiles</a> which can automatically suspend SIMs that exceed their usage limits until the next billing period.</li></ul></li> <li><b>Tigrillo API</b>, which provides <a href="/api/tigrillo/suspend-sims">suspendSIMs</a> and <a href="/api/tigrillo/unsuspend-sims">unsuspendSIMs</a> API commands to suspend/unsuspend SIMs.</li> </ul>
+
+<h2 id="SuspendingindividualSIMs">Suspending individual SIMs</h2>
+
+<p>You can suspend or unsuspend SIMs by changing the SIM state in Infinity Classic.</p>
+
+<p>To suspend an individual SIM using Infinity Classic:</p>
+
+<ol> <li>Go to: <span>SIMS</span> &gt; <span>SIMs List</span> &gt; <span>Action</span> <img src="/images/resources/images/icons/siamnetworksettings_ic_24x24.png" alt="Siamnetworksettings Ic 24X24" />.</li> <li>Select <span>Change State</span>.</li> <li> In the <span>Requested State</span> drop-down menu, select <span>Suspend SIM</span>. </li> <li> Select <span>Request</span>. <span><strong>Note: </strong>The suspension process takes up to two hours. When suspended, the SIM will continue to connect to the network, and service charges will continue. </span> </li> </ol>
+
+<p>To unsuspend an individual SIM using Infinity Classic:</p>
+
+<Note>You can only unsuspend a SIM after it has completed the suspension process (this takes up to two hours). When unsuspended, the SIM will authenticate on the network, and can use available services.</Note>
+
+<ol> <li>Go to: <span>SIMS</span> &gt; <span>SIMs List</span> &gt; <span>Action</span> <img src="/images/resources/images/icons/siamnetworksettings_ic_24x24.png" alt="Siamnetworksettings Ic 24X24" /></li> <li>Select <span>Change State</span>.</li> <li> In the <span>Requested State</span> drop-down menu, select <span>Reactivate SIM</span>. </li> <li> Select <span>Request</span>. </li> </ol>
+
+<h2 id="SuspendingSIMsinbulk">Suspending SIMs in bulk</h2>
+
+<p>You can only bulk suspend SIMs via email.</p>
+
+<p>To suspend multiple SIMs via email:</p>
+
+<ol> <li>Use this <a href="mailto:support@eseye.com?subject=Please%20suspend%20these%20SIMs&Body=Hello%20Support,%0D%0DMy%20SIAM%20account%20username%20is:%0DPlease%20suspend%20the%20following%20ICCIDs%20(no%20quotation%20marks):%0D%0D%0D%0D%0DI%20understand%20that%20Service%20Charges%20will%20continue%20for%20these%20SIMs.%0DPlease%20reply%20to%20this%20email%20to%20notify%20me%20when%20the%20SIMs%20are%20suspended.%0D%0DKind%20regards,%0D%0D">email</a> link, or create your own email.</li> <li> Add the following information: <ul> <li>Infinity Classic account username.</li> <li>List of SIM ICCIDs you want to suspend (without quotation marks).</li> <li>I understand that Service Charges will continue for these SIMs.</li> </ul> </li> <li> Send the email to support@eseye.com. </li> </ol>

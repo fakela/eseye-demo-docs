@@ -1,0 +1,42 @@
+---
+title: "About IP addresses"
+description: "Every device that connects to the internet has its own Internet Protocol (IP) address to enable identification and communication between devices. IP addresses mark where the data originates, and where it is destined."
+---
+
+<p>Every device that connects to the internet has its own Internet Protocol (IP) address to enable identification and communication between devices. IP addresses mark where the data originates, and where it is destined.</p>
+
+<p>IP addresses are either:</p>
+
+<ul> <li><span>Private</span> – only visible and available within a private network.</li> <li><span>Public</span> – visible and available on the internet.</li> </ul>
+
+<p>IP addresses are also either:</p>
+
+<ul> <li><span>Static</span> – the IP address remains constant. These are also known as fixed IP addresses.</li> <li><span>Dynamic</span> – the IP address is temporary, changing automatically and regularly.</li> </ul>
+
+<p>For information about how IP addresses are allocated per customer, see <a href="/connectivity/about-secure-subnets" target="_blank">About secure subnets</a>.</p>
+
+<p>Eseye assigns a unique IP address to every device. </p>
+
+<p> <img src="/images/resources/images/connectivity/deviceipaddresses.svg" alt="Deviceipaddresses" /> </p>
+
+<Note>Since IPv6 support is not well adopted by MNOs, we currently use IPv4 addressing within the cellular networks. Our equipment is ready to support IPv6 addressing. If required, customisation for a particular secure subnet is possible. Contact Support for more information.</Note>
+
+<h2 id="AssigningprivateIPaddressestodevices">Assigning private IP addresses to devices</h2>
+
+<p>Eseye usually assigns private static IP addresses to customer devices, one per IMSI, for the lifetime of the device.</p>
+
+<p>The Eseye PoPs use Network Address Translation (NAT) to translate multiple private IP addresses to a single public IP address for sending device data across the internet. For more information, see <a href="/connectivity/nat-overview" target="_blank">About Network Address Translation (NAT)</a>.</p>
+
+<p>Each PoP has one or more public IP addresses to egress data across the internet to the customer network. For more information, see <a href="/connectivity/anynet-public-ip-address-ranges">Egress IP addresses</a>.</p>
+
+<h2 id="AssigningstaticpublicIPaddressestodevices">Assigning static public IP addresses to devices</h2>
+
+<p>Usually, a customer requests static public IP addresses because they want to initiate communication with devices at any time. For example, an engineer might want to use a laptop with the Wi-Fi in an internet café to bring up a terminal session on remote equipment. </p>
+
+<p>Initiating communication with a device is not IoT best practice. For more information, see <a href="/connectivity/device-configuration#Understa" target="_blank">Configuring devices to initiate communication</a>.</p>
+
+<p>Using static public IP addresses for IoT devices is not recommended for a number of reasons:</p>
+
+<ul> <li><span>Increased security risks</span> – device IP addresses are accessible to anyone with an internet connection and are therefore prone to hacking. Mapping a static public IP address directly to a device diminishes the power of a firewall. This means that the device itself will need added security against hacking attempts.</li> <li><span>Increased cost and decreased scalability</span> – IPv4 address exhaustion means that obtaining public IP addresses in large numbers is expensive, difficult, and restricts scalability. For more information, see <a href="https://en.wikipedia.org/wiki/IPv4_address_exhaustion" target="_blank">IPv4 address exhaustion</a>.</li> <li><span>Less redundancy</span> – the singular geographic nature of a static public IP address means that the device cannot switch onto alternate routing paths, limiting the device to using a single cellular network. </li> <li><span>Increased latency</span> – restricting a device to a single cellular network increases the risk of delayed data transfer, with no option to switch to faster routes.</li> <li><span>Reduced connectivity options</span> – restricting a device to a single cellular network means that it could become inaccessible in the event of an Eseye PoP failover. For more information, see <a href="/connectivity/connecting-over-mobile-network#Configur" target="_blank">Configuring a device to access the correct network</a>.</li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/anynet-public-ip-address-ranges">Egress IP addresses</a> </li> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/device-configuration">Device configuration best practices</a> </li> <li><a href="/connectivity/understanding-pops">About Eseye PoPs</a> </li> <li><a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a> </li> <li><a href="/connectivity/authorising-device-to-use-network">How Eseye authorises the device to use the IP network</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> </ul> </div>

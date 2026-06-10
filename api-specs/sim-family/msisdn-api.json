@@ -1,0 +1,584 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Msisdn API",
+    "version": "2.0.0",
+    "description": "Msisdn API reference, generated from the Eseye Postman collection."
+  },
+  "servers": [
+    {
+      "url": "https://{URL}",
+      "variables": {
+        "URL": {
+          "default": "api.eseye.com",
+          "description": "Your AnyNet API host (provided by Eseye)."
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Get Token"
+    },
+    {
+      "name": "Msisdn"
+    }
+  ],
+  "paths": {
+    "/oauth2/token": {
+      "post": {
+        "summary": "Get Token",
+        "operationId": "get-token",
+        "tags": [
+          "Get Token"
+        ],
+        "description": "**Usage**: This API is used to obtain an OAuth2 token for authentication. The response will include an `access_token` which is stored in the collection variables for use in subsequent requests.\n\n**Method**: POST  \n**URL**: `https://eseye-idp-{{env}}.auth.eu-west-1.amazoncognito.com/oauth2/token`  \n**Headers**: Authorization (Basic {{base64}})  \n**Body**: URL encoded parameters for `grant_type` and `scope`  \n**Event**: Sets the token in collection variables upon receiving the response.\n\n**Parameters**:\n\n- **Authorization**: This header contains the base64 encoded client credentials. The value is set to `Basic {{base64}}`, where `{{base64}}` is an environment variable containing the base64 encoded client ID and client secret.\n    \n- **grant_type**: This parameter is set to `client_credentials`, indicating that the client is using its own credentials to obtain an access token.\n    \n- **scope**: This parameter is set to `api/api`, specifying the scope of the access token.",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string"
+                  },
+                  "scope": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "grant_type": "client_credentials",
+                "scope": "api/api"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://eseye-idp-{env}.auth.eu-west-1.amazoncognito.com",
+            "variables": {
+              "env": {
+                "default": "prod",
+                "description": "Postman variable: env"
+              }
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v2/msisdn/{msisdnId}/attribute": {
+      "get": {
+        "summary": "View all attributes for a specific msisdn",
+        "operationId": "view-all-attributes-for-a-specific-msisdn",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          },
+          {
+            "name": "msisdnAttributeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "msisdnId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "attribute",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new msisdn attribute",
+        "operationId": "create-new-msisdn-attribute",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "attribute": "test",
+                "value": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/msisdn/{msisdnId}/attribute/{msisdnAttributeId}": {
+      "get": {
+        "summary": "View specific msisdn attribute",
+        "operationId": "view-specific-msisdn-attribute",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          },
+          {
+            "name": "msisdnAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnAttributeId"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stopDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific msisdn attribute",
+        "operationId": "update-specific-msisdn-attribute",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          },
+          {
+            "name": "msisdnAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete specific msisdn attribute",
+        "operationId": "delete-specific-msisdn-attribute",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          },
+          {
+            "name": "msisdnAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/msisdn": {
+      "get": {
+        "summary": "View all msisdns",
+        "operationId": "view-all-msisdns",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "msisdnMnoId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "msisdnTypeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "msisdnRangeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "imsiId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "activatedDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new msisdn",
+        "operationId": "create-new-msisdn",
+        "tags": [
+          "Msisdn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msisdnId": {
+                    "type": "string"
+                  },
+                  "msisdnMnoId": {
+                    "type": "integer"
+                  },
+                  "msisdnTypeId": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "msisdnId": "145252",
+                "msisdnMnoId": 8944310460,
+                "msisdnTypeId": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/msisdn/{msisdnId}": {
+      "get": {
+        "summary": "View specific msisdn",
+        "operationId": "view-specific-msisdn",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stopDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific msisdn",
+        "operationId": "update-specific-msisdn",
+        "tags": [
+          "Msisdn"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "OAuth 2.0 client-credentials access token. See the developer guide for how to obtain one."
+      }
+    }
+  }
+}

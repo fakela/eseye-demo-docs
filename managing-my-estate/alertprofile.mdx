@@ -1,0 +1,46 @@
+---
+title: "About Infinity alert profiles"
+description: "Alert profiles are customizable sets of threshold rules applied to a SIM for monitoring purposes. When the SIM breaches a threshold, the alerting system triggers alerts, notifications, and can cause some actions, such..."
+---
+
+<p>Alert profiles are customizable sets of threshold rules applied to a SIM for monitoring purposes. When the SIM breaches a threshold, the alerting system triggers alerts, notifications, and can cause some actions, such as a change in SIM status.</p>
+
+<p>To access the Infinity alert profile:</p>
+
+<ol> <li> On the left menu, select <span>Connect &amp; Manage</span>. <br /> <img src="/images/resources/images/infinity/connectandmanageicon_80x78.png" alt="Connectandmanageicon 80X78" />  </li> <li> Select <span>Alerts</span> to view the alerts list.  </li> <li> Select the <span>Manage</span> tab to view the <span>Alert Profile</span> list. </li> </ol>
+
+<h2 id="ViewingInfinityalertprofiles">Viewing Infinity alert profiles</h2>
+
+<li> Alert profiles contain the following information: <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Alert Profile</span> </td> <td>A set of predefined conditions and rules that monitor the SIM's usage, activity, and security. You can receive notifications when specific thresholds or events are reached, such as exceeding data or voice call limits, or detecting unusual activity like a SIM swap.</td> </tr> <tr> <td><span>Default</span> </td> <td> <img src="/images/resources/images/infinity/default-tick_24x24.png" alt="Default Tick 24X24" /> indicates that this profile is the default for all SIMs within the current portfolio.</td> </tr> <tr> <td><span>Active Devices</span> </td> <td> <img src="/images/resources/images/infinity/active-tick_25x24.png" alt="Active Tick 25X24" /> indicates that there are active devices using the specified alert profile.</td> </tr> <tr> <td><span>Actions</span> </td> <td>You can <a href="#Managing">update</a> or <a href="#Managing">delete</a> the alert profile.</td> </tr> </tbody> </table> </li>
+
+<h2 id="Creatingalertprofiles">Creating alert profiles</h2>
+
+<p>Alert profiles contain the following thresholds:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Alert type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Finance Alerts</span> </td> <td> Monitors cost limit thresholds. </td> </tr> <tr> <td><span>Data Alerts</span> </td> <td> Monitors the data consumption thresholds in Bytes, KB, MB, GB or a percent of monthly consumption. </td> </tr> <tr> <td><span>Messaging Alerts</span> </td> <td>Monitors the total number of SMS messages the SIM can send or receive (MO or MT). </td> </tr> <tr> <td><span>Call Alerts</span> </td> <td>Monitors the maximum voice call usage in a month (in seconds, minutes or hours).</td> </tr> <tr> <td><span>IMEI Alert</span> </td> <td>Detects IMEI changes (indicating that the SIM has moved to a different device).</td> </tr> </tbody> </table>
+
+<p>To create an alert profile:</p>
+
+<ol> <li> On the <span>Manage</span> tab, select <span>Add</span> to view the <span>New Alert Profile</span> form. <br /><img src="/images/resources/images/infinity/new alert profile.png" alt="New Alert Profile" />  </li> <li> Type a <span>Name</span> for the profile. <span><strong>Tip: </strong>If one or more alert profiles already exist, the <span>Default profile</span> checkbox appears alongside the Name. If only one alert profile exists, it is automatically assigned as the default.</span> </li> <li> If required, select the <span>Default profile</span> checkbox to assign this as the default profile to all the SIMs in the current portfolio. </li> <li>Alongside an Alert Type, select <span>add alert</span> to create a new threshold.</li> <li> Set the <span>Action</span> required, either: <ul> <li> <span>Alert</span> – displays an alert in the alerts list when a threshold is breached, and sends an email if you have subscribed to notifications.  <br />For more information, see <a href="/managing-my-estate/alerts#Viewing" target="_blank">Viewing alerts </a> and <a href="/infinity/manage-user-profile#Notifica" target="_blank">Managing your Infinity user profile</a>. </li> <li> <span>Suspend</span> – temporarily suspends the SIM that has breached the threshold until the end of the current billing cycle, and sends an email if you have subscribed to notifications. The SIM is available on the network but you cannot use it. <span><strong>Note: </strong>At the next billing cycle, the SIM is unsuspended and becomes active for use.</span> <br />For more information, see <a href="/billing/billing-sim-lifecycle">Understanding the SIM lifecycle</a>. </li> </ul> </li> <li> Set the relevant threshold parameters: <span><strong>Note: </strong>You can set up to 3 alert levels for all the thresholds, except IMEI alert (which has only 1 alert level).</span> <table> <col /> <col /> <thead> <tr> <th>Alert types</th> <th>Parameters</th> </tr> </thead> <tbody> <tr> <td><span>Finance Alerts</span> </td> <td><span>Cost limit threshold per month:</span> Enter the amount in the required currency that will trigger an alert when your spending reaches or exceeds this value during the month.</td> </tr> <tr> <td><span>Data Alerts</span> </td> <td><span>Data usage limit per month:</span> Enter the data amount in KB, MB, GB, or percent that will trigger an alert when your data usage reaches or exceeds this value during the month.</td> </tr> <tr> <td><span>Message Alerts</span> </td> <td><span>SMS usage per month:</span> Enter the number of messages that will trigger an alert when your SMS usage reaches or exceeds this value during the month.</td> </tr> <tr> <td><span>Call Alerts</span> </td> <td><span>Voice call usage per month:</span> Enter the number of seconds, minutes or hours per month that will trigger an alert when your voice calls reach or exceed this value during the month. </td> </tr> <tr> <td><span>IMEI Alert</span> </td> <td>Include a threshold that will trigger an alert when someone moves the SIM to a different device (causing an IMEI change).</td> </tr> </tbody> </table> </li> <li> Repeat to add further thresholds. <span><strong>Tip: </strong>Ensure that each added alert threshold exceeds the value of previously set thresholds.</span> </li> <li> Select <span>Save</span> to commit your changes to Infinity.  <br />The alert profile appears in the Alert Profiles list. </li> </ol>
+
+<h2 id="Assigninganalertprofile">Assigning an alert profile</h2>
+
+<p>To assign an alert profile to a SIM:</p>
+
+<ol> <li>Select <span>Connect and Manage</span> &gt; <span>SIM and Device Search</span>.</li> <li>In the <span>Search results</span> table, select the checkbox or checkboxes alongside the specific <span>SIM details</span> rows.</li> <li> At the top right, select <span>Actions</span> &gt; <span>SIM</span> <span>Actions</span> &gt; <span>SIM Settings</span> to display the <span>SIM Settings</span> dialog. </li> <li> In the SIMs' Settings dialog, select from the <span>Alert Profile</span> drop-down list  <br /><img src="/images/resources/images/infinity/alertprofile.png" alt="Alertprofile" />  </li> <li> Select <span>Update</span> to apply to assign this alert profile to a specific SIM or a group of SIMs. </li> </ol>
+
+<h2 id="Updatingalertprofiles">Updating alert profiles</h2>
+
+<p>To update existing alert profiles:</p>
+
+<ol> <li>Select <img src="/images/resources/images/infinity/iconedit_24x24.png" alt="Iconedit 24X24" /> alongside an alert profile to edit it.</li> <li> Make your changes.  </li> <li> If required, select<img src="/images/resources/images/infinity/icondelete_24x24.png" alt="Icondelete 24X24" /> alongside an alert level to delete it. </li> <li> Select <span>Save</span> to commit your changes to Infinity.  <br />The altered alert profile appears in the Alert Profiles list. </li> </ol>
+
+<h2 id="Deletingalertprofiles">Deleting alert profiles</h2>
+
+<p>To delete existing alert profiles:</p>
+
+<ul> <li>Select <img src="/images/resources/images/infinity/icondelete_24x24.png" alt="Icondelete 24X24" /> alongside an alert profile to delete it.</li> </ul>
+
+<Note>You cannot delete the default alert profile, or alert profiles that are linked to active devices.</Note>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/managing-my-estate/alerts">About Infinity alerts</a> </li> <li><a href="/managing-my-estate/managing-notifications">Managing email notifications</a> </li> <li><a href="/managing-my-estate/managing-my-estate">Managing my Estate</a> </li> </ul> </div>

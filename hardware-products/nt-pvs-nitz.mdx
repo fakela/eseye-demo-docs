@@ -1,0 +1,32 @@
+---
+title: "Time synchronisation services – NTP vs NITZ"
+description: "A key element of low-power IoT is how IoT devices synchronise their internal clocks with the network."
+---
+
+<p>A key element of low-power IoT is how IoT devices synchronise their internal clocks with the network. </p>
+
+<p>Devices use clocks to pinpoint when to share and gather data over the network, and to timestamp events. The timestamps are used to coordinate events and accurately monitor data passage between connected devices, as well as for security purposes such as validating certificates and connecting to the cloud. </p>
+
+<p> Battery operated devices typically only power on their hardware at intervals in order to preserve energy and prolong the device lifetime. Because their clocks may drift as much as a second per day, it is essential to regularly align their clocks with an accurate time keeping service. </p>
+
+<p>Two time synchronisation services you may consider are the Network Time Protocol (NTP) and Network Identity and Time Zone (NITZ) feature. Many modems include AT commands to update the local clock using either service. </p>
+
+<h2 id="AbouttheNetworkTimeProtocolNTP">About the Network Time Protocol (NTP)</h2>
+
+<p>NTP is a standard TCP/IP time protocol that accurately synchronises time over packet-switched data networks. If required, NTP can synchronise all participating devices to within a few milliseconds of Coordinated Universal Time (UTC), however such accuracy takes a longer time to synchronise. NTP is universally available, and as such is highly reliable. We recommend you use this method to synchronise time on your devices. </p>
+
+<p>While many modems contain software to manage time synchronisation using NTP, the supplied NTP client is often designed for highly accurate time keeping. This requires multiple exchanges with the server and consumes valuable power, which is undesirable in battery operated devices. In many IoT applications, this level of accuracy is unnecessary, so you may want to develop your own software to manage the time synchronisation using NTP.</p>
+
+<h2 id="AbouttheNetworkIdentityandTimeZoneNITZfeature">About the Network Identity and Time Zone (NITZ) feature</h2>
+
+<p>NITZ is an optional part of 3GPP standards that is used to transfer the current mobile network identity, universal time, Daylight Saving Time, and the local timezone to devices via the wireless network. NITZ is served to mobile stations by the network operator. However, you cannot rely on the service – not all network operators provide NITZ, and the feature is sometimes not consistently available across an entire network, or all RAT types. </p>
+
+<Note>Eseye has worked with a number of customer devices that initially deployed NITZ for time synchronisation. Devices that worked in a test environment were unable to access NITZ in field trials, and were subsequently shut down by the firmware. When the customers switched to using NTP for time synchronisation, their issues were resolved.</Note>
+
+<h2 id="Timesynchronisationbestpractices">Time synchronisation best practices</h2>
+
+<p>NTP provides a globally available, reliable means of synchronising time on low-power devices. You cannot rely on NITZ – it is not globally available and is inconsistently deployed across networks, if it exists at all. With this in mind, we recommend the following best practices:</p>
+
+<ul> <li>Use NTP, not NITZ, to set the clock in the device.</li> <li>Synchronise time first before any other activity, such as connecting to the cloud.</li> <li>Identify what the device should do in the event that the synchronisation service fails or is unavailable. Consider carefully the security and device functionality, and any conflicts.</li> <li>If the device includes a GPS receiver, consider using the timestamp if required, but ensure that the system will continue to work if the GPS signal is unavailable.</li> <li>If you have a battery-backed RTC, synchronise regularly to eliminate time drift. For example, synchronise every 7-10 days.</li> <li>Always use UTC, not local times, unless there is a compelling user interface requirement.</li> <li>If you are using time to check SSL certificate validity, consider what will happen when the certificate expires.</li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li>Public NTP servers worldwide: <ul><li><a href="https://www.ntppool.org/en/" target="_blank">NTP Pool Project</a></li><li><a href="https://support.ntp.org/bin/view/Servers/WebHome" target="_blank">NTP.org server list</a></li></ul></li> <li><a href="/lpwan/ps-mande-drx" target="_blank">Optimising power conservation in cellular Low Power Wide Area Networks (LPWAN)</a> </li> <li>Specifying NTP servers for AnyNet SMARTconnect™: <a href="/software-products/configuration-file#ntp_urls">AnyNet SMARTconnect™ configuration file – <span>ntp&#95;urls=&lt;<var>NTPserverURL</var>&gt;</span></a></li> </ul> </div>

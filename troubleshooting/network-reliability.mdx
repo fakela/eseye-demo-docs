@@ -1,0 +1,42 @@
+---
+title: "Network Reliability"
+description: "Devices experience unreliable network connectivity. This may manifest itself in one of following ways:"
+---
+
+<h2 id="Problem">Problem</h2>
+
+<p>Devices experience unreliable network connectivity. This may manifest itself in one of following ways:</p>
+
+<ul> <li> Networking tools show that a device is continually requesting authentication but fails to establish any data sessions. Log files show the device registration is denied. If the device is moved to a different location, it can register and connect without issue. This may occur for a new device or a device that has previously had no connection issues. </li> <li> A device connects briefly (for around 30 seconds) but then is disconnected and can't re-connect for a lengthy period (around 20 minutes). This cycle can be repeated indefinitely. If the carrier for this network can be avoided (for example, using a Blocklist), the device can connect successfully with another carrier. </li> </ul>
+
+<h2 id="Causes">Causes</h2>
+
+<p>Unreliable network connections are usually caused by one of the following issues.</p>
+
+<h3>Steering of Roaming</h3>
+
+<p>Some Mobile Network Operators (MNOs) calculate their roaming fees based on consumer mobile phones. They assume that they will get almost all the connections onto a single, low-cost network. To ensure their profit margins, they only permit a small percentage of devices to use other, more expensive networks. Steering of Roaming is the method that carriers use to move devices onto their preferred networks. It can severely impact the connectivity of IoT devices.</p>
+
+<p>Carriers usually operate Steering of Roaming in one of the following ways:</p>
+
+<ul> <li> Permit a device to register on the network only once every five attempts </li> <li> Regularly disconnect devices that aren't connected on the preferred network </li> </ul>
+
+<p>Consumers experiencing connection problems with their mobile phones will often move, persist with connection attempts or issue a manual network selection request. One of these methods will work eventually, even if the consumer has to make repeated connection attempts. </p>
+
+<p>IoT devices, however, experience poor network availability, either failing to connect or experiencing regular disconnections once they have connected. The connection methods that work for consumers don't work for IoT devices.</p>
+
+<h3>Legislative and commercial restrictions</h3>
+
+<p>Legislative and commercial landscapes are changing, preventing devices from roaming easily, either on a temporary or permanent basis.</p>
+
+<h3>Device design and performance</h3>
+
+<p>The design of a device can affect its connectivity performance. In particular, creating a convoluted connection methodology in order to circumvent carrier operations, such as Steering of Roaming, can have a detrimental impact on devices, making the firmware unmanageable and unreliable.</p>
+
+<h2 id="Solution">Solution</h2>
+
+<p>The solution is to use a high quality connectivity provider with the ability to ensure optimum levels of device connectivity. For example, the provider should:</p>
+
+<ul> <li> Use high performance tools to manage devices, steering them to different networks if they're experiencing connectivity problems. </li> <li> Localise devices to mitigate legislative and commercial restrictions. This is the process of downloading new profiles to SIMs so they can connect to a local network wherever they are located. </li> <li> Work with customers to understand devices and advise on how to ensure they have optimum connectivity. </li> <li> Not operate Steering of Roaming to protect profit margins. </li> </ul>
+
+<p>The AnyNet Connectivity Management Platform ensures that devices are steered to the networks that offer the best connectivity. The AnyNet SIMs are pre-loaded with multiple IMSIs (network profiles) so that devices can connect out-of-the-box. If a SIM is roaming on a partner network and experiences connectivity issues, the IMSI selection algorithm in the SIM switches to a different network profile or uses an alternative routing path to connect reliably.</p>

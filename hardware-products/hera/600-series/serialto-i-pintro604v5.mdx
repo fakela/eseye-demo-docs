@@ -1,0 +1,164 @@
+---
+title: "About the Serial to IP agent"
+description: "The Hera router Serial to IP agent enables you to transfer RS-232 serial data over an IP link. You can use the agent to:"
+---
+
+<p>The Hera router Serial to IP agent enables you to transfer RS-232 serial data over an IP link. You can use the agent to:</p>
+
+<ul> <li>Enable remote connection to serial-only devices</li> <li>Configure either inbound only, or inbound and outbound connection to TCP, Telnet, or UDP</li> <li>Run executable applications or scripts stored in the Hera file system from locally connected serial devices</li> <li>Run device-originated queries to gather information from the Hera that is sent back to the device</li> <li>Extend an RS-232 link over a long distance to log trace data from a device to a remote database</li> </ul>
+
+<p>The Serial to IP agent links a serial port to any of the following:</p>
+
+<ul> <li>TCP stream</li> <li>Telnet stream</li> <li>Bi-directional UDP datagrams collection</li> </ul>
+
+<Note>Relative timing data of sent and received characters is not preserved. </Note>
+
+<p>You can set up to two serial to IP ports, <span>serial1</span> and <span>serial2</span>. You need to configure these individually. For more information, see <a href="#Using">Using the Serial to IP agent configuration file</a>.</p>
+
+<p>You can use delimiters to control when data is sent. The Serial to IP agent can buffer messages as groups of characters. For more information, see <a href="#Message">Message termination and delimitation</a>.</p>
+
+<h2 id="IPconnectivity">IP connectivity</h2>
+
+<p>Connection modes are either:</p>
+
+<ul> <li> <span>Inbound only</span> – configured by setting <span>listenport</span> </li> <li> <span>Inbound and outbound</span> – configured and enabled by setting <span>ipaddress</span> and <span>port</span> </li> </ul>
+
+<p>For more information, see <a href="#Using">Using the Serial to IP agent configuration file</a>.</p>
+
+<Note>For Telnet operation only. Telnet signalling information and control characters, such as character echo, are not sent. The Serial to IP agent adds escaped Interpret as Command characters (IACs) from serial to IP, and strips IACs from IP to serial.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Connection mode</th> <th>TCP/Telnet</th> <th>UDP</th> </tr> </thead> <tbody> <tr> <td><span>Inbound only</span> </td> <td> The device opens a TCP listening port, and listens for an incoming connection. The connection is initiated from the network side, not the device side. </td> <td> The Hera sends serial data to the last IP address and port from which serial data was received.  <br />If the device has not received inbound data, it cannot send data on this serial port. </td> </tr> <tr> <td><span>Inbound and outbound</span> </td> <td>If the connection fails to establish after the specified number of retries (configured using <span>tcpconnectretries</span>), the Serial to IP agent will revert to inbound mode and listen for an incoming connection attempt.</td> <td> Incoming data is received from any IP address or port. Outbound data is always sent to the IP address and port specified in the configuration file. For more information, see <a href="#Using">Using the Serial to IP agent configuration file</a>. </td> </tr> </tbody> </table>
+
+<h2 id="Messageterminationanddelimitation">Message termination and delimitation</h2>
+
+<p>You can set one or more of the following delimiters using the Serial to IP agent configuration file. </p>
+
+<Tip>For more information, see <a href="#Using">Using the Serial to IP agent configuration file</a>.</Tip>
+
+<table> <col /> <col /> <thead> <tr> <th>Delimiter</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Termination characters</span>  </td> <td> Use <span>fwdcheckchars</span> to configure up to 10 individual message termination characters per serial stream, which indicate the end of the message. If any of these characters is matched from the incoming stream, the Serial to IP agent assumes the current buffer is a complete message, which it then forwards to IP.  </td> </tr> <tr> <td> <span>Maximum string length</span>  </td> <td> Use <span>fwdnumchars</span> to configure message forwarding after the serial port receives a specified number of characters.  </td> </tr> <tr> <td> <span>Termination string</span>  </td> <td> Use <span>fwdstring</span> to configure a single termination string to indicate the end of a message. When the string is matched in the incoming character stream, the Serial to IP agent forwards the current buffer as a complete message. </td> </tr> <tr> <td> <span>Timeout termination</span>  </td> <td> Use <span>fwdtimer</span> to configure a rest time interval, during which no further characters are received. When this occurs, the Serial to IP agent assumes that the message is complete, and forwards the message. </td> </tr> <tr> <td> <span>Message delimiter indication</span>  </td> <td> Use <span>usdelimiter</span> to add a delimiter byte to the end of a message before it is sent. As transmitting serial data over IP does not retain the relative timing of characters or bytes received by the serial port, this enables the remote application to re-assemble the messages when receiving the IP data. </td> </tr> </tbody> </table>
+
+<h2 id="Connectionstateindication">Connection state indication</h2>
+
+<p>The Serial to IP agent can indicate the TCP or Telnet host connection state to the serial device by transmitting connect and disconnect messages from the serial port to the device. When the connection is not available, the agent buffers the characters received from the serial port and transmits them to the TCP or Telnet stream after connection is re-established.</p>
+
+<p>For more information, see <span>fwdtimer</span> and <span>usdelimiter</span> in <a href="#Using">Using the Serial to IP agent configuration file</a>.</p>
+
+<h2 id="Sendingserialcommandsorqueries">Sending serial commands or queries</h2>
+
+<p>You can configure the Serial to IP agent to process commands and queries on the host that are sent by a locally connected serial device. Such commands and queries are not forwarded to IP, but use the same serial connection as traffic that is passed to IP. You can use the commands to run executable applications or scripts stored in the Hera file system. You can use the queries to gather information from the Hera that is sent back to the device. For example, the device can use a script to query the Hera for the current time.</p>
+
+<p>To make use of this feature, you must set a command prefix (<span>cmdprefix</span>) in the configuration file, to demarcate messages that the Serial to IP agent processes locally as a command or query. Subsequent messages without the prefix are processed for IP. </p>
+
+<p>The Serial to IP agent sends all standard output (stdout) characters from the running application or script back to the serial port, prefixed with the <span>cmdprefix</span>. </p>
+
+<p>Commands are defined globally within the configuration file (not per serial port). </p>
+
+<p>For more information, see <a href="#Using">Using the Serial to IP agent configuration file</a>.</p>
+
+<h2 id="UsingtheSerialtoIPagentconfigurationfile">Using the Serial to IP agent <span>configuration file</span></h2>
+
+<p>You can find the Serial to IP agent configuration file in the Hera file system: <span>/etc/config/serial2ip</span></p>
+
+<p>Alternatively, use the Hera web interface to edit the file:</p>
+
+<p><span>Advanced Settings</span> &gt; <span>File Editor</span> &gt; <span>General Configuration</span> &gt; <span>Contents</span> &gt; <span>serial2ip</span> &gt; <span>Edit</span></p>
+
+<p><img src="/images/resources/images/hera/advancedconfigfilesserial2ip.png" alt="Advancedconfigfilesserial2Ip" /> </p>
+
+<h3>Formatting the Serial to IP agent <span>configuration file</span></h3>
+
+<p>You must individually configure the serial ports you want to use (up to two), and any commands or queries, in the following format:</p>
+
+<p>config serial2ip &lt;<var>serialport</var>&gt;</p>
+
+<p>option device '&lt;<var>serialPortPath</var>&gt;'</p>
+
+<p>option protocol '&lt;<var>protocol</var>&gt;'</p>
+
+<p>option enabled '&lt;<var>messageForwardingOnOrOff</var>&gt;'</p>
+
+<p>...</p>
+
+<p>config serial2ip &lt;<var>serialport</var>&gt;</p>
+
+<p>...</p>
+
+<p>config command</p>
+
+<p>option command '<var>&lt;commandName&gt;</var>'</p>
+
+<p>option execfile '/<var>&lt;absolutePath&gt;</var>'</p>
+
+<p>config command</p>
+
+<p>...</p>
+
+<p>Configuration file parameters are written in the format: <span>option &lt;<var>parameter</var>&gt; '&lt;<var>value</var>&gt;'</span>, where <span>&lt;<var>parameter</var>&gt;</span> is the setting you want to configure, and <span>&lt;<var>value</var>&gt;</span> defines that setting. </p>
+
+<p>For example: <span>option baud '115200'</span></p>
+
+<Note>You can disable a parameter using <span>''</span> (single quotation marks with no space between them). For example: <span>option connectmsg ''</span></Note>
+
+<h4>Formatting commands in the Serial to IP agent configuration file</h4>
+
+<p>You can add multiple commands to the Serial to IP agent command list. They consist of the following:</p>
+
+<ul> <li>A section header to mark that what follows is a command or query</li> <li>A command name string for identifying the command</li> <li>The absolute path of a script or application on the Hera file system, which runs when the command is issued </li> </ul>
+
+<p>For example:</p>
+
+<p>config command</p>
+
+<p>option command 'uptime'</p>
+
+<p>option execfile '/bin/uptime'</p>
+
+<h4>Example configuration</h4>
+
+<p>In the below example, the <span>serial1</span> configuration means that the Serial to IP agent will collate the characters received from the device until there are 10 characters to send. </p>
+
+<p>The agent will also monitor for a time gap that is greater than 2000mS, when all previously received characters are considered a complete message and forwarded. </p>
+
+<p>This means that if the agent receives eight characters, and then receives a further five characters after a 1500mS time gap, then 10 characters are immediately sent. The remaining three characters are held until the agent receives seven more characters (or the timeout occurs).</p>
+
+<p>config serial2ip serial1</p>
+
+<p>option device '/dev/eser0'</p>
+
+<p>option protocol 'tcp'</p>
+
+<p>option enabled 'true'</p>
+
+<p>option fwdnumchars '10'</p>
+
+<p>option fwdtimer '2000'</p>
+
+<p>option </p>
+
+<p>config serial2ip serial2</p>
+
+<p>option device '/dev/eser1'</p>
+
+<p>option protocol 'udp'</p>
+
+<p>option enabled 'false'</p>
+
+<p>config command</p>
+
+<p>option command 'uptime'</p>
+
+<p>option execfile '/bin/uptime'</p>
+
+<p>config command</p>
+
+<p>option command 'chktime'</p>
+
+<p>option execfile '/bin/timechecker'</p>
+
+<p>If the agent receives a message containing the <span>cmdprefix</span>, followed by the <var>commandName</var> string, then it will run the associated script or application on the Hera. For example:</p>
+
+<p><span>+++chktime</span> will run the <span>timechecker</span> script in the Hera <span>/bin/</span> location.</p>
+
+<h3>Serial to IP agent configuration file parameters</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Parameter</th> <th>Definition</th> </tr> </thead> <tbody> <tr> <td>baud</td> <td> Serial port speed: <ul> <li><span>2400</span> </li> <li><span>4800</span> </li> <li><span>9600</span> (default)</li> <li><span>19200</span> </li> <li><span>38400</span> </li> <li><span>57600</span> </li> <li><span>115200</span> </li> </ul> </td> </tr> <tr> <td>cmdprefix</td> <td> Prefix characters indicating that the message is a command or query, and is for internal Hera processing. Such messages are not forwarded.  <span><strong>Note: </strong>For TCP or Telnet operation only. If a command prefix is specified in the configuration file, the Serial to IP agent also adds it to the start of any TCP or Telnet host connect and disconnect messages. </span> <br />A common prefix is: <span>+++</span> </td> </tr> <tr> <td>command</td> <td> Used in conjuction with <span>execfile</span> to define the command name, in the following format: <br /><span>option command '&lt;<var>commandName</var>&gt;'</span>  <br />where <span>&lt;<var>commandName</var>&gt;</span> is the unique command name. </td> </tr> <tr> <td>connectmsg</td> <td> For TCP operation only. This message is sent to the serial port when there is a successful TCP connection to a remote host. Indicates that the Serial to IP agent can commence with message forwarding. <br />If a <span>cmdprefix</span> exists, the Serial to IP agent appends the cmdprefix to the start of the <span>connectmsg</span> when it is sent. </td> </tr> <tr> <td>databits</td> <td> The number of databits to use on the serial connection: <ul> <li><span>5</span> </li> <li><span>6</span> </li> <li><span>7</span> </li> <li><span>8</span> (default)</li> </ul> </td> </tr> <tr> <td>device</td> <td> Which serial port to use, either: <ul> <li><span>/dev/eser0</span> – serial 1</li> <li><span>/dev/eser1</span> – serial 2 </li> </ul> </td> </tr> <tr> <td>disconnectmsg</td> <td> For TCP operation only. Indicates that the connection to the remote host has failed. The Serial to IP agent cannot perform message forwarding.  <br />If a <span>cmdprefix</span> exists, the Serial to IP agent appends the cmdprefix to the start of the <span>disconnectmsg</span> when it is sent. </td> </tr> <tr> <td>enabled</td> <td> Turn serial to IP forwarding on or off for each serial port, either: <ul> <li><span>true</span> </li> <li><span>false</span> </li> </ul> <br />When enabled is <span>true</span>, only the Serial to IP agent can use this serial port. </td> </tr> <tr> <td>execfile</td> <td> Used in conjunction with <span>command</span>. Defines the absolute path of a script or application on the Hera file system that the command runs, in the following format: <br /><span>option execfile '/&lt;<var>absolutePath</var>&gt;'</span>  <br />where <span>&lt;<var>absolutePath</var>&gt;</span> is the complete Hera file store path to the specified script or application. </td> </tr> <tr> <td>fwdcheckchars</td> <td> End-of-message character delimiter. Indicates to the Serial to IP agent that the message is complete and ready for forwarding. <br /> You can set up to 10 separate characters, either as a character (for example, <span>f</span>) or as a hex value (for example, <span>0x66</span>).  <br />The default configuration file provides two delimiters: <ul> <li><span>0x0a</span> – line feed (LF)</li> <li><span>0x0d</span> – carriage return (CR)</li> </ul> </td> </tr> <tr> <td>fwdnumchars</td> <td> String length delimiter, for limiting the message forwarding to a specific length.  <br />For example, if <span>10</span> is set, every time the serial port receives 10 characters, the Serial to IP agent will forward them to the specified IP address. <br /><span>0</span> (default) – disabled (no string length delimiter is set) </td> </tr> <tr> <td>fwdstring</td> <td> End-of-message ASCII string delimiter. Indicates to the Serial to IP agent that the message is complete and ready for forwarding.  <br /><span>0</span> (default) – disabled (no string delimiter is set) </td> </tr> <tr> <td>fwdtimer</td> <td> Timeout delimiter, indicating that the message is complete and ready for forwarding when no characters are received on the serial port for the specified time period (in milliseconds). <br />For example, if <span>2000</span> is set, when a 2000 millisecond idle period occurs, then the message is considered complete and ready for forwarding. <br /><span>0</span> (default) – disabled (no timeout delimiter is set) </td> </tr> <tr> <td>idletimer</td> <td> For TCP operation only. Closes the TCP connection when no characters are sent or received on the serial port for the specified time period (in milliseconds). <br />For example, if <span>5000</span> is set, the TCP connection closes after a 5000 millisecond idle period. <br /><span>0</span> (default) – disabled (the idle timer is not set) </td> </tr> <tr> <td>ipaddress</td> <td> The IPv4 address where outbound data is sent, only valid when <span>port</span> is set. </td> </tr> <tr> <td>listenport</td> <td> The IPv4 port used for inbound messages. Defaults to <span>54321</span> if not explicitly configured. </td> </tr> <tr> <td>parity</td> <td> The serial port parity for detecting transmission errors by adding an extra bit to each data unit, either: <ul> <li><span>none</span> (default) – no parity bit is sent</li> <li><span>even</span> – the total value of the 1s in a data unit is always an even number</li> <li><span>odd</span> – the total value of the 1s in a data unit is always an odd number</li> </ul> </td> </tr> <tr> <td>port</td> <td>The IPv4 destination port used for outbound messages, only valid when <span>ipaddress</span> is set.</td> </tr> <tr> <td>protocol</td> <td> Which protocol to use for the IP connection, either: <ul> <li><span>TCP</span> </li> <li><span>Telnet</span> </li> <li><span>UDP</span> </li> </ul> </td> </tr> <tr> <td>stopbits</td> <td> The number of bits used to indicate the end of a byte, either: <ul> <li><span>1</span> </li> <li><span>2</span> </li> </ul> </td> </tr> <tr> <td>tcpconnectretries</td> <td> For TCP and Telnet operation only. The maximum number of outbound connection attempts for TCP or Telnet before fallback to listening mode.  <br /><span>0</span> – the Serial to IP agent continually tries to connect to the remote host and never reverts to listening mode <br /><span>5</span> (default) </td> </tr> <tr> <td>tracefile</td> <td> The absolute path of the trace log file, used for Serial to IP agent debugging and monitoring purposes. For example: <span>/var/log/mylog</span> <span><strong>Tip: </strong>If required, use the path <span>/var/logger/mylog</span> to store trace data in a log file on the Hera using the Eseye-supplied DFX logger application.</span> </td> </tr> <tr> <td>usdelimiter</td> <td> End-of-message upstream delimiter character, for marking each queued outbound message as a complete message. If the cellular network fails and the Hera goes offline, the Serial to IP agent will collect the device messages and send them when the network is restored, appending the <span>usdelimiter</span> to each message. <br />You can use decimal or hexadecimal values. Range: <span>0</span>-<span>255</span> (<span>0x0</span> to <span>0xff</span>).  <span><strong>Note: </strong>Prefix hexadecimal values with <span>0x</span>.</span> </td> </tr> </tbody> </table>

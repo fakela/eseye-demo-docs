@@ -1,0 +1,94 @@
+---
+title: "Configuring the Health Monitor"
+description: "Model: Hera 604 Version: v5"
+---
+
+<div> <p><span>Model:</span> Hera 604 <span>Version:</span> v5</p> </div>
+
+<p>The Health Monitor continually monitors the network connectivity and system state of each Hera WAN interface. If the network performance changes, the Health Monitor can: </p>
+
+<ul> <li>Seamlessly switch WAN interfaces to maintain connectivity</li> <li>Stop and restart the affected WAN interface</li> <li>Reset the cellular connection</li> <li>Change to a different SIM profile</li> <li>Monitor status files or execute test applications (for example, the Health Monitor can activate Shell scripts)</li> <li>Perform a system reboot if required</li> </ul>
+
+<p>To configure the Health Monitor:</p>
+
+<ul> <li> Using the Hera user interface, navigate to <span>Diagnostics &amp; Maintenance</span> &gt; <span>Health Monitor</span> &gt; <span>General Settings</span>. </li> </ul>
+
+<h2 id="Configuringgeneralsettings">Configuring general settings</h2>
+
+<p>These settings affect every WAN interface. </p>
+
+<p>Select the sliders to <span>Enable</span> or <span>Disable</span> the following actions that occur if the Health Monitor WAN interface tests fail.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th colspan="2">Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"> <span>Interface prioritisation</span>  </td> <td> If the Hera has multiple active WAN interfaces to process WAN traffic, you can prioritise their order of use, to ensure continued network connectivity.  <br />Enable this setting so that if the primary WAN interface loses connectivity, the Hera switches over to a different interface. When connectivity is restored, the WAN interfaces return to their original priorities. </td> </tr> <tr> <td>   </td> <td><span>– with this value of metric shift</span> </td> <td> The primary WAN interface is the active WAN interface with the highest priority in descending order (where <span>1</span> is the highest priority). <br />When a WAN interface is down – it has no available IP address or routing, or fails the active tests – the Health Monitor raises the metric of the affected WAN interface by (metric shift x 2). <br />When a WAN interface is active but is not the primary interface, its metric increases by (metric shift x 1). <h4>Example</h4> <table> <col /> <col /> <col /> <thead> <tr> <th>WAN interface</th> <th>Default metric</th> <th>Metric shift</th> </tr> </thead> <tbody> <tr> <td>Ethernet (primary)</td> <td>1</td> <td>5</td> </tr> <tr> <td>Cellular</td> <td> 2 </td> <td> </td> </tr> </tbody> </table> <br />Because the cellular WAN is not the primary interface, its current metric increases:  <br />2 + (metric shift x 1) = 2 + (5 x 1) = 7 <br />If the Ethernet WAN interface fails testing, the adjustment is: <br />1 + (5 x 2) = 11 <br />The cellular WAN interface metric becomes 2 (the default value for that interface). <br /> The cellular WAN interface becomes the primary interface until connectivity is restored on the Ethernet WAN, as 2 is a higher priority than 11. <span><strong>Note: </strong>This feature works in conjunction with interface prioritisation.</span> </td> </tr> <tr> <td colspan="2"><span>Time (in seconds) between system polls</span> </td> <td> How often the Health Monitor checks that the current interface tests are complete. <br /><span>Default:</span> 1200. </td> </tr> <tr> <td colspan="2"><span>Restart WAN interfaces</span> </td> <td> Enable to restart all the WAN interfaces and reset the cellular connection if the system poll fails across all interfaces. If you are using DHCP, then this action will renew the associated IP address. </td> </tr> <tr> <td> </td> <td><span>– after this number of failed system polls</span> </td> <td>The total number of consecutive failed system polls that causes all the WAN interfaces to restart.<br /><span>Default:</span> 3.</td> </tr> <tr> <td colspan="2"><span>Reboot router</span> </td> <td>Enable to reboot the Hera if the system poll continually fails across all WAN interfaces, showing that there is no network connection across all WAN interfaces.</td> </tr> <tr> <td> </td> <td><span>– after this number of failed system polls</span> </td> <td> The total number of consecutive failed system polls that cause the Hera to reboot. <br /><span>Default:</span> 6. </td> </tr> <tr> <td colspan="2"><span>Method for choosing best WAN interface</span> </td> <td>  Configure which active WAN interface the Health Monitor must use, by selecting one of the following options in the drop–down list:  <ul> <li><span>Priority</span> – the active WAN interface with the highest priority in descending order, where <span>1</span> is the highest priority.</li> <li><span>Round trip time</span> – the active WAN interface with the shortest time for returned ping packets</li> <li><span>Priority and Round trip time</span> – the active WAN interface with the highest priority and shortest ping packet return time. This is useful when WAN interfaces share the same priority value.</li> </ul> <span><strong>Note: </strong>You must configure more than one active WAN interface for this option to function.</span> </td> </tr> </tbody> </table>
+
+<h3>For interface tests that fail</h3>
+
+<p>The Health Monitor performs a series of ongoing tests to ensure the network connectivity is maintained. If a test fails, indicating connection issues, the Health Monitor can take action to restore connectivity.</p>
+
+<p>The Health Monitor tests work in conjunction with each other. For example, you can configure how many consecutive failed ping requests will count as one failed WAN interface test. Use this section to configure the number of failed WAN interface tests that will cause the Health Monitor to take action.</p>
+
+<p>Select the sliders to <span>Enable</span> or <span>Disable</span> the following actions that occur if the Health Monitor WAN interface tests fail.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th colspan="2">Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><span>Restart interface</span> </td> <td>Enable to restart a WAN interface after test failure.</td> </tr> <tr> <td> </td> <td><span>– after this number of failed interface tests</span> </td> <td> The total number of consecutive failed tests before the affected WAN interface restarts. <br /><span>Default:</span> Not set </td> </tr> <tr> <td colspan="2"><span>Restart interface with a new profile</span> </td> <td> Enable to restart a WAN interface using a different SIM profile after test failure. <br />For example, using the following scenario: <br /><span>Profile 1:</span> Configured for chipsim Eseye AnyNet <br /><span>Profile 2:</span> Configured for local Verizon SIM <br /><span>Profile 3:</span> Configured for local AT&amp;T SIM <br />If WAN interface failure occurs and the <span>Restart Interface with a new profile</span> is enabled, the Health Monitor will cause a switch to the next listed profile (from Profile 1 to Profile 2, and so on for subsequent failures, returning to Profile 1 after Profile 3).  </td> </tr> <tr> <td> </td> <td><span>– after this number of failed interface tests</span> </td> <td> The total number of consecutive failed tests before the affected WAN interface restarts with a new profile. <br /><span>Default:</span> Not set </td> </tr> <tr> <td colspan="2"><span>Reset interface</span> </td> <td>For the cellular interface only. Enable to disconnect from, then reconnect to the cellular network after test failure.</td> </tr> <tr> <td> </td> <td><span>– after this number of failed interface tests</span> </td> <td> The total number of consecutive failed tests before resetting the cellular network connection. <br /><span>Default:</span> 10 </td> </tr> </tbody> </table>
+
+<h3>For interface tests that receive zero packets</h3>
+
+<p> The Health Monitor monitors the Hera's inbound data packets. If no incoming data traffic is observed over a period of time, the Health Monitor can take action to restore the affected WAN interface.</p>
+
+<p>Select the sliders to <span>Enable</span> or <span>Disable</span> the following actions that occur if consecutive zero-packet test periods are observed. </p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th colspan="2">Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><span>Restart interface</span> </td> <td>Enable to restart a WAN interface when no incoming network traffic is observed over a period of time.</td> </tr> <tr> <td> </td> <td><span>– after this number of zero-packet interface tests</span> </td> <td> The total number of consecutive zero-packet test periods before the affected WAN interface restarts. <br />Default: Not set </td> </tr> <tr> <td colspan="2"><span>Restart interface with a new profile</span> </td> <td>Enable to restart a WAN interface using a different profile when no incoming network traffic is observed over a period of time.</td> </tr> <tr> <td> </td> <td><span>– after this number of zero-packet interface tests</span> </td> <td>The total number of consecutive zero-packet test periods before the affected WAN interface restarts with a new profile.</td> </tr> <tr> <td colspan="2"><span>Reset interface</span> </td> <td>For the cellular interface only. Enable to disconnect from, then reconnect to the cellular network when no incoming network traffic is observed over a period of time.</td> </tr> <tr> <td> </td> <td><span>– after this number of zero-packet interface tests</span> </td> <td> The total number of consecutive zero-packet test periods before the cellular network resets. <br />Default: 10 </td> </tr> </tbody> </table>
+
+<h3>Configuring ping requests</h3>
+
+<p>You can configure the length of time the Health Monitor waits for a response from a ping server before timing out.</p>
+
+<p>Set the <span>Ping address</span> here for each WAN interface: </p>
+
+<p><span>Diagnostics &amp; Maintenance</span> &gt; <span>Health Monitor</span> &gt; <span>Settings for each WAN interface</span></p>
+
+<p>Ensure that the ping address is accessible via the monitored cellular or Ethernet path. </p>
+
+<p>If you use the AnyNet Ping Service (192.168.109.2), you must use an Eseye SIM that is activated in Infinity Classic. The AnyNet Ping Service is inaccessible for non–Eseye SIMs. </p>
+
+<p>For non-Eseye SIMs or the Ethernet WAN connection, use any IP address that returns a response to a ping request. </p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Timeout (in seconds)</span> </td> <td> The length of time the Health Monitor waits for a response to the last ping request before determining ping failureThe length of unresponsive time in seconds until timeout occurs, from the instance of sending thea ping request. </td> </tr> <tr> <td><span>Number unanswered before failure</span> </td> <td> The total number of consecutive ping requests that have no response before the WAN interface test fails. </td> </tr> </tbody> </table>
+
+<h3>Configuring DNS requests</h3>
+
+<p>The test uses DNS to resolve a host name.</p>
+
+<p>Set the <span>DNS lookup</span> here: </p>
+
+<p><span>Diagnostics &amp; Maintenance</span> &gt; <span>Health Monitor</span> &gt; <span>Settings for each WAN interface</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Timeout (in seconds)</span> </td> <td> The length of unresponsive time in seconds until timeout occurs, from the instance of sending a DNS request to resolve a host name. </td> </tr> <tr> <td><span>Number unanswered before failure</span> </td> <td>The total number of consecutive unanswered DNS requests before the test fails.</td> </tr> </tbody> </table>
+
+<h2 id="ConfiguringsettingsforeachWANinterface">Configuring settings for each WAN interface</h2>
+
+<p>The Health Monitor can perform connectivity tests on each WAN interface. </p>
+
+<table> <col /> <col /> <thead> <tr> <th>Column</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Priority</span> </td> <td> The WAN interface order of importance. Read only parameter. <br />To change the priority: <ul> <li>Select <span>Promote</span> alongside a WAN interface to move it up the list to a preferred order, then select <span>Save</span> to commit your changes.</li> </ul> </td> </tr> <tr> <td><span>Interface</span> </td> <td> The read-only WAN interface name. There is one cellular interface that is shared by the SIMs, and one Ethernet WAN interface. Use the <span>Basic Settings</span> cellular and Ethernet sections to configure these WAN interfaces. <span><strong>Tip: </strong>Speak to your Account Manager if you want to use more than one Ethernet WAN interface. </span> </td> </tr> <tr> <td><span>Ping address</span> </td> <td> The destination IPv4 address for the associated WAN interface tests. We recommend you set two or more addresses in the event of ping server failure. For example: <br />192.168.109.2,8.8.8.8 </td> </tr> <tr> <td><span>DNS</span> </td> <td>The fully qualified domain name, which is resolved using DNS during the Health Monitor test for the associated WAN interface.</td> </tr> <tr> <td><span>Time between interface tests</span> </td> <td>The length of time in seconds from the beginning of an active WAN interface test (such as a ping or DNS test) until the beginning of the next test.</td> </tr> <tr> <td><span>Health monitoring</span> </td> <td> Select the slider to enable or disable the Health Monitor tests. </td> </tr> </tbody> </table>
+
+<p>To delete a WAN interface:</p>
+
+<ol> <li>Alongside the WAN interface you want to delete, select <span>Remove</span>. </li> <li>Select <span>Save</span> to commit your changes, or <span>Reinstate</span> to undo them.</li> </ol>
+
+<h2 id="ConfiguringoverridesforeachWANinterface">Configuring overrides for each WAN interface</h2>
+
+<p>While the <span>General Settings</span> generically apply to all WAN interfaces, you can individually configure the WAN interface settings to supersede the general settings. </p>
+
+<p>Set the <span>Overrides for each WAN interface</span> here:</p>
+
+<p><span>Diagnostics &amp; Maintenance</span> &gt; <span>Health Monitor</span> &gt; <span>Overrides for each WAN interface</span></p>
+
+<p><img src="/images/resources/images/hera/waninterfaceoverrides.png" alt="Waninterfaceoverrides" /> </p>
+
+<p>Select the sliders to <span>Enable</span> or <span>Disable</span> the settings on the specified WAN interface. You can also configure different parameters to the general settings.</p>
+
+<p>For more information, see: </p>
+
+<ul> <li><a href="#For">For interface tests that fail</a> </li> <li><a href="#For2">For interface tests that receive zero packets</a> </li> <li><a href="#Ping">Configuring ping requests</a> </li> <li><a href="#DNS">Configuring DNS requests</a> </li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/hardware-products/hera/600-series/dashboard604v5" target="_blank">Using the Hera series router web interface</a> </li> <li><a href="/hardware-products/hera/600-series/setup-wizards604v5" target="_blank">Using the Setup Wizards</a> </li> <li><a href="/hardware-products/hera/600-series/basic-settings604v5" target="_blank">Configuring Basic Settings</a> </li> <li><a href="/hardware-products/hera/600-series/file-management604v5">Performing File Management</a> </li> <li><a href="/hardware-products/hera/600-series/system-settings604v5#Configur">Configuring the Network time protocol (NTP)</a> </li> <li><a href="/hardware-products/hera/600-series/user-management604v5" target="_blank">Configuring User Management</a> </li> <li><a href="/hardware-products/hera/600-series/data-logging604v5" target="_blank">Using data logging to track events</a> </li> <li><a href="/hardware-products/hera/600-series/performance604v5" target="_blank">Viewing Hera data performance</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8435-Hera-604v5-Series-Router-Quick-Start-Guide.pdf" target="_blank">8435 Hera 604v5 Series Router Quick Start Guide (PDF)</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8792-Hera-604v5-Configuration-Administrator-Guide.pdf" target="_blank">8792 Hera 604v5 Configuration Administrator Guide (PDF)</a> </li> </ul> </div>

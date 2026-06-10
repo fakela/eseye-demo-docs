@@ -1,0 +1,20 @@
+---
+title: "EMQ – publish a message to singletopic"
+description: "Publish a message to the system singlepubtopic. singlepubtopic is a predefined topic for single-subscription systems, where the host is not expected to register a publish topic with +EMQPUBOPEN. The publish topic (..."
+---
+
+<p>Publish a message to the system <span>singlepubtopic</span>. <span>singlepubtopic</span> is a predefined topic for single-subscription systems, where the host is not expected to register a publish topic with <span>+EMQPUBOPEN</span>. The publish topic (<span>singlepubtopic</span>) and QoS (<span>singlepubtopicqos</span>) are defined in the configuration file. For more information, see the [MQTT] section, <a href="/els61/els61-configuration-file">Using the Cinterion® ELS61 Wireless Module configuration file</a>. The index is not required.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td><span>AT+EMQ=?</span> </td> <td> OK  </td> </tr> <tr> <td>Read</td> <td><span>AT+EMQ?</span> </td> <td> OK <br />or <br />ERROR </td> </tr> <tr> <td>Write</td> <td> <span>AT+EMQ=&lt;pubdata&gt;</span>  <br />where <br /><span>&lt;pubdata&gt;</span> – is the published message. The maximum payload length is 1000 characters. All characters must be printable.  <br />AnyNet SMARTconnect™ handles <span>&lt;pubdata&gt;</span> as ASCII-hex if it contains an even number of valid ASCII-hex characters (<span>0</span>-<span>9</span>, <span>a</span>-<span>f</span>, <span>A</span>-<span>F</span>). ASCII-hex is converted to binary for transmission. <br /> AnyNet SMARTconnect™ handles all other data as text. For text messages, <span>&#92;</span> (escape characters) are removed.  </td> <td> <span>OK</span> – command result <br />  <br /><span>SEND OK</span> – subsequent URC that is sent when publish occurs. This will not happen immediately if AnyNet SMARTconnect™ is offline. <br />or <br /><span>ERROR</span>  </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQ="&#123;&#92;"BatteryPower&#92;": &#92;"Low&#92;"&#125;"</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>SEND OK</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> <li><a href="/els61/at-commands/els61-emq-urcs">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

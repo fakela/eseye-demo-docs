@@ -1,0 +1,93 @@
+---
+title: "GET /Japi/Diam/getCellularRSSIHistory"
+description: "Retrieves a set of historic RSSI values relating to a specific Hera 604 router."
+openapi: "/api-specs/legacy/tigrina.json GET /Japi/Diam/getCellularRSSIHistory"
+---
+
+<p>Retrieves a set of historic RSSI values relating to a specific Hera 604 router.</p>
+
+<h2 id="Requestkey">Request key</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Description </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> The router electronic serial number </td> </tr> </tbody> </table>
+
+<h3>Request example</h3>
+
+<p>&#123;</p>
+
+<p>“ESN”: “12345678901234567890”</p>
+
+<p>&#125;</p>
+
+<h2 id="Responsekeys">Response keys</h2>
+
+<p>Parameters are always named in a response, but can have a <span>null</span>, <span>""</span>, or <span>[ ]</span> value to indicate they are not provided.</p>
+
+<h3>Status object</h3>
+
+<p>API standard status object.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> status </td> <td> String </td> <td> Between 0 and 36 characters in length. <br /><span>"OK"</span> – the request processed successfully <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td> errorCode </td> <td> String </td> <td> 5 characters in length, in the following format: <br />E&lt;4 digit numeric code&gt; <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeNumber"</span> – the request failed because of this specific error. <span><strong>Note: </strong>For information about errors, see <a href="/api/tigrina/troubleshooting">Troubleshooting errors: Tigrina API</a>.</span> </td> </tr> <tr> <td> errorMessage </td> <td> String </td> <td> Between 0 and 255 characters in length. <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeMessage"</span> – displays an explanation of the error if the request failed </td> </tr> </tbody> </table>
+
+<h3>Router object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> Hera 604 router serial number </td> </tr> <tr> <td> ICCID </td> <td> 19 digit numeric </td> <td> SIM serial number  </td> </tr> <tr> <td>signal</td> <td>Signal object</td> <td>Signal information. For details, see below.</td> </tr> </tbody> </table>
+
+<h3>Signal object</h3>
+
+<Note>The system records up to 25 most recent <span>signal</span> entries for each device.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> Timestamp </td> <td> DateTime </td> <td> Date and time the RSSI was recorded </td> </tr> <tr> <td> RSSI </td> <td> Signed integer </td> <td> Signal strength </td> </tr> <tr> <td> NetworkName </td> <td> 8 character string </td> <td> Network operator name </td> </tr> <tr> <td> RAT </td> <td> 8 character string </td> <td> Radio Access Technology used </td> </tr> </tbody> </table>
+
+<h3>Response example</h3>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "",</p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;,</p>
+
+<p>"Router": &#123;</p>
+
+<p>"ESN": "12345678901234567890",</p>
+
+<p>"ICCID": "8944538523001234567",</p>
+
+<p>"signal": [ </p>
+
+<p>&#123;</p>
+
+<p>"Timestamp":"2015-05-02 00:12:45", </p>
+
+<p>"RSSI": "-90dBm", </p>
+
+<p>"NetworkName": "Vodafone", </p>
+
+<p>"RAT": "lte"</p>
+
+<p> &#125;,</p>
+
+<p> &#123;</p>
+
+<p> "Timestamp": "2015-05-03 08:12:00",</p>
+
+<p> "RSSI": "-87dBm",</p>
+
+<p> "NetworkName": "O2",</p>
+
+<p> "RAT": "UMTS"</p>
+
+<p> &#125;</p>
+
+<p> ]</p>
+
+<p> &#125;</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API Introduction</a> </li> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

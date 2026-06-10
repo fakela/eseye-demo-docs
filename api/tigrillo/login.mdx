@@ -1,0 +1,39 @@
+---
+title: "POST /Japi/Tigrillo/login"
+description: "Logs the user into Infinity Classic."
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/login"
+---
+
+<p>Logs the user into Infinity Classic. </p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User account must exist in Infinity Classic</li> <li>PortfolioID</li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/tigrillo/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Object name</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>username</td> <td>The end-user name or email address that enables access to an existing Infinity Classic account. Can contain from 6 to 255 characters.</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> <tr> <td>password</td> <td>The end-user password. Can contain from 6 to 255 characters</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> <tr> <td>portfolioID</td> <td>The Infinity Classic account portfolio identifier. Must contain exactly 32 characters.</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123;<br />"username": "Example@Username.com",<br />"password": "examplepassword",<br />"portfolioID": "CustomerPortfolioID"<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <div> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  </div> <br />For more information, see <a href="/api/location/troubleshooting">Troubleshooting errors: Location API</a>. </td> </tr> <tr> <td>cookie</td> <td> The cookie stores your login details so that the session can remain open without the need to log in again. If you do not log out, but an attempt is made to log in, the previous user is logged out, regardless of whether the new login attempt is successful. A cookie is valid for 4 hours after it is generated. <span><strong>Note: </strong>The system will only record an attempt to login if the function and JSON format text is entered correctly. </span> </td> </tr> <tr> <td>permissions</td> <td> Indicates the account type, which enables different functions, either: <table> <col /> <col /> <thead> <tr> <th>Character</th> <th>Permission</th> </tr> </thead> <tbody> <tr> <td>A</td> <td>Admin</td> </tr> <tr> <td>E</td> <td>Engineering</td> </tr> <tr> <td>F</td> <td>Finance</td> </tr> <tr> <td>L</td> <td>Logistics</td> </tr> <tr> <td>T</td> <td>Technical</td> </tr> <tr> <td>U</td> <td>Standard User</td> </tr> </tbody> </table> <br />For information about permissions, see <a href="https://docs.eseye.com/Content/Resources/Files/8295-SIAM-User-Guide.pdf">8295 Infinity Classic User Guide (PDF)</a>. </td> </tr> <tr> <td>canActivate</td> <td> Indicates whether the account is permitted to activate SIM cards. Either <span>yes</span> or <span>no</span>. </td> </tr> </tbody> </table>
+
+<Note> <p>The Tigrillo API returns a <span>Set-Cookie</span> header in the following format:</p> <p>PHPSESSID=&lt;<var>cookie</var>&gt;; path=/</p> <p>where <var>cookie</var> is the session cookie to maintain the login status.</p> </Note>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "errorCode": "",<br /> "errorMessage": "",<br /> "status": "OK"<br /> &#125;,<br /> "cookie": "01eq42isi4e2ksr2p6dq7jfut2",<br /> "permissions": "UEFLA",<br /> "canActivate": "yes"<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

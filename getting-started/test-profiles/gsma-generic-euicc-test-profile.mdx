@@ -1,0 +1,44 @@
+---
+title: "GSMA Generic eUICC Test Profile"
+description: "The GSMA Test Profile is only supported on Eseye's v7 AnyNet+ SIMs. For more information, contact Eseye support."
+---
+
+<p>The GSMA Test Profile is only supported on Eseye's v7 AnyNet+ SIM s. For more information, contact Eseye support.</p>
+
+<p>The GSMA Generic eUICC Test Profile was developed by the GSMA to fulfil the requirements of industry standardised testing defined by the GCF and PTCRB certification bodies, as well as to support devices with non-removable UICCs. It contains the necessary authentication and security data required to perform testing using a test network (system simulator), during production line sampling or during sales demonstrations where there is no need for operator-specific profiles.</p>
+
+<p> <img src="/images/resources/images/esim/generictestprofiles.svg" alt="Generictestprofiles" /> </p>
+
+<p>The GSMA Generic eUICC Test Profile should be preloaded on SIMs, and is distinct from both the <a href="/getting-started/esim/profiles#Bootstra">bootstrap (provisioning) profiles</a> and <a href="/getting-started/esim/profiles#Operatio">operational (step 2) profiles</a>.</p>
+
+<p>To request a SIM that supports the Generic eUICC Test Profile, contact your Eseye Account Manager.</p>
+
+<h2 id="USIMauthenticationparameters">USIM authentication parameters</h2>
+
+<p>The following table lists the authentication parameter values for v4.0 of the GSMA Generic eUICC Test Profile.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Authentication parameter</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Algorithm</td> <td> XOR 3G </td> </tr> <tr> <td>Ki</td> <td>0x00 0x01 0x02 … 0x0E 0x0F</td> </tr> <tr> <td>Opc</td> <td>N/A</td> </tr> <tr> <td>algorithmOptions </td> <td>0x02 (128 bits)</td> </tr> <tr> <td>rotationConstants </td> <td>Default</td> </tr> <tr> <td>xoringConstants </td> <td>Default</td> </tr> <tr> <td>numberOfKeccak </td> <td>N/A</td> </tr> <tr> <td>sqnOptions </td> <td>0x02 (SQN wrap around)</td> </tr> <tr> <td>sqnDelta </td> <td>000010000000</td> </tr> <tr> <td>sqnAgeLimit </td> <td>000010000000</td> </tr> <tr> <td>SQN initial values</td> <td>0x000000000000 (all records)</td> </tr> </tbody> </table>
+
+<p> For a full list of authentication parameters, download the <b>TS.48 eSIM GTP Profile Structure</b> spreadsheets from: <a href="https://www.gsma.com/newsroom/resources/ts-48-generic-euicc-test-profile-for-device-testing/" target="_blank">https://www.gsma.com/newsroom/resources/ts-48-generic-euicc-test-profile-for-device-testing/</a></p>
+
+<h2 id="HowtousetheGenericeUICCTestProfile">How to use the Generic eUICC Test Profile</h2>
+
+<div> <h3>Before you begin</h3> <p>Ensure you have installed a private LTE test network. You may use your own test network. Alternatively:</p> <ul> <li>Eseye can introduce you to third party suppliers who can provide a test network.</li> <li>Eseye can rent you a fully supported test network.</li> </ul> <span><strong>Note: </strong>Before switching to the Generic eUICC Test Profile, we recommend setting the modem to full functionality mode (<span>AT+CFUN=1</span>).</span> </div>
+
+<h3>To switch to and from the Generic eUICC Test Profile using AT commands</h3>
+
+<p>Use the following AT command (for generic SIM access) to trigger the device to switch to and from the GSMA Generic eUICC Test Profile:</p>
+
+<p>AT+CSIM=&lt;Length&gt;,"&lt;Command&gt;"</p>
+
+<p>Where: </p>
+
+<ul> <li><span>&lt;Length&gt;</span> – is the decimal number of characters contained in the command string.</li> <li><span>&lt;Command&gt;</span> – is a string of hexadecimal characters that specify the action to take, including the following:<ul><li><span>80C2000003E40102</span> – switches to the Generic eUICC Test Profile.</li><li><span>80C2000003E40103</span> – switches back from the Generic eUICC Test Profile.</li></ul></li> </ul>
+
+<Tip>For more information, see<a href="https://eseyeltd.sharepoint.com/:x:/r/sites/SIMinformation/Shared Documents/SIM Batch Information/specs/TS48 test profile/GSMA_TS48_eSIM_GTP_Profile_Structure v4.0.xlsx?d=w2ec221a39b94470c8217474e18125f2a&csf=1&web=1&e=0CatSe" target="_blank"> GSMA&#95;TS48&#95;eSIM&#95;GTP&#95;Profile&#95;Structure v4.0.xlsx</a>. </Tip>
+
+<p>To use the Generic eUICC Test Profile:</p>
+
+<ol> <li> Use the following AT command to trigger the device to switch to the GSMA Generic eUICC Test Profile: <br />AT+CSIM=&lt;Length&gt;,"80C2000003E40102" <br />For example: <span>AT+CSIM=16,"80C2000003E40102"</span> </li> <li> Run the test.  <span><strong>Tip: </strong>You do not have to activate the SIM. Eseye will not charge you for the test. There is no limitation on data usage.</span> </li> <li> After all tests are complete, use the following AT command to switch back to the previous SIM profile: <br />AT+CSIM=&lt;Length&gt;,"80C2000003E40103" <br />For example: <span>AT+CSIM=16,"80C2000003E40103"</span> </li> </ol>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/getting-started/esim/esim" target="_blank">About eSIM technology</a> </li> <li><a href="/getting-started/esim/euicc" target="_blank">eUICC overview</a> </li> <li><a href="/getting-started/test-profiles/eseye-test-profile" target="_blank">Eseye test profile</a> </li> <li>Anritsu test profile</li> </ul> </div>

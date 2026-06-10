@@ -1,0 +1,116 @@
+---
+title: "SIM API How To guide"
+description: "You may want to perform the following SIM API actions."
+---
+
+<p>You may want to perform the following SIM API actions. </p>
+
+<Note>You may only have restricted access or no access to these actions, depending on your permissions.</Note>
+
+<h4>AnyNet SIM API family</h4>
+
+<ul> <li><a href="#Understa">Understanding the SIM status</a> </li> <li><a href="#Activate">Activating or deactivating (terminating) a SIM or IMSI</a> </li> <li><a href="#Suspend">Suspending or unsuspending a SIM</a> </li> <li><a href="#Configur">Configuring SIM attributes</a> </li> <li><a href="#Change">Changing SIM package</a> </li> <li><a href="#Change2">Changing SIM portfolio</a> </li> <li><a href="#Viewing">Viewing billing details for a SIM</a> </li> <li><a href="#Viewing2">Viewing network details for a SIM</a> </li> </ul>
+
+<h4>Postman</h4>
+
+<ul> <li><a href="/api/sim/setting-up-postman-for-simapi">Setting up Postman for SIM API</a> </li> <li><a href="/api/sim/headers">Configuring SIM API headers</a> </li> </ul>
+
+<h2 id="UnderstandingtheSIMstatus">Understanding the SIM status</h2>
+
+<p>From the perspective of the SIM API, SIMs are either <span>available</span> (not connected to the network) or <span>active</span> (connected to the network).</p>
+
+<p><img src="/images/resources/images/management/anynetsimapilifecycle2.png" alt="Anynetsimapilifecycle2" /> </p>
+
+<p>To view a SIM's current <span>status</span>, see <a href="/api/sim/si-moperations#Viewing2" target="_blank">Viewing a specific SIM</a>.</p>
+
+<p>To understand what the SIM is costing in the current status, see <a href="/billing/billing-sim-lifecycle">Understanding the SIM lifecycle</a>.</p>
+
+<h2 id="ActivatingordeactivatingterminatingaSIMorIMSI">Activating or deactivating (terminating) a SIM or IMSI</h2>
+
+<p>When you activate a SIM or IMSI (in a multi-IMSI SIM), you enable it to connect to a mobile network and access that network's services. At this point, you can start to use the SIM or IMSI.</p>
+
+<Note>An active SIM or IMSI is charged at standard service charge rates, and for any usage. For more information, see <span>active</span> in <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>.</Note>
+
+<p>By deactivating (terminating) the SIM or IMSI, you are cancelling it, which means rendering it inactive and unable to connect to the mobile network. For example, you may need to terminate a SIM if it's in a device that is written off (such as a vehicle), as the SIM is no longer required.</p>
+
+<Note>Deactivating a SIM or IMSI that is under contract may result in termination fees. For more information, see <span>pendingTermination</span> in <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>.</Note>
+
+<p>To activate or deactivate a SIM or IMSI:</p>
+
+<ol> <li> Call <span>PATCH /api/v2/sim/&#123;<var>iccId</var>&#125;</span>, where &#123;<var>iccId</var>&#125; identifies which SIM or IMSI you want to update. </li> <li> In the request body, set the SIM <span>status</span> to either: <ul> <li> <span>active</span> – activates the SIM on the network </li> <li><span>available</span> – deactivates the SIM so it no longer connects to the network</li> </ul> </li> </ol>
+
+<Tip>For more information, see <a href="/api/sim/si-moperations#Updating" target="_blank">Updating a specific SIM</a>.</Tip>
+
+<h2 id="SuspendingorunsuspendingaSIM">Suspending or unsuspending a SIM</h2>
+
+<p>You can prevent or permit SIM usage by suspending or unsuspending the SIM, regardless of the SIM status.</p>
+
+<p>Suspending the SIM will close an active SIM's data sessions and disable all services so it becomes unavailable for use. The SIM will continue to register on the network, which means that Eseye can continue to communicate with the SIM for management purposes. Standard rate service charges continue. For more information, see <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>.</p>
+
+<h3>How to suspend a SIM if you are a customer</h3>
+
+<p>Customers may suspend their SIM for the following reasons: </p>
+
+<ul> <li>To prevent unauthorised usage if the device is lost or stolen</li> <li>They want to move the SIM to a different device, but not immediately</li> <li>They are not using the device for a significant period of time, but want to maintain the current contract for that device</li> </ul>
+
+<p>Customers can reactivate their suspended SIMs at any time.</p>
+
+<p>To suspend or unsuspend a SIM:</p>
+
+<ol> <li> Call <span>PATCH /api/v2/sim/&#123;<var>iccId</var>&#125;</span>, where &#123;<var>iccId</var>&#125; identifies which SIM you want to update. </li> <li> In the request body, set <span>customerSuspend</span> to either: <br /><span>yes</span> – the SIM is no longer available for use <br /><span>no</span> – the SIM is available for use <span><strong>Note: </strong>You cannot make changes to a suspended SIM.</span> </li> </ol>
+
+<Tip>For more information, see <a href="/api/sim/si-moperations#Updating" target="_blank">Updating a specific SIM</a>.</Tip>
+
+<h3>How to suspend a SIM if you are an administrator</h3>
+
+<p>To suspend or unsuspend a SIM:</p>
+
+<ol> <li> Call <span>PATCH /api/v2/sim/&#123;<var>iccId</var>&#125;</span>, where &#123;<var>iccId</var>&#125; identifies which SIM you want to update. </li> <li> In the request body, set <span>adminSuspend</span> to either: <br /><span>yes</span> – the SIM is no longer available for use <br /><span>no</span> – the SIM is available for use <span><strong>Note: </strong>You cannot make changes to a suspended SIM.</span> </li> </ol>
+
+<h3>How the system suspends a SIM</h3>
+
+<p>Depending on how you have configured your alert profiles, If a SIM exceeds alert thresholds, the system may suspend the SIM. </p>
+
+<p>For more information, see <a href="/managing-my-estate/alerts">About Infinity alerts</a>.</p>
+
+<p>To view the systemSuspend status on a SIM:</p>
+
+<ol> <li> Call <span>GET /api/v2/&#123;<var>iccId</var>&#125;</span>, where &#123;<var>iccId</var>&#125; identifies which SIM you want to view. </li> <li> In the response body, <span>systemSuspend</span> is either: <br /><span>yes</span> – the system has suspended the SIM <br /><span>no</span> – the system has not suspended the SIM <span><strong>Note: </strong>You cannot make changes to a suspended SIM.</span> </li> </ol>
+
+<h2 id="ConfiguringSIMattributes">Configuring SIM attributes</h2>
+
+<p>SIM attributes provide extra details about a SIM or device, and make it easy to group and find related SIMs or devices by their shared attributes. </p>
+
+<p>You can view all, view specific, create, update, and delete SIM attributes.</p>
+
+<Tip>For more information, see <a href="/api/sim/icc-attribute-operations" target="_blank">About SIM attribute endpoints</a>.</Tip>
+
+<h2 id="ChangingSIMpackage">Changing SIM package</h2>
+
+<p>To change the SIM package:</p>
+
+<ol> <li> Call <span>PATCH /api/v2/sim/&#123;<var>iccId</var>&#125;/iccPortfolioPackage/</span>, where &#123;<var>iccId</var>&#125; identifies the SIM where you want to change the package. </li> <li> In the request body, set <span>packageId</span> to the preferred package identifier.  <span><strong>Note: </strong>The preferred package must already exist on your Infinity account.</span> </li> </ol>
+
+<Tip>For more information, see <a href="/api/sim/portfolio-package-operations#Updating" target="_blank">Updating the iccPortfolioPackage for a specific SIM</a>.</Tip>
+
+<h2 id="ChangingSIMportfolio">Changing SIM portfolio</h2>
+
+<p>To change the SIM portfolio:</p>
+
+<ol> <li> Call <span>PATCH /api/v2/sim/&#123;<var>iccId</var>&#125;/iccPortfolioPackage/</span>, where &#123;<var>iccId</var>&#125; identifies the SIM where you want to change the portfolio. </li> <li> In the request body, set <span>portfolioId</span> to the preferred portfolio identifier.  <span><strong>Note: </strong>The preferred portfolio must already exist on your Infinity account.</span> </li> </ol>
+
+<Tip>For more information, see <a href="/api/sim/portfolio-package-operations#Updating" target="_blank">Updating the iccPortfolioPackage for a specific SIM</a>.</Tip>
+
+<h2 id="ViewingbillingdetailsforaSIM">Viewing billing details for a SIM</h2>
+
+<p>The billing snapshot is enriched with information from various sources that describes the bundled service and usage charges for a specific SIM and its most recently recorded activity during the current billing period.</p>
+
+<Tip>For more information, see <a href="/api/sim/billing-snapshot-operations#Viewing2" target="_blank">Viewing the billing snapshot for a specific SIM</a>.</Tip>
+
+<h2 id="ViewingnetworkdetailsforaSIM">Viewing network details for a SIM</h2>
+
+<p>The network snapshot is enriched with information from various sources that describes the SIM and how it connects to the network at the current instance in time.</p>
+
+<Tip>For more information, see <a href="/api/sim/network-snapshot-operations#Viewing2" target="_blank">Viewing the network snapshot for a specific SIM</a>.</Tip>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a> </li> <li><a href="#">SIM API How To guide</a> </li> <li><a href="/api/sim/icc-attribute-operations" target="_blank">About SIM attribute endpoints</a> </li> <li><a href="/api/sim/portfolio-package-operations">About iccPortfolioPackage endpoints</a> </li> <li><a href="/api/sim/billing-snapshot-operations">About the billing snapshot endpoint</a> </li> <li><a href="/api/sim/network-snapshot-operations">About the network snapshot endpoint</a> </li> <li><a href="/api/sim/simapi-reference" target="_blank">SIM API reference tables</a> </li> <li><a href="/api/sim/simapi-reference#Error" target="_blank">SIM API errors</a> </li> </ul> </div>

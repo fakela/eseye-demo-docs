@@ -1,0 +1,545 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "IccCollection API",
+    "version": "2.0.0",
+    "description": "### Introduction to the iccCollection API Collection\n\nThe **iccCollection API** Postman collection is designed to manage and interact with iccCollection and the static SIM collection. This collection provides a comprehensive set of endpoints for viewing, creating, updating, and deleting iccCollection and static sim collection.\n\n**Usage:**\n\nThe **iccCollection API** is appropriate to use in the following scenarios:\n\n1. **iccCollection Management**: When you need to create, update, or delete iccCollections. This includes setting up new iccCollections, modifying existing ones, and deleting iccCollections that are no longer needed.\n    \n2. **Static iccCollection:**  \n    a. To create a static collection, the iccCollectionCriteria must be set to null.  \n    b. Once the static collection is created, we can add SIMs to the collection.  \n    • The SIMs must belong to the user sphere.  \n    • After adding SIMs, the fields snapshotFileId and iccCount are updated with: snapshotFileId: The fileId and iccCount: The number of ICCIDs added to the collection.  \n    c. We can update an existing static collection by adding or removing SIMs from the collection.  \n    • After each update, the snapshotFileId and iccCount fields are refreshed based on the request.  \n    d. We can remove all SIMs from the collection by deleting them.  \n    • After deletion, the fields snapshotFileId and iccCount are updated to null.\n    \n3. **Dynamic Collection:**  \n    a. Create a dynamic collection; the iccCollectionCriteria field must contain search parameters from the Solr search (e.g., portfolioId AND iccId).  \n    • After creation, the fields are updated as follows: snapshotFileId: The fileId and iccCount: The number of ICCIDs added to the collection.  \n    b. We can update an existing dynamic collection by adding or removing SIMs from the collection, provided the iccId belongs to the user.  \n    • After each update, the snapshotFileId and iccCount fields are refreshed based on the request.\n    \n4. **Reconcile icCollection Management:** When an iccCollection changes, we can trigger reconcile to update the collection with a fileId. This is useful for monitoring iccCollection.\n    \n\n### **Prerequisites for using this collection:**\n\n1. A base64(encode of clientId:clientSecret) of a serviceaccount which has portfolio permissions."
+  },
+  "servers": [
+    {
+      "url": "https://{URL}",
+      "variables": {
+        "URL": {
+          "default": "api.eseye.com",
+          "description": "Your AnyNet API host (provided by Eseye)."
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Get Token"
+    },
+    {
+      "name": "iccCollection"
+    }
+  ],
+  "paths": {
+    "/oauth2/token": {
+      "post": {
+        "summary": "Get Token",
+        "operationId": "get-token",
+        "tags": [
+          "Get Token"
+        ],
+        "description": "**Usage**: This API is used to obtain an OAuth2 token for authentication. The response will include an `access_token` which is stored in the collection variables for use in subsequent requests.\n\n**Method**: POST  \n**URL**: `https://eseye-idp-{{env}}.auth.eu-west-1.amazoncognito.com/oauth2/token`  \n**Headers**: Authorization (Basic {{base64}})  \n**Body**: URL encoded parameters for `grant_type` and `scope`  \n**Event**: Sets the token in collection variables upon receiving the response.\n\n**Parameters**:\n\n- **Authorization**: This header contains the base64 encoded client credentials. The value is set to `Basic {{base64}}`, where `{{base64}}` is an environment variable containing the base64 encoded client ID and client secret.\n    \n- **grant_type**: This parameter is set to `client_credentials`, indicating that the client is using its own credentials to obtain an access token.\n    \n- **scope**: This parameter is set to `api/api`, specifying the scope of the access token.",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string"
+                  },
+                  "scope": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "grant_type": "client_credentials",
+                "scope": "api/api"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://eseye-idp-{env}.auth.eu-west-1.amazoncognito.com",
+            "variables": {
+              "env": {
+                "default": "prod",
+                "description": "Postman variable: env"
+              }
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v2/iccCollection/{iccCollectionId}/icc": {
+      "get": {
+        "summary": "View sim for specific collection",
+        "operationId": "view-sim-for-specific-collection",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "- **Method**: GET\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}/icc/</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Usage**: This endpoint retrieves all the iccIds for a specific iccCollection.",
+        "parameters": [
+          {
+            "name": "iccCollectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollectionId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific portfolio attribute",
+        "operationId": "update-specific-portfolio-attribute",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "- **Method**: PATCH\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}/icc</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Body**: JSON format with mandatory parameter `iccList`, which contains one or more `iccIds`.\n    \n- **Usage**: This endpoint replaces new `iccIds` with the existing `iccIds` in the `iccCollection`. The request body must always include the `iccList` with the `iccIds` to be updated.\n    \n- Upon successful completion, the API returns a `200 OK` status.",
+        "parameters": [
+          {
+            "name": "iccCollectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollectionId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "iccList": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "iccId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "iccList": [
+                  {
+                    "iccId": "89445385234004044 "
+                  },
+                  {
+                    "iccId": "1312641237854"
+                  },
+                  {
+                    "iccId": "21541253467125476"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete specific portfolio attribute",
+        "operationId": "delete-specific-portfolio-attribute",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "- **Method**: DELETE\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}/icc}}</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Usage**: This endpoint deletes a specific iccIds from its iccCollection by its ID. It requires the `iccCollectionId` and `iccIds` as path parameters.\n    \n- Upon successful completion, the API returns a `200 OK` status.",
+        "parameters": [
+          {
+            "name": "iccCollectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollectionId"
+          },
+          {
+            "name": "iccList",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccCollection/{iccCollection}/icc": {
+      "post": {
+        "summary": "Add sim to existing collection",
+        "operationId": "add-sim-to-existing-collection",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "- **Method**: POST\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}/icc</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Body**: JSON format with mandatory parameter `iccList`, which contains one or more `iccIds`.\n    \n- **Usage**: This endpoint adds new `iccIds` to the existing `iccCollection`. The request body must always include the `iccList` with the `iccIds` to be added.\n    \n- Upon successful completion, the API returns a `200 OK` status.",
+        "parameters": [
+          {
+            "name": "iccCollection",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollection"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "iccList": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "iccId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "iccList": [
+                  {
+                    "iccId": "89445385234004044 "
+                  },
+                  {
+                    "iccId": "1312641237854"
+                  },
+                  {
+                    "iccId": "21541253467125476"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccCollection": {
+      "get": {
+        "summary": "View all iccCollections",
+        "operationId": "view-all-icccollections",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "**View all portfolios**\n\n- **Method**: GET\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Usage**: This endpoint retrieves all iccCollections. Optional query parameters can be used to filter the results. These parameters are disabled by default and need to be enabled if required.\n    \n- Upon successful completion, the API returns a `200 OK` status.\n    \n- **search parameters:**\n    \n    - **name**: Name of the portfolio.\n        \n    - **title**: Title of the portfolio.\n        \n    - **status**: Status of the portfolio (e.g., active, inactive).\n        \n    - **portfolioId**: Unique identifier of the portfolio.\n        \n    - **pageToken**: Token for pagination.\n        \n    - **pageSize**: Number of results per page.\n        \n    - **userId**: Unique identifier of the portfolio user.\n        \n    - **iccCount**: Unique identifier of the portal.\n        \n    - **snapshotFileId**: Unique identifier of the file.\n        \n- **Match Filters:** (matchType & matchField)  \n    Allows filtering by match logic (`starts with`, `ends with`, `contains`) on one or more fields via query parameters. Query Parameters`matchField`Comma-separated list of fields to filter. Each field must have a corresponding entry in `matchType`.`matchType` Comma-separated list of match types that define how to apply the filter on each corresponding field in `matchField`.  \n    Meaning`S`Starts with,`E`Ends with&`C`Contains.  \n    Filter Values (dynamic, optional)Pass actual filter strings as query parameters using field names as keys. Each key must be listed in `matchField`.  \n    **Full ExampleGET** `/iccCollection?matchField=status,name&matchType=s,e&status=act&name=ng`  \n    This filters items where:\n    \n    - `status` **starts with** `\"act\"`\n        \n    - `name` **ends with** `\"ng\"`\n        \n- **Sort Filter:** (sortField & sortOrder)  \n    Enables multi-field sorting of returned results in ascending or descending order, with left-to-right precedence. Query Parameters`sortField` Comma-separated list of fields to sort the results by. Sorting precedence is from **left to right**.`sortOrder` Comma-separated list of sort directions, corresponding to each field in `sortField`.  \n    Meaning`A`Ascending`D`Descending  \n    Full Example: **GET** `/iccCollection?sortField=name,iccCollectionId&sortOrder=a,d`  \n    This sorts items by: name in **ascending** order and portfolioId in **descending** order.\n    \n    Integration with Match FilterSort and Match filters can be used **together** in the same request.  \n    For example: GET /iccCollection?matchField=status,name&matchType=s,c&status=act&name=tes&sortField=name,portfolioId&sortOrder=a,d  \n    This request:  \n    Filters- status **starting** with act and  \n    name **containing** tes.Sort- name in **ascending** order and portfolioId in **descending** order.\n    \n- **Title Enrichment:** Enables the enrichment of the API response by including secondary (related) objects for any fields in the primary result that reference an ID. When the optional parameter enrich is set with value as title returns **title-level metadata** for ID-based fields in the response.  \n    Example: **GET** /iccCollection?enrich=title",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "matchField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enrich",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new iccCollection(static collection)",
+        "operationId": "create-new-icccollection-static-collection",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "**Create new iccCollection**\n\n- **Method**: POST\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Body**: JSON format with mandatory parameters `name`, `title`, and `portfolioId`. It may also optionally include the parameters `userId`, `snapshotFileId`, `iccList`, and `iccCollectionCriteria`\n    \n- **Usage**: This endpoint creates a new iccCollection. The request body must include the mandatory fields and can optionally include `userId`, `snapshotFileId`, `iccList`, and `iccCollectionCriteria`  \n    \n- Upon successful completion, the API returns a `200 OK` status.\n    \n- **Attributes**:\n    \n    - **name**: Name of the portfolio.\n        \n    - **title**: Title of the portfolio.\n        \n    - **portfolioId**: Unique identifier of the portfolio.\n        \n    - **userId**: Unique identifier of the user.\n        \n    - **snapshotFileId:** Unique identifier of the fileId(optional)\n        \n    - **iccCollectionCriteria:** Unique identifier of the Portfolio and its Sims.\n        \n    - **iccList:** List of iccIds for the iccCollection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "portfolioId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "name": "SampleTesting2",
+                "title": "SampleTesting2",
+                "portfolioId": "0728a295347e5ff227952161686502fe"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccCollection/{iccCollectionId}": {
+      "get": {
+        "summary": "View specific iccCollection",
+        "operationId": "view-specific-icccollection",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "- **Method**: GET\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Usage**: This endpoint retrieves a specific portfolio by its ID. It requires the `iccCollectionId` as a path parameter.\n    \n- Upon successful completion, the API returns a `200 OK` status.\n    \n- **History:** (startDate & stopDate)Filters results by a date range, using a start and stop date.  \n    Example: **GET** /{iccCollectionId}?startDate=2025-01-01&stopDate=2025-01-31.  \n    This filters history records where the timestamp falls between **January 1st and January 31st, 2025**, inclusive.  \n    If only `startDate` is provided, records from that date forward will be included.  \n    If only `stopDate` is provided, records up to that date will be included.  \n    If neither is provided, no date filtering is applied.\n    \n- **Title Enrichment**: Enables the enrichment of the API response. When the optional parameter enrich is set with value as title returns title-level metadata for ID-based fields in the response.  \n    Example: GET /{iccCollectionId}?enrich=title",
+        "parameters": [
+          {
+            "name": "iccCollectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollectionId"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stopDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enrich",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific iccCollection",
+        "operationId": "update-specific-icccollection",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "**Update specific portfolio**\n\n- **Method**: PATCH\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Body**: JSON format with optional parameters`name`, `title`, `portfolioId`, `userId`, `snapshotFileId`, `iccList`, `iccCollectionCriteria`, and `status`\n    \n- **Usage**: This endpoint updates a specific iccCollection. The request body can include any of the optional fields. Optional parameters should be commented out if not used.\n    \n- Upon successful completion, the API returns a `200 OK` status.\n    \n- **Attributes**\n    \n    - **name**: Name of the portfolio.\n        \n    - **title**: Title of the portfolio.\n        \n    - **portfolioId**: Unique identifier of the portfolio.\n        \n    - **userId**: Unique identifier of the user.\n        \n    - **snapshotFileId:** Unique identifier of the fileId(optional)\n        \n    - **iccCollectionCriteria:** Unique identifier of the Portfolio and its Sims.\n        \n    - **iccList:** List of iccIds for the iccCollection\n        \n    - **status**: New status for the portfolio (setup,requested, active, deleted).",
+        "parameters": [
+          {
+            "name": "iccCollectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollectionId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/iccCollection/{iccCollectionId}/reconcile": {
+      "patch": {
+        "summary": "reconcile",
+        "operationId": "reconcile",
+        "tags": [
+          "iccCollection"
+        ],
+        "description": "**Update specific portfolio**\n\n- **Method**: PATCH\n    \n- **URL**: [<code>https://{{URL}}/api/v2/iccCollection/{{iccCollectionId}}/reconcile</code>](https://null)\n    \n- **Headers**: Authorization (Bearer token)\n    \n- **Usage**: This endpoint checks that all the Sims are in the specific iccCollection.\n    \n- Upon successful completion, the API returns a `200 OK` status.",
+        "parameters": [
+          {
+            "name": "iccCollectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccCollectionId"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stopDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enrich",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "OAuth 2.0 client-credentials access token. See the developer guide for how to obtain one."
+      }
+    }
+  }
+}

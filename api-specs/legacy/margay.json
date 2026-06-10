@@ -1,0 +1,286 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Margay API",
+    "version": "1.0.0",
+    "description": "Margay API reference, generated from the Eseye documentation."
+  },
+  "servers": [
+    {
+      "url": "https://margay.eseye.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Margay API"
+    }
+  ],
+  "paths": {
+    "/JAPI/Niam/getAuthenticationInformation": {
+      "post": {
+        "summary": "getAuthenticationInformation",
+        "operationId": "post-japi-niam-getauthenticationinformation",
+        "tags": [
+          "Margay API"
+        ],
+        "description": "Retrieves a summary of authentication information for the previous 10 minutes.",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/JAPI/Niam/getCookieName": {
+      "post": {
+        "summary": "getCookieName",
+        "operationId": "post-japi-niam-getcookiename",
+        "tags": [
+          "Margay API"
+        ],
+        "description": "Returns the name of the HTTP cookie needed for sessions to continue without the need to log in each time. A cookie is valid for 4 hours after it is generated.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "PHPSESSID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/JAPI/Niam/getThroughputInformation": {
+      "post": {
+        "summary": "getThroughputInformation",
+        "operationId": "post-japi-niam-getthroughputinformation",
+        "tags": [
+          "Margay API"
+        ],
+        "description": "Retrieves a summary of data sent and received for the previous 10 minutes.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "data_count": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mcc": {
+                            "type": "string"
+                          },
+                          "mnc": {
+                            "type": "string"
+                          },
+                          "databytes_mo": {
+                            "type": "string"
+                          },
+                          "databytes_mt": {
+                            "type": "string"
+                          },
+                          "start_date": {
+                            "type": "string"
+                          },
+                          "stop_date": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "data_count": [
+                    {
+                      "mcc": "234",
+                      "mnc": "10",
+                      "databytes_mo": "517",
+                      "databytes_mt": "284",
+                      "start_date": "2020-09-14 16:12:37",
+                      "stop_date": "2020-09-14 16:22:37"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/JAPI/Niam/login": {
+      "post": {
+        "summary": "login",
+        "operationId": "post-japi-niam-login",
+        "tags": [
+          "Margay API"
+        ],
+        "description": "Logs the user into Margay.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "portfolioID": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "portfolioID"
+                ]
+              },
+              "example": {
+                "username": "Example@Username.com",
+                "password": "examplepassword",
+                "portfolioID": "CustomerPortfolioID"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "cookie": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "errorCode": "",
+                    "errorMessage": "",
+                    "status": "OK"
+                  },
+                  "cookie": "01eq42isi4e2ksr2p6dq7jfut2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/JAPI/Niam/logout": {
+      "post": {
+        "summary": "logout",
+        "operationId": "post-japi-niam-logout",
+        "tags": [
+          "Margay API"
+        ],
+        "description": "Logs the user out of Margay.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/JAPI/Niam/ping": {
+      "post": {
+        "summary": "ping",
+        "operationId": "post-japi-niam-ping",
+        "tags": [
+          "Margay API"
+        ],
+        "description": "Tests whether the server is running.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "pong"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

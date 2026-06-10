@@ -1,0 +1,74 @@
+---
+title: "SIM API Introduction"
+description: "Eseye's SIM API enables you to manage your global IoT SIM estate, including:"
+---
+
+<p>Eseye's SIM API enables you to manage your global IoT SIM estate, including:</p>
+
+<ul> <li>Activating and deactivating SIMs</li> <li>Retrieving SIM details for an individual SIM or range of SIMs, such as identifiers and the current status</li> <li>Updating a SIM's details, such as the package or portfolio it belongs to, or suspending a SIM</li> <li>Creating, updating, and deleting SIM attributes</li> </ul>
+
+<h2 id="Gettingstarted">Getting started</h2>
+
+<p>To get started with our SIM API, you need an existing Infinity account, and a SIM API service account user. Eseye will create the service account for you.</p>
+
+<p>To request the SIM API:</p>
+
+<ol> <li> Select <span>Request SIM API</span> (below) to display a pre-formatted email that you can use to initiate SIM API services. Edit the email to suit your requirements. <br /><a href="mailto:orders@eseye.com?subject=Request%20SIM%20API&Body=Hello%20Sales%20Admin,%0D%0DPlease%20can%20an%20Account%20Manager%20call%20me%20to%20discuss%20our%20specific%20API%20needs?%20I%20would%20like%20to%20try%20out%the%20SIM%20API.%0D•%20Company%20Name:%20%3CcompanyName%3E%0D•%20My%20role:%20%3Crole%3E%0D•%20Phone%20number:%20%3CphoneNumber%3E%0D•%20Email%20address:%20%3CemailAddress%3E%0D%0DKind%20regards,%0D%0D">Request SIM API</a>  </li> <li> Alternatively, send your own email to Sales Admin (orders@eseye.com): <br />Subject: <span>Request SIM API</span> <br />Body text must include the following information: <ul> <li>Company Name</li> <li>Your role</li> <li>Contact phone number</li> <li>Contact email address</li> </ul> </li> <li>An Account Manager will respond. </li> </ol>
+
+<p>When your service account is set up, you will receive a client ID and client secret, which are used to request access tokens.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<p>For information about authenticating our APIs, see <a href="/developer-docs/start-using-apis#Service" target="_blank">Service account authentication</a>.</p>
+
+<h2 id="UsingthesuppliedPostmancollectionandenvironment">Using the supplied Postman collection and environment</h2>
+
+<p>We have supplied a Postman collection and environment to help you understand how the API works. The Postman collection is set up to use the variables listed in the environment. </p>
+
+<p>You must configure the environment with your own test system values and an access token, which will authenticate your API session. </p>
+
+<p>Use test objects to understand how the API works. Eseye Ltd is not responsible for the loss of live data as a result of using the API.</p>
+
+<p>For more information, see <a href="/api/sim/setting-up-postman-for-simapi">Setting up Postman for SIM API</a>.</p>
+
+<h2 id="SIMAPIoperations">SIM API operations</h2>
+
+<p>After you have access to the API, you can use the following operations to make requests, retrieve data, and manage resources:</p>
+
+<h4>SIM</h4>
+
+<p>These endpoints enable you to see and manage the SIM details such as core IDs (iccId, simId, eId), if the SIM is suspended, SIM status, linked package and portfolio, and high level contract details.</p>
+
+<ul> <li><a href="/api/sim/si-moperations#Viewing" target="_blank">Viewing all SIMs</a> </li> <li><a href="/api/sim/si-moperations#Viewing2" target="_blank">Viewing a specific SIM</a> </li> <li><a href="/api/sim/si-moperations#Updating" target="_blank">Updating a specific SIM</a> </li> </ul>
+
+<h4>SIM attribute</h4>
+
+<p>These endpoints enable you to see and manage the extra details about the SIM that enable efficient SIM administration.</p>
+
+<ul> <li><a href="/api/sim/icc-attribute-operations#Viewing" target="_blank">Viewing all SIM attributes</a> </li> <li><a href="/api/sim/icc-attribute-operations#Creating" target="_blank">Creating a new SIM attribute</a> </li> <li><a href="/api/sim/icc-attribute-operations#Viewing2" target="_blank">Viewing a specific SIM attribute</a> </li> <li><a href="/api/sim/icc-attribute-operations#Updating" target="_blank">Updating a specific SIM attribute</a> </li> <li><a href="/api/sim/icc-attribute-operations#Deleting" target="_blank">Deleting a specific SIM attribute</a> </li> </ul>
+
+<h4>iccPortfolioPackage</h4>
+
+<p>These endpoints enable you to view and manage the portfolio and package relationship with the SIM in greater depth.</p>
+
+<ul> <li><a href="/api/sim/portfolio-package-operations#Viewing2" target="_blank">Viewing the iccPortfolioPackage for a specific SIM</a> </li> <li><a href="/api/sim/portfolio-package-operations#Updating" target="_blank">Updating the iccPortfolioPackage for a specific SIM</a> </li> </ul>
+
+<h4>Billing snapshot</h4>
+
+<p>This endpoint provides an overview of the SIM's bundled service and usage charges, as well as its most recently recorded activity.</p>
+
+<p><a href="/api/sim/billing-snapshot-operations#Viewing2" target="_blank">Viewing the billing snapshot for a specific SIM</a> </p>
+
+<h4>Network snapshot</h4>
+
+<p>This endpoint provides an overview of the SIM's physical network connections, such as network provider details; RAT and mast details; APN, IP address and last activity RADIUS details, and so on.</p>
+
+<p><a href="/api/sim/network-snapshot-operations#Viewing2" target="_blank">Viewing the network snapshot for a specific SIM</a> </p>
+
+<h2 id="Samplecode">Sample code</h2>
+
+<p>We provide sample code for each endpoint to help you get started with the API, which is based on the supplied Postman collection. These code samples demonstrate how to make requests, handle responses, and work with the data returned by the API.</p>
+
+<h2 id="Support">Support</h2>
+
+<p>If you have any questions or need help with the API, contact <a href="mailto:support@eseye.com?subject=API support request">Support</a>. </p>

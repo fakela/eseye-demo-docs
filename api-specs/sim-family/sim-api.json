@@ -1,0 +1,1411 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sim API",
+    "version": "2.0.0",
+    "description": "Sim API reference, generated from the Eseye Postman collection."
+  },
+  "servers": [
+    {
+      "url": "https://{URL}",
+      "variables": {
+        "URL": {
+          "default": "api.eseye.com",
+          "description": "Your AnyNet API host (provided by Eseye)."
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Get Token"
+    },
+    {
+      "name": "Sim"
+    },
+    {
+      "name": "Snapshot / Activity"
+    },
+    {
+      "name": "Icc portfolio package"
+    },
+    {
+      "name": "Control panel"
+    }
+  ],
+  "paths": {
+    "/oauth2/token": {
+      "post": {
+        "summary": "Get Token",
+        "operationId": "get-token",
+        "tags": [
+          "Get Token"
+        ],
+        "description": "**Usage**: This API is used to obtain an OAuth2 token for authentication. The response will include an `access_token` which is stored in the collection variables for use in subsequent requests.\n\n**Method**: POST  \n**URL**: `https://eseye-idp-{{env}}.auth.eu-west-1.amazoncognito.com/oauth2/token`  \n**Headers**: Authorization (Basic {{base64}})  \n**Body**: URL encoded parameters for `grant_type` and `scope`  \n**Event**: Sets the token in collection variables upon receiving the response.\n\n**Parameters**:\n\n- **Authorization**: This header contains the base64 encoded client credentials. The value is set to `Basic {{base64}}`, where `{{base64}}` is an environment variable containing the base64 encoded client ID and client secret.\n    \n- **grant_type**: This parameter is set to `client_credentials`, indicating that the client is using its own credentials to obtain an access token.\n    \n- **scope**: This parameter is set to `api/api`, specifying the scope of the access token.",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string"
+                  },
+                  "scope": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "grant_type": "client_credentials",
+                "scope": "api/api"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://eseye-idp-{env}.auth.eu-west-1.amazoncognito.com",
+            "variables": {
+              "env": {
+                "default": "prod",
+                "description": "Postman variable: env"
+              }
+            }
+          }
+        ],
+        "security": []
+      }
+    },
+    "/api/v2/sim/{iccId}/attribute": {
+      "get": {
+        "summary": "View all attributes for a specific sim",
+        "operationId": "view-all-attributes-for-a-specific-sim",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "iccId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccAttributeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "attribute",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new sim attribute",
+        "operationId": "create-new-sim-attribute",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/attribute/{iccAttributeId}": {
+      "get": {
+        "summary": "View specific sim  attribute",
+        "operationId": "view-specific-sim-attribute",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "iccAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific sim attribute",
+        "operationId": "update-specific-sim-attribute",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "iccAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccAttributeId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete specific sim attribute",
+        "operationId": "delete-specific-sim-attribute",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "iccAttributeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccAttributeId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim": {
+      "get": {
+        "summary": "View all sims",
+        "operationId": "view-all-sims",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "simId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccMnoId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccSpecId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccTypeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "adminSuspend",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "systemSuspend",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customerSuspend",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataSuspend",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "voiceSuspend",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "messagingSuspend",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "platformId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pin1",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pin2",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "puk1",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "puk2",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "activatedDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "terminatedDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}": {
+      "get": {
+        "summary": "View specific sim",
+        "operationId": "view-specific-sim",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "enrich",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stopDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific sim",
+        "operationId": "update-specific-sim",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v2/sim/{iccId}/iccContract": {
+      "get": {
+        "summary": "View contract details for a specific sim",
+        "operationId": "view-contract-details-for-a-specific-sim",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "requestDateTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v2/sim/iccStock": {
+      "get": {
+        "summary": "Get SIM Stock in Warehouse",
+        "operationId": "get-sim-stock-in-warehouse",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "segmentedBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iccTypeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portalId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "packageId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v2/sim/iccCount": {
+      "get": {
+        "summary": "Get SIM Count for a Portfolio",
+        "operationId": "get-sim-count-for-a-portfolio",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "segmentedBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "portfolioId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v2/sim/{iccId}/iccSwap": {
+      "post": {
+        "summary": "Perform SIM Swap",
+        "operationId": "perform-sim-swap",
+        "tags": [
+          "Sim"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newIccId": {
+                    "type": "string"
+                  },
+                  "msisdn": {
+                    "type": "string"
+                  },
+                  "preserveContract": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "example": {
+                "newIccId": "",
+                "msisdn": "",
+                "preserveContract": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/networkSnapshot": {
+      "get": {
+        "summary": "View network snapshot for a specific sim",
+        "operationId": "view-network-snapshot-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/smsActivity": {
+      "get": {
+        "summary": "View sms activity for a specific sim",
+        "operationId": "view-sms-activity-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "periodId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/voiceActivity": {
+      "get": {
+        "summary": "View voice activity for a specific sim",
+        "operationId": "view-voice-activity-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "periodId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/ussdActivity": {
+      "get": {
+        "summary": "View ussd activity for a specific sim Copy",
+        "operationId": "view-ussd-activity-for-a-specific-sim-copy",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "periodId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/billingActivity": {
+      "get": {
+        "summary": "View billing activity for a specific sim",
+        "operationId": "view-billing-activity-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/billingSnapshot": {
+      "get": {
+        "summary": "View billing snapshot for a specific sim",
+        "operationId": "view-billing-snapshot-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/billingTotal": {
+      "get": {
+        "summary": "View billing total for a specific sim",
+        "operationId": "view-billing-total-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/authenticationActivity": {
+      "get": {
+        "summary": "View radius activity for a specific sim",
+        "operationId": "view-radius-activity-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/authenticationActivityCount": {
+      "get": {
+        "summary": "View radius activity count for a specific sim",
+        "operationId": "view-radius-activity-count-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/netflowActivity": {
+      "get": {
+        "summary": "View netflow activity for a specific sim",
+        "operationId": "view-netflow-activity-for-a-specific-sim",
+        "tags": [
+          "Snapshot / Activity"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/iccPortfolioPackage": {
+      "get": {
+        "summary": "View package portfolio details of a particular sim",
+        "operationId": "view-package-portfolio-details-of-a-particular-sim",
+        "tags": [
+          "Icc portfolio package"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update portfolio package for a specific sim",
+        "operationId": "update-portfolio-package-for-a-specific-sim",
+        "tags": [
+          "Icc portfolio package"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/pingRequest": {
+      "put": {
+        "summary": "ping Request",
+        "operationId": "ping-request",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "timeout": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "count": 10,
+                "timeout": 1000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/wgetRequest": {
+      "put": {
+        "summary": "wget Request",
+        "operationId": "wget-request",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "https": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "example": {
+                "path": "path/response.php",
+                "port": 8001,
+                "https": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/msisdn/{msisdnId}/smsRequest": {
+      "put": {
+        "summary": "sms Request",
+        "operationId": "sms-request",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "msisdnId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: msisdnId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "message": "Hello from ESEYE"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/cancelLocation": {
+      "put": {
+        "summary": "cancelLocation",
+        "operationId": "cancellocation",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/otaRequest": {
+      "put": {
+        "summary": "otaRequest",
+        "operationId": "otarequest",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "callback": {
+                    "type": "string"
+                  },
+                  "expiryTime": {
+                    "type": "string"
+                  },
+                  "campaign": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "file": {
+                          "type": "string"
+                        },
+                        "contents": {
+                          "type": "string"
+                        },
+                        "offset": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "callback": "http://otamanager.eseye.net/callback.php",
+                "expiryTime": "2000-01-01 00:00:00",
+                "campaign": [
+                  {
+                    "file": "3F007F206F46",
+                    "contents": "4f54414d616e616765723254657374FF",
+                    "offset": "1"
+                  },
+                  {
+                    "refresh": "FileChangeNotification",
+                    "fileList": [
+                      "3F007F206F46"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/disconnectRequest": {
+      "put": {
+        "summary": "disconnectRequest",
+        "operationId": "disconnectrequest",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/v2/sim/{iccId}/location": {
+      "get": {
+        "summary": "location",
+        "operationId": "location",
+        "tags": [
+          "Control panel"
+        ],
+        "parameters": [
+          {
+            "name": "iccId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Postman variable: iccId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "OAuth 2.0 client-credentials access token. See the developer guide for how to obtain one."
+      }
+    }
+  }
+}

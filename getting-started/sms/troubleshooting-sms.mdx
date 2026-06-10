@@ -1,0 +1,40 @@
+---
+title: "Troubleshooting SMS"
+description: "This topic describes how to identify and resolve SMS-related issues including:"
+---
+
+<p>This topic describes how to identify and resolve SMS-related issues including:</p>
+
+<ul> <li><a href="#NotReceivingSms">IoT device not receiving SMS messages</a> </li> <li><a href="#SmsReceivedWrongOrder">SMS messages received in wrong order</a> </li> <li><a href="#NoDeliveryReceipts">No delivery receipts received</a> </li> </ul>
+
+<h2 id="IoTdevicenotreceivingSMSmessages">IoT device not receiving SMS messages</h2>
+
+<p>If your IoT device with an AnyNet SIM is not receiving SMS messages:</p>
+
+<ol> <li>Check the <a href="#SmsErrorCodes">SMS error code</a>. </li> <li>Check that the IoT device is connected to the network, for example by ensuring that the SIM status on the <a href="/infinity-classic/sim-actions#Network">Infinity Classic Network Settings page</a> is <span>Active</span>. </li> <li>Ensure that the <a href="#ClearingTheSmsBuffer">SMS buffer is not full</a>.</li> </ol>
+
+<h3>SMS error codes</h3>
+
+<p>When an SMS message is not delivered, the MNO network for the destination or SMS application returns an error code indicating the reason for the failed delivery. </p>
+
+<p>For more information about the error codes, contact Eseye support and provide the following information:</p>
+
+<ul> <li>For MT messages, the MSISDN to which you sent the MSISDN.</li> <li>For MO messages, the MSISDN of the originating IoT device. </li> </ul>
+
+<h3>Clearing the SMS buffer</h3>
+
+<p>The SMS buffer stores SMS messages sent to a device until the modem deletes them. When the buffer is full, the device will not receive any further user messages or OTA commands. AnyNet SIMs contain a buffer for storing up to ten SMS messages. </p>
+
+<p>Typically, messages are deleted after the device reads them or as a regular housekeeping task. Some devices don’t delete messages from the SMS buffer because the device is not expecting to receive SMS user messages, and so the firmware doesn’t include steps to check the buffer and delete messages. When the buffer is full, any OTA commands that the Eseye connectivity management platform (CMP) sends to the SIM cannot be delivered. At this point, the CMP loses the ability to manage the connectivity for that device until the SMS buffer is cleared.</p>
+
+<p>To temporarily clear the SMS buffer:</p>
+
+<ol> <li> If the device contains a removable SIM, remove the SIM card and insert it into a phone.</li> <li>Delete the SMS messages manually. </li> <li>Insert the SIM into the device.</li> </ol>
+
+<h2 id="SMSmessagesreceivedinwrongorder">SMS messages received in wrong order</h2>
+
+<p>If SMS messages are being delivered but in the wrong order, contact Eseye customer support.</p>
+
+<h2 id="Nodeliveryreceiptsreceived">No delivery receipts received</h2>
+
+<p>If you are not receiving delivery receipts for SMS messages that have been delivered, contact Eseye customer support.</p>

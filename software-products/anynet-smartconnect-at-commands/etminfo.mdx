@@ -1,0 +1,36 @@
+---
+title: "ETMINFO – displays AnyNet SMARTconnect™ and device information"
+description: "Displays information about the current AnyNet SMARTconnect™ application and device."
+---
+
+<p>Displays information about the current AnyNet SMARTconnect™ application and device. </p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+ETMINFO=?</span>  </td> <td>  +ETMINFO: ("busy","ci","iccid","imei","imsi","location","mcc","mnc","mqttpubmsg",<br />"rssi","service","statusflags","version")  <br />  <br />OK </td> </tr> <tr> <td>Read</td> <td> <span>AT+ETMINFO?</span>  </td> <td> OK <br />or <br />ERROR </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMINFO=</span> <span>"</span> <span>&lt;<var>id</var>&gt;</span> <span>"</span>   <br />where <span>&lt;<var>id</var>&gt;</span> is either: <ul> <li><span>busy</span> – checks if AnyNet SMARTconnect™ is carrying out background operations</li> <li><span>ci</span> – the unique cell identity</li> <li> <span>getlocaltime</span> – returns the local time (UTC adjusted for time zone and daylight saving time) from the AnyNet SMARTconnect™ internal clock.  <span><strong>Note: </strong>AnyNet SMARTconnect™ obtains the time from various sources (such as NITZ and NTP, when available). These are provided by the current connected network and the local mast.</span> </li> <li><span>gettime</span> – returns the UTC time from the AnyNet SMARTconnect™ internal clock. </li> <li><span>iccid</span> – the SIM unique identifier</li> <li><span>imei</span> –the device unique identifier</li> <li><span>imsi</span> – the cellular network user unique identifier</li> <li><span>location</span> – the device latitude and longitude</li> <li><span>mcc</span> – the mobile country code</li> <li><span>mnc</span> – the mobile network code</li> <li><span>mqttpubmsg</span> – returns the number of stored MQTT messages</li> <li><span>rssi</span> – the received signal strength indicator</li> <li><span>service</span> – shows whether the modem is registered to a network</li> <li><span>statusflags</span> – fetches the status flags</li> <li><span>version</span> – the current version of Eseye software on the selected modem</li> </ul> </td> <td> +ETMINFO: &lt;value&gt;[,&lt;value2&gt;] <br />  <br />OK <br />where <span>value</span> is the requested value, such as the SIM ICCID, and <span>value2</span> is the response for <span>mqttpubmsg</span> only. <ul> <li> For <span>busy</span>, returns a hexadecimal value: <ul> <li><span>0000</span> – AnyNet SMARTconnect™ is not currently busy (publishing, processing cloud jobs and so on). It is safe to power down.</li> <li><span>&lt;<var>non-0000</var>&gt;</span> – A hexadecimal value that is not <span>0000</span>. AnyNet SMARTconnect™ is busy communicating with the cloud or carrying out background operations. Do not power down using the pwrkey.</li> </ul> </li> <li>For <span>getlocatime</span> and <span>gettime</span>, returns the time according to the <span>[operation] time&#95;format</span> set in the configuration file.</li> <li> For <span>mqttpubmsg</span>, returns the message in non-volatile and volatile memory, in the following format: <ul> <li> <span>&lt;#non-volatile&#95;msg&gt;,&lt;#volatile&#95;msg&gt;</span>  <br />where: <br /><span>#non-volatile&#95;msg</span> – number of messages in the non-volatile queue waiting to be published <br /><span>#volatile&#95;msg</span> – number of messages in the volatile queue waiting to be published </li> </ul> </li> <li> For <span>service</span>, returns the registration status in decimal format:  <ul> <li><span>0</span> – not registered</li> <li><span>1</span> – registered</li> </ul> </li> <li> For <span>statusflags</span>, returns which status flags are set (in hexadecimal format):  <ul> <li><span>[0000]</span> – no flag set</li> <li><span>[0001]</span> – MQTT RX flag</li> <li><span>[0002]</span> – MQTT RXov flag</li> <li><span>[0004]</span> – MQTT TXov flag</li> <li><span>[0008]</span> – Update success flag</li> <li><span>[0010]</span> - MQTT TX Refused flag</li> <li><span>[0020]</span> - MQTT TX Internal error flag</li> <li><span>[0040]</span> - MQTT TX OK flag</li> <li><span>[0080]</span> - Update fail flag</li> <li><span>[0100]</span> - Reboot required flag</li> </ul> <span><strong>Note: </strong>If more than one flag is set, the codes are added together. For example, <span>[000A]</span> – both the MQTT RXov <span>[0002]</span> and <span>UPDATE SUCCESS</span><span>[0008]</span> flags are set.</span> <span><strong>Note: </strong>For information about the status flags, see <a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue#Status">Status Flags</a>.</span> </li> </ul> <br />or <br /><span>+ETM ERROR: &lt;errormessage&gt;</span> – returned for an AT command-specific error <br />or <br /><span>ERROR</span> – returned when a command is invalid, for example a parameter is missing or incorrect </td> </tr> </tbody> </table>
+
+<Note>If <span>location</span> returns <span>unknown</span>, ensure you have enabled location. For more information, see <a href="/software-products/anynet-smartconnect-at-commands/etmcfg">ETMCFG – read and write configuration file values</a>. Alternatively, check that the modem can acquire a satellite lock. To do this, ensure you have a GPS antenna connected to the device, with good visibility of the sky.</Note>
+
+<h4>Example</h4>
+
+<p>AT+ETMINFO="iccid"</p>
+
+<p>+ETMINFO: 8944538523020412345</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>AT+ETMINFO="gettime"</p>
+
+<p>+ETMINFO: 2023/12/15 13:40:02-0430</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>AT+ETMINFO="getlocaltime"</p>
+
+<p>+ETMINFO: 2023/12/15 09:10:04-0430</p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands">MQTT AT commands</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8618-Eseye-enabled-Quectel-BG96-module-Developer-Guide.pdf" target="_blank">8618 Eseye-enabled Quectel BG96 module Developer Guide (PDF)</a> </li> </ul> </div>

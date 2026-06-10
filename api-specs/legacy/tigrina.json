@@ -1,0 +1,490 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Tigrina API",
+    "version": "1.0.0",
+    "description": "Tigrina API reference, generated from the Eseye documentation."
+  },
+  "servers": [
+    {
+      "url": "https://tigrina.eseye.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tigrina API"
+    }
+  ],
+  "paths": {
+    "/Japi/Diam/getCellularInformation": {
+      "get": {
+        "summary": "getCellularInformation",
+        "operationId": "get-japi-diam-getcellularinformation",
+        "tags": [
+          "Tigrina API"
+        ],
+        "description": "Retrieves a set of cellular WAN information relating to a specific Hera 604 router.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ESN": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "ESN": "12345678901234567890"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "Router": {
+                      "type": "object",
+                      "properties": {
+                        "ESN": {
+                          "type": "string"
+                        },
+                        "ICCID": {
+                          "type": "string"
+                        },
+                        "IMEI": {
+                          "type": "string"
+                        },
+                        "SIMProfile": {
+                          "type": "string"
+                        },
+                        "CellularConnection": {
+                          "type": "object",
+                          "properties": {
+                            "Sims": {
+                              "type": "object",
+                              "properties": {
+                                "ChipSim": {
+                                  "type": "array",
+                                  "items": {}
+                                },
+                                "Sim1": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ICCID": {
+                                      "type": "string"
+                                    },
+                                    "IMSI": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "Sim2": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ICCID": {
+                                      "type": "string"
+                                    },
+                                    "IMSI": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "NetworkStatus": {
+                          "type": "object",
+                          "properties": {
+                            "RSSI": {
+                              "type": "string"
+                            },
+                            "Timestamp": {
+                              "type": "string"
+                            },
+                            "NetworkName": {
+                              "type": "string"
+                            },
+                            "RAT": {
+                              "type": "string"
+                            },
+                            "IPAddress": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "location": {
+                          "type": "object",
+                          "properties": {
+                            "Lat": {
+                              "type": "string"
+                            },
+                            "Lon": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "Router": {
+                    "ESN": "12345678901234567890",
+                    "ICCID": "8944538523001234567",
+                    "IMEI": "359076061234567",
+                    "SIMProfile": "Sim1",
+                    "CellularConnection": {
+                      "Sims": {
+                        "ChipSim": [],
+                        "Sim1": {
+                          "ICCID": "8944538523001234567",
+                          "IMSI": "TBD"
+                        },
+                        "Sim2": {
+                          "ICCID": "8944538523001234568",
+                          "IMSI": "TBD"
+                        }
+                      }
+                    },
+                    "NetworkStatus": {
+                      "RSSI": "-87dBm",
+                      "Timestamp": "2015-05-02 00:12:45",
+                      "NetworkName": "vodaUK",
+                      "RAT": "lte",
+                      "IPAddress": "10.12.34.56"
+                    },
+                    "location": {
+                      "Lat": "53.1234562",
+                      "Lon": "-1.54678"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Diam/getCellularRSSIHistory": {
+      "get": {
+        "summary": "getCellularRSSIHistory",
+        "operationId": "get-japi-diam-getcellularrssihistory",
+        "tags": [
+          "Tigrina API"
+        ],
+        "description": "Retrieves a set of historic RSSI values relating to a specific Hera 604 router.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ESN": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "ESN": "12345678901234567890"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "Router": {
+                      "type": "object",
+                      "properties": {
+                        "ESN": {
+                          "type": "string"
+                        },
+                        "ICCID": {
+                          "type": "string"
+                        },
+                        "signal": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "Timestamp": {
+                                "type": "string"
+                              },
+                              "RSSI": {
+                                "type": "string"
+                              },
+                              "NetworkName": {
+                                "type": "string"
+                              },
+                              "RAT": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  },
+                  "Router": {
+                    "ESN": "12345678901234567890",
+                    "ICCID": "8944538523001234567",
+                    "signal": [
+                      {
+                        "Timestamp": "2015-05-02 00:12:45",
+                        "RSSI": "-90dBm",
+                        "NetworkName": "Vodafone",
+                        "RAT": "lte"
+                      },
+                      {
+                        "Timestamp": "2015-05-03 08:12:00",
+                        "RSSI": "-87dBm",
+                        "NetworkName": "O2",
+                        "RAT": "UMTS"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Diam/getDeviceInformation": {
+      "get": {
+        "summary": "getDeviceInformation",
+        "operationId": "get-japi-diam-getdeviceinformation",
+        "tags": [
+          "Tigrina API"
+        ],
+        "description": "Retrieves device information relating to a specific Hera 604 router.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ESN": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "ESN": "12345678901234567890"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/Japi/Diam/getNetworkInformation": {
+      "get": {
+        "summary": "getNetworkInformation",
+        "operationId": "get-japi-diam-getnetworkinformation",
+        "tags": [
+          "Tigrina API"
+        ],
+        "description": "Retrieves a set of LAN information relating to a specific Hera 604 router.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ESN": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "ESN": "12345678901234567890"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/Japi/Diam/login": {
+      "post": {
+        "summary": "login",
+        "operationId": "post-japi-diam-login",
+        "tags": [
+          "Tigrina API"
+        ],
+        "description": "Logs in the user using the supplied credentials. The session times out after 1440 seconds of inactivity. If you attempt to use a session cookie after that session has timed out, you will need to log in again.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "portfolioID": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "username": "Example@Username.com",
+                "password": "examplepassword",
+                "portfolioID": "CustomerPortfolioID"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cookie": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "cookie": ".{0,255}",
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Japi/Diam/logout": {
+      "post": {
+        "summary": "logout",
+        "operationId": "post-japi-diam-logout",
+        "tags": [
+          "Tigrina API"
+        ],
+        "description": "Logs the user out of the Tigrina API.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        },
+                        "errorCode": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": {
+                    "status": "OK",
+                    "errorCode": "",
+                    "errorMessage": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

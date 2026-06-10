@@ -1,0 +1,39 @@
+---
+title: "POST /index/locatedevice"
+description: "Interrogates the network for current location information. If the device is offline or the current location is not available, returns the last recorded value."
+openapi: "/api-specs/legacy/location.json POST /index/locatedevice"
+---
+
+<p>Interrogates the network for current location information. If the device is offline or the current location is not available, returns the last recorded value.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login </li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/location/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<Note>Use null without quotes as the input if you do not wish to use these objects. The value will remain as previously set. If you want to change the object value to a new value, replace null with "<span>&lt;<var>value</var>&gt;</span>" within quotes, where <span>&lt;<var>value</var>&gt;</span> is the required value. To remove an existing value, type an empty string. For example: <span>"friendlyName": "",</span></Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>request&#95;id</td> <td> A request identifier for tracking responses. </td> <td> </td> </tr> <tr> <td>iccid</td> <td>The unique Integrated Circuit Card Identifier of the SIM you want to locate. Use either this parameter or <span>msisdn</span> to identify the SIM.</td> <td> <img src="/images/resources/images/icons/checkmark_10x10.png" alt="Checkmark 10X10" /> or msisdn</td> </tr> <tr> <td>msisdn</td> <td>The unique primary SIM phone number (Mobile Station International ISDN Number) of the SIM you want to locate. Use either this parameter or <span>iccid</span> to identify the SIM.</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> or iccid</td> </tr> <tr> <td> username </td> <td>The Eseye-assigned Location API username</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> <tr> <td>password</td> <td>The Eseye-assigned Location API password</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123;<br /> "request&#95;id": "42",<br /> "iccid": "8944538523007980017",<br /> "username": "ExampleUsername",<br /> "password": "ExamplePassword",<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>iccid</td> <td> The unique Integrated Circuit Card Identifier for the located SIM. </td> </tr> <tr> <td>msisdn</td> <td>The unique primary SIM phone number (Mobile Station International ISDN Number).</td> </tr> <tr> <td>lat</td> <td>Latitude value of the last cell mast that the SIM used.</td> </tr> <tr> <td>lon</td> <td>Longitude value of the last cell mast that the SIM used.</td> </tr> <tr> <td>countryname</td> <td>The last recorded country the SIM was in. </td> </tr> <tr> <td>countrycode</td> <td>The ISO 3166 Alpha-2 code of the last recorded country the SIM was in. For more information, see the <a href="https://www.iso.org/obp/ui/#search/code/">ISO Online Browsing Platform (ODP) Country Codes</a>.</td> </tr> <tr> <td>timezone</td> <td>The TZ database name of the last recorded timezone the SIM was in. For more information, see the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">List of TZ database time zones</a>.</td> </tr> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/location/troubleshooting">Troubleshooting errors: Location API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  <br />For more information, see <a href="/api/location/troubleshooting">Troubleshooting errors: Location API</a>. </td> </tr> <tr> <td>request&#95;id</td> <td>The returned request identifier, for tracking responses.</td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "iccid": "8944538523007980017",<br /> "msisdn": "447924167590",<br /> "lat": 51.2394,<br /> "lon": -0.6036,<br /> "countryname": "United Kingdom",<br /> "countrycode": "GB",<br /> "timezone": "Europe/London",<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "",<br /> "errorMessage": ""<br /> &#125;,<br /> "request&#95;id": "42"<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="#">POST /index/locatedevice</a> </li> <li><a href="/api/location/using-postman">Location API requests</a> </li> <li><a href="/api/location/troubleshooting">Troubleshooting errors: Location API</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8313-Location-API-1.0-Developer-Guide.pdf" target="_blank">8313 Location API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

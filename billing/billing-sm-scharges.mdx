@@ -1,0 +1,40 @@
+---
+title: "Understanding SMS charges on the CSV invoice"
+description: "Eseye may apply SMS charges for:"
+---
+
+<p>Eseye may apply SMS charges for:</p>
+
+<ul> <li> Cellular network usage</li> <li>SMS API usage (subscription only)</li> </ul>
+
+<p>The amount charged depends on your SIM contract and (if relevant) SMS API contract.</p>
+
+<p>The following diagram displays the different transmission routes that can be charged. </p>
+
+<p> <img src="/images/resources/images/billing/smsbilling.svg" alt="Smsbilling" /> </p>
+
+<p>The following table describes the transmission routes and typical charges. </p>
+
+<Note>Your specific charges will depend on your <a href="/billing/service-contracts">service contract</a>.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Transmission route</th> <th>Description</th> <th>Charges typically applied to</th> </tr> </thead> <tbody> <tr> <td> MO SMS </td> <td>SMS originating from an AnyNet SIM and delivered to the AnyNet Messaging Service. </td> <td> Originating SIM </td> </tr> <tr> <td>MT SMS</td> <td>SMS delivered to an AnyNet SIM from the AnyNet Messaging Service.</td> <td>Destination SIM</td> </tr> <tr> <td>SMS MO API</td> <td>SMS delivered to a customer SMS application.</td> <td>Customer SMS API</td> </tr> <tr> <td>SMS MT API</td> <td>SMS originating from customer SMS applications.</td> <td>Customer SMS API</td> </tr> <tr> <td>MO SMS EXT</td> <td> SMS messages delivered to a third party SIM.  </td> <td> Originating SIM or Customer SMS API </td> </tr> <tr> <td>N/A</td> <td>SMS messages from third party SIMs to AnyNet SIMs or customer SMS applications.<span><strong>Note: </strong>SMS messages sent from 3rd party SIMs to other 3rd party SIMs are blocked and therefore not charged.</span></td> <td>Destination SIM or Customer SMS API</td> </tr> </tbody> </table>
+
+<h2 id="SMSmessagechargesontheSIMcontract">SMS message charges on the SIM contract</h2>
+
+<p>Depending on your SIM contract, charges may apply for AnyNet SIM cellular network usage, which includes SMS messages and delivery receipts. </p>
+
+<p>The SIM contract may have an agreed number of in-bundle SMS messages. You are not charged extra for these unless you use more than the agreed amount. For information about bundles, see <a href="/billing/billing-bundled-usage">Understanding bundled usage</a>.</p>
+
+<p>On the CSV invoice, the SMS charges for the SIM contract are shown against the relevant SIM number. </p>
+
+<h2 id="SMSmessagechargesontheSMSAPIcontract">SMS message charges on the SMS API contract</h2>
+
+<p> If you subscribe to the SMS API service, the usage charges are agreed in the SMS API contract. </p>
+
+<Note>Your SMS API contract terms may differ from those on your SIM contract. </Note>
+
+<p>SMS API charges include:</p>
+
+<ul> <li> Incoming internet use of the AnyNet Messaging Service from the customer server. </li> <li>Sending or receiving SMS messages between the AnyNet Messaging Service and third party SIMs.</li> </ul>
+
+<p>On the CSV invoice, the SMS API contract charges are totalled per package according to transmission type. </p>

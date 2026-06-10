@@ -1,0 +1,20 @@
+---
+title: "About the required AWS IAM user for AnyNet IRIS"
+description: "The AnyNet Cellular Connectivity for AWS IoT service integrates with the IoT resources within your AWS account to perform essential functions, such as updating an AWS thing Shadow document. You enable access to these..."
+---
+
+<p>The AnyNet Cellular Connectivity for AWS IoT service integrates with the IoT resources within your AWS account to perform essential functions, such as updating an AWSthing Shadow document. You enable access to these functions by setting up a dedicated IAM user with specific permissions within your AWS account. You will use this IAM user to configure AnyNet IRIS.</p>
+
+<p>Do not use the AWS account root to set up the required IAM permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html" target="_blank">AWS account root user</a>.</p>
+
+<p>The IAM permissions also enable the service to create a Foundation CloudFormation stack that is used to distribute required resources to the AWS regions you select using AnyNet IRIS. The Foundation stack creates an IAM role – <span>AnyNetSecureTrustRole</span> – that is responsible for establishing required cross-account access. For information about cross-account access, see:</p>
+
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html" target="_blank">Providing access to AWS accounts owned by third parties</a> </p>
+
+<h2>Recommended reading</h2>
+
+<p>For information aboutAWS security best practices, see: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" target="_blank">Security best practices in IAM</a></p>
+
+<p>To learn how to create customer managed policies, see: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html" target="_blank">IAM Tutorial: Create and attach your first customer managed policy</a></p>
+
+<div> <h2>Where to next?</h2> <ul> <li>Create a dedicated IAM user account. For more information, see <a href="/iris/iam-permissions/create-ia-museraccount">Creating a dedicated IAM user account for AnyNet IRIS</a>.</li> <li>Understand which IAM permissions are required for AWS integration. For more information, see Required IAM permissions.</li> <li>Understand which IAM Managed Policies are required for AWS integration. For more information, see <a href="/iris/iam-permissions/iam-policies">Required IAM Managed Policies</a>.</li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8584-AnyNet-Iris-Quick-Start-Guide.pdf" target="_blank">AnyNet IRIS Quick Start Guide (PDF)</a> </li> </ul> </div>

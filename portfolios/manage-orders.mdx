@@ -1,0 +1,62 @@
+---
+title: "Managing orders in Integra"
+description: "To access order management in Integra:"
+---
+
+<p>To access order management in Integra:</p>
+
+<ul> <li>On the left menu, select <span>Orders</span> to display the <span>Order List</span>.</li> </ul>
+
+<p> <img src="/images/resources/images/integra/orders-icon.png" alt="Orders Icon" /> </p>
+
+<h4>Order statuses </h4>
+
+<p>The following list describes the order statuses.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Status</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Ordered</span> </td> <td>An order has been created by placing an order in Infinity.</td> </tr> <tr> <td><span>Processing</span> </td> <td>Integra is processing the order. For more information, see <a href="#Order">Order processing</a>.</td> </tr> <tr> <td><span>Shipped</span> </td> <td> The Logistics team has shipped the hardware items for the order. </td> </tr> <tr> <td><span>Returned by </span><span href="#Carrier">Carrier</span> </td> <td>Package was returned to the sender (merchant or warehouse) by the shipping carrier.</td> </tr> <tr> <td><span>Delivered</span> </td> <td>The order is delivered to the customer who had placed the order.</td> </tr> <tr> <td><span>Cancelled</span> </td> <td>The order was invalid.</td> </tr> <tr> <td><span>Return Raised</span> </td> <td> A return process is initiated after the product was successfully delivered to the customer. This is due to a faulty or defective product that did not meet the customer's expectations.</td> </tr> <tr> <td><span>Return Received</span> </td> <td> The seller, merchant, or warehouse has received the product that the customer sent back after initiating a return.</td> </tr> <tr> <td><span>Return Completed</span> </td> <td>The entire return is successfully processed.</td> </tr> <tr> <td><span>Return Rejected</span> </td> <td> The seller or merchant has declined the customer's return request after receiving and reviewing the returned item. This occurs for various reasons, such as: <ul> <li>Product does not meet return criteria: The item does not comply with the seller's return policy either because it was damaged, or missing the original packaging or accessories.</li> <li>Expired return window: The return was initiated after the allowable return period had expired, resulting in the rejection.</li> <li>Non-refundable items: Some products, like customised or perishable goods, are not eligible for returns, and if these were returned, the request is denied.</li> <li>Evidence of tampering or improper use by the customer.</li> </ul> </td> </tr> </tbody> </table>
+
+<p> </p>
+
+<h3>Order processing</h3>
+
+<p>Integra retrieves the order details by extracting the order ID for the product, updates the order status, and generates an email in the background to initiate the shipping process. It also adds the tracking number to the order information.</p>
+
+<Note>If the customer placed the order in Infinity, an order is automatically created in Integra with a status of <span>Ordered</span>. Integra updates the order to check and complete the order details.</Note>
+
+<Tip>For Telus customers, their backend team can update the order status.</Tip>
+
+<h2 id="Viewingorders">Viewing orders</h2>
+
+<p>From the <span>Orders list</span>, you can view orders by applying <a href="#About"> The Search filters list contain the following fields:</a>.</p>
+
+<h3>Filtering orders</h3>
+
+<p>The search filters provide different ways to filter the list of orders and only show results which match the criteria defined in <b>any</b> of the applied search filters.</p>
+
+<p><img src="/images/resources/images/integra/searchtable-orders.png" alt="Searchtable Orders" /> </p>
+
+<p>To search for the order that matches the specified criteria:</p>
+
+<ol> <li> Enter values for any of the <a href="#About"> The Search filters list contain the following fields:</a>. <br /> The <span>Search filters</span> list contain the following fields: <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Order Id</span>  </td> <td>Enter the <a href="#Order4">Order Id</a>.</td> </tr> <tr> <td> <span>Order Date</span>  </td> <td> Enter the <a href="#Order3">Order Date</a> in the format dd/mm/yyyy. </td> </tr> <tr> <td> <span>Portfolio Name</span>  </td> <td> Select from the <a href="#Portfoli">Portfolio Name</a> drop-down list. </td> </tr> <tr> <td><span>Status</span> </td> <td>Select from the <a href="#Status">Status</a> drop-down list.</td> </tr> </tbody> </table> </li> <li> Select <span>Filter</span> to display the Search results list matching the specified <a href="#About">Search filter attributes</a>. </li> <li>Select <span>Reset</span> to clear the specified values from the search filters.</li> </ol>
+
+<h4> Viewing search results list</h4>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The <span>Search results</span> list contain the following fields:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Order Id</span> </td> <td> The unique order identifier. Orders define the general purchase request details, such as who has raised the order and when they placed the order. Orders may also consist of attributes (containing further details, such as the billing and shipping address), and order items (the list of purchased products). </td> </tr> <tr> <td><span>Portfolio Name</span> </td> <td> A friendly name for identifying the portfolio, usually the company name followed by a geographic region or project. </td> </tr> <tr> <td><span>Order Date</span> </td> <td> The date and time when the order was made. </td> </tr> <tr> <td><span>Preferred Delivery Date</span> </td> <td> The date by which the customer is expected to receive the order. </td> </tr> <tr> <td><span>Dispatch Date</span> </td> <td> The date and time when the order was dispatched. </td> </tr> <tr> <td><span>Status</span> </td> <td> <span>All</span> – the order in any of the statuses: <ul> <li><span>Ordered</span> – Order placed</li> <li><span>Processing</span> – Order is processed</li> <li><span>Shipped</span> – Order shipped</li> <li><span>Return by Carrier</span> – Carrier return</li> <li><span>Delivered</span> – Delivered to customer</li> <li><span>Cancelled</span> – Order invalid</li> <li><span>Return Raised</span> – Return requested</li> <li><span>Return Received</span> – Return requested back</li> <li><span>Return Completed</span> – Return processed</li> <li><span>Return Rejected</span> – Return rejected</li> </ul> <br />For more information, see <a href="#Order2">Order statuses </a>. </td> </tr> <tr> <td><span>Tracking Number</span> </td> <td> The order tracking reference. </td> </tr> <tr> <td><span>Action</span> </td> <td>Select <img src="/images/resources/images/integra/edit.png" alt="Edit" /> to edit the order.</td> </tr> </tbody> </table>
+
+<h2 id="Updatingorders">Updating orders</h2>
+
+<p>If the details for an existing order require to be amended, the order is updated in Integra.</p>
+
+<p>An existing order is amended in any of the below scenarios:</p>
+
+<ul> <li>Rectify errors – If there was a mistake in the original order (for example, incorrect quantities, wrong items, or pricing errors).</li> <li>Adhere to customer requests – Customers contacted Support to change details after placing an order, such as modifying shipping addresses, changing payment methods, or updating item selections.</li> <li>Adjust inventory – If an item is out of stock or unavailable, staff may need to substitute it with a different product or adjust the order accordingly.</li> <li>Modify shipping – Changes in shipping preferences or options, such as expedited shipping, may require order adjustments.</li> <li>Cancel an order – If the order is no longer required.</li> <li>Returns and exchanges – If a customer returns an item and requests an exchange or refund, staff might need to edit the order to reflect these changes accurately.</li> </ul>
+
+<p>To update an order in Integra:</p>
+
+<ol> <li>  From the <span>Search Results</span> list under <span>Actions</span>, select <img src="/images/resources/images/infinity/edit-icon_24x24.png" alt="Edit Icon 24X24" /> alongside the preferred <span>Order List</span> row. </li> <li> In the <span>Edit Order ID</span> dialog of the preferred order, change the values for the <span>Edit Order</span> attributes: <ul> <li>If the <span>Status</span> is changed to <span>Ordered</span> or <span>Processing</span>, enter values for these <a href="#Edit">Edit Processing Order attributes</a>:</li> </ul> <br /><img src="/images/resources/images/integra/editorders.png" alt="Editorders" />  <h4><span>Edit Processing Order</span> attributes</h4> <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Substitution</span>  </td> <td> Sometimes one or more items are not in stock when the order is processed. If you allow substitutions (for example, if you order a package and do not specify SIM type), we will offer a suitable alternative if this is available. </td> </tr> <tr> <td> <span>Order Item</span>  </td> <td> The unique order identifier. Orders define the general purchase request details, such as who has raised the order and when they placed the order. Orders may also consist of attributes (containing further details, such as the billing and shipping address), and order items (the list of purchased products). </td> </tr> <tr> <td><span>Product</span> </td> <td> The unique product type identifier. </td> </tr> </tbody> </table> <ul> <li>If the <span>Status</span> is changed to <span>Shipped</span>, enter values for these <a href="#Edit2">Edit Shipped Order attributes</a>:</li> </ul> <br /><img src="/images/resources/images/integra/shipped-editorder.png" alt="Shipped Editorder" />  <h4><span>Edit Shipped Order</span> attributes</h4> <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Carrier</span>  </td> <td> The order delivery company. </td> </tr> <tr> <td> <span>Tracking Number</span>  </td> <td> The order tracking reference. </td> </tr> </tbody> </table> </li> <li>Select <span>Save</span> for the changes to apply.</li> </ol>

@@ -1,0 +1,268 @@
+---
+title: "Configuring Basic Settings"
+description: "Model: Hera 604 Version: v5"
+---
+
+<div> <p><span>Model:</span> Hera 604 <span>Version:</span> v5</p> </div>
+
+<p>To edit a parameter:</p>
+
+<ol> <li> Replace the existing text with your changes. </li> <li>Select <span>Save</span> to commit your changes to the Hera.</li> </ol>
+
+<Note>If the parameter has an orange background, the information is mandatory. The background turns blue when the input is valid.</Note>
+
+<h2 id="ConfiguringtheRouter">Configuring the Router</h2>
+
+<p>Describes general router information. </p>
+
+<h3>Status</h3>
+
+<p>For more information, see<a href="/hardware-products/hera/600-series/system-status604v5#Router">Router</a>.</p>
+
+<h3>Name and location</h3>
+
+<p>These user-defined settings help describe which Hera you are remotely logged into, so that you can verify you are viewing and modifying the correct router.</p>
+
+<p>You can edit some basic router settings here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Router</span> &gt; <span>Name and location</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Site name</span> </td> <td>The physical site name where the Hera is situated.</td> </tr> <tr> <td><span>Site location</span> </td> <td>The site address.</td> </tr> <tr> <td><span>GPS</span> </td> <td> Select the slider to <span>Enable</span> or <span>Disable</span> GPS, if the device hardware supports this function. </td> </tr> <tr> <td><span>GPS location</span> </td> <td>Only visible if you <span>Enable</span> GPS. If the device hardware supports this function, the current GPS coordinates are displayed in latitude and longitude.</td> </tr> <tr> <td><span>Notes</span> </td> <td>Type any useful notes about the current Hera. For example, we recommend you use this parameter to note the filename of the factory configuration file stored in subversion.</td> </tr> </tbody> </table>
+
+<h2 id="ConfiguringtheLocalAreaNetworkLAN">Configuring the Local Area Network (LAN)</h2>
+
+<h3>Status (read only)</h3>
+
+<p>For more information, see<a href="/hardware-products/hera/600-series/system-status604v5#Local">Local area network (LAN)</a>.</p>
+
+<Note>The parameters may appear in a slightly different order.</Note>
+
+<h3>LAN IP address</h3>
+
+<p>You can edit the LAN IP address here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Local Area Network (LAN)</span> &gt; <span>LAN IP address</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Address assignment</span> </td> <td> Select either: <ul> <li><span>Static</span> – for manual configuration; useful for remote management</li> <li><span>DHCP</span> – for automatic configuration from a DHCP server on the LAN, taken from a pool of available numbers on the network.</li> </ul> </td> </tr> <tr> <td><span>LAN IP address</span> </td> <td>For <span>Static</span> configuration only. Type the Local Area Network IPv4 address.</td> </tr> <tr> <td><span>Net Mask</span> </td> <td>For <span>Static</span> configuration only. Type the IPv4 netmask.</td> </tr> </tbody> </table>
+
+<h3>DHCP server</h3>
+
+<p>You can edit the DHCP server settings here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Local Area Network (LAN)</span> &gt; <span>DHCP server</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>DHCP server</span> </td> <td>Select the slider to <span>Enable</span> or <span>Disable</span> the DHCP server settings.</td> </tr> <tr> <td><span>Start address - 192.168.0.x</span> </td> <td>The first IP address in the range that the DHCP server can assign.</td> </tr> <tr> <td><span>End address - 192.168.0.y</span> </td> <td>The last IP address in the range that the DHCP server can assign.</td> </tr> </tbody> </table>
+
+<h3>DHCP fixed hosts</h3>
+
+<p>If you have configured DHCP address assignment, this ensures that the Hera always assigns the same unique IP address to a unique MAC address for those devices on your LAN that must have static addresses.</p>
+
+<p>You can edit the DHCP fixed host settings here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Local Area Network (LAN)</span> &gt; <span>DHCP fixed hosts</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Name</span> </td> <td>Connection name to help identify the DHCP fixed host.</td> </tr> <tr> <td><span>IP address</span> </td> <td>The IPv4 IP address you want to assign to the MAC address.</td> </tr> <tr> <td><span>MAC address</span> </td> <td>The unique MAC address of the device network interface controller. Use <span>:</span> to separate the digit pairs.</td> </tr> </tbody> </table>
+
+<p>To create a new table entry:</p>
+
+<ol> <li> Under the table, type the new entry name into the text box. <br /><img src="/images/resources/images/hera/createnewentry.png" alt="Createnewentry" />  </li> <li> Select <span>Create</span> to add the entry to the table. </li> <li> Complete the entry details, as described in the table above. </li> <li> Select <span>Save</span> to commit your changes to the Hera. </li> </ol>
+
+<p>You can revert local changes to the last save.</p>
+
+<p>To revert your local changes:</p>
+
+<ul> <li> Select <span>Reset</span>. <br />All local changes are removed and the previous settings are displayed. </li> </ul>
+
+<p>To delete a table entry:</p>
+
+<ol> <li> Alongside the item you want to delete, select <span>Remove</span>. </li> <li> If required, select <span>Reinstate</span> alongside the item to undo the deletion. </li> <li> Select <span>Save</span> to commit your changes. <span><strong>Note: </strong>After you have saved, you can no longer reinstate a deleted item.</span> </li> </ol>
+
+<p>You can sort the table entries into a logical list.</p>
+
+<p>To sort a table entry in the list:</p>
+
+<ol> <li> Alongside the item you want to promote to the top of the list, select <span>Promote</span>. <br />The item moves up one row. </li> <li> When you have sorted the items, select <span>Save</span> to save your changes. </li> </ol>
+
+<h3>DHCP allocated addresses</h3>
+
+<p>View Dynamic Host Configuration Protocol (DHCP) addresses automatically allocated by the Hera to wireless and Ethernet connected devices.</p>
+
+<Note>Some devices may use static addresses. These are not listed in this section. To view all connected devices, see <span>System Status</span> &gt; <span>Connected devices</span>.</Note>
+
+<p>You can view the DHCP allocated addresses here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Local Area Network (LAN)</span> &gt; <span>DHCP allocated addresses</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Hostname</span> </td> <td>The device friendly name.</td> </tr> <tr> <td><span>IP address</span> </td> <td>The assigned IPv4 IP address.</td> </tr> <tr> <td><span>MAC address</span> </td> <td>The device MAC address.</td> </tr> <tr> <td><span>Expires</span> </td> <td> Date and time stamp when the IP address will be released for use by another device. The device DHCP client can request to renew the IP address lease prior to expiry. </td> </tr> </tbody> </table>
+
+<h2 id="ConfiguringtheWirelessNetwork">Configuring the Wireless Network</h2>
+
+<p>You can edit the wireless network configuration here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Wireless Network</span> &gt; <span>Configuration</span></p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Hardware mode</span> </td> <td> Available WLAN standards. The available selection depends on the territory for which the device is approved. Select one of the following standards: <ul> <li><span>802.11A</span> – US only (FCC)</li> <li><span>802.11B</span> </li> <li><span>802.11G</span> </li> <li><span>802.11BG</span> </li> <li><span>802.11NG</span> </li> </ul> </td> </tr> <tr> <td><span>Status</span> </td> <td>Select the slider to <span>Enable</span> or <span>Disable</span> the wireless network.</td> </tr> <tr> <td><span>Country</span> </td> <td>Select the country where the current Hera exists.</td> </tr> <tr> <td><span>Channel</span> </td> <td> 2.4 GHz range (rest of world): Channels 1-13 <br />5 GHz range (US only): Channels 32-48 </td> </tr> <tr> <td><span>Bandwidth</span> </td> <td> This option only appears if you select <span>802.11NG</span>. The available bandwidth. Select either: <ul> <li><span>20MHz</span> </li> <li><span>40MHz – primary channel upper (HT40-)</span> – two 20MHz channels; the upper channel is primary.</li> <li><span>40MHz – primary channel lower (HT40+)</span> – two 20MHz channels; the lower channel is primary.</li> </ul> </td> </tr> <tr> <td><span>MIMO</span> </td> <td> This option only appears if you select <span>802.11NG</span>. The use of Multiple-Input Multiple-Output technology on the Hera. <br />Select either: <ul> <li><span>No</span> – the WiFi does not use MIMO technology</li> <li><span>Yes</span> – the WiFi does use MIMO technology</li> </ul> </td> </tr> </tbody> </table>
+
+<h3>Access points</h3>
+
+<p>You can view and edit one or more access points for the wireless network.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Name</span> </td> <td> The WiFi access point reference name. <br />Use the following syntax conventions:  <ul> <li>Must begin with an alphabetic character</li> <li>May contain alphanumeric upper- and lowercase characters (A-Z, a-z, 0-9)</li> <li>May contain the underscore character (&#95;)</li> </ul> <br />For example: <span>2&#95;4GHZ&#95;Network</span>, or <span>5GHZ&#95;Network</span> </td> </tr> <tr> <td><span>Status</span> </td> <td>Select the slider to <span>Enable</span> or <span>Disable</span> the access point.</td> </tr> <tr> <td><span>Network name (SSID)</span> </td> <td>Type the network Service Set Identifier (WiFi network name).</td> </tr> <tr> <td><span>SSID visibility</span> </td> <td> Either:  <ul> <li><span>Broadcast</span> – the SSID is visible to other users</li> <li><span>Hidden</span> – the SSID is not visible to other users</li> </ul> </td> </tr> <tr> <td><span>Security</span> </td> <td> Either: <ul> <li><span>None</span> – no security is configured for the Hera</li> <li><span>WEP – open system</span> – uses Open System Authentication (OSA) to send and receive non-encrypted data</li> <li><span>WEP – shared key</span> – uses Shared Key Authentication (SKA) to send and receive encrypted data</li> <li><span>WPA-PSK</span> – WiFi Protected Access Pre-Shared Key</li> <li><span>WPA-PSK2</span> – the latest industry-standard method for protecting your wireless network</li> </ul> <span><strong>Tip: </strong>We recommend you use WPA encryption to secure your data.</span> </td> </tr> <tr> <td><span>Pass phrase or 64-character key</span> </td> <td>The access point password.</td> </tr> <tr> <td><span>MAC address filtering policy</span> </td> <td> Either: <ul> <li><span>No filtering</span> – all MAC addresses are permitted</li> <li><span>White list</span> – only the listed MAC addresses are permitted, all other MAC addresses are blocked</li> <li><span>Black list</span> – the listed MAC addresses are blocked, all other MAC addresses are permitted</li> </ul> </td> </tr> <tr> <td><span>Filtered MAC addresses</span> </td> <td> This option is available if you selected <span>White list</span> or <span>Black list</span> for the MAC address filtering policy. Type a MAC address you want to add to the list, then select <span>+</span>. You can add multiple addresses. <br />Delete an existing MAC address by selecting <span>-</span> underneath the address. </td> </tr> </tbody> </table>
+
+<p>To create a new table entry:</p>
+
+<ol> <li> Under the table, type the new entry name into the text box. <br /><img src="/images/resources/images/hera/createnewentry.png" alt="Createnewentry" />  </li> <li> Select <span>Create</span> to add the entry to the table. </li> <li> Complete the entry details, as described in the table above. </li> <li> Select <span>Save</span> to commit your changes to the Hera. </li> </ol>
+
+<p>You can revert local changes to the last save.</p>
+
+<p>To revert your local changes:</p>
+
+<ul> <li> Select <span>Reset</span>. <br />All local changes are removed and the previous settings are displayed. </li> </ul>
+
+<p>To delete a table entry:</p>
+
+<ol> <li> Alongside the item you want to delete, select <span>Remove</span>. </li> <li> If required, select <span>Reinstate</span> alongside the item to undo the deletion. </li> <li> Select <span>Save</span> to commit your changes. <span><strong>Note: </strong>After you have saved, you can no longer reinstate a deleted item.</span> </li> </ol>
+
+<p>You can sort the table entries into a logical list.</p>
+
+<p>To sort a table entry in the list:</p>
+
+<ol> <li> Alongside the item you want to promote to the top of the list, select <span>Promote</span>. <br />The item moves up one row. </li> <li> When you have sorted the items, select <span>Save</span> to save your changes. </li> </ol>
+
+<h2 id="ConfiguringtheMobileNetwork">Configuring the Mobile Network</h2>
+
+<h3>Status (read only)</h3>
+
+<p>For more information, see<a href="/hardware-products/hera/600-series/system-status604v5#Mobile">Mobile network</a> </p>
+
+<h3>Configuring the mobile connection</h3>
+
+<p>The Hera is equipped for mobile connection, which you can enable or disable. It has multiple antennas for antenna diversity, to improve the quality and reliability of a wireless link.</p>
+
+<h4>Configuring the Hera to use a SIM</h4>
+
+<p>You can configure up to three SIMs simultaneously – a ChipSim (embedded in the Hera) and two SIM cards. You must insert the SIM cards before you physically install the Hera. </p>
+
+<p>For information about installing the Hera, see the <a href="https://docs.eseye.com/Content/Resources/Files/8435-Hera-604v5-Series-Router-Quick-Start-Guide.pdf" target="_blank">8435 Hera 604v5 Series Router Quick Start Guide (PDF)</a>.</p>
+
+<Note>Eseye preconfigures the Hera cellular connection for you. </Note>
+
+<p>To configure SIMs:</p>
+
+<ol> <li> Using the Hera user interface, navigate to <span>Basic Settings</span> &gt; <span>Mobile Network</span> &gt; <span>Connection</span>. <br /><img src="/images/resources/images/hera/basicsettingsconnection.png" alt="Basicsettingsconnection" />  </li> <li>Enable the <span>Mobile connection</span>.</li> <li> Only for Hera models <span>H604xx-5...</span> or <span>H604xx-4...</span>. If required, enable the <span>Receive diversity</span> antenna.  <br />For more information, see<a href="/hardware-products/hera/600-series/end-panel-connectors604v5#top" target="_blank">Top panel functions</a>. </li> <li> Leave <span>Metric</span> as the default (2) unless you are planning to configure multiple WAN connections, such as Ethernet protected by cellular. <br />For information about the Health Monitor metric shift, see <a href="/hardware-products/hera/600-series/health-monitor604v5#General" target="_blank">Configuring general settings</a>. <span><strong>Tip: </strong>Contact Support if you would like to set up more complex multi-WAN interface configurations.</span> </li> <li> If your system is not preconfigured and you need to create a cellular profile, type a <span>Profile name</span> in the text box, then select <b>Create</b>. <br /><img src="/images/resources/images/hera/createcellularprofile.png" alt="Createcellularprofile" />  <br />The profile appears listed in the table. You must add connection details to the row. </li> <li> Type the mandatory <b>APN</b> name for the profile.  <br />Eseye may preconfigure multiple APNs to link to an MNO. Always use the APN specified in your contract. <br />For information about APNs, see <a href="/connectivity/anynet-apn-list">Current AnyNet APN list</a>. </li> <li>Type the APN <b>User name</b> to enable Hera access to the APN.</li> <li>Type the APN <b>Password</b>.</li> <li> If the SIM is a locked SIM, type the four digit SIM <span>PIN</span>. <br />This gives the Hera read access to the SIM and enables SIM access to the mobile operator's network. </li> <li> Select which <span>SIM</span> is linked to this profile, either: <ul> <li><span>CHIP</span> – the embedded ChipSIM</li> <li><span>SIM 1</span> – the SIM in slot SIM1</li> <li><span>SIM 2</span> – the SIM in slot SIM2</li> </ul> </li> <li>Select the <span>Active</span> option if this is the active profile that the Hera must use.</li> <li>At the top right, select <span>Save</span>.</li> </ol>
+
+<Note>Ensure the Health Monitor configuration is correct, so that the Health Monitor does not fail its ping test following mobile connection changes. For more information, see<a href="/hardware-products/hera/600-series/health-monitor604v5" target="_blank">Configuring the Health Monitor</a>.</Note>
+
+<h2 id="ConfiguringtheEthernetWAN">Configuring the Ethernet WAN</h2>
+
+<p>You can edit the Ethernet WAN configuration here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Ethernet WAN</span> &gt; <span>Configuration</span></p>
+
+<Note>Depending on your selections, different options appear.</Note>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>LAN port to be used as WAN</span> </td> <td> You can configure one of the LAN ports (<span>Link 1</span> to <span>4</span>) as a Wide Area Network. For more information, see<a href="/hardware-products/hera/600-series/end-panel-connectors604v5">About the end panel connectors</a>. <span><strong>Note: </strong>If you are browsing the Hera web interface via an Ethernet port, use a different port for the WAN so that you do not become disconnected from the Hera.</span> </td> </tr> <tr> <td><span>Address assignment</span> </td> <td> Either: <ul> <li><span>Static</span> – for manual configuration.</li> <li><span>DHCP</span> – for automatic configuration from a DHCP server on the LAN, taken from a pool of available numbers on the network.</li> <li><span>PPPoE</span> – for automatic configuration, using point-to-point protocol over Ethernet</li> </ul> </td> </tr> <tr> <td><span>WAN IP address</span> </td> <td>The Wide Area Network (WAN) IP address – either manually or automatically configured depending on the address assignment.</td> </tr> <tr> <td><span>Net mask</span> </td> <td>IPv4 netmask – either manually or automatically configured depending on the address assignment.</td> </tr> <tr> <td><span>Gateway</span> </td> <td>The WAN gateway address, for <span>Static</span> Address assignment only. </td> </tr> <tr> <td><span>DNS addresses</span> </td> <td>The IPv4 addresses of the DNS servers. Each address is a separate line item. Select <span>+</span> to add a new address, or <span>-</span> to remove an address. If you are using a DHCP address assignment, you can obtain DNS addresses from DHCP (see below).</td> </tr> <tr> <td><span>Metric</span> </td> <td>A numeric setting for WAN routing priority. <span>1</span> is the highest priority.</td> </tr> <tr> <td><span>Obtain gateway from DHCP</span> </td> <td> For <span>DHCP</span> address assignment only. Either:  <ul> <li><span>Yes</span> – DHCP will automatically obtain the default gateway</li> <li><span>No</span> – DHCP will not obtain the default gateway. You must add a route in the Routing section.</li> </ul> </td> </tr> <tr> <td><span>Obtain DNS from DHCP</span> </td> <td> For <span>DHCP</span> address assignment only. Either:  <ul> <li><span>Yes</span> – the DHCP server will automatically obtain the DNS addresses</li> <li><span>No</span> – DHCP will not obtain the DNS addresses. You must manually add the addresses in the <span>DNS addresses</span> field.</li> </ul> </td> </tr> <tr> <td><span>Username</span> </td> <td>For <span>PPPoE</span> Address assignment only. The administrator username for the PPPoE server.</td> </tr> <tr> <td><span>Password</span> </td> <td>For <span>PPPoE</span> Address assignment only. The administrator password for the PPPoE server.</td> </tr> </tbody> </table>
+
+<h2 id="ConfiguringRouting">Configuring Routing</h2>
+
+<p>Displays the active (dynamic) and static IPv4 routing tables.</p>
+
+<p>You can edit the Routing configuration here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Routing</span> &gt; <span>Active and static routes</span></p>
+
+<h3>Active and static routes</h3>
+
+<h4>Active routes:</h4>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Destination</span> </td> <td>The remote network IPv4 address.</td> </tr> <tr> <td><span>Netmask</span> </td> <td>IPv4 netmask.</td> </tr> <tr> <td><span>Interface</span> </td> <td>Identifies the exit interface used to forward a packet towards the final destination.</td> </tr> <tr> <td><span>Gateway</span> </td> <td>The WAN gateway address.</td> </tr> <tr> <td><span>Cost</span> </td> <td>A numeric setting for WAN routing priority. <span>1</span> is the highest priority.</td> </tr> </tbody> </table>
+
+<h4>Static routes:</h4>
+
+<p>Static route priority is determined by the order in which it appears in the table.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Name</span> </td> <td> The static route name. <br />Use the following syntax conventions:  <ul> <li>Must begin with an alphabetic character</li> <li>May contain alphanumeric upper- and lowercase characters (A-Z, a-z, 0-9)</li> <li>May contain the underscore character (&#95;)</li> </ul> </td> </tr> <tr> <td><span>Destination</span> </td> <td>The remote network IPv4 address.</td> </tr> <tr> <td><span>Netmask</span> </td> <td>The IPv4 netmask range.</td> </tr> <tr> <td><span>Interface</span> </td> <td>Identifies the exit interface used to forward a packet towards the final destination.</td> </tr> <tr> <td><span>Gateway</span> </td> <td>The WAN gateway address.</td> </tr> <tr> <td><span>Cost</span> </td> <td>A numeric setting for WAN routing priority. <span>1</span> is the highest priority.</td> </tr> </tbody> </table>
+
+<p>To create a new table entry:</p>
+
+<ol> <li> Under the table, type the new entry name into the text box. <br /><img src="/images/resources/images/hera/createnewentry.png" alt="Createnewentry" />  </li> <li> Select <span>Create</span> to add the entry to the table. </li> <li> Complete the entry details, as described in the table above. </li> <li> Select <span>Save</span> to commit your changes to the Hera. </li> </ol>
+
+<p>You can revert local changes to the last save.</p>
+
+<p>To revert your local changes:</p>
+
+<ul> <li> Select <span>Reset</span>. <br />All local changes are removed and the previous settings are displayed. </li> </ul>
+
+<p>To delete a table entry:</p>
+
+<ol> <li> Alongside the item you want to delete, select <span>Remove</span>. </li> <li> If required, select <span>Reinstate</span> alongside the item to undo the deletion. </li> <li> Select <span>Save</span> to commit your changes. <span><strong>Note: </strong>After you have saved, you can no longer reinstate a deleted item.</span> </li> </ol>
+
+<p>You can sort the table entries into a logical list.</p>
+
+<p>To sort a table entry in the list:</p>
+
+<ol> <li> Alongside the item you want to promote to the top of the list, select <span>Promote</span>. <br />The item moves up one row. </li> <li> When you have sorted the items, select <span>Save</span> to save your changes. </li> </ol>
+
+<h2 id="ConfiguringSecurity">Configuring Security</h2>
+
+<h3>Firewall status and filters</h3>
+
+<p>You can configure Firewall status and filters here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Security</span> &gt; <span>Firewall status and filters</span></p>
+
+<p>Select the slider to <span>Enable</span> or <span>Disable</span> the Firewall settings.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Property</th> <th> </th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><span>Filter name</span> </td> <td> The filter name. <br />Use the following syntax conventions:  <ul> <li>May contain alphanumeric upper- and lowercase characters (A-Z, a-z, 0-9)</li> <li>May contain the underscore character (&#95;)</li> </ul> </td> </tr> <tr> <td colspan="2"><span>Protocol</span> </td> <td> Select the network protocol for filtering the data flow. Either: <ul> <li><span>ALL</span> – all listed protocols</li> <li><span>AH</span> – Authentication Headers</li> <li><span>EGP</span> – Exterior Gateway Protocol</li> <li><span>ESP</span> – Encapsulating Security Payload</li> <li><span>GRE</span> – Generic Routing Encapsulation</li> <li><span>ICMP</span> – Internet Control Message Protocol</li> <li><span>IGMP</span> – Internet Group Management Protocol</li> <li><span>IP</span> – Internet Protocol</li> <li><span>IPIP</span> – IP-in-IP</li> <li><span>OSPF</span> – Open Shortest Path First</li> <li><span>RSVP</span> – Resource Reservation Protocol</li> <li><span>SCTP</span> – Stream Control Transmission Protocol</li> <li><span>TCP</span> – Transmission Control Protocol</li> <li><span>UDP</span> – User Datagram Protocol</li> <li><span>UDP LITE</span> – Lightweight User Datagram Protocol</li> <li><span>TCP and UDP</span> – both protocols</li> </ul> </td> </tr> <tr> <td colspan="2"><span>Source IP</span> </td> <td>The acceptable source IPv4 address range from which traffic is permitted.</td> </tr> <tr> <td> </td> <td><span>Start</span> </td> <td>The start IP address for the source IP address range.</td> </tr> <tr> <td> </td> <td><span>End / mask</span> </td> <td>The final IP address or netmask for the source IP address range.</td> </tr> <tr> <td colspan="2"><span>Source port</span> </td> <td>The acceptable source port range through which traffic is permitted. Numeric range: 1 to 65535, or blank.</td> </tr> <tr> <td> </td> <td><span>Start</span> </td> <td>The start port for the source port range.</td> </tr> <tr> <td> </td> <td><span>End</span> </td> <td>The final port for the source port range, either greater than or equal to the start source port.</td> </tr> <tr> <td colspan="2"><span>Destination IP</span> </td> <td>The acceptable destination IPv4 address range to which traffic is permitted.</td> </tr> <tr> <td> </td> <td><span>Start</span> </td> <td>The start IP address for the destination IP address range, usually left blank as the Hera operates using NAT.</td> </tr> <tr> <td> </td> <td><span>End / mask</span> </td> <td>The final IP address or netmask for the destination IP address range, usually left blank as the Hera operates using NAT.</td> </tr> <tr> <td colspan="2"><span>Dest. port</span> </td> <td> The acceptable destination port range through which traffic is permitted. Numeric range: 1 to 65535, or blank. </td> </tr> <tr> <td> </td> <td><span>Start</span> </td> <td>The start port for the destination port range.</td> </tr> <tr> <td> </td> <td><span>End</span> </td> <td>The end port for the destination port range, either greater than or equal to the start destination port.</td> </tr> <tr> <td colspan="2"><span>Permission</span> </td> <td> Data flow permission. Either: <ul> <li><span>Allowed</span> – permits traffic flow</li> <li><span>Denied</span> – prevents traffic flow</li> </ul> </td> </tr> <tr> <td colspan="2"><span>Status</span> </td> <td> The filter status. Either: <ul> <li><span>Enabled</span> – the filter is in use</li> <li><span>Disabled</span> – the filter is not in use</li> </ul> </td> </tr> </tbody> </table>
+
+<p>To create a new table entry:</p>
+
+<ol> <li> Under the table, type the new entry name into the text box. <br /><img src="/images/resources/images/hera/createnewentry.png" alt="Createnewentry" />  </li> <li> Select <span>Create</span> to add the entry to the table. </li> <li> Complete the entry details, as described in the table above. </li> <li> Select <span>Save</span> to commit your changes to the Hera. </li> </ol>
+
+<p>You can revert local changes to the last save.</p>
+
+<p>To revert your local changes:</p>
+
+<ul> <li> Select <span>Reset</span>. <br />All local changes are removed and the previous settings are displayed. </li> </ul>
+
+<p>To delete a table entry:</p>
+
+<ol> <li> Alongside the item you want to delete, select <span>Remove</span>. </li> <li> If required, select <span>Reinstate</span> alongside the item to undo the deletion. </li> <li> Select <span>Save</span> to commit your changes. <span><strong>Note: </strong>After you have saved, you can no longer reinstate a deleted item.</span> </li> </ol>
+
+<p>You can sort the table entries into a logical list.</p>
+
+<p>To sort a table entry in the list:</p>
+
+<ol> <li> Alongside the item you want to promote to the top of the list, select <span>Promote</span>. <br />The item moves up one row. </li> <li> When you have sorted the items, select <span>Save</span> to save your changes. </li> </ol>
+
+<h3>IP redirections</h3>
+
+<p>Enables port forwarding of new connections and associated data to a device on the LAN.</p>
+
+<p>You can configure IP redirections here:</p>
+
+<p><span>Basic Settings</span> &gt; <span>Security</span> &gt; <span>IP redirections</span></p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Property</th> <th> </th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><span>Redirection name</span> </td> <td>Identifies the redirection profile.</td> </tr> <tr> <td colspan="2"><span>Destination IP address</span> </td> <td>IPv4 address where the package is directed.</td> </tr> <tr> <td colspan="2"><span>Protocol</span> </td> <td> Select the network protocol for directing the data flow. Either: <ul> <li><span>ALL</span> – all listed protocols</li> <li><span>AH</span> – Authentication Headers</li> <li><span>EGP</span> – Exterior Gateway Protocol</li> <li><span>ESP</span> – Encapsulating Security Payload</li> <li><span>GRE</span> – Generic Routing Encapsulation</li> <li><span>ICMP</span> – Internet Control Message Protocol</li> <li><span>IGMP</span> – Internet Group Management Protocol</li> <li><span>IP</span> – Internet Protocol</li> <li><span>IPIP</span> – IP-in-IP</li> <li><span>OSPF</span> – Open Shortest Path First</li> <li><span>RSVP</span> – Resource Reservation Protocol</li> <li><span>SCTP</span> – Stream Control Transmission Protocol</li> <li><span>TCP</span> – Transmission Control Protocol</li> <li><span>UDP</span> – User Datagram Protocol</li> <li><span>UDP LITE</span> – Lightweight User Datagram Protocol</li> <li><span>TCP and UDP</span> – both protocols</li> </ul> </td> </tr> <tr> <td colspan="2"><span>External port</span> </td> <td>The receiving port range. Numeric range: 1 to 65535, or blank.</td> </tr> <tr> <td> </td> <td><span>Start</span> </td> <td>The first port in the range of receiving ports.</td> </tr> <tr> <td> </td> <td><span>End</span> </td> <td>The final port in the range of receiving ports, either greater than or equal to the start External port.</td> </tr> <tr> <td colspan="2"><span>Internal port</span> </td> <td>The target LAN port range. Numeric range: 1 to 65535, or blank.</td> </tr> <tr> <td> </td> <td><span>Start</span> </td> <td>The first port in the range of target ports.</td> </tr> <tr> <td> </td> <td><span>End / mask</span> </td> <td>The final port or netmask in the range of target ports, either greater than or equal to the start Internal port.</td> </tr> </tbody> </table>
+
+<p>To create a new table entry:</p>
+
+<ol> <li> Under the table, type the new entry name into the text box. <br /><img src="/images/resources/images/hera/createnewentry.png" alt="Createnewentry" />  </li> <li> Select <span>Create</span> to add the entry to the table. </li> <li> Complete the entry details, as described in the table above. </li> <li> Select <span>Save</span> to commit your changes to the Hera. </li> </ol>
+
+<p>You can revert local changes to the last save.</p>
+
+<p>To revert your local changes:</p>
+
+<ul> <li> Select <span>Reset</span>. <br />All local changes are removed and the previous settings are displayed. </li> </ul>
+
+<p>To delete a table entry:</p>
+
+<ol> <li> Alongside the item you want to delete, select <span>Remove</span>. </li> <li> If required, select <span>Reinstate</span> alongside the item to undo the deletion. </li> <li> Select <span>Save</span> to commit your changes. <span><strong>Note: </strong>After you have saved, you can no longer reinstate a deleted item.</span> </li> </ol>
+
+<p>You can sort the table entries into a logical list.</p>
+
+<p>To sort a table entry in the list:</p>
+
+<ol> <li> Alongside the item you want to promote to the top of the list, select <span>Promote</span>. <br />The item moves up one row. </li> <li> When you have sorted the items, select <span>Save</span> to save your changes. </li> </ol>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/hardware-products/hera/600-series/dashboard604v5" target="_blank">Using the Hera series router web interface</a> </li> <li><a href="/hardware-products/hera/600-series/setup-wizards604v5" target="_blank">Using the Setup Wizards</a> </li> <li><a href="/hardware-products/hera/600-series/health-monitor604v5">Configuring the Health Monitor</a> </li> <li><a href="/hardware-products/hera/600-series/file-management604v5">Performing File Management</a> </li> <li><a href="/hardware-products/hera/600-series/system-settings604v5">Configuring System Settings</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8435-Hera-604v5-Series-Router-Quick-Start-Guide.pdf" target="_blank">8435 Hera 604v5 Series Router Quick Start Guide (PDF)</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8792-Hera-604v5-Configuration-Administrator-Guide.pdf" target="_blank">8792 Hera 604v5 Configuration Administrator Guide (PDF)</a> </li> </ul> </div>

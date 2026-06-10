@@ -1,0 +1,54 @@
+---
+title: "EMQSUBOPEN – create a subscribe message topic"
+description: "Create and view subscribe message topics, which will enable you to send data from the MQTT broker to your thing."
+---
+
+<p>Create and view subscribe message topics, which will enable you to send data from the MQTT broker to your thing. </p>
+
+<Note>The topic name depends on the MQTT <span>&lt;<var>topicsuffix</var>&gt;</span> parameter, unless a token is used. For more information, see the [MQTT] section, <a href="/software-products/configuration-file">Using the AnyNet SMARTconnect™ configuration file</a>. </Note>
+
+<p>You can use the following tokens to construct the topic name:</p>
+
+<ul> <li><span>&#36;t</span> – returns the cloud thing Name</li> <li><span>&#36;i</span> – returns the device International Mobile Equipment Identity (IMEI) number</li> </ul>
+
+<p>For example, <span>status/&#36;i</span> publishes as <span>status/&lt;IMEI&gt;</span></p>
+
+<Note>You can only include one token in a topic.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQSUBOPEN=? </td> <td> +EMQSUBOPEN:(0-7),&lt;topic&gt;[,qos] <br />+EMQSUBOPEN: "topiclist" <br />  <br />OK </td> </tr> <tr> <td>Read</td> <td> AT+EMQSUBOPEN? </td> <td> List of subscribe topics. <br />0: &lt;subscribetopic0&gt;/&lt;[mqtt]topicsuffix&gt; <br />1: &lt;subscribetopic1&gt;/&lt;[mqtt]topicsuffix&gt; <br />  <br />OK <br />where:  <ul> <li>0, 1, and so on are the index numbers</li> <li><span>&lt;subscribetopic<i>n</i>&gt;</span> is the unique name for each subscribe index</li> <li> <span>&lt;[mqtt] topicsuffix&gt;</span> is the appended topic path. For more information, see <a href="/software-products/configuration-file#topicsuffix">topicsuffix</a>. <br /><span>&lt;[mqtt] topicsuffix&gt;</span> may comprise of <span>&#36;i</span> (IMEI) or <span>&#36;t</span> (cloud thingName).  <br /><span>&#36;t</span> has the following maximum lengths:  <ul> <li>AWS – 128 characters </li> <li>Google – 255 characters </li> </ul> <span><strong>Note: </strong>The sum of <span>&lt;publishtopic<var>n</var>&gt;</span> and <span>&lt;[mqtt] topicsuffix&gt;</span> must not exceed the maximum size allowed by the MQTT broker, which is 256 characters for both AWS and Google. </span> </li> <li> The Quectel module does not report empty topics. </li> </ul> </td> </tr> <tr> <td>Write</td> <td> AT+EMQSUBOPEN=(<var>0-7</var>), " &lt;<var>topic</var>&gt; /[&#36;t | &#36;i]"[,<var>qos</var>] <br />or <br /><span>AT+EMQSUBOPEN="topiclist"</span>  <br />where:  <ul> <li><span>(<var>0-7</var>)</span> is a subscribe index number in the range from 0, up to and including 7.</li> <li><span>&lt;<var>topic</var>&gt;</span> is the subscribe topic title with a maximum length of 256 characters (including /cloudThingName or /IMEI). Topic titles cannot contain special characters.</li> <li><span>topiclist</span> requests a list of the subscribe topics and their current state</li> <li><span>&#36;t</span> or <span>&#36;i</span> are optional values, described above.</li> <li> <var>qos</var> is the optional Quality of Service value, either:<span>0</span> (default) – at most once, no guarantee of message receipt<br /><span>1</span> – the message is sent or delivered to the receiver one or more times</li> </ul> </td> <td> OK <br />+EMQSUBOPEN: (0-7),&lt;status&gt; <br />where  <ul> <li><span>(0-7)</span> is the subscribe index number you selected from the range</li> <li><span>&lt;status&gt;</span> is:<ul><li><span>0</span> – successfully installed the subscribe topic</li><li><span>-1</span> – the MQTT broker rejected the subscribe request</li><li><span>-2</span> – subscribe index already in use</li></ul></li> </ul> <br />For <span>topiclist</span>, returns the subscribe topic list, including their state: <br />+EMQSUBOPEN: <br />0: &lt;subscribetopic0&gt;/&lt;[mqtt]topicsuffix&gt;,&lt;topicstate&gt; <br />1: &lt;subscribetopic1&gt;/&lt;[mqtt]topicsuffix&gt;,&lt;topicstate&gt; <br />where: <ul> <li> see above for parameter descriptions </li> <li> <span>topicstate</span> – is one of the following states: <ul> <li> <span>NOT SUBSCRIBED</span> – the topic is not yet subscribed with the MQTT broker, for reasons including no cellular signal, or no connection to the MQTT broker </li> <li> <span>SUBSCRIBING</span> – AnyNet SMARTconnect™ is attempting to subscribe to the topic with the MQTT broker </li> <li> <span>SUBSCRIBED</span> – the topic is correctly subscribed with the MQTT broker </li> <li> <span>UNSUBSCRIBING</span> – AnyNet SMARTconnect™ has received an <span>AT+EMQSUBCLOSE</span> command for this topic </li> <li> <span>UNSUBSCRIBE REQ</span> – AnyNet SMARTconnect™ sent an unsubscribe topic request to the MQTT broker </li> <li> <span>SUBSCRIBE TEMP SUSPEND</span> – when AnyNet SMARTconnect™ fails to subscribe to a topic with the MQTT broker, subscription is suspended until after AnyNet SMARTconnect™ has processed all current subscribe/unsubscribe requests </li> <li> <span>UNSUBSCRIBE TEMP SUSPEND</span> – when AnyNet SMARTconnect™ fails to unsubscribe to a topic with the MQTT broker, the unsubscribe action is suspended until after AnyNet SMARTconnect™ has processed all current subscribe/unsubscribe requests </li> </ul> </li> </ul> <br />or <br /><span>+ETM ERROR: &lt;errormessage&gt;</span> – returned for an AT command-specific error <br />or <br /><span>ERROR</span> – returned when a command is invalid, for example a parameter is missing or incorrect <span><strong>Tip: </strong>Check you have sent the <span>AT+ETMSTATE="startmqtt"</span> command to enable MQTT.</span> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQSUBOPEN=0,<span>"</span>SubscribeFromCloud0<span>/&#36;i,1"</span></p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQSUBOPEN: 0,0</p>
+
+<p> </p>
+
+<p>AT+EMQSUBOPEN=1,<span>"</span>SubscribeFromCloud1<span>"</span></p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQSUBOPEN: 1,0</p>
+
+<p> </p>
+
+<p>AT+EMQSUBOPEN?</p>
+
+<p>+EMQSUBOPEN:</p>
+
+<p>0: SubscribeFromCloud0/862061040777777</p>
+
+<p>1: SubscribeFromCloud1/cloudThingName</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

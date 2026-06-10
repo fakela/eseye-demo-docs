@@ -1,0 +1,48 @@
+---
+title: "Locating devices using a cellular connection"
+description: "You may require device tracking for all your devices, including those that exist in a fixed location."
+---
+
+<p>You may require device tracking for all your devices, including those that exist in a fixed location. </p>
+
+<p>Eseye can locate devices using a cellular connection in the following ways:</p>
+
+<ul> <li><a href="#Country">Country location service</a> </li> <li><a href="#Standard">Standard location service</a> </li> <li><a href="#Premium">Premium location service</a> </li> </ul>
+
+<h2 id="Countrylocationservice">Country location service</h2>
+
+<p>Provides the last recorded country in which the device was located, for billing purposes. Eseye records the three-digit Mobile Country Code (MCC) with each billable event so that the activity is billed correctly. For more information, see <a href="http://en.wikipedia.org/wiki/Mobile_country_code">http://en.wikipedia.org/wiki/Mobile&#95;country&#95;code</a>.</p>
+
+<p>The system uses a variety of sources for this information, and updates when new information becomes available. </p>
+
+<p>This feature is included in your monthly service charge. You can view MCC information using the CSV invoice, <span>SIM Summary</span> in the SIAM portal, or JSON API. </p>
+
+<p>The <span>SIM summary</span> in the SIAM portal displays location information as follows:</p>
+
+<p><img src="/images/resources/images/apis/location/siamsimsummary.png" alt="Siamsimsummary" /> </p>
+
+<h2 id="Standardlocationservice">Standard location service</h2>
+
+<p>Provides an approximate location using information supplied by the mobile networks when the device authenticates on Eseye RADIUS servers. </p>
+
+<p>The system uses a number of cell lookup databases, which update periodically with location information. The information varies – sometimes the network supplies a good approximation of the location, at other times only the country is available. Occasionally, no information is supplied at all.</p>
+
+<p>This feature is included in your monthly service charge. This information is only available using the <span>SIM Summary</span> on the SIAM portal. If Location Area Identity (LAI) and Cell Identification (CI) information are available, you can view the device location on a map. Select <img src="/images/resources/images/apis/location/mapicon_19x17.png" alt="Mapicon 19X17" /> to view the map:</p>
+
+<p><img src="/images/resources/images/apis/location/siamlocationmap.png" alt="Siamlocationmap" /> </p>
+
+<h2 id="Premiumlocationservice">Premium location service</h2>
+
+<p> Provides approximate device coordinates, both latitude and longitude, using information from the Home Location Register (HLR) and by performing a cell tower lookup from an application on the SIM. If the device is offline, then the last recorded location is used. </p>
+
+<p>The Premium location service has a monthly subscription charge. This information is only available using the JSON Location API. As part of the service, users can also register to receive an HTTP POST notification if the location information changes. The Location API displays location information as follows:</p>
+
+<p><img src="/images/resources/images/apis/location/locationapi.png" alt="Locationapi" /> </p>
+
+<p>For information about Location API, see the <a href="https://docs.eseye.com/Content/Resources/Files/8313-Location-API-1.0-Developer-Guide.pdf">Location API 1.0 Developer Guide (PDF)</a>.</p>
+
+<p>If you want to subscribe to the Location API, speak to your Account Manager.</p>
+
+<h2 id="Comparisonofavailablelocationservices">Comparison of available location services</h2>
+
+<table> <col /> <col /> <col /> <col /> <thead> <tr> <th> </th> <th>Country location</th> <th>Standard location</th> <th>Premium location</th> </tr> </thead> <tbody> <tr> <td><span>Detail supplied:</span> </td> <td>Mobile Country Code (MCC)</td> <td>Map view</td> <td>Latitude/ longitude coordinates</td> </tr> <tr> <td><span>Interface:</span> </td> <td>CSV invoice, <span>SIM Summary</span> in the SIAM portal, or via JSON API</td> <td><span>SIM Summary</span> in the SIAM portal</td> <td>On request/ push using the <span>Location API</span></td> </tr> <tr> <td><span>Availability:</span> </td> <td>Last billing record from host network</td> <td>Last authentication</td> <td>On demand</td> </tr> <tr> <td><span>Resolution:</span> </td> <td>Country</td> <td>Variable, depending on available network information. Maximum resolution: up to two decimal places of the latitude and longitude</td> <td>Full latitude and longitude</td> </tr> <tr> <td><span>Cell database used:</span> </td> <td>N/A</td> <td>Standard</td> <td>Premium</td> </tr> </tbody> </table>

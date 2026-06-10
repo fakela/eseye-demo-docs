@@ -1,0 +1,1967 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="168.91605mm"
+   height="89.092606mm"
+   viewBox="0 0 168.91605 89.092606"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="SmsBilling.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="2.5620932"
+     inkscape:cx="350.68983"
+     inkscape:cy="152.21929"
+     inkscape:window-width="1920"
+     inkscape:window-height="1010"
+     inkscape:window-x="-7"
+     inkscape:window-y="-7"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     lock-margins="true"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5">
+    <sodipodi:guide
+       position="60.943286,-101.56677"
+       orientation="0,-1"
+       id="guide25858" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1379"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1377" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1383"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1381" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1387"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1385" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1391"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1389" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1395"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1393" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1399"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1397" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1403"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1401" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1407"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1405" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1411"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1409" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1415"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1413" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1419"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1417" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1423"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1421" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1427"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1425" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1431"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1429" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1435"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1433" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1439"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1437" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-45" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-19"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-28"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutM-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10912-54" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-6.8583279,-31.574284)">
+    <path
+       id="path56428"
+       style="color:#000000;font-variation-settings:normal;vector-effect:none;fill:#3789ec;fill-opacity:1;stroke-width:0.747997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+       d="m 89.270253,95.930122 v 0.19525 0.94014 c -0.33052,0.0898 -0.64607,0.22183 -0.94271,0.39309 l -0.80355,-0.8045 -1.45127,1.45104 0.80378,0.80355 c -0.17121,0.29667 -0.30238,0.61334 -0.39214,0.9439 h -1.13541 v 2.051588 h 1.13541 c 0.0898,0.33071 0.22078,0.64689 0.39214,0.94366 l -0.80378,0.80355 1.45127,1.45034 0.80355,-0.80356 c 0.29664,0.17126 0.6122,0.30305 0.94271,0.39286 v 1.13446 h 2.05254 v -1.13446 c 0.33053,-0.0898 0.64632,-0.22165 0.94296,-0.39286 l 0.80356,0.80356 1.45126,-1.45034 -0.8047,-0.80449 c 0.17116,-0.2966 0.30331,-0.61225 0.39307,-0.94272 h 1.13541 v -2.051588 h -1.13446 c -0.0892,-0.33112 -0.22028,-0.64824 -0.39121,-0.94553 l 0.8019,-0.80192 -1.45127,-1.45104 -0.80169,0.80261 c -0.29705,-0.17081 -0.61398,-0.30198 -0.94482,-0.3912 v -1.13539 z m 1.02627,2.4597 c 1.37646,3e-5 2.48808,1.11165 2.48811,2.488098 7e-5,1.37651 -1.11158,2.48877 -2.48811,2.48881 -1.37657,6e-5 -2.48791,-1.11223 -2.48786,-2.48881 4e-5,-1.376518 1.11135,-2.488178 2.48786,-2.488098 z" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="74.09996"
+       y="110.61228"
+       id="text56432"><tspan
+         sodipodi:role="line"
+         id="tspan56430"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="74.09996"
+         y="110.61228">Customer SMS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="77.899353"
+       y="114.84563"
+       id="text56436"><tspan
+         sodipodi:role="line"
+         id="tspan56434"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="77.899353"
+         y="114.84563">application</tspan></text>
+    <g
+       id="path56438">
+      <path
+         style="color:#000000;fill:#3789ec;-inkscape-stroke:none"
+         d="m 85.552734,77.226562 v 15.078125 h 0.794922 V 77.226562 Z"
+         id="path73493" />
+      <g
+         id="g73483">
+        <g
+           id="path73485">
+          <path
+             style="color:#000000;fill:#3789ec;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 85.950394,94.136337 -1.5875,-2.746375 h 3.175 z"
+             id="path73489" />
+          <path
+             style="color:#000000;fill:#3789ec;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 83.996094,91.177734 1.955078,3.38086 0.18164,-0.316407 1.771485,-3.064453 z m 0.734375,0.423828 h 2.441406 l -1.220703,2.113282 z"
+             id="path73491" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="path57389">
+      <path
+         style="color:#000000;fill:#434d6c;-inkscape-stroke:none"
+         d="m 91.458984,78.041016 v 15.078125 h 0.792969 V 78.041016 Z"
+         id="path73507" />
+      <g
+         id="g73497">
+        <g
+           id="path73499">
+          <path
+             style="color:#000000;fill:#434d6c;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 91.855077,76.209555 1.5875,2.746375 h -3.175 z"
+             id="path73503" />
+          <path
+             style="color:#000000;fill:#434d6c;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 91.855469,75.787109 -0.183594,0.316407 -1.771484,3.064453 h 3.908203 z m 0,0.847657 1.220703,2.109375 h -2.441406 z"
+             id="path73505" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="path57387">
+      <path
+         style="color:#000000;fill:#86b355;-inkscape-stroke:none"
+         d="m 93.117187,79.441406 v 15.078125 h 0.792969 V 79.441406 Z"
+         id="path73521" />
+      <g
+         id="g73511">
+        <g
+           id="path73513">
+          <path
+             style="color:#000000;fill:#86b355;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 93.513571,77.609881 1.5875,2.746375 h -3.175 z"
+             id="path73517" />
+          <path
+             style="color:#000000;fill:#86b355;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 93.513672,77.1875 -0.183594,0.316406 -1.771484,3.064453 h 3.910156 z m 0,0.845703 1.220703,2.111328 h -2.441406 z"
+             id="path73519" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="path56442">
+      <path
+         style="color:#000000;fill:#3789ec;-inkscape-stroke:none"
+         d="m 94.775391,80.841797 v 15.078125 h 0.792968 V 80.841797 Z"
+         id="path73535" />
+      <g
+         id="g73525">
+        <g
+           id="path73527">
+          <path
+             style="color:#000000;fill:#3789ec;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 95.172065,79.010201 1.5875,2.746375 h -3.175 z"
+             id="path73531" />
+          <path
+             style="color:#000000;fill:#3789ec;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 95.171875,78.587891 -0.183594,0.316406 -1.771484,3.064453 h 3.910156 z m 0,0.845703 1.220703,2.111328 h -2.441406 z"
+             id="path73533" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g4118"
+       transform="matrix(0.51776716,0,0,0.51776716,-386.21739,-167.10846)"
+       style="fill:#434d6c;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path4108" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path4110" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path4112" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path4114" />
+      <path
+         id="path4116"
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text9018"
+       transform="translate(-227.25049,-142.37624)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan73989"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan73987">AnyNet SIM</tspan></tspan></text>
+    <g
+       id="g9780"
+       transform="matrix(0.51776716,0,0,0.51776716,-386.21739,-144.49233)"
+       style="fill:#86b355;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path9770" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path9772" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path9774" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path9776" />
+      <path
+         id="path9778"
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text12528"
+       transform="translate(-229.40631,-119.68603)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan73993"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan73991">3rd Party SIM</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#316094;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       id="rect14384"
+       width="41.720448"
+       height="40.274689"
+       x="-94.513618"
+       y="-86.914551"
+       ry="4.3783627" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:37.6522;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text14504"
+       transform="translate(-142.62859,-135.68362)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan73997"><tspan
+   style="font-weight:bold"
+   id="tspan73995">AnyNet</tspan><tspan
+   y="64.492027"
+   id="tspan73999"> </tspan></tspan><tspan
+         x="68.746262"
+         y="70.665643"
+         id="tspan74003"><tspan
+   style="font-weight:bold"
+   id="tspan74001">Messaging</tspan><tspan
+   y="70.665643"
+   id="tspan74005"> </tspan></tspan><tspan
+         x="68.746262"
+         y="76.839258"
+         id="tspan74009"><tspan
+           style="font-weight:bold"
+           id="tspan74007">Service</tspan></tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m -126.64671,-76.815491 h 26.849792"
+       id="path18169" />
+    <text
+       xml:space="preserve"
+       id="text18382"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-127.12931"
+       y="-77.742096"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <text
+       xml:space="preserve"
+       id="text19567"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-127.1293"
+       y="-68.384399"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS EXT</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m -126.64671,-73.358611 h 28.353079 l -2e-6,17.96871 h -26.098147"
+       id="path25548"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#ffa400;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M -98.293629,-83.687461 H -125.14342"
+       id="path26182" />
+    <text
+       xml:space="preserve"
+       id="text26184"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-114.92637"
+       y="-84.835297"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MT SMS</text>
+    <g
+       id="g27246"
+       transform="matrix(0.51776716,0,0,0.51776716,-388.33407,-70.135501)"
+       style="fill:#434d6c;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path27236" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path27238" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path27240" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path27242" />
+      <path
+         id="path27244"
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text27252"
+       transform="translate(-229.36716,-45.403281)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74013"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74011">AnyNet SIM</tspan></tspan></text>
+    <g
+       id="g27264"
+       transform="matrix(0.51776716,0,0,0.51776716,-388.33407,-45.402691)"
+       style="fill:#86b355;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path27254" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path27256" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path27258" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path27260" />
+      <path
+         id="path27262"
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text27270"
+       transform="translate(-231.52297,-20.596391)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74017"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74015">3rd Party SIM</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#316094;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       id="rect27272"
+       width="41.720448"
+       height="40.274689"
+       x="-89.751106"
+       y="10.058425"
+       ry="4.3783627" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:37.6522;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text27290"
+       transform="translate(-137.86609,-38.710661)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74021"><tspan
+   style="font-weight:bold"
+   id="tspan74019">AnyNet</tspan><tspan
+   y="64.492027"
+   id="tspan74023"> </tspan></tspan><tspan
+         x="68.746262"
+         y="70.665643"
+         id="tspan74027"><tspan
+   style="font-weight:bold"
+   id="tspan74025">Messaging</tspan><tspan
+   y="70.665643"
+   id="tspan74029"> </tspan></tspan><tspan
+         x="68.746262"
+         y="76.839258"
+         id="tspan74033"><tspan
+           style="font-weight:bold"
+           id="tspan74031">Service</tspan></tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m -125.89507,14.023639 h 26.849798"
+       id="path27292" />
+    <text
+       xml:space="preserve"
+       id="text27294"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-121.55126"
+       y="13.09703"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M -97.541983,68.254249 H -124.39178"
+       id="path27296" />
+    <text
+       xml:space="preserve"
+       id="text27298"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-121.55126"
+       y="30.258558"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MT SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#ffa400;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M -97.541983,46.297809 H -124.39178"
+       id="path27300" />
+    <text
+       xml:space="preserve"
+       id="text27302"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-121.55126"
+       y="51.75914"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS EXT</text>
+    <path
+       id="path27304"
+       style="color:#000000;font-variation-settings:normal;vector-effect:none;fill:#3789ec;fill-opacity:1;stroke-width:0.747997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+       d="m -70.371414,85.911089 v 0.19525 0.94014 c -0.33052,0.0898 -0.64607,0.22183 -0.94271,0.39309 l -0.80355,-0.8045 -1.45127,1.45104 0.80378,0.80355 c -0.17121,0.29667 -0.30238,0.61334 -0.39214,0.9439 h -1.13541 v 2.05159 h 1.13541 c 0.0898,0.33071 0.22078,0.64689 0.39214,0.94366 l -0.80378,0.80355 1.45127,1.45034 0.80355,-0.80356 c 0.29664,0.17126 0.6122,0.30305 0.94271,0.39286 v 1.13446 h 2.05254 v -1.13446 c 0.33053,-0.0898 0.64632,-0.22165 0.94296,-0.39286 l 0.80356,0.80356 1.45126,-1.45034 -0.8047,-0.80449 c 0.17116,-0.2966 0.30331,-0.61225 0.39307,-0.94272 h 1.13541 v -2.05159 h -1.13446 c -0.0892,-0.33112 -0.22028,-0.64824 -0.39121,-0.94553 l 0.8019,-0.80192 -1.45127,-1.45104 -0.80169,0.80261 c -0.29705,-0.17081 -0.61398,-0.30198 -0.94482,-0.3912 v -1.13539 z m 1.02627,2.4597 c 1.37646,3e-5 2.48808,1.11165 2.48811,2.4881 7e-5,1.37651 -1.11158,2.48877 -2.48811,2.48881 -1.37657,6e-5 -2.48791,-1.11223 -2.48786,-2.48881 4e-5,-1.37652 1.11135,-2.48818 2.48786,-2.4881 z" />
+    <rect
+       style="font-variation-settings:normal;fill:#c5d4e2;fill-opacity:1;stroke:none;stroke-width:0.491861;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000"
+       id="rect27306"
+       width="29.543047"
+       height="20.860525"
+       x="-83.662407"
+       y="44.763504"
+       ry="3.7495308" />
+    <g
+       id="g27314"
+       transform="translate(-191.93826,-167.86855)">
+      <path
+         id="path27308"
+         style="color:#000000;font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke-width:0.772295;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+         d="m 121.98761,215.69521 v 0.20159 0.97069 c -0.34126,0.0927 -0.66706,0.22903 -0.97333,0.40585 l -0.82965,-0.83063 -1.49842,1.49818 0.82989,0.82965 c -0.17677,0.3063 -0.3122,0.63326 -0.40488,0.97456 h -1.17229 v 2.11823 h 1.17229 c 0.0928,0.34146 0.22796,0.66791 0.40488,0.97431 l -0.82989,0.82965 1.49842,1.49745 0.82965,-0.82965 c 0.30627,0.17682 0.63208,0.31289 0.97333,0.40562 v 1.17131 h 2.11921 v -1.17131 c 0.34127,-0.0927 0.66731,-0.22886 0.97359,-0.40562 l 0.82966,0.82965 1.49841,-1.49745 -0.83085,-0.83062 c 0.17673,-0.30624 0.31317,-0.63213 0.40585,-0.97334 h 1.17229 v -2.11823 h -1.17131 c -0.0921,-0.34188 -0.22744,-0.6693 -0.40392,-0.97624 l 0.82795,-0.82797 -1.49842,-1.49818 -0.82772,0.82868 c -0.3067,-0.17635 -0.63393,-0.31179 -0.97552,-0.4039 v -1.17228 z m 1.05961,2.5396 c 1.42117,3e-5 2.5689,1.14777 2.56893,2.56893 7e-5,1.42122 -1.14769,2.56961 -2.56893,2.56965 -1.42129,6e-5 -2.56873,-1.14836 -2.56868,-2.56965 4e-5,-1.42124 1.14746,-2.56901 2.56868,-2.56893 z" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:0.264583"
+         x="113.99865"
+         y="230.37859"
+         id="text27312"><tspan
+           sodipodi:role="line"
+           id="tspan27310"
+           style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+           x="113.99865"
+           y="230.37859">SMS API</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="-85.541687"
+       y="100.59325"
+       id="text27318"><tspan
+         sodipodi:role="line"
+         id="tspan27316"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="-85.541687"
+         y="100.59325">Customer SMS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="-81.742287"
+       y="104.82658"
+       id="text27322"><tspan
+         sodipodi:role="line"
+         id="tspan27320"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="-81.742287"
+         y="104.82658">application</tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m -126.64671,71.662109 h 26.849795"
+       id="path27324" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m -126.64671,43.075739 h 26.849794 l -2e-6,-17.96871 h -24.594862"
+       id="path27326"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#ffa400;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m -73.299044,67.208139 v 15.07719"
+       id="path27328"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       id="text27330"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-55.872547"
+       y="75.264633"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#ffa400;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M -65.996864,84.540259 V 69.463069"
+       id="path27332"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#ffa400;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M -97.541983,17.673259 H -124.39178"
+       id="path27334" />
+    <text
+       xml:space="preserve"
+       id="text27336"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="-121.55126"
+       y="23.134596"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MT SMS</text>
+    <g
+       id="g54766"
+       transform="matrix(0.51776716,0,0,0.51776716,-225.27853,-165.50826)"
+       style="fill:#434d6c;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path54756" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path54758" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path54760" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path54762" />
+      <path
+         id="path54764"
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text54772"
+       transform="translate(-64.651772,-140.08912)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74037"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74035">AnyNet SIM</tspan></tspan></text>
+    <g
+       id="g54784"
+       transform="matrix(0.51776716,0,0,0.51776716,-108.87566,-173.50879)"
+       style="fill:#86b355;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 494.84364,172.26333 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path54774" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 497.59813,172.35331 v 4.07795 h 0.0863"
+         id="path54776" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 501.30928,172.35331 v 4.07795 h 0.0863"
+         id="path54778" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 504.93413,172.35331 v 4.07795 h 0.0863"
+         id="path54780" />
+      <path
+         id="path54782"
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 506.82827,190.54927 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 h -9.55959 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text54790"
+       transform="translate(108.52898,-140.99331)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74041"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74039">3rd Party SIM</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#316094;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       id="rect54792"
+       width="41.720448"
+       height="40.274689"
+       x="69.436424"
+       y="-85.282463"
+       ry="4.3783627" />
+    <rect
+       style="font-variation-settings:normal;fill:#c5d4e2;fill-opacity:1;stroke:none;stroke-width:0.491861;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000"
+       id="rect54794"
+       width="29.543045"
+       height="8.738903"
+       x="75.525124"
+       y="-46.568329"
+       ry="3.7495308" />
+    <text
+       xml:space="preserve"
+       id="text54796"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="50.84388"
+       y="-30.898161"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MO API</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 36.218448,-80.001515 H 63.068242"
+       id="path54798" />
+    <text
+       xml:space="preserve"
+       id="text54800"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="35.735847"
+       y="-80.928131"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 65.323173,-59.141293 H 38.473379"
+       id="path54802" />
+    <text
+       xml:space="preserve"
+       id="text54804"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="47.5686"
+       y="-60.067909"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MT SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 114.28938,-80.001515 h 26.84979"
+       id="path54806" />
+    <text
+       xml:space="preserve"
+       id="text54808"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="113.80678"
+       y="-80.928131"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS EXT</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 36.218448,-72.359651 H 63.068242"
+       id="path54810" />
+    <text
+       xml:space="preserve"
+       id="text54812"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="35.735847"
+       y="-73.286263"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 36.218448,-51.086355 H 63.068242"
+       id="path54814" />
+    <text
+       xml:space="preserve"
+       id="text54816"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="35.735847"
+       y="-52.01297"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 143.80718,-59.141293 h -26.8498"
+       id="path54818" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 143.80718,-51.086355 h -26.8498"
+       id="path54820" />
+    <path
+       style="opacity:0.5;fill:none;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 63.068239,-80.001518 51.221141,3e-6"
+       id="path54822" />
+    <g
+       id="g54834"
+       transform="matrix(0.51776716,0,0,0.51776716,-225.27853,-144.64804)"
+       style="fill:#434d6c;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path54824" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path54826" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path54828" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path54830" />
+      <path
+         id="path54832"
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text54840"
+       transform="translate(-64.651772,-119.2289)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74045"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74043">AnyNet SIM</tspan></tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       d="m 63.068242,-51.086357 h 16.686414 v 15.067253"
+       id="path54842"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       d="m 63.068242,-72.35965 9.793528,-6e-6 v 13.218358 l -7.538599,3e-6"
+       id="path54844" />
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       d="M 116.95738,-51.086357 H 85.888488"
+       id="path54846" />
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       d="m 116.95738,-59.141295 -44.09561,-3e-6"
+       id="path54848" />
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       d="M 85.889457,-33.764176 V -59.293708"
+       id="path54850" />
+    <path
+       id="path54852"
+       style="color:#000000;font-variation-settings:normal;vector-effect:none;fill:#3789ec;fill-opacity:1;stroke-width:0.747997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+       d="m 49.744411,-28.077566 v 0.19525 0.94014 c -0.33052,0.0898 -0.64607,0.22183 -0.94271,0.39309 l -0.80355,-0.8045 -1.45127,1.45104 0.80378,0.80355 c -0.17121,0.29667 -0.30238,0.61334 -0.39214,0.9439 h -1.13541 v 2.05159 h 1.13541 c 0.0898,0.33071 0.22078,0.64689 0.39214,0.94366 l -0.80378,0.80355 1.45127,1.45034 0.80355,-0.80356 c 0.29664,0.17126 0.6122,0.30305 0.94271,0.39286 v 1.13446 h 2.05254 v -1.13446 c 0.33053,-0.0898 0.64632,-0.22165 0.94296,-0.39286 l 0.80356,0.80356 1.45126,-1.45034 -0.8047,-0.80449 c 0.17116,-0.2966 0.30331,-0.61225 0.39307,-0.94272 h 1.13541 v -2.05159 h -1.13446 c -0.0892,-0.33112 -0.22028,-0.64824 -0.39121,-0.94553 l 0.8019,-0.80192 -1.45127,-1.45104 -0.80169,0.80261 c -0.29705,-0.17081 -0.61398,-0.30198 -0.94482,-0.3912 v -1.13539 z m 1.02627,2.4597 c 1.37646,3e-5 2.48808,1.11165 2.48811,2.4881 7e-5,1.37651 -1.11158,2.48877 -2.48811,2.48881 -1.37657,6e-5 -2.48791,-1.11223 -2.48786,-2.48881 4e-5,-1.37652 1.11135,-2.48818 2.48786,-2.4881 z" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="12.083404"
+       y="-23.764509"
+       id="text54856"><tspan
+         sodipodi:role="line"
+         id="tspan54854"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="12.083404"
+         y="-23.764509">Customer SMS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="15.882815"
+       y="-19.531179"
+       id="text54860"><tspan
+         sodipodi:role="line"
+         id="tspan54858"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="15.882815"
+         y="-19.531179">application</tspan></text>
+    <g
+       id="g54872"
+       transform="matrix(0.51776716,0,0,0.51776716,-108.87566,-151.01807)"
+       style="fill:#86b355;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 494.84364,172.26333 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path54862" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 497.59813,172.35331 v 4.07795 h 0.0863"
+         id="path54864" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 501.30928,172.35331 v 4.07795 h 0.0863"
+         id="path54866" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 504.93413,172.35331 v 4.07795 h 0.0863"
+         id="path54868" />
+      <path
+         id="path54870"
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 506.82827,190.54927 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 h -9.55959 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text54878"
+       transform="translate(108.52898,-118.50259)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74049"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74047">3rd Party SIM</tspan></tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 79.754656,-36.019106 V -27.4562 H 59.293706"
+       id="path54880"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       id="text54882"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="57.269798"
+       y="-21.843451"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MT API</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 57.004172,-20.893485 H 86.074233 V -34.073366"
+       id="path54884"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="M 96.622777,-33.764176 V -79.593769"
+       id="path54886" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:37.6522;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text54904"
+       transform="translate(21.321448,-134.05155)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74053"><tspan
+   style="font-weight:bold"
+   id="tspan74051">AnyNet</tspan><tspan
+   y="64.492027"
+   id="tspan74055"> </tspan></tspan><tspan
+         x="68.746262"
+         y="70.665643"
+         id="tspan74059"><tspan
+   style="font-weight:bold"
+   id="tspan74057">Messaging</tspan><tspan
+   y="70.665643"
+   id="tspan74061"> </tspan></tspan><tspan
+         x="68.746262"
+         y="76.839258"
+         id="tspan74065"><tspan
+           style="font-weight:bold"
+           id="tspan74063">Service</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:0.264583"
+       x="81.247925"
+       y="-40.717213"
+       id="text54908"><tspan
+         sodipodi:role="line"
+         id="tspan54906"
+         style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+         x="81.247925"
+         y="-40.717213">SMS API</tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#36b0c9;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 57.004172,-15.85498 H 91.185759 V -33.927322"
+       id="path54910"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       id="text54912"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="57.269798"
+       y="-16.731924"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MT API</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#36b0c9;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 102.97106,-36.019106 v 8.562906 h 20.46095"
+       id="path54914"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 125.72154,-20.893485 H 96.651484 v -13.179881"
+       id="path54916"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       id="text54918"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="103.65933"
+       y="-32.547409"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MO API</text>
+    <path
+       id="path54920"
+       style="color:#000000;font-variation-settings:normal;vector-effect:none;fill:#36b0c9;fill-opacity:1;stroke-width:0.747997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+       d="m 134.91146,-28.077566 v 0.19525 0.94014 c 0.33052,0.0898 0.64607,0.22183 0.94271,0.39309 l 0.80355,-0.8045 1.45127,1.45104 -0.80378,0.80355 c 0.17121,0.29667 0.30238,0.61334 0.39214,0.9439 h 1.13541 v 2.05159 h -1.13541 c -0.0898,0.33071 -0.22078,0.64689 -0.39214,0.94366 l 0.80378,0.80355 -1.45127,1.45034 -0.80355,-0.80356 c -0.29664,0.17126 -0.6122,0.30305 -0.94271,0.39286 v 1.13446 h -2.05254 v -1.13446 c -0.33053,-0.0898 -0.64632,-0.22165 -0.94296,-0.39286 l -0.80356,0.80356 -1.45126,-1.45034 0.8047,-0.80449 c -0.17116,-0.2966 -0.30331,-0.61225 -0.39307,-0.94272 h -1.13541 v -2.05159 h 1.13446 c 0.0892,-0.33112 0.22028,-0.64824 0.39121,-0.94553 l -0.8019,-0.80192 1.45127,-1.45104 0.80169,0.80261 c 0.29705,-0.17081 0.61398,-0.30198 0.94482,-0.3912 v -1.13539 z m -1.02627,2.4597 c -1.37646,3e-5 -2.48808,1.11165 -2.48811,2.4881 -7e-5,1.37651 1.11158,2.48877 2.48811,2.48881 1.37657,6e-5 2.48791,-1.11223 2.48786,-2.48881 -4e-5,-1.37652 -1.11135,-2.48818 -2.48786,-2.4881 z" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#36b0c9;stroke-width:0.264583"
+       x="140.17908"
+       y="-23.764509"
+       id="text54924"><tspan
+         sodipodi:role="line"
+         id="tspan54922"
+         style="font-size:4.23333px;fill:#36b0c9;stroke-width:0.264583"
+         x="140.17908"
+         y="-23.764509">Customer SMS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#36b0c9;stroke-width:0.264583"
+       x="143.97849"
+       y="-19.531179"
+       id="text54928"><tspan
+         sodipodi:role="line"
+         id="tspan54926"
+         style="font-size:4.23333px;fill:#36b0c9;stroke-width:0.264583"
+         x="143.97849"
+         y="-19.531179">application</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text54930"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="100.93684"
+       y="-16.731924"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MT API</text>
+    <path
+       style="font-variation-settings:normal;opacity:0.5;vector-effect:none;fill:none;fill-opacity:1;stroke:#36b0c9;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 91.185758,-33.927324 v -5.304747 h 11.785302 v 5.304742"
+       id="path54932" />
+    <g
+       id="g55202"
+       transform="matrix(0.51776716,0,0,0.51776716,-225.27853,-35.383938)"
+       style="fill:#434d6c;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path55192" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path55194" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path55196" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path55198" />
+      <path
+         id="path55200"
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#434d6c;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text55208"
+       transform="translate(-40.932489,-0.15099021)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74069"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74067">AnyNet SIM</tspan></tspan></text>
+    <g
+       id="g55220"
+       transform="matrix(0.51776716,0,0,0.51776716,-108.18444,-43.025803)"
+       style="fill:#86b355;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 494.84364,172.26333 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path55210" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 497.59813,172.35331 v 4.07795 h 0.0863"
+         id="path55212" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 501.30928,172.35331 v 4.07795 h 0.0863"
+         id="path55214" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 504.93413,172.35331 v 4.07795 h 0.0863"
+         id="path55216" />
+      <path
+         id="path55218"
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 506.82827,190.54927 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 h -9.55959 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#86b355;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text55226"
+       transform="translate(84.40614,-0.07690686)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74073"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74071">3rd Party SIM</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#316094;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       id="rect55228"
+       width="41.720451"
+       height="32.01321"
+       x="69.436424"
+       y="36.574284"
+       ry="4.3783627" />
+    <rect
+       style="font-variation-settings:normal;fill:#c5d4e2;fill-opacity:1;stroke:none;stroke-width:0.491861;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000"
+       id="rect55230"
+       width="29.543045"
+       height="8.738903"
+       x="75.525124"
+       y="66.613869"
+       ry="3.7495308" />
+    <g
+       id="path55234">
+      <path
+         style="color:#000000;fill:#434d6c;-inkscape-stroke:none"
+         d="m 34.173828,46.71875 v 0.792969 H 61.023437 V 46.71875 Z"
+         id="path72969" />
+      <g
+         id="g72959">
+        <g
+           id="path72961">
+          <path
+             style="color:#000000;fill:#434d6c;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 62.855606,47.11532 -2.746375,1.5875 v -3.175 z"
+             id="path72965" />
+          <path
+             style="color:#000000;fill:#434d6c;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 59.898437,45.160156 v 3.910156 l 3.38086,-1.955078 -0.31836,-0.183593 z m 0.421875,0.734375 2.111329,1.220703 -2.111329,1.220703 z"
+             id="path72967" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       id="text55236"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="34.275414"
+       y="45.60453"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <g
+       id="path55238">
+      <path
+         style="color:#000000;fill:#434d6c;-inkscape-stroke:none"
+         d="m 38.472656,57.453125 v 0.794922 h 26.84961 v -0.794922 z"
+         id="path73549" />
+      <g
+         id="g73539">
+        <g
+           id="path73541">
+          <path
+             style="color:#000000;fill:#434d6c;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 36.641404,57.850198 2.746375,-1.5875 v 3.175 z"
+             id="path73545" />
+          <path
+             style="color:#000000;fill:#434d6c;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 39.599609,55.896484 -3.380859,1.953125 0.316406,0.183594 3.064453,1.771484 z m -0.423828,0.732422 v 2.441406 l -2.109375,-1.220703 z"
+             id="path73547" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       id="text55240"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="48.69043"
+       y="56.923584"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MT SMS</text>
+    <g
+       id="path55242">
+      <path
+         style="color:#000000;fill:#86b355;-inkscape-stroke:none"
+         d="m 114.28906,46.71875 v 0.792969 h 26.84961 V 46.71875 Z"
+         id="path73563" />
+      <g
+         id="g73553">
+        <g
+           id="path73555">
+          <path
+             style="color:#000000;fill:#86b355;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 142.97114,47.11532 -2.74637,1.5875 v -3.175 z"
+             id="path73559" />
+          <path
+             style="color:#000000;fill:#86b355;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 140.01367,45.160156 v 3.910156 l 3.38086,-1.955078 -0.31836,-0.183593 z m 0.42188,0.734375 2.11132,1.220703 -2.11132,1.220703 z"
+             id="path73561" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       id="text55244"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="113.80678"
+       y="45.60453"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS EXT</text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:37.6522;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text55340"
+       transform="translate(21.321448,-16.325515)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74077"><tspan
+   style="font-weight:bold"
+   id="tspan74075">AnyNet</tspan><tspan
+   y="64.492027"
+   id="tspan74079"> </tspan></tspan><tspan
+         x="68.746262"
+         y="70.665643"
+         id="tspan74083"><tspan
+   style="font-weight:bold"
+   id="tspan74081">Messaging</tspan><tspan
+   y="70.665643"
+   id="tspan74085"> </tspan></tspan><tspan
+         x="68.746262"
+         y="76.839258"
+         id="tspan74089"><tspan
+           style="font-weight:bold"
+           id="tspan74087">Service</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:0.264583"
+       x="81.247925"
+       y="72.464989"
+       id="text55344"><tspan
+         sodipodi:role="line"
+         id="tspan55342"
+         style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+         x="81.247925"
+         y="72.464989">SMS API</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text55354"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="57.940342"
+       y="80.351303"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MO API</text>
+    <text
+       xml:space="preserve"
+       id="text55366"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="96.676811"
+       y="95.241829"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MT API</text>
+    <g
+       id="path56736">
+      <path
+         style="color:#000000;fill:#86b355;-inkscape-stroke:none"
+         d="m 35.123047,48.451172 v 0.794922 h 26.849609 v -0.794922 z"
+         id="path72983" />
+      <g
+         id="g72973">
+        <g
+           id="path72975">
+          <path
+             style="color:#000000;fill:#86b355;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 63.804889,48.848866 -2.746375,1.5875 v -3.175 z"
+             id="path72979" />
+          <path
+             style="color:#000000;fill:#86b355;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 60.847656,46.894531 v 3.908203 l 3.38086,-1.953125 -0.31836,-0.183593 z m 0.421875,0.734375 2.113281,1.220703 -2.113281,1.220703 z"
+             id="path72981" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="path56738">
+      <path
+         style="color:#000000;fill:#3789ec;-inkscape-stroke:none"
+         d="m 36.072266,50.185547 v 0.792969 h 26.849609 v -0.792969 z"
+         id="path72997" />
+      <g
+         id="g72987">
+        <g
+           id="path72989">
+          <path
+             style="color:#000000;fill:#3789ec;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+             d="m 64.754173,50.582413 -2.746375,1.5875 v -3.175 z"
+             id="path72993" />
+          <path
+             style="color:#000000;fill:#3789ec;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 61.796875,48.628906 v 3.908203 l 3.380859,-1.955078 -0.318359,-0.183594 z m 0.421875,0.732422 2.111328,1.220703 -2.111328,1.220703 z"
+             id="path72995" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g57874"
+       transform="translate(0,1.741926)">
+      <g
+         id="path57109">
+        <path
+           style="color:#000000;fill:#434d6c;-inkscape-stroke:none"
+           d="M 117.33789,54.082031 V 54.875 h 26.84961 v -0.792969 z"
+           id="path73577" />
+        <g
+           id="g73567">
+          <g
+             id="path73569">
+            <path
+               style="color:#000000;fill:#434d6c;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+               d="m 115.50496,54.477994 2.74637,-1.5875 v 3.175 z"
+               id="path73573" />
+            <path
+               style="color:#000000;fill:#434d6c;fill-rule:evenodd;-inkscape-stroke:none"
+               d="m 118.46289,52.523437 -3.38086,1.955079 0.31641,0.183593 3.06445,1.769532 z m -0.42383,0.734375 v 2.441407 l -2.10937,-1.220703 z"
+               id="path73575" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="path57117">
+        <path
+           style="color:#000000;fill:#3789ec;-inkscape-stroke:none"
+           d="m 116.46094,55.710937 v 0.794922 h 26.84961 v -0.794922 z"
+           id="path73591" />
+        <g
+           id="g73581">
+          <g
+             id="path73583">
+            <path
+               style="color:#000000;fill:#3789ec;fill-rule:evenodd;stroke-width:0.3175pt;-inkscape-stroke:none"
+               d="m 114.6287,56.108272 2.74637,-1.5875 v 3.175 z"
+               id="path73587" />
+            <path
+               style="color:#000000;fill:#3789ec;fill-rule:evenodd;-inkscape-stroke:none"
+               d="m 117.58594,54.154297 -3.38086,1.953125 0.31836,0.183594 3.0625,1.771484 z m -0.42188,0.732422 v 2.441406 l -2.11328,-1.220703 z"
+               id="path73589" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       id="text57876"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="136.52583"
+       y="55.427856"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">N/A</text>
+    <path
+       id="path72853"
+       style="color:#000000;font-variation-settings:normal;vector-effect:none;fill:#3789ec;fill-opacity:1;stroke-width:0.747997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+       d="m 287.30539,95.930122 v 0.19525 0.94014 c -0.33052,0.0898 -0.64607,0.22183 -0.94271,0.39309 l -0.80355,-0.8045 -1.45127,1.45104 0.80378,0.80355 c -0.17121,0.29667 -0.30238,0.61334 -0.39214,0.9439 h -1.13541 v 2.051588 h 1.13541 c 0.0898,0.33071 0.22078,0.64689 0.39214,0.94366 l -0.80378,0.80355 1.45127,1.45034 0.80355,-0.80356 c 0.29664,0.17126 0.6122,0.30305 0.94271,0.39286 v 1.13446 h 2.05254 v -1.13446 c 0.33053,-0.0898 0.64632,-0.22165 0.94296,-0.39286 l 0.80356,0.80356 1.45126,-1.45034 -0.8047,-0.80449 c 0.17116,-0.2966 0.30331,-0.61225 0.39307,-0.94272 h 1.13541 v -2.051588 h -1.13446 c -0.0892,-0.33112 -0.22028,-0.64824 -0.39121,-0.94553 l 0.8019,-0.80192 -1.45127,-1.45104 -0.80169,0.80261 c -0.29705,-0.17081 -0.61398,-0.30198 -0.94482,-0.3912 v -1.13539 z m 1.02627,2.4597 c 1.37646,3e-5 2.48808,1.11165 2.48811,2.488098 7e-5,1.37651 -1.11158,2.48877 -2.48811,2.48881 -1.37657,6e-5 -2.48791,-1.11223 -2.48786,-2.48881 4e-5,-1.376518 1.11135,-2.488178 2.48786,-2.488098 z" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="272.1351"
+       y="110.61228"
+       id="text72857"><tspan
+         sodipodi:role="line"
+         id="tspan72855"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="272.1351"
+         y="110.61228">Customer SMS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#3789ec;stroke-width:0.264583"
+       x="275.93448"
+       y="114.84563"
+       id="text72861"><tspan
+         sodipodi:role="line"
+         id="tspan72859"
+         style="font-size:4.23333px;fill:#3789ec;stroke-width:0.264583"
+         x="275.93448"
+         y="114.84563">application</tspan></text>
+    <path
+       style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000"
+       d="M 283.98553,77.227169 V 92.304362"
+       id="path72863"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000"
+       d="M 289.89022,93.118722 V 78.04153"
+       id="path72865"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000"
+       d="M 291.54871,94.519052 V 79.441856"
+       id="path72867"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000"
+       d="M 293.2072,95.919372 V 80.842176"
+       id="path72869"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g72881"
+       transform="matrix(0.51776716,0,0,0.51776716,-27.243391,-35.383938)"
+       style="fill:#434d6c;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 478.88768,157.50406 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path72871" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 481.64217,157.59404 v 4.07795 h 0.0863"
+         id="path72873" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 485.35332,157.59404 v 4.07795 h 0.0863"
+         id="path72875" />
+      <path
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 488.97817,157.59404 v 4.07795 h 0.0863"
+         id="path72877" />
+      <path
+         id="path72879"
+         style="fill:#434d6c;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 490.87231,175.79 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 H 483.488 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#434d6c;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text72885"
+       transform="translate(157.10265,-0.15099021)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74093"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74091">AnyNet SIM</tspan></tspan></text>
+    <g
+       id="g72897"
+       transform="matrix(0.51776716,0,0,0.51776716,89.850699,-43.025803)"
+       style="fill:#86b355;fill-opacity:1;stroke:#ffffff">
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 494.84364,172.26333 v 24.8992 h 19.10159 v -18.30824 l -5.7976,-6.71301 z"
+         id="path72887" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 497.59813,172.35331 v 4.07795 h 0.0863"
+         id="path72889" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 501.30928,172.35331 v 4.07795 h 0.0863"
+         id="path72891" />
+      <path
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 504.93413,172.35331 v 4.07795 h 0.0863"
+         id="path72893" />
+      <path
+         id="path72895"
+         style="fill:#86b355;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 506.82827,190.54927 h 3.59928 m -12.47372,0 h 3.63302 m 5.25268,-3.25936 h 3.57676 m -12.40623,0 h 3.58803 m 2.33304,-3.12445 h 0.58526 c 1.27153,0 2.29519,1.08808 2.29519,2.43966 v 4.59783 c 0,1.35157 -1.02366,2.43965 -2.29519,2.43965 h -0.58526 c -1.27154,0 -2.2952,-1.08808 -2.2952,-2.43965 v -4.59783 c 0,-1.35158 1.02366,-2.43966 2.2952,-2.43966 z m -4.48717,0.0303 h 9.55959 c 0.7976,0 1.43971,0.68252 1.43971,1.53032 v 6.44157 c 0,0.84779 -0.64211,1.53032 -1.43971,1.53032 h -9.55959 c -0.7976,0 -1.43971,-0.68253 -1.43971,-1.53032 v -6.44157 c 0,-0.8478 0.64211,-1.53032 1.43971,-1.53032 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:51.6086;fill:#86b355;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text72901"
+       transform="translate(282.44128,-0.07690686)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74097"><tspan
+           style="font-weight:bold;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold'"
+           id="tspan74095">3rd Party SIM</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#316094;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       id="rect72903"
+       width="41.720451"
+       height="32.01321"
+       x="267.47156"
+       y="36.574284"
+       ry="4.3783627" />
+    <rect
+       style="font-variation-settings:normal;fill:#c5d4e2;fill-opacity:1;stroke:none;stroke-width:0.491861;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000"
+       id="rect72905"
+       width="29.543045"
+       height="8.738903"
+       x="273.56024"
+       y="66.613869"
+       ry="3.7495308" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 232.20898,47.11532 h 26.84979"
+       id="path72907" />
+    <text
+       xml:space="preserve"
+       id="text72909"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="232.31055"
+       y="45.60453"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="M 263.35831,57.850198 H 236.50852"
+       id="path72911" />
+    <text
+       xml:space="preserve"
+       id="text72913"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="246.72557"
+       y="56.923584"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MT SMS</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 312.32452,47.11532 h 26.84979"
+       id="path72915" />
+    <text
+       xml:space="preserve"
+       id="text72917"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="311.84192"
+       y="45.60453"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">MO SMS EXT</text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:37.6522;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="68.746262"
+       y="64.492027"
+       id="text72935"
+       transform="translate(219.35659,-16.325515)"><tspan
+         x="68.746262"
+         y="64.492027"
+         id="tspan74101"><tspan
+   style="font-weight:bold"
+   id="tspan74099">AnyNet</tspan><tspan
+   y="64.492027"
+   id="tspan74103"> </tspan></tspan><tspan
+         x="68.746262"
+         y="70.665643"
+         id="tspan74107"><tspan
+   style="font-weight:bold"
+   id="tspan74105">Messaging</tspan><tspan
+   y="70.665643"
+   id="tspan74109"> </tspan></tspan><tspan
+         x="68.746262"
+         y="76.839258"
+         id="tspan74113"><tspan
+           style="font-weight:bold"
+           id="tspan74111">Service</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;stroke-width:0.264583"
+       x="279.28305"
+       y="72.464989"
+       id="text72939"><tspan
+         sodipodi:role="line"
+         id="tspan72937"
+         style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+         x="279.28305"
+         y="72.464989">SMS API</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text72941"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="255.97548"
+       y="80.351303"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MO API</text>
+    <text
+       xml:space="preserve"
+       id="text72943"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="294.71194"
+       y="95.241829"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">SMS MT API</text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#86b355;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 233.15826,48.848866 h 26.84979"
+       id="path72945" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+       d="m 234.10754,50.582413 h 26.8498"
+       id="path72947" />
+    <g
+       id="g72953"
+       transform="translate(198.03514,1.741926)">
+      <path
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#434d6c;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+         d="M 144.18672,54.477994 H 117.33693"
+         id="path72949" />
+      <path
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3789ec;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#TriangleOutM);stop-color:#000000;stop-opacity:1"
+         d="M 143.31046,56.108272 H 116.46067"
+         id="path72951" />
+    </g>
+    <text
+       xml:space="preserve"
+       id="text72955"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.387221"
+       x="334.56097"
+       y="55.427856"
+       inkscape:export-filename="C:\workarea\CompanyDocumentation\Content\Resources\Images\eSIM\Multi-IMSI.png"
+       inkscape:export-xdpi="90.149696"
+       inkscape:export-ydpi="90.149696">N/A</text>
+  </g>
+</svg>

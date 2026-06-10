@@ -1,0 +1,40 @@
+---
+title: "Measuring latency"
+description: "Latency is the amount of time that data transmission takes, from its source (such as an IoT device) to its destination."
+---
+
+<p>Latency is the amount of time that data transmission takes, from its source (such as an IoT device) to its destination. </p>
+
+<p>You can assess latency using a ping test, which measures the round-trip time for a message to travel from a source to its destination and be echoed back to the source.</p>
+
+<p> You may need to make different measurements depending on your deployment. For example, you may want to measure latency from your device to:</p>
+
+<ul> <li>The <a href="/connectivity/understanding-pops" target="_blank">AnyNet PoP</a> that your device connects to</li> <li>A destination cloud service, such as AWS or Azure</li> <li>A server at your data centre or premises</li> </ul>
+
+<h3>Measuring latency to an AnyNet PoP</h3>
+
+<p>The AnyNet Ping service is available as part of our connectivity managed service so IoT devices can check that they can connect to an AnyNet PoP. This service shows the latency from the device across the cellular network to the particular PoP that it is connecting to. See <a href="/connectivity/ping-service">About the AnyNet Ping service</a> for more information.</p>
+
+<h3>Measuring latency to a cloud service</h3>
+
+<p>Cloud services, such as AWS and Azure, provide tools to assess connectivity and latency from devices to the service in the particular region that a device connects to. Some available tools are listed below.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Cloud service</th> <th>Latency test tool</th> </tr> </thead> <tbody> <tr> <td>AWS </td> <td><a href="https://ping.psa.fun/" title="AWS latency test tool" alt="AWS latency test tool">ping.psa.fun</a> <br /><a href="https://www.awsspeedtest.com/" title="AWS speed test tool">www.awsspeedtest.com</a>  </td> </tr> <tr> <td>Azure</td> <td><a href="https://www.azurespeed.com/Azure/Latency" title="Azure latency test tool" alt="Azure latency test tool">https://www.azurespeed.com/Azure/Latency</a> </td> </tr> </tbody> </table>
+
+<p>Contact your cloud service provider for more details of the latency test tools that they offer.</p>
+
+<Note>If the test runs in a browser, you may need to insert the SIM into a device such as a cellular gateway and connect a laptop to run the test.</Note>
+
+<h3>Measuring latency to a customer location</h3>
+
+<p>Check whether your infrastructure or service provider offers a latency test tool or can provide the IP address of a suitable server that your devices can ping to determine latency.</p>
+
+<h3>Ping test warning</h3>
+
+<p>It’s important to use a reliable test tool or ping server to understand the actual latency that your devices experience.</p>
+
+<p>Some public servers, such as the Google DNS service (IP address 8.8.8.8), use anycast routing. With anycast, a single IP address is shared by multiple servers in different locations, enabling a faster response to end users wherever they are located. Pinging an anycast IP address to check latency doesn’t give a true indication of how data is routed to its destination.</p>
+
+<p>We recommend that you don't ping an anycast IP address to test or compare latency values.<br /></p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li>Read about the AnyNet Connectivity Management Platform: <a href="/connectivity/connectivity-management-platform">About the Connectivity Management Platform</a></li> <li>Read about using live raw network data to monitor and administer network usage: <a href="/connectivity/push-intro">Monitoring and administering network usage</a></li> <li>Observe your network performance using Margay: <a href="/api/margay/intro-web-interface">Observing network performance</a></li> </ul> </div>

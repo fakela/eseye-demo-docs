@@ -1,0 +1,38 @@
+---
+title: "Tigrina API Introduction"
+description: "The Hera 604 is a 2G, 3G, and 4G enabled Wi-Fi router with embedded Eseye AnyNet Secure SIM card to provide connectivity worldwide. You can monitor, access and reconfigure the Hera 604 remotely."
+---
+
+<p>The Hera 604 is a 2G, 3G, and 4G enabled Wi-Fi router with embedded Eseye AnyNet Secure SIM card to provide connectivity worldwide. You can monitor, access and reconfigure the Hera 604 remotely.</p>
+
+<p>The Eseye Tigrina API enables you to access the following Hera 604 information:</p>
+
+<ul> <li>Device parameters</li> <li>Cellular connectivity information</li> <li>Network information</li> <li>Cellular RSSI history</li> </ul>
+
+<p>This data is captured when you first start each Hera 604 router, and stored in the ACS server. By default, each Hera 604 router is polled every eight hours for updates. You can configure the polling period – for more information, speak to Support. </p>
+
+<p> <img src="/images/resources/images/apis/tigrinaapi/functionalunits_650x165.png" alt="Functionalunits 650X165" /> </p>
+
+<p>To request a pricing quote for the Tigrina API:</p>
+
+<ol> <li> Select <span>Request pricing quote</span> (below) to display a pre-formatted email that you can use to initiate Tigrina API services. Edit the email to suit your requirements. <br /><a href="mailto:orders@eseye.com?subject=Request%20a%20pricing%20quote%20for%20Tigrina%20API&Body=Hello%20Sales%20Admin,%0D%0DPlease%20can%20an%20Account%20Manager%20call%20me%20to%20discuss%20our%20specific%20API%20needs,%20and%20arrange%20a%20quote%20for%20subscribing%20to%20the%20Tigrina%20API?%0D•%20Company%20Name:%20%3CcompanyName%3E%0D•%20My%20role:%20%3Crole%3E%0D•%20Phone%20number:%20%3CphoneNumber%3E%0D•%20Email%20address:%20%3CemailAddress%3E%0D%0DKind%20regards,%0D%0D">Request pricing quote</a>  </li> <li> Alternatively, send your own email to Sales Admin (orders@eseye.com): <br />Subject: <span>Request a pricing quote for Tigrina API</span> <br />Body text must include the following information: <ul> <li>Company Name</li> <li>Your role</li> <li>Contact phone number</li> <li>Contact email address</li> </ul> </li> <li>An Account Manager will respond. </li> </ol>
+
+<h2 id="Sessionbasedaccess">Session-based access</h2>
+
+<p>You must log in to access your router information. Each session is authenticated using your Tigrillo account. </p>
+
+<p>After login is authenticated, the system uses server sessions to maintain access. You can only access information about the Hera 604 devices that have active SIMs on your Tigrillo account.</p>
+
+<h3>Production URL</h3>
+
+<p>The customer interface makes an HTTP POST request to the following URL:</p>
+
+<p>https://tigrina.eseye.com/Japi/Diam/<var>&lt;function&gt;</var></p>
+
+<p>where <span>&lt;function&gt;</span> is the accessed API function.</p>
+
+<p>For example, to request the Hera 604 cellular information:</p>
+
+<p>https://tigrina.eseye.com/Japi/Diam/getCellularInformation</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

@@ -1,0 +1,20 @@
+---
+title: "EMQPUBCLOSE – remove a publish message topic"
+description: "Remove a publish message topic."
+---
+
+<p>Remove a publish message topic.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQPUBCLOSE=? </td> <td> +EMQPUBCLOSE:(0-7) <br />  <br />OK </td> </tr> <tr> <td>Read</td> <td> AT+EMQPUBCLOSE? </td> <td> OK </td> </tr> <tr> <td>Write</td> <td> AT+EMQPUBCLOSE=(<var>0-7</var>) <br />where: <br /><span>(<var>0-7</var>)</span> is a publish index number in the range from 0, up to and including 7. You must have already opened a publish topic to the selected index number, or the command will return an error. </td> <td> OK <br />  <br />+EMQPUBCLOSE:(0-7),&lt;status&gt; <br />where: <ul> <li><span>(0-7)</span> is the publish index number you selected from the range</li> <li><span>status</span> is either:<ul><li><span>0</span> – subscription cancelled successfully</li><li><span>-2</span> – no topic was registered for the given index</li></ul></li> </ul> <br />or <br /><span>ERROR</span> – the command failed <span><strong>Tip: </strong>Check you have sent the <span>AT+ETMSTATE="startmqtt"</span> command to enable MQTT.</span> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQPUBCLOSE=0</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>+EMQPUBCLOSE: 0,0</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

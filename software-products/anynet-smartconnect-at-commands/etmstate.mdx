@@ -1,0 +1,20 @@
+---
+title: "ETMSTATE – check current state"
+description: "Checks the current state of the LTE IoT 2 click."
+---
+
+<p>Checks the current state of the LTE IoT 2 click.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Response</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> <span>AT+ETMSTATE=?</span>  </td> <td> +ETMSTATE: <br />0: Idle <br />1: Awaiting keys <br />2: Network connecting <br />3: Establishing TLS <br />5: Establishing data-link <br />6: Connected <br />7: Subscribed <br />8: UDP active <br />9: Error <br />OK <br />where the modem: <br /><span>0</span> – is ready to receive commands. <br /><span>1</span> – has registered to the network and is waiting for certificate delivery to complete on the SIM. <br /><span>2</span> – is waiting to establish a network connection. <br /><span>3</span> – is establishing end-to-end security of data, using the Transport Layer Security protocol. <br /><span>4</span> – this state is currently unused. <br /><span>5</span> – is establishing a connection to AWS in order to transfer data. <br /><span>6</span> – has connected to the MQTT broker. <br /><span>7</span> – is subscribed to MQTT topics. <br /><span>8</span> – <span>User Datagram Protocol</span> is ready for use. <br /><span>9</span> – the device or connections have failed. </td> </tr> <tr> <td>Read</td> <td> <span>AT+ETMSTATE?</span>  </td> <td> +ETMSTATE: <var>&lt;state&gt;</var> <br /> <br />  <br />OK <br />or <br />ERROR </td> </tr> <tr> <td> Write </td> <td> <span>AT+ETMSTATE=&lt;<var>cmd</var>&gt;</span>  <br />where <span>&lt;<var>cmd</var>&gt;</span> is the command, either: <br /><span>0</span> – disable state change URC <br /><span>1</span> – enable state change URC <br /><span>"powerdown"</span> – turn off modem when it is not in the <span>busy</span> state <br />For information about the <span>busy</span> state, see <a href="/software-products/anynet-smartconnect-at-commands/etminfo">ETMINFO – displays AnyNet SMARTconnect™ and device information</a>. <br /><span>"powerdownnow"</span> – turn off modem immediately without waiting for pending actions to complete <br /><span>"startlwm2m"</span> – start the LwM2M protocol <br /><span>"startmqtt"</span> – start AnyNet Secure MQTT application <br /><span>"startudp"</span> – start UDP telemetry application <br /><span>"stop"</span> – stop AnyNet Secure MQTT, LwM2M, or UDP telemetry application. Use this to cleanly shutdown before power off. </td> <td> OK <br /> After <span>AT+ETMSTATE="stop"</span>, AnyNet SMARTconnect™ returns to idle and the following response occurs:  <br />+ETM: IDLE <br />or <br />+ERROR: &lt;errormessage&gt; </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+ETMSTATE?</p>
+
+<p>+ETMSTATE: 0</p>
+
+<p> </p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

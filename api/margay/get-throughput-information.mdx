@@ -1,0 +1,33 @@
+---
+title: "POST /JAPI/Niam/getThroughputInformation"
+description: "Retrieves a summary of data sent and received for the previous 10 minutes."
+openapi: "/api-specs/legacy/margay.json POST /JAPI/Niam/getThroughputInformation"
+---
+
+<p>Retrieves a summary of data sent and received for the previous 10 minutes.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login, or Cookie Token</li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/margay/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<p>None</p>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/margay/troubleshooting">Troubleshooting errors: Margay API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  <br />For more information, see <a href="/api/margay/troubleshooting">Troubleshooting errors: Margay API</a>. </td> </tr> <tr> <td> data&#95;count </td> <td> The array, containing details about the throughput. </td> </tr> <tr> <td> mcc </td> <td> Mobile Country Code – the country the device was in when the throughput was recorded, in three-digit numeric format. For more information, see <a href="http://en.wikipedia.org/wiki/Mobile_country_code">http://en.wikipedia.org/wiki/Mobile&#95;country&#95;code</a>. </td> </tr> <tr> <td>mnc</td> <td>Mobile Network Code – the network operator the device was using when the throughput was recorded, in one or two digit numeric format. For more information, see <a href="http://en.wikipedia.org/wiki/Mobile_country_code">http://en.wikipedia.org/wiki/Mobile&#95;country&#95;code</a>.</td> </tr> <tr> <td> databytes&#95;mo </td> <td> The total number of bytes sent by devices (mobile originated) using the specified network operator in the specified time period. </td> </tr> <tr> <td> databytes&#95;mt </td> <td> The total number of bytes received by devices (mobile terminated) using the specified network operator in the specified time period. </td> </tr> <tr> <td> start&#95;date </td> <td> The throughput count start date and time in UTC: <span>"YYYY-MM-DD HH:MM:SS"</span> </td> </tr> <tr> <td> stop&#95;date </td> <td> The throughput count end date and time in UTC: <span>"YYYY-MM-DD HH:MM:SS"</span> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "", <br /> "errorMessage": ""<br /> &#125;,<br /> "data&#95;count": [<br /> &#123;<br /> "mcc": "234",<br /> "mnc": "10",<br /> "databytes&#95;mo": "517",<br /> "databytes&#95;mt": "284",<br /> "start&#95;date": "2020-09-14 16:12:37",<br /> "stop&#95;date": "2020-09-14 16:22:37"<br /> &#125;<br /> ]<br />&#125;</code></pre> </div> </div>
+
+<p>For more information, see <a href="/api/margay/troubleshooting">Troubleshooting errors: Margay API</a>.</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="#">POST /JAPI/Niam/getThroughputInformation</a> </li> <li><a href="/api/margay/margay-api">Margay API requests</a> </li> <li><a href="/api/margay/viewing-stats">Viewing authentication or data throughput statistics</a> using the Margay web interface</li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8732-Margay-API-1.0-Developer-Guide.pdf" target="_blank">8732 Margay API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

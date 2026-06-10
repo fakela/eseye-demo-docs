@@ -1,0 +1,36 @@
+---
+title: "Updating firmware using AWS IoT jobs – Cinterion® PLS62‑W Wireless Module"
+description: "At any time the AWS IoT Core Device Management service may instruct the Cinterion® PLS62‑W Wireless Module to install an OTA update by publishing a job document to the jobs/next topic."
+---
+
+<p>At any time the AWS IoT Core Device Management service may instruct the Cinterion® PLS62‑W Wireless Module to install an OTA update by publishing a job document to the <span>jobs/next</span> topic.</p>
+
+<p>When the Cinterion® PLS62‑W Wireless Module receives a valid JSON job document, it retrieves the firmware package from the Amazon S3 instance using a pre-signed URL within the job document.</p>
+
+<p>Throughout the update process, the Cinterion® PLS62‑W Wireless Module publishes status information to AWS IoT Core. After the update completes, a <span>SUCCEEDED</span> status is published, and the AWS IoT Core Device Management service marks the job as complete.</p>
+
+<p>For information about jobs, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html" target="_blank">https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html</a>.</p>
+
+<div> <h3>Before you begin</h3> <p>Obtain the firmware image zip file from Eseye. Contact Support for more information: <a href="mailto:support@eseye.com">support@eseye.com</a>.</p> </div>
+
+<h2>Creating a JSON job description file</h2>
+
+<ol> <li> Create a UTF-8 encoded JSON job description file for the firmware update.  <br />The job description must contain <span>operation</span> and <span>location</span> parameters that specify which update to apply, and where to find it. <br />For more information, see<a href="#Example">Example job document</a>. </li> <li> Upload the JSON job description file and firmware image zip file to the S3 bucket in the same root account as the IoT things. <br />For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html">https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html</a> <br />The Job process does not permit cross-region operation. You must upload the S3 bucket in the same region as the thing s you are updating. If you are operating across multiple regions, upload the.zip file into an S3 bucket for each region. </li> </ol>
+
+<h3>Example job document</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Operation</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>firmware&#95;update</span> </td> <td> Updates AnyNet SMARTconnect™ application on the Cinterion® PLS62‑W Wireless Module.  <br />The <span>location</span> parameter contains the image file URL. <br />The image file must exist in Eseye<span>ImagefileName.zip</span> format.  </td> </tr> </tbody> </table>
+
+<p>For example:</p>
+
+<p>&#123;</p>
+
+<p>"operation":"firmware&#95;update",</p>
+
+<p>"location": "&#36;&#123;aws:iot:s3-presigned-url:https://s3.amazonaws.com/BucketName/ImagefileName.zip&#125;"</p>
+
+<p>&#125;</p>
+
+<h2>Creating an AWS IoT custom job</h2>
+
+<ol> <li> In the left-hand <span>AWS IoT</span> menu, select <span>Manage</span> &gt; <span>Jobs</span>. <br /> <img src="/images/resources/images/managejobs_75x151.png" alt="Managejobs 75X151" />  </li> <li> On the <span>Start a job for your devices</span> page, select <span>Create a job</span>. <br />The Select a job page appears. </li> <li> Select <span>Create custom job</span>. <br />The Create a job page appears. </li> <li>Type in a <span>Job ID</span> and optional <span>Description</span>.</li> <li>Under <span>Select devices to Update</span>, click or tap <span>Select</span> to view a list of <span>Things</span>that exist in the selected region.</li> <li>Select one or more checkboxes alongside the things that require the firmware update.</li> <li>Under <span>Add a job file</span>, select the JSON job description you created from the S3 bucket. </li> <li>Under <span>Pre-sign resource URLs</span> select <span>I want to pre-sign my URLs and have configured my job file</span>. </li> <li> Select the pre-signing role from the drop down list. <br />Alternatively, create a pre-signing role if required. </li> <li>Under <span>URL will expire at this time</span>, select the URL expiry time from the drop-down list.</li> <li>Leave all other settings as the default settings.</li> <li>Select <span>Next</span>.</li> <li>On the <span>Advanced configurations</span> page, leave all settings as the default settings.</li> <li>Select <span>Create</span> to create the job and start the update process.</li> </ol>

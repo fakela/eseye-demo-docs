@@ -1,0 +1,174 @@
+---
+title: "SIM Actions"
+description: "The following SIM actions are displayed for each SIM on the SIM List page."
+---
+
+<p>The following SIM actions are displayed for each SIM on the <a href="/infinity-classic/sims#SimList">SIM List</a> page.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simactions.png" alt="Simactions" /> </p>
+
+<p>Where the icons are as follows:</p>
+
+<ul> <li> <img src="/images/resources/images/infinityclassic/simactioniconsummary_24x24.png" alt="Simactioniconsummary 24X24" /> – <a href="#Summary">Summary of activity</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconsettings_24x24.png" alt="Simactioniconsettings 24X24" /> – <a href="#Settings">Settings</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconnetwork_24x24.png" alt="Simactioniconnetwork 24X24" /> – <a href="#Network">Network settings</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconcontract_24x24.png" alt="Simactioniconcontract 24X24" /> – <a href="#Contract">Contract settings</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconbilling_24x24.png" alt="Simactioniconbilling 24X24" /> – <a href="#Billing">Billing</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconmessaging_24x24.png" alt="Simactioniconmessaging 24X24" /> – <a href="#Messaging">Messaging</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconradius_24x24.png" alt="Simactioniconradius 24X24" /> – <a href="#Radius">RADIUS</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconnetflow_24x24.png" alt="Simactioniconnetflow 24X24" /> – <a href="#NetFlow">NetFlow</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconcontrol_24x24.png" alt="Simactioniconcontrol 24X24" /> – <a href="#Control">Control Panel</a></li> <li> <img src="/images/resources/images/infinityclassic/simactioniconaudit_24x24.png" alt="Simactioniconaudit 24X24" /> – <a href="#Audit">SIM Audit Log</a></li> </ul>
+
+<h2 id="Summaryofactivity">Summary of activity</h2>
+
+<p>To display the summary of activity for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconsummary_24x24.png" alt="Simactioniconsummary 24X24" /> next to the chosen SIM. </p>
+
+<p><img src="/images/resources/images/infinityclassic/simactionreportsummary.png" alt="Simactionreportsummary" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields displayed in the summary of activity report.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Field</th> <th> </th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><span>Report title</span> </td> <td> Title of the report including the ICCID number and date and time of report generation.  </td> </tr> <tr> <td colspan="3"><b>Network events</b> </td> </tr> <tr> <td> </td> <td><span>Last MCC / MNC</span> </td> <td> The date and time of the last connection. The <span>Value</span> column displays the mobile country code (MCC) and mobile network code (MNC), with the network name shown in brackets. </td> </tr> <tr> <td> </td> <td><span>Last LAI /CI</span> </td> <td> The date and time of the last connection.  <br />The <span>Value</span> column displays the last location area identifier (LAI) and cellular identifier (CI).  <br />The <span>Action</span> column displays a map icon (<img src="/images/resources/images/apis/location/mapicon_24x24.png" alt="Mapicon 24X24" />) if LAI and CI data is present. Select the map icon to display the last recorded location information in map form. </td> </tr> <tr> <td colspan="3"><b>Device events</b> </td> </tr> <tr> <td> </td> <td><span>Last IMEI</span> </td> <td> The ‘Date Time’ of the last IMEI connection. The ‘Value’ column will display the last IMEI(International Mobile Equipment Identity) that the SIM connected to. </td> </tr> <tr> <td colspan="3"><b>Data Events</b> </td> </tr> <tr> <td> </td> <td><span>Last User Name</span> </td> <td> The user name of the last person to use the device. </td> </tr> <tr> <td> </td> <td><span>Last Session Start</span> </td> <td> The start time of the last session. </td> </tr> <tr> <td> </td> <td><span>Last Session Stop</span> </td> <td> The end time of the last session. </td> </tr> <tr> <td> </td> <td><span>Last Session Total</span> </td> <td> The quantity of data used (in bytes, kilobytes, megabytes or gigabytes) in the last session. </td> </tr> <tr> <td> </td> <td><span>This Month Total</span> </td> <td> The total amount of data used this month (in bytes, kilobytes, megabytes or gigabytes). </td> </tr> <tr> <td colspan="3"><b>Messaging Events</b> </td> </tr> <tr> <td> </td> <td><span>Last MT SMS</span> </td> <td> The ‘Date Time’ of the last received SMS. The ‘MSISDN’ column displays the MSISDN of the device that sent the SMS. </td> </tr> <tr> <td> </td> <td><span>Last MO SMS</span> </td> <td> The ‘Date Time’ of the last sent SMS. The ‘MSISDN’ column displays the MSISDN of the device that received the SMS. </td> </tr> <tr> <td colspan="3"><b>Voice Events</b> </td> </tr> <tr> <td> </td> <td><span>Total voice this month (seconds)</span> </td> <td>The total number of seconds of voice calls used this month.</td> </tr> <tr> <td> </td> <td><span>Last MT Voice Call</span> </td> <td> The data and time of the last mobile terminated voice call. </td> </tr> <tr> <td> </td> <td><span>Last MO Voice Call</span> </td> <td>The data and time of the last mobile originated voice call.</td> </tr> </tbody> </table>
+
+<h2 id="Settings">Settings</h2>
+
+<p>To display or edit the settings for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconsettings_24x24.png" alt="Simactioniconsettings 24X24" /> next to the chosen SIM.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simactionreportsettings.png" alt="Simactionreportsettings" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields displayed in the SIM settings report.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Friendly Name</span>  </td> <td> An optional, user-defined name that can be used to help identify the SIM. For example, the site location or purpose of the data connection. </td> </tr> <tr> <td> <span>User Field 1... 5</span>  </td> <td>Optional text boxes used to identify the SIM.</td> </tr> <tr> <td> <span>Group</span>  </td> <td> The name of the group (SIM collection) to which you assigned the SIM. <br />When editing this field, use the text box to define a new group box or use the drop-down list to select an existing group. </td> </tr> <tr> <td> <span>IMEI</span>  </td> <td> International Mobile Equipment Identity. The unique 15-digit International Mobile Equipment Identity serial number that identifies the device on the cellular network. </td> </tr> <tr> <td> <span>Device Model</span>  </td> <td> The <a href="/infinity-classic/settings#Device">device model(s)</a> created on your account. </td> </tr> <tr> <td> <span>Alert Profile</span>  </td> <td> Lists the <a href="/infinity-classic/settings#Alert">alert profiles</a> assigned to the SIM. </td> </tr> <tr> <td> <span>Report Profile</span>  </td> <td> Lists the <a href="/infinity-classic/settings#Reporting">report profiles</a> assigned to the SIM. </td> </tr> <tr> <td><span>Edit</span> </td> <td>Select to edit the fields for this SIM.</td> </tr> </tbody> </table>
+
+<h2 id="Networksettings">Network settings</h2>
+
+<p>To display the settings for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconnetwork_24x24.png" alt="Simactioniconnetwork 24X24" /> next to the chosen SIM.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simactionreportnetwork.png" alt="Simactionreportnetwork" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields displayed in the Network settings report.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Field</th> <th> </th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><span>ICCID</span> </td> <td>  Integrated Circuit Card Identifier for SIM cards or profiles (when using an eUICC SIM). For more information, see <a href="/getting-started/esim/profiles#top" target="_blank">About eUICC SIM profiles</a>. <span><strong>Note: </strong>Contains 14 and 20 numeric digits and starts with 89 or 99.</span> </td> </tr> <tr> <td> </td> <td><span>Status</span> </td> <td> The current SIM state: <ul> <li>Available </li> <li>Active</li> <li>Suspended</li> <li>Terminated</li> </ul> <br />For more information, see <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>. <span><strong>Note: </strong>If the SIM status is available, the <span>Change State</span> button is not displayed.</span> </td> </tr> <tr> <td> </td> <td><span>Change State</span> </td> <td> Select to display the SIM Change State dialog where you can change the state of the SIM from <span>Active </span>to <span>Suspended</span> or <span>Terminated</span>. <span><strong>Note: </strong>If the SIM is suspended, you can update its status to either <span>Terminate</span> or <span>Unsuspend</span>.</span> <br />To activate a SIM: <br /><a href="https://docs.eseye.com/Content/Resources/Videos/How-to-activate-a-SIM.mp4" aria-label="How To Activate A Sim" title="How To Activate A Sim"><video title="How To Activate A Sim" aria-label="How To Activate A Sim" alt="How To Activate A Sim"><source src="https://docs.eseye.com/Content/Resources/Videos/How-to-activate-a-SIM.mp4" type="video/mp4" /></video><span> How To Activate A Sim</span></a>  <br />To terminate a SIM: <br /><a href="https://docs.eseye.com/Content/Resources/Videos/How-to-terminate-a-SIM.mp4" aria-label="How To Terminate A Sim" title="How To Terminate A Sim"><video title="How To Terminate A Sim" aria-label="How To Terminate A Sim" alt="How To Terminate A Sim"><source src="https://docs.eseye.com/Content/Resources/Videos/How-to-terminate-a-SIM.mp4" type="video/mp4" /></video><span> How To Terminate A Sim</span></a>  </td> </tr> <tr> <td colspan="3"><b>Attribute</b> </td> </tr> <tr> <td> </td> <td><span>IMSI</span> </td> <td>  International Mobile Subscriber Identity number. Identifies a cellular network subscriber. The network operator that provided the IMSI uses it to authenticate a SIM (and the IoT device containing the SIM) on the network.  <span><strong>Note: </strong>Contains between 15 and 16 numeric digits.</span> <br />If the SIM has multiple IMSIs, each is displayed as a new row (attribute) in this table. </td> </tr> <tr> <td> </td> <td><span>MSISDN</span> </td> <td>  The Mobile Station International Subscriber Directory Number (MSISDN) is a unique identifier for a mobile phone number in telecommunications. It includes the country code, mobile network code and subscriber number, allowing for routing of calls and messages to the correct device. The MSISDN contains between 8 and 18 numeric digits and can include the '+' country code identifier, for example: +441234567890.  <br />For SIMs with <a href="/getting-started/multi-imsi">multiple IMSIs</a>, one MSISDN is designated as the primary MSISDN. <span><strong>Note: </strong> For IoT devices that support receiving instructions via SMS, you must use the primary MSISDN when sending MT SMS messages from your mobile phone or when using the <a href="/api/sms/smsapi-intro">SMS API</a>.</span> </td> </tr> <tr> <td> </td> <td><span>IP Address</span> </td> <td> One or more IPv4 addresses associated with the IMSI.  <br />When using <a href="/connectivity/understanding-pops#About">regionalised routing</a>, this table displays multiple IP addresses for the same IMSI, where each IP address corresponds to either the: <ul> <li>Home data centre – the data centre at which the operator's network terminates.</li> <li> Local data centre – a region-specific data centre based on proximity to devices on the operator's network. <span><strong>Note: </strong>Internet traffic is normally egressed onto the internet from the data centre connected to the operator. This means that the source IP address may change if the device is routed from a different data centre. </span> </li> </ul> <br />When Eseye <a href="/getting-started/multi-imsi#ImsiSwitching">use OTA messages to switch IMSIs</a> or profiles, the IP address will change because the Eseye data centres that assign the IP addresses use different IP address ranges for each operator. </td> </tr> </tbody> </table>
+
+<h2 id="Contractsettings">Contract settings</h2>
+
+<p>To display the settings for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconcontract_24x24.png" alt="Simactioniconcontract 24X24" /> next to the chosen SIM.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simactionreportcontract.png" alt="Simactionreportcontract" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields displayed in the <span>SIM Contract Settings</span> report.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Field</th> <th> </th> <th>Description</th> </tr> </thead> <tbody> <tr> <td colspan="2"><b>ICCID</b> </td> <td>  Integrated Circuit Card Identifier for SIM cards or profiles (when using an eUICC SIM). For more information, see <a href="/getting-started/esim/profiles#top" target="_blank">About eUICC SIM profiles</a>. <span><strong>Note: </strong>Contains 14 and 20 numeric digits and starts with 89 or 99.</span> </td> </tr> <tr> <td> </td> <td><span>Status</span> </td> <td> The current SIM state: <ul> <li>Available </li> <li>Active</li> <li>Suspended</li> <li>Terminated</li> </ul> <br />For more information, see <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>. </td> </tr> <tr> <td> </td> <td><span>Change State</span> </td> <td> Select to display the SIM Change State dialog where you can change the state of the SIM from <span>Active </span>to <span>Suspended</span> or <span>Terminated</span>. <span><strong>Note: </strong>If the SIM is suspended, you can update its status to either <span>Terminate</span> or <span>Unsuspend</span>.</span> </td> </tr> <tr> <td colspan="3"><b>Attribute</b> </td> </tr> <tr> <td> </td> <td><span>Activation Date</span> </td> <td>The date of the most recent activation.</td> </tr> <tr> <td> </td> <td><span>Termination Date</span> </td> <td>The date the SIM contract is due to be terminated (if applicable).</td> </tr> <tr> <td> </td> <td><span>Contract Start</span> </td> <td>The date on which the SIM contract started.</td> </tr> <tr> <td> </td> <td><span>Contract End</span> </td> <td> The date the SIM contract ends.  </td> </tr> <tr> <td> </td> <td><span>Billing Interval</span> </td> <td>The frequency of invoices.</td> </tr> <tr> <td> </td> <td><span>Billing Date</span> </td> <td> The date of the next billing invoice. </td> </tr> <tr> <td> </td> <td><span>Package Identifier</span> </td> <td>Unique identifier for the package. </td> </tr> <tr> <td> </td> <td><span>Package Description</span> </td> <td>Brief summary of the package contents.</td> </tr> <tr> <td> </td> <td><span>Package Name</span> </td> <td>The user-defined name assigned to the package.</td> </tr> </tbody> </table>
+
+<h2 id="Billing">Billing</h2>
+
+<p>To display the settings for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconbilling_24x24.png" alt="Simactioniconbilling 24X24" /> next to the chosen SIM. This displays a breakdown of the activity of the SIM. This is the only place to view the SMS activity of a SIM including the data, SMS, and voice usage and subsequent charges.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simactivity.png" alt="Simactivity" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<h3>Search</h3>
+
+<p>The search enables you to filter the billing records.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>From</span>  <br /><span>To</span>  </td> <td>  Filter the list of billing records between the <span>From</span> and <span>To</span> dates.  <br />Select the calendar icon (<img src="/images/resources/images/infinityclassic/iconcalendar_24x24.png" alt="Iconcalendar 24X24" />) to display a calendar from which you can select the required date. </td> </tr> <tr> <td><span>Show</span> </td> <td> Select which activities are shown. By default, all activities (Data, SMS and Voice) are shown. </td> </tr> <tr> <td><span>Search</span> </td> <td>Select to filter the billing records using the values in the From, To and Show fields. </td> </tr> </tbody> </table>
+
+<h3>Results</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table describes the fields displayed in the Billing report.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Activity</span> </td> <td>The usage type: Data, SMS or Voice.</td> </tr> <tr> <td><span>Description</span> </td> <td>Textual description of the assigned tariff.</td> </tr> <tr> <td><span>Start</span> </td> <td>Start date and time for the usage measurement.</td> </tr> <tr> <td><span>Stop</span> </td> <td>Stop date and time for the usage measurement.</td> </tr> <tr> <td><span>Quantity</span> </td> <td> The amount of data (bytes, unless otherwise stated), SMS (number of SMS messages) or voice (seconds) used. </td> </tr> <tr> <td><span>Price</span> </td> <td>The calculated charge for the current usage.</td> </tr> </tbody> </table>
+
+<h2 id="Messaging">Messaging</h2>
+
+<p>To display a log of the messaging activity for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconmessaging_24x24.png" alt="Simactioniconmessaging 24X24" /> next to the chosen SIM.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simmessagingactivity.png" alt="Simmessagingactivity" /> </p>
+
+<h3>Search</h3>
+
+<p>The search enables you to filter the messaging records.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>From</span>  <br /><span>To</span>  </td> <td>  Filter the list of messages between the <span>From</span> and <span>To</span> dates.  <br />Select the calendar icon (<img src="/images/resources/images/infinityclassic/iconcalendar_24x24.png" alt="Iconcalendar 24X24" />) to display a calendar from which you can select the required date. </td> </tr> <tr> <td><span>Show</span> </td> <td> Select which messages to show in the results table: <ul> <li><span>Select all</span> – shows all messages.</li> <li><span>MT SMS</span> – Mobile-terminated SMS (sent to the device)</li> <li><span>MO SMS</span> – Mobile-originated SMS (sent from the device)</li> <li><span>MT USSD</span> – Unstructured Supplementary Service Data (USSD) message (sent to the device)</li> <li><span>MO USSD</span> – USSD message (sent from the device)</li> <li><span>API</span> – API-generated message</li> </ul> </td> </tr> <tr> <td><span>Search</span> </td> <td>Select to filter the billing records using the values in the From, To and Show fields. </td> </tr> </tbody> </table>
+
+<h3>Results</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table describes the fields displayed in the messaging report.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Date Time</span>  </td> <td> The date and time that the device sent or received the message.  </td> </tr> <tr> <td><span>MSISDN</span> </td> <td>  The Mobile Station International Subscriber Directory Number (MSISDN) is a unique identifier for a mobile phone number in telecommunications. It includes the country code, mobile network code and subscriber number, allowing for routing of calls and messages to the correct device. The MSISDN contains between 8 and 18 numeric digits and can include the '+' country code identifier, for example: +441234567890.  </td> </tr> <tr> <td><span>Direction</span> </td> <td> Whether the message was an MT SMS, MO SMS, MT USSD, MO USSD or API message. </td> </tr> <tr> <td><span>Status</span> </td> <td> The status of the SMS message: Recieved, Sent, Blocked or Delivered.  </td> </tr> <tr> <td><span>Text</span> </td> <td>The text contained in the SMS message.</td> </tr> </tbody> </table>
+
+<h2 id="RADIUS">RADIUS </h2>
+
+<p>To display the log of network authentication information for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconradius_24x24.png" alt="Simactioniconradius 24X24" /> next to the chosen SIM. </p>
+
+<p><img src="/images/resources/images/infinityclassic/radiussessionlog.png" alt="Radiussessionlog" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>If you would like to receive RADIUS data in greater detail, speak to your Account Manager about the Push API. For more information, see <a href="/connectivity/push-intro">Monitoring and administering network usage</a>.</p>
+
+<h3>Search</h3>
+
+<p>The search enables you to filter the list of RADIUS log records between a <span>From</span> and <span>To</span> date. </p>
+
+<p>Select the calendar icon (<img src="/images/resources/images/infinityclassic/iconcalendar_24x24.png" alt="Iconcalendar 24X24" />) to display a calendar from which you can select the required date.</p>
+
+<h3>Results</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table describes the fields displayed in the RADIUS session log.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Session Start</span> </td> <td>The date and time that the RADIUS session started.</td> </tr> <tr> <td><span>Session Stop</span> </td> <td>The date and time that the RADIUS session stopped.</td> </tr> <tr> <td><span>Data Usage</span> </td> <td> The data usage of the session. </td> </tr> <tr> <td><span>IMSI</span> </td> <td>  International Mobile Subscriber Identity number. Identifies a cellular network subscriber. The network operator that provided the IMSI uses it to authenticate a SIM (and the IoT device containing the SIM) on the network.  <span><strong>Note: </strong>Contains between 15 and 16 numeric digits.</span> </td> </tr> <tr> <td><span>MCC MNC</span> </td> <td> The <a href="/glossary/mcc">MCC</a> and <a href="/glossary/mnc">MNC</a> connected to in the session. </td> </tr> <tr> <td><span>Total</span> </td> <td>Total data usage across all sessions in the search results.</td> </tr> </tbody> </table>
+
+<h2 id="NetFlow">NetFlow</h2>
+
+<p>To display the NetFlow activity for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconnetflow_24x24.png" alt="Simactioniconnetflow 24X24" /> next to the chosen SIM. NetFlow data enables you to track traffic flow and volume per SIM, and outputs Mobile Terminated (MT) and Mobile Originated (MO) data in a graph that you can drill into.</p>
+
+<p>The NetFlow dialog displays a graphical breakdown of data transmission over time. The blue bars are MT (received), and the black bars are MO (sent) data transmissions. The default view displays an entire month of data, with each bar representing one day. You can change the current data window using the arrows above the graph.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simnetflowactivity.png" alt="Simnetflowactivity" /> </p>
+
+<p>Selecting one bar will update to show a new graph with one bar representing an hour and the whole graph covering a day. Selecting an hour bar will update to show a new graph, with one bar representing a minute and the whole graph covering an hour. </p>
+
+<p>If you would like to receive NetFlow data in greater detail, speak to your Account Manager about the Push API. For more information, see <a href="/connectivity/push-intro">Monitoring and administering network usage</a>.</p>
+
+<h3>Results table</h3>
+
+<p>The table below the graph provides a breakdown of the data in the graph in tabular form. </p>
+
+<p><img src="/images/resources/images/infinityclassic/netflowactivitytable.png" alt="Netflowactivitytable" /> </p>
+
+<p>To scroll through all of the pages, use the numbers above the table.</p>
+
+<p>The following table describes the fields represented in the table and graph.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Date (Day/Hour/Minute)</span>  </td> <td>Displays the day, hour or minute representing one of the bars on the bar chart.</td> </tr> <tr> <td> <span>MO Bytes</span>  </td> <td>The data usage for mobile originated data for the SIM over the selected time window.</td> </tr> <tr> <td> <span>MT Bytes</span>  </td> <td>The data usage for mobile terminated data for the SIM over the selected time window.</td> </tr> <tr> <td> <span>Total Bytes</span>  </td> <td> The total data usage across all bars on the chart. </td> </tr> </tbody> </table>
+
+<h2 id="ControlPanel">Control Panel</h2>
+
+<p>To send a test SMS, test USSD, or ICMP ping to the SIM, on the <a href="/infinity-classic/sims#SimList">SIM List page</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconcontrol_24x24.png" alt="Simactioniconcontrol 24X24" /> next to the chosen SIM.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simactioncontrolpanel.png" alt="Simactioncontrolpanel" /> </p>
+
+<p>The following table describes the fields displayed on the SIM Control Panel.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Enter Payload</span>  </td> <td>Specify the text to send to the SIM via SMS or USSD.</td> </tr> <tr> <td> <span>Send via SMS</span>  </td> <td>Select to send the payload (defined above) to the device via a test SMS message.</td> </tr> <tr> <td> <span>Send via USSD</span>  </td> <td>Select to send the payload (defined above) to the device via a test USSD message.</td> </tr> <tr> <td> <span>ICMP Ping</span>  </td> <td> Select to perform an <a href="/connectivity/ping-service">ICMP ping</a>. </td> </tr> <tr> <td><span>Cancel Location</span> </td> <td> Select to remove the subscriber from the <a href="/glossary/hlr">HLR</a> using the location cancellation procedure defined in sections 3.6.1.3 and 4.2 in <a href="https://www.3gpp.org/DynaReport/23012.htm" target="_blank">3GPP TS 23.012</a>. This causes a failure in the next attempt (by the modem in the device) to send data, which typically causes the device firmware to restart the connection.  <span><strong>Tip: </strong>Restarting the connection can be useful if you suspect the firmware or modem are in an unusual state, or to terminate data sessions. For example, if an operator API gateway does not support <a href="/glossary/radius">RADIUS</a> packet of disconnect (PoD) messages, the cancel location procedure can terminate the data session between the device and the operator API gateway.</span> </td> </tr> <tr> <td><span>SIM Timeline</span> </td> <td> Select to <a href="/infinity-classic/displaying-sim-timelines">display a timeline of SIM activity</a> for all IMSIs related to the ICCID. </td> </tr> </tbody> </table>
+
+<h2 id="SIMAuditLog">SIM Audit Log</h2>
+
+<p>To display the settings for a SIM, on the <a href="/infinity-classic/sims#SimList">SIM List</a> menu, select <img src="/images/resources/images/infinityclassic/simactioniconaudit_24x24.png" alt="Simactioniconaudit 24X24" /> next to the chosen SIM. This displays the <a href="/infinity-classic/sims#SimAuditLog">SIM Audit Log</a> page in a dialog.</p>
+
+<p><img src="/images/resources/images/infinityclassic/simauditlogdialog.png" alt="Simauditlogdialog" /> </p>
+
+<p>The SIM Audit Log displays a record of every action taken, and change made, to all SIMs associated with the selected SIM. </p>

@@ -1,0 +1,122 @@
+---
+title: "Troubleshooting errors: Tigrillo API"
+description: "When an error occurs, an error code and message are generated in the returned result. The error format depends on where the error originated."
+---
+
+<p>When an error occurs, an error code and message are generated in the returned result. The error format depends on where the error originated.</p>
+
+<h2 id="Generalandsystemerrors">General and system errors</h2>
+
+<p><span>Errors in the URL:</span> E0002, E0003</p>
+
+<p><span>System errors:</span> E9998</p>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": ".&#123;0,36&#125;",</p>
+
+<p>"errorCode": "E[0-9]&#123;4&#125;", </p>
+
+<p>"errorMessage": ".&#123;0,255&#125;"</p>
+
+<p>&#125;,</p>
+
+<p>&#125;</p>
+
+<h2 id="Singleoperationerrors">Single operation errors</h2>
+
+<p>Errors for single operations (such as login, or getSIMStateOptions for a single SIM) return the following format:</p>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": ".&#123;0,36&#125;",</p>
+
+<p>"code": "E[0-9]&#123;4&#125;", </p>
+
+<p>"message": ".&#123;0,255&#125;"</p>
+
+<p>&#125;,</p>
+
+<p>&#125;</p>
+
+<p><span>Affected errors:</span> E0000, E0001, E0100, E0004, E0005, E0006, E0137 (for single SIM endpoints: getSIMStateOptions, getSIMLastActivity, setSIMDetail), E0140, and F0000 </p>
+
+<h2 id="BulkSIMoperationerrors">Bulk SIM operation errors</h2>
+
+<p>For bulk SIM operations, where an endpoint manipulating the SIM status is applied to more than one SIM, the following format occurs (for one or more SIMs with an error):</p>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "", </p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;,</p>
+
+<p>"simStatuses": &#123;</p>
+
+<p>"&lt;<var>ICCID</var>&gt;": "&lt;<var>errorCode</var>&gt;&lt;<var>errorMessage</var>&gt;",</p>
+
+<p>"&lt;<var>ICCID</var>&gt;": "&lt;<var>errorCode</var>&gt;&lt;<var>errorMessage</var>&gt;",</p>
+
+<p>...</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<p><span>Affected errors:</span> E0137 (for bulk SIM endpoints: activateSIMs, suspendSIMs, or terminateSIMs), E0144, E0145</p>
+
+<p>For bulk operations, if one SIM presents an error, the API will not process the other SIMs. The error will show for one or more invalid SIMs only, and the status on the valid SIMs will not change.</p>
+
+<p>For example, for <span>suspendSIMs</span>, where 8955170000202030123 does not exist on the account, the following is sent:</p>
+
+<p>&#123;</p>
+
+<p>"sims": [</p>
+
+<p>"8955170000202030996",</p>
+
+<p>"8955170000202030123"</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<p>The following code is returned, and neither SIM is suspended:</p>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "",</p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;,</p>
+
+<p>"simStatuses": &#123;</p>
+
+<p>"8955170000202030123": "E0137:Invalid SIM no. provided"</p>
+
+<p>&#125;</p>
+
+<p>&#125;</p>
+
+<h2 id="ErrorcodesforTigrilloAPI">Error codes for Tigrillo API</h2>
+
+<p>The following table can help you diagnose an error.</p>
+
+<table> <col /> <col /> <col /> <col /> <thead> <tr> <th>Error code</th> <th>Error message</th> <th>Affected endpoints</th> <th>Reason for error</th> </tr> </thead> <tbody> <tr> <td> <span>"E0000"</span>  </td> <td><span>"Unknown username or password"</span> </td> <td>login</td> <td> The password value is incorrect. </td> </tr> <tr> <td> <span>"E0001"</span>  </td> <td><span>"Invalid input – Syntax error, malformed JSON"</span> </td> <td> login </td> <td> The JSON text is structured incorrectly. Ensure the JSON text follows the format described, and the correct bracket styles are used.  <span><strong>Note: </strong>You may receive this error if you copied and pasted text from Microsoft Word. Some MS Word characters are slightly different from ASCII text. To avoid this, either type the text directly into Postman, or configure Microsoft Word to use basic ASCII text.</span> </td> </tr> <tr> <td><span>"E0001"</span> </td> <td><span>"Invalid input – Underflow or the modes mismatch"</span> </td> <td> login </td> <td>The JSON text is structured incorrectly. Ensure the correct bracket styles are used and have matching pairs.</td> </tr> <tr> <td><span>"E0001"</span> </td> <td><span>"Invalid input – &lt;<var>iccid</var>&gt; is not a recognised SIM number"</span> </td> <td> activateSIMs <br />getSIMBilling </td> <td>The described SIM is incorrect, or does not exist on your Infinity Classic account.</td> </tr> <tr> <td><span>"E0002"</span> </td> <td><span>"Function not recognized"</span> </td> <td> </td> <td> The <span>SIAM/&lt;<var>method</var>&gt;</span> section of the request URL was entered incorrectly, where <span>&lt;method&gt;</span> is the method used, for example: <br /><span>...SIAM/suspenddSIMs</span>  </td> </tr> <tr> <td><span>"E0003"</span> </td> <td><span>"API version not recognized"</span> </td> <td> </td> <td> The<span>...&lt;<var>version</var>&gt;/SIAM/&lt;method&gt;</span> section of the request URL was entered incorrectly or the method was omitted, where <span>&lt;<var>version</var>&gt;</span> is a previous version of the Tigrillo API, and <span>&lt;<var>method</var>&gt;</span> is the method used.  <br /> Leave out <span>&lt;<var>version</var>&gt;</span> to use the current version. <br />Every request must have a method. </td> </tr> <tr> <td> <span>"E0004"</span>  </td> <td> <span>"Missing parameter – &lt;<var>parameter</var>&gt;"</span>  <br />where <span>&lt;<var>parameter</var>&gt;</span> is the missing parameter </td> <td> activateSIMs <br />getSIMStateOptions <br />setSIMState <br />terminateSIMs </td> <td>The reported parameter is absent or entered incorrectly, or the "s" in the https section of the request URL was not entered.</td> </tr> <tr> <td> <span>"E0005"</span>  </td> <td> <span>"Invalid parameter – &lt;<var>parameter</var>&gt;"</span>  <br />where <span>&lt;<var>parameter</var>&gt;</span> is the invalid parameter </td> <td> getSIMs <br />getSIMBilling <br />getSIMLastActivity <br />setSIMDetail </td> <td>The reported parameter is absent or entered incorrectly.</td> </tr> <tr> <td> <span>"E0006"</span>  </td> <td> <span>"Permission denied"</span>  </td> <td>logout</td> <td> <div> The user is logged out, or cookies are stored incorrectly.  <br />Login first before you send requests. For more information, see <a href="/api/tigrillo/login">POST /Japi/Tigrillo/login</a>. </div> </td> </tr> <tr> <td> <span>"E0100"</span>  </td> <td>  <span>"Unknown username or password"</span> </td> <td>login</td> <td> The username, password, or portfolio ID value is incorrect. </td> </tr> <tr> <td><span>"E0130"</span> </td> <td><span>"The set of parameters must pass validation through getSIMActivationTariffs"</span> </td> <td>activateSIMs</td> <td>One or more ICCIDs does not exist on the specified package ID (also known as tariff ID).</td> </tr> <tr> <td><span>"E0131"</span> </td> <td><span>"A tariff ID must be provided. Do not let the end user select "Use preassigned package/tariff""</span> </td> <td>activateSIMs</td> <td>The package ID (also known as the tariff ID) is blank. If the package ID is <span>null</span>, all listed ICCIDs must already have an assigned package.</td> </tr> <tr> <td><span>"E0132"</span> </td> <td><span>"The tariff ID is not valid."</span> </td> <td>activateSIMs</td> <td>The supplied package ID (also known as the tariff ID) does not exist on the customer account.</td> </tr> <tr> <td><span>"E0133"</span> </td> <td><span>"The device type is not valid."</span> </td> <td>activateSIMs</td> <td>The supplied device profile ID is incorrect or does not exist.</td> </tr> <tr> <td><span>"E0137"</span> </td> <td> "Invalid SIM no. provided" </td> <td> getSIMStateOptions <br />getSIMLastActivity <br />setSIMDetail <br />suspendSIMs <br />terminateSIMs <br />unsuspendSIMs </td> <td>The detailed ICCID was entered incorrectly.</td> </tr> <tr> <td><span>"E0143"</span> </td> <td> <span>"SIM cannot be suspended"</span>  </td> <td> suspendSIMs <br />unsuspendSIMs </td> <td>You cannot suspend the SIM. Use <span>getSIMStateOptions</span> to understand the current state of the SIM, and which states are available as a result. For more information, see <a href="/api/tigrillo/get-sim-state-options">POST /Japi/Tigrillo/getSIMStateOptions</a>.</td> </tr> <tr> <td><span>"E0144"</span> </td> <td> <span>"SIM cannot be unsuspended"</span>  </td> <td> suspendSIMs <br />unsuspendSIMs </td> <td> You cannot unsuspend the SIM. Use <span>getSIMStateOptions</span> to understand the current state of the SIM, and which states are available as a result. For more information, see <a href="/api/tigrillo/get-sim-state-options">POST /Japi/Tigrillo/getSIMStateOptions</a>. <span><strong>Tip: </strong>This error may occur when you are performing a bulk action, and a different ICCID has an error, such as an invalid ICCID.</span> </td> </tr> <tr> <td><span>"E0145"</span> </td> <td> <span>"SIM cannot be terminated"</span>  </td> <td>terminateSIMs</td> <td>You cannot terminate the SIM. This error returns if the SIM is pending termination, or already terminated. Use <span>getSIMStateOptions</span> to understand the current state of the SIM, and which states are available as a result. For more information, see <a href="/api/tigrillo/get-sim-state-options">POST /Japi/Tigrillo/getSIMStateOptions</a>.</td> </tr> <tr> <td> <span>"E9998"</span>  </td> <td> <span>"System not available at this moment"</span>  </td> <td>activateSIMs</td> <td>The system is not currently running. Try again later.</td> </tr> <tr> <td><span>"F0000"</span> </td> <td><span>"No response provided"</span> </td> <td>login</td> <td> Parameter error. The key in the key-value pair is incorrect. For example: <br /><span>"usernameXXX": "username"</span>  <br />where the acceptable parameter is: <br /><span>"username": "username"</span>  </td> </tr> <tr> <td> &lt;!DOCTYPE HTML PUBLIC&gt; <br />... <br />&lt;title&gt;Tigrillo Application error page&lt;/title&gt; </td> <td> </td> <td>All</td> <td> <div> Error message begins as follows: <br />&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt; <br />&lt;html&gt; <br />&lt;head&gt; <br />&lt;title&gt;Tigrillo Application error page&lt;/title&gt; <br />&lt;meta charset="UTF-8"&gt; <br />... <br />Indicates that one or more of the following sections in the Request URL is incorrect: <ul> <li>siam</li> <li>Japi/</li> </ul> </div> </td> </tr> <tr> <td> &lt;!DOCTYPE HTML PUBLIC&gt; <br />... <br />&lt;title&gt;403 Forbidden&lt;/title&gt; </td> <td> </td> <td>All</td> <td> Error message begins as follows: <br />&lt;!DOCTYPE html PUBLIC ""-//IETF//DTD HTML 2.0//EN"&gt; &gt; <br />&lt;html&gt; <br />  <br />&lt;head&gt; <br />&lt;title&gt;403 Forbidden&lt;/title&gt; <br />&lt;head&gt; <br />... <br />You do not have permission to access the API URL. Your IP address is not on the Allowlist. </td> </tr> <tr> <td> No Code </td> <td> <span>"Could not get any response"</span>  </td> <td>All</td> <td> Error connecting to the server, for any of the following reasons: <ul> <li>You are not connected to the internet.</li> <li> The Request URL is incorrect in one or more of the following sections:  <br />http  <br />://  <br />.eseye.com </li> <li>The server backend is not working properly.</li> <li>SSL connections were blocked: fix this by importing SSL certificates in Chrome.</li> <li>Cookies were not sent: fix this by using the Postman Interceptor extension.</li> <li>Restricted headers were not sent: fix this by using the Postman Interceptor extension.</li> <li>Request timeout: fix this by changing request timeout settings.</li> </ul> </td> </tr> <tr> <td>No Code</td> <td><span>"SIM is pending activation"</span> </td> <td>activateSIMs</td> <td>A previous activation request exists. If you want to reset the SIM to test the activation process again, contact Support.</td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

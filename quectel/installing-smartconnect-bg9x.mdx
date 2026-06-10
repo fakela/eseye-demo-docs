@@ -1,0 +1,56 @@
+---
+title: "Installing AnyNet SMARTconnect™ on a Quectel BGxx module"
+description: "You can optionally install AnyNet SMARTconnect™ on a BG9x Quectel module to facilitate data transfer from your device to the cloud. For more information, see About AnyNet SMARTconnect™."
+---
+
+<p>You can optionally install AnyNet SMARTconnect™ on a BG9x Quectel module to facilitate data transfer from your device to the cloud. For more information, see <a href="/software-products/anynet-smartconnect-intro" target="_blank">About AnyNet SMARTconnect™</a>.</p>
+
+<div> <h3>Before you begin</h3> <p>Ensure you have completed updating the modem firmware. For more information, see <a href="/quectel/upgrading-firmware" target="_blank">Upgrading the Quectel module firmware</a>.</p> <p>Contact your Account Manager to receive a dropbox link to AnyNet SMARTconnect™ files. Please specify if you require Windows or Linux-based files.</p> <span><strong>Note: </strong>If you are using AnyNet SMARTconnect™, you must install the Eseye-supplied <span>&lt;<var>Module</var>&gt;...</span> firmware file in place of the Quectel-supplied <span>&lt;<var>Module</var>&gt;...</span> file, where &lt;<var>Module</var>&gt; is the module variant, for example: <span>BG96</span>.</span> <p>Using the supplied dropbox link, download and extract the following zip files:</p> <ul> <li>For Windows users: <ul><li>Quectel EFS-Explorer for Windows – <span>Quectel&#95;EFS&#95;Explorer&#95;V&lt;<i>version</i>&gt;&#95;Windows.zip</span>.</li><li>Eseye-supplied <span>&lt;<var>Module</var>&gt;...zip</span> firmware file.</li><li><span>AnyNetSMARTconnect&#95;&lt;<i>version</i>&gt;&#95;for&#95;&lt;<var>module&#95;version</var>&gt;.zip</span>, which contains AnyNet SMARTconnect™ application bin and ini files.</li></ul></li> <li>For Linux users:<ul><li>QExplorer for Linux and Android – <span>QExplorer&#95;&lt;<var>Module</var>&gt;&#95;Linux&#95;Android&#95;V&lt;<i>version</i>&gt;.zip</span>.</li><li>Eseye-supplied <span>&lt;<var>Module</var>&gt;...zip</span> firmware file.</li><li><span>AnyNetSMARTconnect&#95;&lt;<i>version</i>&gt;&#95;for&#95;&lt;<var>module&#95;version</var>&gt;.zip</span>, which contains AnyNet SMARTconnect™ application bin and ini files.</li></ul></li> </ul> </div>
+
+<h2 id="Installationoverview">Installation overview</h2>
+
+<ol> <li>Create the five essential AnyNet files. For more information, see <a href="#Creating">Creating the essential AnyNet files</a>.</li> <li>Add headers to the five AnyNet files. For more information, see <a href="#Adding">Adding a header to AnyNet files</a>.</li> <li>Install the AnyNet files and AnyNet SMARTconnect™ on the Quectel module. For more information, see <a href="#Uploadin">Uploading files to the Quectel module</a>.</li> </ol>
+
+<h2 id="CreatingtheessentialAnyNetfiles">Creating the essential AnyNet files</h2>
+
+<p>Each device must contain the following five files to connect with cloud services:</p>
+
+<ul> <li><span>anynet&#95;rootca&#95;store</span> – the root CA certificate</li> <li><span>anynet&#95;pubcert&#95;store</span> – the public certificate of the device</li> <li><span>anynet&#95;privkey&#95;store</span> – the public private key of the device</li> <li><span>anynet&#95;thingname&#95;store</span> – the Device ID, defined by the user during the device creation phase in the IoT Hub or AWS portal.</li> <li><span>anynet&#95;url&#95;store</span> – the URL (hostname/endpoint) that is found on the IoT Hub and AWS portal.</li> </ul>
+
+<p>To generate the essential AnyNet files</p>
+
+<ol> <li> Use instructions from your cloud services provider to generate a root ca, public certificate and private key for each device.  <br />AnyNet SMARTconnect™ supports both PEM and DER formats. </li> <li> Rename these files as follows, with no extension: <ul> <li><span>anynet&#95;rootca&#95;store</span> </li><li><span>anynet&#95;pubcert&#95;store</span> </li> <li><span>anynet&#95;privkey&#95;store</span> </li> </ul></li> <li> Use a text editor to create the following: <ul> <li>  <span>anynet&#95;thingname&#95;store</span> file – must only contain the Device ID. <br />For example: MyDevice </li> <li> <span>anynet&#95;url&#95;store</span> file – must only contain the host endpoint. <br />For example: <span>my-hub.azure-devices.net</span> or <span>a2fguj321joea3-ats.iot.eu-west-1.amazonaws.com</span>.  </li> </ul> </li> <li>Next, you must add a header to each file.</li> </ol>
+
+<h3>Adding a header to AnyNet files</h3>
+
+<p>To complete the file generation process, you must add a 6-byte binary header to the beginning of each file. The header consists of the length (2 bytes) followed by the CRC-32 (4 bytes).</p>
+
+<p>For example, for <span>anynet&#95;thingname&#95;store</span>, the file appears as follows when opened in a text editor: </p>
+
+<p><img src="/images/resources/images/icons/header.png" alt="Header" /> </p>
+
+<p>The same file appears as follows in a binary editor:</p>
+
+<p><img src="/images/resources/images/icons/headerbinaryfile.png" alt="Headerbinaryfile" /> </p>
+
+<p>For information about calculating the checksum, see <a href="/sim-only/crc32code-example" target="_blank">CRC-32 code example</a>.</p>
+
+<p>To add the header to an AnyNet file using the supplied Windows (PowerShell) script:</p>
+
+<ol> <li> If you are using Windows, select <a href="https://www.dropbox.com/s/4bnivp867ibildw/windows_header_gen.ps1?dl=0">here</a> to download the <span>windows&#95;header&#95;gen.ps1</span> script. </li> <li> Using Windows Powershell, run the script: <br /><span>.&#92;windows&#95;header&#95;gen.ps1 &lt;<var>anynetfile&#95;path</var>&gt;</span>  <br />where <var>anynetfile&#95;path</var> is the AnyNet file path and filename. <br />For example: <br />.&#92;windows&#95;header&#95;gen.sh.&#92;anynetfiles&#92;anynet&#95;rootca&#95;store </li> </ol>
+
+<p>To add the header using the supplied Linux script:</p>
+
+<ol> <li> If you are using Linux, select <a href="https://www.dropbox.com/s/g4ar86q9rorc4iu/linux_header_gen.sh?dl=0">here</a> to download the <span>linux&#95;header&#95;gen.sh</span> script. </li> <li> Using a Linux terminal, run the script: <br /><span>./linux&#95;header&#95;gen.sh &lt;<var>anynetfile&#95;path</var>&gt;</span>  <br />where <var>anynetfile&#95;path</var> is the AnyNet file path and filename. <br />For example:  <br />./linux&#95;header&#95;gen.sh anynetfiles/anynet&#95;rootca&#95;store </li> </ol>
+
+<h2 id="UploadingfilestotheQuectelmodule">Uploading files to the Quectel module</h2>
+
+<Accordion title="Use Windows to install AnyNet SMARTconnect™ files on the Quectel module">
+ <p>To copy AnyNet SMARTconnect™ files onto the Quectel module:</p> <ol> <li> Ensure you have installed the required drivers and files for Windows. <br />For more information, see <a href="/quectel/upgrading-firmware" target="_blank">Upgrading the Quectel module firmware</a>. </li> <li> In the extracted <span>AnyNetSMARTconnect&#95;&lt;<i>version</i>&gt;&#95;for&#95;&lt;<var>module&#95;version</var>&gt;</span> folder, locate: <ul> <li><span>EseyeTelemetryModule.bin</span> </li> <li><span>oem&#95;app&#95;path.ini</span> </li> </ul> </li> <li> Also locate the five AnyNet files you created. </li> <li> Using a separate File Explorer, in the extracted <span>Quectel&#95;EFS&#95;Explorer&#95;V&lt;<i>version</i>&gt;&#95;Windows</span> folder, locate and run <span>QEFS&#95;Explorer.exe</span> to launch the application. </li> <li> In <span>QEFS Explorer</span>, on the left hand side, select <img src="/images/resources/images/qefsexplorericon_20x20.png" alt="Qefsexplorericon 20X20" />. </li> <li> If the <span>Please Select DM Port</span> dialog box appears, select <span>File</span> &gt; <span>Device</span> &gt; <span>Quectel USB DM Port</span> to set the DM Port to the connected Quectel module, then select <img src="/images/resources/images/qefsexplorericon_20x20.png" alt="Qefsexplorericon 20X20" />. </li> <li> Double-click the <span>datatx</span> folder to expand it. </li> <li> Drag and drop the following files into the QEFS Explorer <span>datatx</span> folder: <ul> <li><span>EseyeTelemetryModule.bin</span> </li> <li><span>oem&#95;app&#95;path.ini</span> </li> <li><span>anynet&#95;rootca&#95;store</span> </li> <li><span>anynet&#95;pubcert&#95;store</span> </li> <li><span>anynet&#95;privkey&#95;store</span> </li> <li><span>anynet&#95;thingname&#95;store</span> </li> <li><span>anynet&#95;url&#95;store</span> </li> </ul> <br />A dialog box appears for each file you transfer. </li> <li> Select <span>OK</span> on each dialog box to transfer the files onto the connected Quectel module. </li> <li> Reboot the Quectel module to load and start AnyNet SMARTconnect™ application. </li> </ol> 
+</Accordion>
+
+<Accordion title="Use Linux to install AnyNet SMARTconnect™ files on the Quectel module">
+ <p>To copy ETM application files into /datatx/ on the Quectel module:</p> <ol> <li>Navigate to the extracted <span>QExplorer&#95;&lt;<var>Module</var>&gt;&#95;Linux&#95;Android&#95;V&lt;<i>version</i>&gt;</span> folder.</li> <li> Run <span>sudo make</span> <br />This command compiles QExplorer. If it is successful, you will see the QExplorer file. </li> <li> Run: <br />sudo./QExplorer -f &lt;<i>filename</i>&gt; <br />where <span>&lt;<i>filename</i>&gt;</span> is the path to the following files: <ul> <li><span>EseyeTelemetryModule.bin</span> </li><li><span>oem&#95;app&#95;path.ini</span> </li> <li><span>anynet&#95;rootca&#95;store</span> </li> <li><span>anynet&#95;pubcert&#95;store</span> </li> <li><span>anynet&#95;privkey&#95;store</span> </li> <li><span>anynet&#95;thingname&#95;store</span> </li> <li><span>anynet&#95;url&#95;store</span> </li> </ul>These commands send AnyNet SMARTconnect™ files to the connected Quectel module.</li>  <li>Reboot the Quectel module.</li> <li>Use a terminal emulator such as PuTTY to connect to the relevant USB interface, for example: ttyUSB2.</li> <li> Send: <span>AT+ETMINFO="version"</span> <br />If the connection is valid, AnyNet SMARTconnect™ version is returned. This should match the version you installed. </li> </ol> 
+</Accordion>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> <li><a href="/software-products/update-software-firmware">Updating AnyNet SMARTconnect™ software and host module firmware</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8618-Eseye-enabled-Quectel-BG96-module-Developer-Guide.pdf" target="_blank">8618 Eseye-enabled Quectel BG96 module Developer Guide (PDF)</a> </li> </ul> </div>

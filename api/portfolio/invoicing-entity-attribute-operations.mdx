@@ -1,0 +1,222 @@
+---
+title: "About invoicing entity attribute endpoints"
+description: "The Portfolio API enables you to:"
+---
+
+<p>The Portfolio API enables you to: </p>
+
+<ul> <li>View details for <a href="#Viewing2">single</a> or <a href="#Viewing">multiple</a> attributes on a specific invoicing entity</li> <li><a href="#Creating">Create</a>, <a href="#Updating">update</a>, and <a href="#Deleting">delete</a> invoicing entity attributes on a specific invoicing entity</li> </ul>
+
+<p>You can also:</p>
+
+<ul> <li>Create, update, delete and view <a href="/api/portfolio/invoicing-entity-operations" target="_blank">invoicing entities</a>.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-intro" target="_blank">Portfolio API Introduction</a>.</Note>
+
+<h2 id="Headers">Headers</h2>
+
+<Note>For information about headers, see <a href="/api/portfolio/headers" target="_blank">Configuring Portfolio API headers</a>.</Note>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download and extract the following resource to test the Portfolio API:</p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPortfolioAPI.postman_collection_environment.zip" target="_blank" rel="noopener">AnyNetPortfolioAPI.postman&#95;collection&#95;environment.zip</a> </p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</Note>
+
+<h2 id="Viewingallinvoicingentityattributesforaninvoicingentity">Viewing all invoicing entity attributes for an invoicing entity</h2>
+
+<p>To view all attributes for a specific invoicing entity:</p>
+
+<ul> <li> Call <span>GET /api/v2/invoicingEntity/&#123;<var>invoicingEntityId</var>&#125;/attribute/</span> <br />where &#123;<var>invoicingEntityId</var>&#125; identifies the invoicing entity containing the attributes you want to view. <br /><span>Path parameters:</span> <span>invoicingEntityId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <span><strong>Tip: </strong>You can apply filters in the request path to limit the results, using one or more parameters. The API returns exactly matching records only. Alternatively, remove all filters from the path to return all records. For example, adding <span><span>?status=active</span></span> to the end of the path will return <span>active</span> objects only.</span> <br />The API returns all the invoicing entity attribute details for the specified invoicing entity. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/invoicingEntity/6/attribute/</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Schema</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><span>pageToken</span> </td> <td> <div> <div> string </div> <div> minLength: 1 </div> </div> <br />The start record for the page. </td> <td>0</td> </tr> <tr> <td><span>requestedPageSize</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The maximum number of records requested per page. </td> <td>50</td> </tr> <tr> <td><span>nextPageToken</span> </td> <td>This only appears if the number of records exceeds the requestedPageSize. For more information, see<a href="/api/portfolio/portfolio-api-reference#nextPage" target="_blank">Handling the nextPageToken tag</a>.</td> <td>ApBHMkC8flM6kpi6wpm6tYuwZkCpirBY</td> </tr> <tr> <td><span>itemCount</span> </td> <td> <div> <div> integer </div> <div> minLength: 1 </div> </div> <br />The number of records returned. </td> <td>2</td> </tr> <tr> <td><span>items</span> </td> <td> The <span>items</span> array. <br />Each returned <span>invoicingEntityAttribute</span> includes:  <br /><span>invoicingEntityAttributeId</span>; <span>invoicingEntityId</span>; <span>attribute</span>; <span>value</span>; <span>status</span> <span><strong>Note: </strong>For more information, see <a href="/api/portfolio/portfolio-api-reference#Invoicin2" target="_blank">Invoicing entity attribute definition</a>.</span> </td> <td> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"pageToken": "0",</p>
+
+<p>"requestedPageSize": 50,</p>
+
+<p>"itemCount": 2,</p>
+
+<p>"items": [</p>
+
+<p>&#123;</p>
+
+<p>"invoicingEntityAttributeId": 19,</p>
+
+<p>"invoicingEntityId": 6,</p>
+
+<p>"attribute": "dynamicsCompanyId",</p>
+
+<p>"value": "3d19481b.afcb.ea31.a914.000f3c0ab105"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"invoicingEntityAttributeId": 23,</p>
+
+<p>"invoicingEntityId": 6,</p>
+
+<p>"attribute": "dynamicsCompanyName",</p>
+
+<p>"value": "Eseye",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<h2 id="Viewingaspecificinvoicingentityattribute">Viewing a specific invoicing entity attribute</h2>
+
+<p>To view details for a specific invoicing entity attribute:</p>
+
+<ul> <li> Call <span>GET /api/v2/invoicingEntity/&#123;<var>invoicingEntityId</var>&#125;/attribute/&#123;<var>invoicingEntityAttributeId</var>&#125;</span>, where &#123;<var>invoicingEntityId</var>&#125; identifies the parent invoicing entity, and &#123;<var>invoicingEntityAttributeId</var>&#125; identifies which attribute you want to view. <br /><span>Path parameters:</span> <span>invoicingEntityId</span><b>&#42;</b>; <span>invoicingEntityAttributeId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the specified invoicing entity attribute details. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://portfolio.api.anynetiot.com/api/v2/invoicingEntity/6/attribute/19</span> </p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>invoicingEntityAttributeId</span>; <span>invoicingEntityId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Invoicin2" target="_blank">Invoicing entity attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"invoicingEntityAttributeId": 19,</p>
+
+<p>"invoicingEntityId": 6,</p>
+
+<p>"attribute": "dynamicsCompanyId",</p>
+
+<p>"value": "3d19481b.afcb.ea31.a914.000f3c0ab105"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Creatinganewinvoicingentityattribute">Creating a new invoicing entity attribute</h2>
+
+<p>To create a new invoicing entity attribute:</p>
+
+<ul> <li> Call <span>POST /api/v2/invoicingEntity/&#123;<var>invoicingEntityId</var>&#125;/attribute/</span>, where &#123;<var>invoicingEntityId</var>&#125; identifies the parent invoicing entity where you want to create the new attribute. <br /><span>Path parameters:</span> <span>invoicingEntityId</span><b>&#42;</b> <br /><span>Body parameters:</span> <span>attribute</span><b>&#42;</b>; <span>value</span> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory. You can leave <span>value</span> empty <span>""</span>, but do not use <span>null</span>. </span> <br />The API creates a new invoicing entity attribute. </li> </ul>
+
+<h4>Example</h4>
+
+<p>POST https://portfolio.api.anynetiot.com/api/v2/invoicingEntity/6/attribute/</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"attribute":"dynamicsCompanyName"</p>
+
+<p>"value":"Eseye"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>invoicingEntityAttributeId</span>; <span>invoicingEntityId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Invoicin2" target="_blank">Invoicing entity attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"invoicingEntityAttributeId": 23,</p>
+
+<p>"invoicingEntityId": 6,</p>
+
+<p>"attribute": "dynamicsCompanyName"</p>
+
+<p>"value": "Eseye"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Updatingaspecificinvoicingentityattribute">Updating a specific invoicing entity attribute</h2>
+
+<p>To update a specific invoicing entity attribute:</p>
+
+<ul> <li> Call <span>PATCH /api/v2/invoicingEntity/&#123;<var>invoicingEntityId</var>&#125;/attribute/&#123;<var>invoicingEntityAttributeId</var>&#125;</span>, where &#123;<var>invoicingEntityId</var>&#125; identifies the parent invoicing entity, and &#123;<var>invoicingEntityAttributeId</var>&#125; identifies which attribute you want to update. <br /><span>Path parameters:</span> <span>invoicingEntityId</span><b>&#42;</b>; <span>invoicingEntityAttributeId</span><b>&#42;</b> <br /> <span>Body:</span> <span>value</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory. You can leave <span>value</span> empty <span>""</span>, but do not use <span>null</span>. </span> <br />The API updates the specified invoicing entity attribute <span>value</span> with the new details. </li> </ul>
+
+<h4>Example</h4>
+
+<p>PATCH https://portfolio.api.anynetiot.com/api/v2/invoicingEntity/6/attribute/19</p>
+
+<p>/&#42; header information &#42;/</p>
+
+<p>&#123;</p>
+
+<p>"value": "3d19481b-afcb-ea31-a914-000f3c0ab105"</p>
+
+<p>&#125;</p>
+
+<h3>Response schema application/json: </h3>
+
+<p><span>invoicingEntityAttributeId</span>; <span>invoicingEntityId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<Note>For more information, see <a href="/api/portfolio/portfolio-api-reference#Invoicin2" target="_blank">Invoicing entity attribute definition</a>.</Note>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"invoicingEntityAttributeId": 19,</p>
+
+<p>"invoicingEntityId": 6,</p>
+
+<p>"attribute": "dynamicsCompanyId"</p>
+
+<p>"value": "3d19481b-afcb-ea31-a914-000f3c0ab105"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<h2 id="Deletingaspecificinvoicingentityattribute">Deleting a specific invoicing entity attribute</h2>
+
+<p>To delete a specific invoicing entity attribute:</p>
+
+<ul> <li> Call <span>DELETE <span>/api/v2/invoicingEntity/&#123;<var>invoicingEntityId</var>&#125;/attribute/&#123;<var>invoicingEntityAttributeId</var>&#125;</span></span>, where &#123;<var>invoicingEntityId</var>&#125; identifies the parent invoicing entity, and &#123;<var>invoicingEntityAttributeId</var>&#125; identifies which attribute you want to delete. <br /><span>Path parameters:</span>[CDATA[ ]]<span>invoicingEntityId</span><b>&#42;</b>; <span>invoicingEntityAttributeId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API removes the specified invoicing entity attribute. </li> </ul>
+
+<h4>Example</h4>
+
+<p>DELETE https://portfolio.api.anynetiot.com/api/v2/invoicingEntity/6/attribute/19</p>
+
+<h3>Response schema application/json: </h3>
+
+<p>&#123;</p>
+
+<p>"INVOICING&#95;ENTITY&#95;ATTRIBUTE": 1</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/portfolio/portfolio-api-intro">Portfolio API Introduction</a> </li> <li><a href="/api/portfolio/invoicing-entity-operations" target="_blank">About invoicing entity endpoints</a> </li> <li><a href="/api/portfolio/portfolio-operations" target="_blank">About portfolio endpoints</a> </li> <li><a href="/api/portfolio/portfolio-api-reference" target="_blank">Portfolio API reference tables</a> </li> <li><a href="/api/portfolio/portfolio-api-reference#Error" target="_blank">Error responses definition</a> </li> </ul> </div>

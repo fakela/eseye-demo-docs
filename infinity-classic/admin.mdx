@@ -1,0 +1,78 @@
+---
+title: "Admin menu"
+description: "The Admin menu provides management of user accounts and sub-accounts using the following sub-menu options:"
+---
+
+<p>The Admin menu provides management of user accounts and sub-accounts using the following sub-menu options:</p>
+
+<ul> <li><a href="#Users">Users page</a> </li> <li><a href="#Referral">Referral Codes page</a> </li> <li><a href="#Sub">Sub Accounts page</a> </li> <li><a href="#AuditLog">Audit Log page</a> </li> </ul>
+
+<h2 id="Userspage">Users page</h2>
+
+<p>The Users page lists the users for this account and their <a href="/infinity-classic/manage-accounts#User">user role</a> privileges.</p>
+
+<p><img src="/images/resources/images/infinityclassic/adminusers.png" alt="Adminusers" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields on the Users Page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Username </td> <td> The username used to log in to the Infinity Classic portal. <br />Must be between 6 and 32 characters in length, and should contain only letters, digits, '-', '&#95;', or be a valid email address. </td> </tr> <tr> <td> Email Address </td> <td> The email address for the user.  </td> </tr> <tr> <td>Admin</td> <td> Select to give this user Admin <a href="/infinity-classic/manage-accounts#User">user role</a> privileges.  </td> </tr> <tr> <td>Finance</td> <td> Select to give this user Finance user role privileges.  </td> </tr> <tr> <td>Engineering</td> <td>Select to give this user Engineering user role privileges. </td> </tr> <tr> <td>Logistics</td> <td>Select to give this user Logistics user role privileges. </td> </tr> <tr> <td>Enabled</td> <td>Enable or disable the user's Infinity Classic account.</td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – edit  <br /> <img src="/images/resources/images/infinityclassic/icondelete_24x24.png" alt="Icondelete 24X24" /> – delete <br /> <img src="/images/resources/images/infinityclassic/icon2fa_24x24.png" alt="Icon2Fa 24X24" /> – email <a href="/infinity-classic/manage-accounts#2FA">two factor authentication</a> QR code to user. This icon indicates that two factor authentication is enabled for all users of this portfolio. </td> </tr> <tr> <td><span>Save changes</span> </td> <td>Select to save the changes to the user privileges.</td> </tr> <tr> <td><span>Add user</span> </td> <td> Select to display the Add User Details dialog where you can add information for a new Infinity Classic user. </td> </tr> </tbody> </table>
+
+<h3>Add/Edit User Details dialog</h3>
+
+<p>The Add/Edit User Details dialog lets you add or edit user details.</p>
+
+<p><img src="/images/resources/images/infinityclassic/userdetailsdialog.png" alt="Userdetailsdialog" /> </p>
+
+<p>The following table describes the fields on the User Details dialog.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Username </td> <td> The username used to log in to the Infinity Classic portal. <br />Must be between 6 and 32 characters in length, and should contain only letters, digits, '-', '&#95;', or be a valid email address. </td> </tr> <tr> <td> Email Address </td> <td> The email address for the user.  <span><strong>Note: </strong>This email address will be used to verify the user before they can log in to Infinity Classic.</span> </td> </tr> <tr> <td>Password</td> <td> The Infinity Classic login password for this user. Must be a minimum of 6 characters, and contain at least one lower case letter, one upper case letter, and a numeric digit. </td> </tr> <tr> <td>Salutation</td> <td> Salutation for the user. Choose between: Mr, Mrs, Dr, Ms, Miss, Sir or Prof. </td> </tr> <tr> <td>Firstname</td> <td> First name of the user. Must be at least two characters long. </td> </tr> <tr> <td>Surname</td> <td> Surname of the user. Must be at least two characters long. </td> </tr> <tr> <td>Job Title</td> <td> The job title of the user. This is useful to identify their required user privileges. </td> </tr> <tr> <td>Phone Number</td> <td> A contact number for the user. </td> </tr> <tr> <td>User privileges</td> <td> Select which user role(s) to provide to this user: Admin, Finance, Logistics, Engineering. </td> </tr> <tr> <td><span>Save</span> </td> <td>Select to save the changes.</td> </tr> </tbody> </table>
+
+<h2 id="ReferralCodespage">Referral Codes page</h2>
+
+<p>The Referral Codes page is where you <a href="/infinity-classic/manage-accounts#SubAccounts">create unique referral codes</a> that you can send to <a href="/infinity-classic/manage-accounts">create new users</a> on this account. A referral code is a code or password you create to give a user access to a sub-account.</p>
+
+<Note>We recommend a secure password of a mixture of characters.</Note>
+
+<p><img src="/images/resources/images/infinityclassic/adminreferralcodes.png" alt="Adminreferralcodes" /> </p>
+
+<p>The following table describes the fields on the referral codes page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Referral Code</td> <td> Specify a unique referral code, at least six characters in length, to send to the user.  </td> </tr> <tr> <td>Code Type</td> <td> Specify one of the following referral code types to send to the user: <ul> <li><span>Single Use</span> – creates a code for a sub account that can only be used once.</li> <li><span>Perpetual</span> – creates a reusable code for sub accounts.</li> <li><span>Tie</span> – creates a new user on your account.</li> </ul> </td> </tr> <tr> <td>Billing</td> <td> Specify whether to add the user, who will be sent this referral code, to the <span>Parent</span> account or a <span>Sub Account</span>. </td> </tr> <tr> <td>Status</td> <td>Displays <span>New</span> for newly created referral codes.</td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – edit the referral code information (Referral Code, Type and Billing fields). <br /> <img src="/images/resources/images/infinityclassic/icondelete_24x24.png" alt="Icondelete 24X24" /> – delete the referral code. <br /> <img src="/images/resources/images/infinityclassic/iconemail_24x24.png" alt="Iconemail 24X24" /> – specify one or more email addresses to which to send the referral code. When specifying a list of email addresses, use commas (,) or semi-colons (;) to separate the email addresses. </td> </tr> <tr> <td><span>Add Sub Account Referral Code</span> </td> <td> Select to add a new referral code by specifying the Referral Code, Type and Billing fields and selecting <span>Create</span>. </td> </tr> </tbody> </table>
+
+<h2 id="SubAccountspage">Sub Accounts page</h2>
+
+<p>The Sub Accounts page enables you to view and log in to Infinity Classic <a href="/infinity-classic/manage-accounts#SubAccounts">sub accounts</a>.</p>
+
+<p><img src="/images/resources/images/infinityclassic/adminsubaccounts.png" alt="Adminsubaccounts" /> </p>
+
+<p>The following table describes the fields on the sub accounts page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Company Name</td> <td>The name of the company for which the user works.</td> </tr> <tr> <td>Portfolio Name</td> <td> The name of the portfolio assigned to the user. </td> </tr> <tr> <td>Created</td> <td>The date on which the sub account was created. The date format is: YYYY-MM-DD.</td> </tr> <tr> <td>SIMs</td> <td>The number of SIMs assigned to this sub account.</td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconuser_24x24.png" alt="Iconuser 24X24" /> – select to log in as the sub account, which only has access to the <a href="/infinity-classic/sims">SIMs menu</a>, <a href="/infinity-classic/settings">Settings menu</a>, <a href="/infinity-classic/activity">Activity menu</a>, <a href="#">Admin menu</a> and <a href="/infinity-classic/support">Support menu</a> menus. <span><strong>Note: </strong>Logging in on a sub account will automatically log you out of your current account.</span> </td> </tr> </tbody> </table>
+
+<h2 id="AuditLogpage">Audit Log page</h2>
+
+<p>The Audit Log page enables you to search for all changes made on the Admin menu options. </p>
+
+<p><img src="/images/resources/images/infinityclassic/adminauditlog.png" alt="Adminauditlog" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<h3>Search</h3>
+
+<p> Filter the list of audit log records between the <span>From</span> and <span>To</span> dates. </p>
+
+<p>Select the calendar icon (<img src="/images/resources/images/infinityclassic/iconcalendar_24x24.png" alt="Iconcalendar 24X24" />) to display a calendar from which you can select the required date.</p>
+
+<p>Select <span>Search</span> to update the records in the results table.</p>
+
+<h3>Results</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table lists the fields in the results table on the audit log page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Event</td> <td>Description of the admin event or change.</td> </tr> <tr> <td>Ref</td> <td> A reference number for the event. Typically it's the ICCID of the SIM on which the user made the change. </td> </tr> <tr> <td>Date</td> <td>The date (YY-MM-DD) of the audit log event.</td> </tr> <tr> <td>User</td> <td>The name of the user that made the change.</td> </tr> <tr> <td>Information</td> <td>Detailed description about the change made.</td> </tr> </tbody> </table>

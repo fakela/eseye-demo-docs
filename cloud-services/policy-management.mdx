@@ -1,0 +1,18 @@
+---
+title: "Limiting the AWS IoT Core policy"
+description: "AWS IoT Core policies allow you to control access to the AWS IoT Core data plane. The data plane consists of operations that allow you to connect to the AWS IoT Core message broker, send and receive MQTT messages, and..."
+---
+
+<p>AWS IoT Core policies allow you to control access to the AWS IoT Core data plane. The data plane consists of operations that allow you to connect to the AWS IoT Core message broker, send and receive MQTT messages, and get or update the device shadow.</p>
+
+<p>By default, the AnyNet Secure provisioning service creates thing s with an open policy. This occurs because the provisioning has no knowledge of your application, or the publish and subscribe topics and processing you are using with your AWS account. </p>
+
+<p>It is best practice to limit the policy to allow access to only the required resource and to limit that access to only authenticated devices. </p>
+
+<Tip>We recommend that you edit or replace the installed default policy. Only <span>Allow</span> required actions or <span>Deny</span> actions that the thing never performs. Use a resource control for each action to restrict resource access.</Tip>
+
+<p>For example, if the thing only publishes and never subscribes, remove the subscribe action from the <span>Allow</span> policy statement. Alternatively, specifically <span>Deny</span> the subscribe action. Use a resource control such as <span>Resource</span>, which restricts the connection to a thing using a thing name registered in the AWS IoT registry and authenticated against the ARN. For example: </p>
+
+<p>["arn:aws:iot:<var>Region</var>:123456789012:client/&#36;&#123;iot:Connection.Thing.<var>AWS thingName</var>&#125;"] </p>
+
+<p>For more detailed examples of how to adjust policies to manage resource access, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html" target="_blank">AWS IoT Core policies</a>.</p>

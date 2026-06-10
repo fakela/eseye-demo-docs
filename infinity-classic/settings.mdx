@@ -1,0 +1,116 @@
+---
+title: "Settings menu"
+description: "The Settings menu provides the following pages which enable you to view package information, create alerts, generate reports and define device models:"
+---
+
+<p>The Settings menu provides the following pages which enable you to view package information, create alerts, generate reports and define device models:</p>
+
+<ul> <li><a href="#SimPackages">SIM Packages page</a> </li> <li><a href="#Alert">Alert Profiles page</a> </li> <li><a href="#Device">Device Models page</a> </li> <li><a href="#Reporting">Reporting Profile page</a> </li> <li><a href="#Messaging">Messaging API page</a> </li> <li><a href="#Audit">Audit Log page</a> </li> </ul>
+
+<h2 id="SIMPackagespage">SIM Packages page</h2>
+
+<p>The SIM packages page lists all of the packages associated with this account, and enables you to view and edit package information. </p>
+
+<p><img src="/images/resources/images/infinityclassic/simpackages.png" alt="Simpackages" /> </p>
+
+<h3>Search</h3>
+
+<p>Use <span>Show</span> to filter the packages to display: Select All, Active, Suspended, Legacy, Unsigned.</p>
+
+<p>Select <span>Search</span> to update the records in the results table.</p>
+
+<h3>Results</h3>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the columns displayed for the SIM Audit Log records.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Package ID </td> <td>Unique identifier for the <a href="/billing/billing-packages">package</a>.</td> </tr> <tr> <td> Package Name </td> <td> Name of the package which typically contains information about the package items. </td> </tr> <tr> <td>Status</td> <td> The status of the package:  <ul> <li>Active</li> <li>Suspended</li> <li>Unsigned</li> <li>Legacy</li> </ul> </td> </tr> <tr> <td>No. of SIMs</td> <td> The number of SIMs assigned to the package. </td> </tr> <tr> <td>Actions</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – edit package details (friendly name, status) <br /> <img src="/images/resources/images/infinityclassic/iconpdfblack_24x24.png" alt="Iconpdfblack 24X24" /> – download <a href="/billing/billing-packages#About2">service contracts</a>. </td> </tr> </tbody> </table>
+
+<h2 id="AlertProfilespage">Alert Profiles page</h2>
+
+<p>The Alert profiles page enables you to send <a href="/infinity-classic/managing-alerts">alerts</a>, or suspend SIMs when Financial, Data, Messaging, Voice or Device limits are reached.</p>
+
+<p><img src="/images/resources/images/infinityclassic/alertprofiles.png" alt="Alertprofiles" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields on the alert profile page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Profile Name </td> <td> Unique name for the alert profile. </td> </tr> <tr> <td> Default </td> <td> If a profile is set as the <span>Default</span>, this indicates that all new SIMs are assigned to this profile unless otherwise specified. </td> </tr> <tr> <td>No. of Devices</td> <td> The number of devices using this alert profile. </td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – <a href="#Add">edit the alert profile</a>. <br /> <img src="/images/resources/images/infinityclassic/icondelete_24x24.png" alt="Icondelete 24X24" /> – delete the alert profile. </td> </tr> <tr> <td><span>Add New Alert Profile</span> </td> <td> Select to <a href="#Add">add a new alert profile</a>. </td> </tr> </tbody> </table>
+
+<h3>Add/Edit alert profile dialog</h3>
+
+<p>To display the Alert Profile dialog, add or edit an <a href="/infinity-classic/managing-alerts">alert profile</a>.</p>
+
+<p><img src="/images/resources/images/infinityclassic/addnewalertprofiles.png" alt="Addnewalertprofiles" /> </p>
+
+<p>The following table describes the fields on the Alert Profile dialog. </p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>Name</span>  </td> <td>   </td> </tr> <tr> <td> Profile Name </td> <td> Unique name for the alert profile. </td> </tr> <tr> <td>Default Profile</td> <td> If a profile is set as the <span>Default</span>, this indicates that all new SIMs are assigned to this profile unless otherwise specified. </td> </tr> <tr> <td><span>Financial Alerts</span> </td> <td> Define up to three levels of financial alerts that are triggered when the SIM charges for the current billing period exceed the overage thresholds defined (below) for each level. </td> </tr> <tr> <td>Enable</td> <td> For each alert level, select one of the following: <ul> <li>Not used – do not alert users when SIM exceeds the configured alert level threshold.</li> <li>Alert – sends an email to every user assigned to the package for the SIM that exceeded the alert level threshold.</li> <li>Suspend – suspends the SIM that has exceeded the the alert level threshold.</li> </ul> </td> </tr> <tr> <td>Value of Overage per month</td> <td> For each alert level, specify a value for the amount over the agreed monthly cost of the bundle that will trigger an alert.  <br />The values for alert level 1 must be lower than alert level 2, which must be lower than alert level 3.  <span><strong>Note: </strong>You must not include the currency icon in the value.</span> </td> </tr> <tr> <td><span>Data Alerts</span> </td> <td>Define up to three levels of data alerts that are triggered when the data usage for the SIM in the current billing period exceeds the thresholds defined (below) for each level.</td> </tr> <tr> <td>Enable</td> <td> For each alert level, select one of the following: <ul> <li>Not used – do not alert users when SIM exceeds the configured alert level threshold.</li> <li>Alert – sends an email to every user assigned to the package for the SIM that exceeded the alert level threshold.</li> <li>Suspend – suspends the SIM that has exceeded the the alert level threshold.</li> </ul> </td> </tr> <tr> <td>Value</td> <td> For each alert level, specify the value and units for the amount of data used in the current billing period that will trigger an alert. The units can be bytes, kilobytes, megabytes, gigabytes or expressed as a percentage of the data usage defined in the bundle. <br />The values for alert level 1 must be lower than alert level 2, which must be lower than alert level 3.  </td> </tr> <tr> <td><span>Messaging Alerts</span> </td> <td> Define up to three levels of messaging alerts that are triggered when the number of SMS messages sent in the current billing period exceeds the thresholds defined (below) for each level. </td> </tr> <tr> <td>Enable</td> <td> For each alert level, select one of the following: <ul> <li>Not used – do not alert users when SIM exceeds the configured alert level threshold.</li> <li>Alert – sends an email to every user assigned to the package for the SIM that exceeded the alert level threshold.</li> <li>Suspend – suspends the SIM that has exceeded the the alert level threshold.</li> </ul> </td> </tr> <tr> <td>Messages per month</td> <td> For each alert level, specify the number of SMS messages sent in the current billing period that will trigger an alert. <br />The values for alert level 1 must be lower than alert level 2, which must be lower than alert level 3.  </td> </tr> <tr> <td><span>Voice Alerts</span> </td> <td>Define up to three levels of voice alerts that are triggered when total duration of all calls in the current billing period exceeds the thresholds defined (below) for each level.</td> </tr> <tr> <td>Enable</td> <td> For each alert level, select one of the following: <ul> <li>Not used – do not alert users when SIM exceeds the configured alert level threshold.</li> <li>Alert – sends an email to every user assigned to the package for the SIM that exceeded the alert level threshold.</li> <li>Suspend – suspends the SIM that has exceeded the the alert level threshold.</li> </ul> </td> </tr> <tr> <td>Calls per month</td> <td> For each alert level, specify the total duration of calls (in seconds, minutes or hours) in the current billing period that will trigger an alert. <br />The values for alert level 1 must be lower than alert level 2, which must be lower than alert level 3.  </td> </tr> <tr> <td><span>Device Alerts</span> </td> <td> Trigger a device alert when the SIM is being used by an IMEI for which it is not registered.  </td> </tr> <tr> <td>IMEI Alert</td> <td> Select one of the following: <ul> <li>Not used – do not use device alerts.</li> <li>Alert – sends an email to every user assigned to the package for the SIM when there is an IMEI mismatch.</li> <li>Suspend – suspends the SIM when there is an IMEI mismatch.</li> </ul> </td> </tr> <tr> <td><span>Save</span> </td> <td>Select to save the changes to the alerts.</td> </tr> </tbody> </table>
+
+<h2 id="DeviceModelspage">Device Models page</h2>
+
+<p>The Device Models page defines devices that you assign to SIMs on the <a href="/infinity-classic/sim-actions#Settings">SIM Settings page</a>.</p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields on the Device Models page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Profile Name </td> <td> Unique name for the device profile. </td> </tr> <tr> <td>Default</td> <td> If a profile is set as the <span>Default</span>, this indicates that all new SIMs are assigned to this profile unless otherwise specified. </td> </tr> <tr> <td>No. of Devices</td> <td> The number of SIMs assigned to this device model. You assign SIM to devices on the <a href="/infinity-classic/sim-actions#Settings">SIM Settings page</a>. </td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – edit the Device Name and Default values.. <br /> <img src="/images/resources/images/infinityclassic/icondelete_24x24.png" alt="Icondelete 24X24" /> – delete the device model. </td> </tr> <tr> <td><span>Add New Device Model</span> </td> <td>Select to add a new device model.</td> </tr> </tbody> </table>
+
+<h2 id="ReportingProfilepage">Reporting Profile page</h2>
+
+<p>The Reporting Profile page defines <a href="/infinity-classic/managing-reports">report profiles</a> that you assign to SIMs on the <a href="/infinity-classic/sim-actions#Settings">SIM Settings page</a>.</p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields on the Reporting Profile page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Profile Name </td> <td> Unique name for the report profile. </td> </tr> <tr> <td>Default</td> <td> If a profile is set as the <span>Default</span>, this indicates that all new SIMs are assigned to this profile unless otherwise specified. </td> </tr> <tr> <td>No. of Devices</td> <td> The number of SIMs assigned to this reporting profile. You assign SIMs to devices on the <a href="/infinity-classic/sim-actions#Settings">SIM Settings page</a>. </td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – edit the report profile. <br /> <img src="/images/resources/images/infinityclassic/icondelete_24x24.png" alt="Icondelete 24X24" /> – delete the reporting profile. </td> </tr> <tr> <td><span>Add New Report Profile</span> </td> <td>Select to display the Add Report Profile dialog (below) where you <a href="/infinity-classic/managing-reports#CreatingReportProfiles">add a new report profile</a>.</td> </tr> </tbody> </table>
+
+<h3>Add/Edit report profile dialog</h3>
+
+<p>The Add/Edit Report Profile dialog is where you can add a new report profile or edit existing report profiles.</p>
+
+<p><img src="/images/resources/images/infinityclassic/addreportprofiledialog.png" alt="Addreportprofiledialog" /> </p>
+
+<p>The following table describes the fields on the Add/Edit Report Profile dialog.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Profile Name </td> <td> Unique name for the report profile. </td> </tr> <tr> <td>Default</td> <td> If a profile is set as the <span>Default</span>, this indicates that all new SIMs are assigned to this profile unless otherwise specified. </td> </tr> <tr> <td><span>SIMs Report</span> </td> <td> Displays a row for each of the following SIM reports: <ul> <li>Estate Report – monthly report that provides a breakdown of individual SIM usage and details, contract terms, network changes, and SIM status, authentication and location information.</li> <li>Group Usage Report – daily, weekly or monthly report that displays data usage across all SIMs.</li> <li>No Data Used Report – weekly or monthly report that displays the ICCID and MSIDSN of active devices that have not used any data in the past month, including the SIM status and where the device was last seen.</li> <li>SIM Audit Report – weekly or monthly report that displays alert triggers on specified SIMs.</li> <li>SIM Location Report – weekly or monthly report that displays the number of devices per country for all SIMs in your estate.</li> <li>Suspension and Termination Report – daily, weekly or monthly report that displays when a SIM status was initiated, including all activations, terminations, manual suspensions, and alerted suspensions, by ICCID and MSISDN.</li> </ul> </td> </tr> <tr> <td>Enable</td> <td> Select the check box to enable the report. </td> </tr> <tr> <td> Interval </td> <td>Specify whether the report is generated <span>Daily</span>, <span>Weekly</span> or <span>Monthly</span>.</td> </tr> <tr> <td>Action</td> <td> <span><strong>Note: </strong>Only displayed when editing the report profile.</span> <br />Select <span>Run Now</span> to trigger the report. </td> </tr> <tr> <td><span>Save</span> </td> <td>Select the add/edit the reporting profile.</td> </tr> </tbody> </table>
+
+<h2 id="MessagingAPIpage">Messaging API page</h2>
+
+<p>The Messaging API page configures the sending of MT SMS and receiving of MO SMS messages for this account. </p>
+
+<p><img src="/images/resources/images/infinityclassic/messagingapi.png" alt="Messagingapi" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<p>The following table describes the fields on the Messaging API page and Edit Messaging API dialog.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> API Username </td> <td> Username used to authenticate messaging API (SMS API) requests. </td> </tr> <tr> <td>API Password</td> <td> Password used to authenticate messaging API (SMS API) requests. </td> </tr> <tr> <td>MT Enable</td> <td> Whether the user is permitted to send MT messages. </td> </tr> <tr> <td>MO Enable</td> <td> Whether the user is permitted to send MO messages. </td> </tr> <tr> <td>MO POST URL</td> <td>  The URL to which the <a href="/getting-started/sms/understanding-sms#AnyNetMessagingService">AnyNet Messaging Service</a> sends MO SMS messages from SIMs associated with the user.  </td> </tr> <tr> <td> API MSISDN </td> <td> The MSISDN to which to send MO SMS messages from IoT devices with AnyNet SIMs. Eseye can assign two API MSISDNs for each MO POST URL. <span><strong>Note: </strong>Eseye provide the MSISDN(s) to use. To request a second API MSISDN for this account, contact customer support. </span> </td> </tr> <tr> <td>API Whitelist Enable</td> <td> Select to enable the API Allowlist, which only accepts requests from the IP addresses in the comma-separated list of IP addresses (defined below).  </td> </tr> <tr> <td>API Whitelist of IP Addresses</td> <td>A comma-separated list of IP addresses that are allowed to <a href="/api/sms/smsapi-intro">send requests to the messaging API</a> (SMS API). </td> </tr> <tr> <td>Action</td> <td>  <img src="/images/resources/images/infinityclassic/iconedit_24x24.png" alt="Iconedit 24X24" /> – select to edit the fields above. </td> </tr> </tbody> </table>
+
+<h2 id="AuditLogpage">Audit Log page</h2>
+
+<p>The Settings Audit Log displays a record of every action taken, and change made, to the settings associated with your account. </p>
+
+<p><img src="/images/resources/images/infinityclassic/settingsauditlog.png" alt="Settingsauditlog" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<h3>Search</h3>
+
+<p>The search enables you to filter the list of Settings audit log records between a <span>From</span> and <span>To</span> date. </p>
+
+<p>Select the calendar icon (<img src="/images/resources/images/infinityclassic/iconcalendar_24x24.png" alt="Iconcalendar 24X24" />) to display a calendar from which you can select the required date.</p>
+
+<h3>Results</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table describes the columns displayed for the SIM Audit Log records.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Description</td> <td> Description of the activity or change. </td> </tr> <tr> <td>Date</td> <td>The date of the change in the following format YYYY-MM-DD.</td> </tr> <tr> <td>User</td> <td>The name of the user that made the change.</td> </tr> <tr> <td>Ref</td> <td> The package identifier on which the user made the change. </td> </tr> <tr> <td>Information</td> <td>Detailed description about the change made.</td> </tr> </tbody> </table>

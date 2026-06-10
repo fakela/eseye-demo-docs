@@ -1,0 +1,124 @@
+---
+title: "Viewing and managing details for a SIM"
+description: "On the left menu, select SIMs to search for a SIM and display related information."
+---
+
+<p>On the left menu, select <span>SIMs</span> to search for a SIM and display related information.</p>
+
+<p><img src="/images/resources/images/integra/simsmenu.png" alt="Simsmenu" /> </p>
+
+<Tip>When you <a href="/managing-my-estate/viewing-estate-details#SIM">search for a SIM</a>, Infinity displays the following information associated with the SIM.</Tip>
+
+<p>SIMs is divided into the following sections:</p>
+
+<ul> <li><span>SIM Details</span>: For more information, see <a href="#SimDetails">Viewing general information for a relevant SIM</a>.</li> <li> <span>SIM</span>: For more information, see <a href="#IMSIs">Viewing connectivity status information</a>.</li> <li><span>Contract Information</span>: For more information, see <a href="#ContractInfo">Viewing contract information</a>.</li> <li><span>Last Connection details</span>: For more information, see <a href="#LastConnectionDetails">Viewing last recorded network connection</a>.</li> <li><span>Billing usage</span>: For more information, see <a href="#BillingUsage">Viewing billing usage</a>.</li> </ul>
+
+<h2 id="Aboutsearchfields">About search fields</h2>
+
+<p>The search fields enable you to search for a SIM.</p>
+
+<p><img src="/images/resources/images/infinity/simssearchfields.png" alt="Simssearchfields" /> </p>
+
+<p>To search for a SIM or group of SIMs:</p>
+
+<ol> <li>On the left menu, select <span>SIMs</span>.</li> <li>Select the <span>Search type</span> drop-down list.</li> <li>Provide value in the <span>Enter an ICCID, SIMID, EID or IMSI:</span>.</li> <li> Select <span>Search</span> to view the results in the <span>Search results table</span>. <span><strong>Note: </strong>Up to 10 saved searches are stored in your search history of your current user session.</span> </li> </ol>
+
+<p>To display a previously saved search:</p>
+
+<ol> <li>On the left menu, select <span>SIMs</span>.</li> <li>In the <span>Select a previous search</span> drop-down list, select <span>Search</span> to display the below tabs for your relevant SIM.</li> </ol>
+
+<h3>About <span>Search fields</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Search type</span> </td> <td> The identifier type to use in the search string field: <ul> <li> <span><a href="/glossary/iccid#top">ICCID</a></span>  </li> <li> <span><a href="/glossary/simid#top">SIM ID</a></span>  </li> <li> <span><a href="/glossary/eid#top">EID</a></span>  </li> <li> <span><a href="/glossary/imsi#top">IMSI</a></span>  </li> </ul> </td> </tr> <tr> <td><span>Search string</span> </td> <td> The search string (of the type defined above) used to identify the SIM. <span><strong>Note: </strong>You must specify the full string for the selected search type (ICCID, SIM ID, EID, etc). The search does not return values for partial matches.</span> </td> </tr> <tr> <td><span>Previous search</span> </td> <td> Select from your search history to display information for a previously searched SIM.  </td> </tr> </tbody> </table>
+
+<h2 id="ViewinggeneralinformationforarelevantSIM">Viewing general information for a relevant SIM</h2>
+
+<p>To display general information about your specific SIM:</p>
+
+<ul> <li>In the <span>Search results</span> table, select the checkbox alongside the relevant <span>SIM details</span> row.</li> <li>Select <span>SIM Details</span> tab.</li> </ul>
+
+<p><img src="/images/resources/images/infinity/simdetailstab.png" alt="Simdetailstab" /> </p>
+
+<p>At the top right, select <span>Actions &gt; Copy to Clipboard</span> to copy the content from this tab to the clipboard. Paste the information in a.CSV file, notepad, word, email or any other text editor.</p>
+
+<Note>On this tab, if data is unavailable for any field, the information for that particular field is not copied.</Note>
+
+<h3>About <span>SIM details</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>ICCID</span> </td> <td>  Integrated Circuit Card Identifier for SIM cards or profiles (when using an eUICC SIM). For more information, see <a href="/getting-started/esim/profiles#top" target="_blank">About eUICC SIM profiles</a>.Contains 14 and 20 numeric digits and starts with 89 or 99.  </td> </tr> <tr> <td><span>SIM ID</span> </td> <td> SIM Identifier. The unique serial number printed on the SIM provided by Eseye.Contains between 8 and 20 numeric digits. This is valid only for eUICC SIMs. </td> </tr> <tr> <td><span>EID</span> </td> <td>  Embedded Universal Integrated Circuit Card (eUICC) Identifier. The unique global serial number that identifies an eUICC, for Remote SIM Provisioning and eUICC management purposes. For more information, see <a href="/getting-started/esim/euicc#eid" target="_blank">eUICC Identifier (EID)</a>. </td> </tr> <tr> <td><span>SIM Type</span> </td> <td> A textual description that identifies the SIM type and its capabilities and specifications. This field typically includes the SIM part number (ES code for Eseye SIMs), package, form factor and MNO identifier. </td> </tr> <tr> <td><span>Presentation MSISDN</span> </td> <td>Currently active <a href="/glossary/msisdn#top">MSISDN</a>.</td> </tr> <tr> <td><span>Owner</span> </td> <td> The portfolio account owner name. The person responsible for the SIM. </td> </tr> <tr> <td><span>Presentation IP</span> </td> <td>Currently active <a href="#IP%C2%A0Addre">IP Address</a> that is used in the recent data session.</td> </tr> <tr> <td><span>Friendly Name</span> </td> <td>The identifying name given to the SIM by the user.</td> </tr> <tr> <td><span>Group Name</span> </td> <td> The identifying name given to the selected SIMs with user-defined fields. </td> </tr> <tr> <td><span>Dacct ID</span> </td> <td> The unique destination account identifier (Dacct ID) used internally that identifies chargeable actions on the SIM. </td> </tr> <tr> <td><span>Voice Type</span> </td> <td>The type voice message in Voice Resource Units (VRUs). For example, when an account balance reaches zero for a pre-paid customer or warning that the balance is low before a call and even during the call. </td> </tr> <tr> <td><span>SIP Routed MSISDN</span> </td> <td> Whether or not data sent and received from this MSISDN is routed using the session initiation protocol (SIP). <ul> <li><span>YES </span>– indicates data is routed using SIP. </li> <li><span>NO </span>– indicates data is not routed using SIP.</li> </ul> </td> </tr> <tr> <td><span>Data Number</span> </td> <td> The data usage of the SIM presented in numerical format. <br />For more information, see <a href="/billing/billing-sms-data-voice-billing#Understa" target="_blank">Understanding data usage per SIM</a>. </td> </tr> <tr> <td><span>Custom IMEI</span> </td> <td>The user-defined <a href="/glossary/imei#top">IMEI</a>. For information about, see <a href="/managing-my-estate/viewing-estate-details#ToChangeDeviceSettings" target="_blank">To link IMEI with device model:</a>.</td> </tr> <tr> <td><span>System status</span> </td> <td> Status automatically set by the system for the user's portfolio. For example, if the user exceeds the set <a href="/managing-my-estate/alerts#Data" target="_blank">About Infinity alerts</a> t threshold, the system status changes from <span>Active</span> to <span>Suspend</span>. For more information, see <a href="/managing-my-estate/alerts#Alert">About Infinity alerts</a>. This field is read-only. </td> </tr> <tr> <td><span>Admin status</span> </td> <td>Status set internally by the system administrator for the user's portfolio account. For example, if the user exceeds the set <a href="/managing-my-estate/alerts#Messagin" target="_blank">About Infinity alerts</a> threshold, the admin status changes from <span>Active</span> to <span>Suspend</span>. This field is read-only and cannot be changed by the user.</td> </tr> <tr> <td><span>Customer status</span> </td> <td> Status set by the customer for their own portfolio account. This state can be manually changed by the user. For more information, see <a href="/portfolios/manage-portfolios#To" target="_blank">Managing portfolios</a>. </td> </tr> <tr> <td><span>Last IMSI</span> </td> <td> The last <a href="/glossary/imsi">IMSI</a> number used to authenticate the SIM on the network. </td> </tr> <tr> <td><span>Last IMSI Date</span> </td> <td> The date and time stamp that the <a href="/glossary/imsi">IMSI</a> was last recorded. </td> </tr> <tr> <td><span>Last Lat</span> </td> <td> The last <a href="/glossary/imsi">IMSI</a> number used to authenticate the SIM on the network. </td> </tr> <tr> <td><span>LAST IMSI</span> </td> <td> The last <a href="/glossary/imsi">IMSI</a> number used to authenticate the SIM on the network. </td> </tr> <tr> <td><span>LAST IMSI</span> </td> <td> The last <a href="/glossary/imsi">IMSI</a> number used to authenticate the SIM on the network. </td> </tr> </tbody> </table>
+
+<h2 id="Viewingconnectivitystatusinformation">Viewing connectivity status information</h2>
+
+<p>To display connectivity information for each IMSI/ IMSIs associated with single/ multiple profiles:</p>
+
+<ul> <li>In the <span>Search results</span> table., select the checkbox alongside the relevant <span>SIM details</span> row.</li> </ul>
+
+<ul> <li>Select <span>SIM</span> tab.</li> </ul>
+
+<p><img src="/images/resources/images/infinity/simsimsistab.png" alt="Simsimsistab" /> </p>
+
+<p>At the top right, select <span>Actions &gt; Copy to Clipboard</span> to copy the content from this tab to the clipboard. Paste the information in a.CSV file, notepad, word, email or any other text editor.</p>
+
+<Note>On this tab, if data is unavailable for any field, the information for that particular field is not copied.</Note>
+
+<h3>About <span>SIM</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> <span>SIM Status</span> / <span>Status</span> </td> <td> The current SIM state: <ul> <li>Available (indicated by <img src="/images/resources/images/integra/iconorangetick_24x24.png" alt="Iconorangetick 24X24" />)</li> <li> Provisioned: indicates that SIM is transitioning from 1 state to another.</li> <li>Active (indicated by <img src="/images/resources/images/integra/icongreentick_24x24.png" alt="Icongreentick 24X24" />)</li> <li>Suspended</li> </ul> <br />For more information, see <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a> . </td> </tr> <tr> <td><span>IMSI</span> </td> <td> One or more <a href="/glossary/imsi#top" target="_blank">IMSI</a> assigned to the SIM. </td> </tr> <tr> <td><span>Expanded information</span> </td> <td>Select <img src="/images/resources/images/integra/iconexpand_24x24.png" alt="Iconexpand 24X24" /> to expand the multiple profile information for each IMSI within the SIM.</td> </tr> <tr> <td><span>Status</span> </td> <td> The current provisioning status for the IMSI: available, requested, provisioned, unrequested, unprovisioned, suspended, disabled, cancelled or deleted. (ask Istvan about these states) </td> </tr> <tr> <td><span>MSISDN</span> </td> <td> A list of <a href="/glossary/msisdn#top">MSISDN</a> assigned to the SIM. </td> </tr> <tr> <td><span>IP Address</span> </td> <td> IP addresses assigned to the SIM. </td> </tr> <tr> <td><span>MNO</span> </td> <td> A six digit unique identifier for the IMSI mobile network operator (MNO). <br />  </td> </tr> <tr> <td><span>SIP Routed</span> </td> <td> Whether or not data sent and received from this MSISDN is routed using the session initiation protocol (SIP). <ul> <li><span>YES </span>– indicates data is routed using SIP.</li> <li><span>NO </span>– indicates data is not routed using SIP.</li> </ul> </td> </tr> <tr> <td><span>Usage</span> </td> <td> The usage type for the data, voice or SMS. </td> </tr> </tbody> </table>
+
+<h2 id="Viewingcontractinformation">Viewing contract information</h2>
+
+<p>To display service contract information of your SIM:</p>
+
+<ul> <li>In the <span>Search results</span> table, select the checkbox alongside the relevant <span>SIM details</span> row.</li> </ul>
+
+<ul> <li>Select <span>Contract Information</span> tab.</li> </ul>
+
+<Tip> For more information, see <a href="/billing/billing-packages#About2" target="_blank">About Service Contracts</a> associated with your SIM.</Tip>
+
+<p><img src="/images/resources/images/infinity/contractinfotab.png" alt="Contractinfotab" /> </p>
+
+<p>At the top right, select <span>Actions &gt; Copy to Clipboard</span> to copy the content from this tab to the clipboard. Paste the information in a.CSV file, notepad, word, email or any other text editor.</p>
+
+<Note>On this tab, if data is unavailable for any field, the information for that particular field is not copied.</Note>
+
+<h3>About <span>Contract information</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Contract Status</span> </td> <td> The SIM contract status (active, suspended, cancelled or deleted). <br />When <span>active</span>, this field also displays the contract start date (dd Mmm yyyy) and start time (hh:mm:ss). </td> </tr> <tr> <td><span>Package ID</span> </td> <td> The unique package identifier. </td> </tr> <tr> <td><span>Package name</span> </td> <td> The package name which usually contains the customer account name and data allowance.  </td> </tr> <tr> <td><span>Price</span> </td> <td> Service charge for the current SIM, displayed in the agreed contract currency. </td> </tr> <tr> <td><span>Package description</span> </td> <td> Detailed description of the package. </td> </tr> <tr> <td><span>Contract period</span> </td> <td> The SIM contract billing cycle. </td> </tr> <tr> <td><span>Contract start date</span> </td> <td> The start date of the current contract. </td> </tr> <tr> <td><span>Contract end date</span> </td> <td> The end date of the current contract. </td> </tr> <tr> <td><span>Package status</span> </td> <td> The package status, either: <ul> <li> Active – approved and ready for use.</li> <li> Legacy – a redundant package that is required for auditing purposes on past transactions, but is not available for use.</li> <li>Pending – awaiting approval to change into another state. Not available for use.</li> <li>Suspended – available for use but you cannot continue to assign SIMs to it. However, you can manage the lifecycle of the SIMs that already exist within this package. </li> <li>Unsigned – awaiting the customer's signature and Eseye Ltd final approval. Not available for use.</li> </ul> </td> </tr> <tr> <td><span>Networking</span> </td> <td> The networking type in use, either: <ul> <li><span>NAT </span>– network address translation.</li> <li><span>VPN </span>– virtual private network.</li> <li><span>Fixed IP</span> – fixed IP address.</li> </ul> </td> </tr> <tr> <td><span>Portal name</span> </td> <td> The name of the portal associated with the SIM. </td> </tr> <tr> <td><span>Portfolio name</span> </td> <td> The name of the portfolio that contains the package associated with the SIM. </td> </tr> </tbody> </table>
+
+<h2 id="Viewinglastrecordednetworkconnection">Viewing last recorded network connection</h2>
+
+<p>To display your SIM's most recently recorded network connection:</p>
+
+<ul> <li>In the <span>Search results</span> table, select the checkbox alongside the relevant <span>SIM details</span> row.</li> </ul>
+
+<ul> <li>Select <span>Last Connection</span> tab.</li> </ul>
+
+<p><img src="/images/resources/images/infinity/lastconnectiontab.png" alt="Lastconnectiontab" /> </p>
+
+<p>At the top right, select <span>Actions &gt; Copy to Clipboard</span> to copy the content from this tab to the clipboard. Paste the information in a.CSV file, notepad, word, email or any other text editor.</p>
+
+<Note>On this tab, if data is unavailable for any field, the information for that particular field is not copied.</Note>
+
+<p>The following table describes the fields on the Last Connection Details tab.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Last APN Authentication</span> </td> <td> The most recently recorded Access Point Name that the device module used to successfully open a RADIUS data session. </td> </tr> <tr> <td><span>Last APN Session Start Time</span> </td> <td> The most recently recorded APN data session start date and time.  </td> </tr> <tr> <td><span>Last APN Session Stop Time</span> </td> <td> The most recently recorded APN data session stop date and time. </td> </tr> <tr> <td><span>Last APN Session Usage</span> </td> <td> The amount of data used during the most recently recorded APN data session.  </td> </tr> <tr> <td><span>Last Radius Location</span> </td> <td> The SIM's most recently recorded RADIUS location, in the following format: <br /><span>&lt;LAI&gt; &lt;CI&gt; - &lt;date&gt;</span>  <br />where:  <ul> <li><span>&lt;LAI&gt;</span> – Location Area Identity (LAI). A hexadecimal value representing the cellular tower location where the SIM last connected.</li> <li><span>&lt;CI&gt;</span> – Cell Identification (CI). The unique cell identifier assigned to the base station in the location area where the SIM last connected.</li> <li><span>&lt;date&gt;</span> – the date and time when the LAI and CI were last recorded.</li> </ul> </td> </tr> <tr> <td><span>Last Username</span> </td> <td> The username used to authenticate the last opened data session. </td> </tr> <tr> <td><span>Last APN IP</span> </td> <td> The most recently recorded APN IP address that the SIM used for the network connection. </td> </tr> <tr> <td><span>Last IMSI</span> </td> <td> The most recently recorded IMSI used for the network connection.  </td> </tr> <tr> <td><span>Last IMEI</span> </td> <td> The most recently recorded International Mobile Equipment Identity (<a href="/glossary/imei#top">IMEI</a>) number.  </td> </tr> <tr> <td><span>Last GSM Network</span> </td> <td> The most recently recorded 2G mobile network used by the SIM. </td> </tr> <tr> <td><span>Last Country</span> </td> <td> The most recently recorded country in which the SIM connected to the cellular network. </td> </tr> <tr> <td><span>Last Location Update</span> </td> <td> The date and time when the most recent LAI and CI information was captured. </td> </tr> <tr> <td><span>Last Co-ordinates</span> </td> <td>The last position of the cell tower or the last location of the device.</td> </tr> <tr> <td><span>Last MCCMNC</span> </td> <td> The most recently recorded Mobile Country Code (<a href="/glossary/mcc#top">MCC</a>) and Mobile Network Code (<a href="/glossary/mnc">MNC</a>), and the date and time of the last connection. </td> </tr> <tr> <td><span>Technology Bearer</span> </td> <td> The most recently recorded Radius Access Technology (<a href="/glossary/rat#top">Radio Access Technology (RAT)</a>) used to connect to the mobile network.  </td> </tr> <tr> <td><span>Modem Information</span> </td> <td> </td> </tr> <tr> <td><span>Marketing Name</span> </td> <td>Easy-to-read model name of the modem.</td> </tr> <tr> <td><span>Manufacturer</span> </td> <td> The name of the company that manufactures the modem. </td> </tr> <tr> <td><span>Band(s)</span> </td> <td> The ranges of radio frequencies that a module can use to communicate with a cellular network. Different bands have different characteristics, such as speed, coverage, and compatibility.  <span><strong>Tip: </strong>The supported bands are related to the module manufacturer's supported frequency bands, for example, 2G,,3G, 4G or 5G. A modem that supports more bands can connect to more networks and have better performance.</span> </td> </tr> <tr> <td><span>Brand Name</span> </td> <td>The marketing name of the modem associated with a particular brand.</td> </tr> <tr> <td><span>Model Name</span> </td> <td>The name of the model of the modem.</td> </tr> </tbody> </table>
+
+<h2 id="Viewingbillingusage">Viewing billing usage</h2>
+
+<p>To display your SIMs last month billing information:</p>
+
+<ul> <li>In the <span>Search results table</span>, select the checkbox alongside the relevant <span>SIM details</span> row.</li> </ul>
+
+<ul> <li>Select <span>Billing Usage</span> tab.</li> </ul>
+
+<p><img src="/images/resources/images/infinity/billingusagetab.png" alt="Billingusagetab" /> </p>
+
+<p>At the top right, select <span>Actions &gt; Copy to Clipboard</span> to copy the content from this tab to the clipboard. Paste the information in a.CSV file, notepad, word, email or any other text editor.</p>
+
+<Note>On this tab, if data is unavailable for any field, the information for that particular field is not copied.</Note>
+
+<h3>About <span>Billing usage</span> attributes</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>PERIOD END</span> </td> <td> The final day of the most recent billing cycle. Usage after this date is not supplied on this tab. ask Istvan </td> </tr> <tr> <td><span>DATA</span> </td> <td> The amount of data (in bytes) that the SIM used during this billing period. </td> </tr> <tr> <td><span>SMS</span> </td> <td> The number of SMS messages that the device sent or received during this billing period. <br />Is this outside of contract? </td> </tr> <tr> <td><span>Voice</span> </td> <td> The total amount (in seconds) of voice calls made or received by the device during this billing period. <span><strong>Tip: </strong>Only for existing customers with voice included in their contract. </span> </td> </tr> <tr> <td><span>USSD</span> </td> <td> Only for customers who have 2G and 3G networks provisioned on the current package. The number of USSD messages that the device has received during this billing period.  </td> </tr> <tr> <td><span>Charge</span> </td> <td> The total cost for this billing period, rounded to two decimal places and displayed in the currency agreed on the contract. For more information, see<a href="/billing/billing-packages" target="_blank">Understanding Service Contracts and packages</a>. </td> </tr> </tbody> </table>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li>Viewing and managing details for a SIM </li> <li><a href="/managing-my-estate/about-lists-and-searches">Finding your lists and searches </a> </li> </ul> </div>

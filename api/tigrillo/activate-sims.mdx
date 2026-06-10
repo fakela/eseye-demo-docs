@@ -1,0 +1,43 @@
+---
+title: "POST /Japi/Tigrillo/activateSIMs"
+description: "Activates single or multiple SIMs. Eseye SIMs are available, ready to become active. Before you make one or more SIMs active, you must have a signed Service Contract form agreeing to the associated costs. You must ass..."
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/activateSIMs"
+---
+
+<p>Activates single or multiple SIMs. Eseye SIMs are available, ready to become active. Before you make one or more SIMs active, you must have a signed Service Contract form agreeing to the associated costs. You must associate the SIMs with a package, using the tariffID.</p>
+
+<p>Use activateSIMs to reprovision terminated SIMs. You must agree to contract terms before the SIM is reprovisioned.</p>
+
+<Tip>We recommend that you only activate up to 300 SIM cards per POST, as internet latency issues may introduce errors.</Tip>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login </li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/tigrillo/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<Note>Use null without quotes as the input if you do not wish to use these objects. The value will remain as previously set. If you want to change the object value to a new value, replace null with "<span>&lt;<var>value</var>&gt;</span>" within quotes, where <span>&lt;<var>value</var>&gt;</span> is the required value. To remove an existing value, type an empty string. For example: <span>"friendlyName": "",</span></Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>sims</td> <td> Activate one or more SIMs. You can assign the friendly name and IMEI per ICCID, as well as tariffID, group name and Device ID at activation. <span><strong>Note: </strong>If null is entered as input for all parameters, all SIM records are returned, in ascending order of ICCID.</span> </td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> <tr> <td>ICCID</td> <td>The ICCID of the SIM you want to activate.</td> <td> <img src="/images/resources/images/icons/checkmark_11x11.png" alt="Checkmark 11X11" /> </td> </tr> <tr> <td> friendlyName </td> <td>(missing or bad snippet)</td> <td> </td> </tr> <tr> <td>IMEI</td> <td> International Mobile Equipment Identity. The unique 15-digit International Mobile Equipment Identity serial number that identifies the device on the cellular network. </td> <td> </td> </tr> <tr> <td>tariffID</td> <td> The SIM tariff (returns <span>PackageID</span>). The tariff is usually five numerical digits in length, for example: 23561. The default is null. </td> <td> </td> </tr> <tr> <td>group</td> <td> <div> The SIM group name. Set the group names for SIM collections when you activate them using <span>POST /Japi/Tigrillo/activateSIMs</span>, or through the SIAM portal. The default is null. </div> </td> <td> </td> </tr> <tr> <td>device</td> <td>The device type, for example Hera 604.</td> <td> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123; "sims": [ &#123;<br /> "ICCID": "8944538523012555999",<br /> "friendlyName": null, <br /> "IMEI": null<br />&#125;,<br />&#123;<br /> "ICCID": "8944538523013333111",<br /> "friendlyName": null, <br /> "IMEI": null<br />&#125; ],<br /> "tariffID": null,<br /> "group": null,<br /> "device": null<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>simStatuses</td> <td>The simStatuses title, which includes the ICCID.</td> </tr> <tr> <td>ICCID</td> <td>The unique Integrated Circuit Card Identifier for the activated SIM. </td> </tr> <tr> <td>status</td> <td> Returns any of the following: <ul> <li><span>"AUTO"</span> – the SIM card is scheduled for activation and should appear on the network within five minutes</li> <li><span>"OK"</span> – the request was sent to the Eseye provisioning team</li> <li><span>"Sim is pending activation"</span> – a previous activation request exists. If you want to reset the SIM to test the activation process again, contact Support.</li> <li> <span>"PAY"</span> – payment is required before you can activate the SIM. To pay the outstanding amount, you must have Finance permission: <ol> <li>Log into Infinity Classic.</li> <li> Using the top menu, select <span>Finance</span> &gt; <span>Transactions</span>. <br />A list of transactions is displayed. </li> <li>  At the bottom right, select <span>Make Credit Card Payment</span>.  <br />The Finance overview is displayed, detailing Amount due. </li> <li>Select <span>Make Ad-hoc Payment by Credit Card</span>.</li> </ol> <br />For information about account type permissions, see <a href="#Response">Responses application/json </a>. </li> </ul> </td> </tr> <tr> <td>price</td> <td>Displays only if the status is <span>"PAY"</span>. Indicates the outstanding amount owed to Eseye.</td> </tr> <tr> <td>ccy</td> <td>Displays only if the status is <span>"PAY"</span>. Indicates the currency of the outstanding amount, as specified on the account contract.</td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "",<br /> "errorMessage": ""<br /> &#125;,<br /> "simStatuses": &#123;<br /> "8944538523013333111": "SIM is pending activation",<br /> &#125;<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> <li><a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

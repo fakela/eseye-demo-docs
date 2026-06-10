@@ -1,0 +1,96 @@
+---
+title: "SIMs menu"
+description: "The SIMs menu provides the following pages which enable you to search for and edit SIM information:"
+---
+
+<p>The SIMs menu provides the following pages which enable you to search for and edit SIM information:</p>
+
+<ul> <li><a href="#SimList">SIM List page</a> </li> <li><a href="#Activate">Activate page</a> </li> <li><a href="#Bulk">Bulk Activate page</a> </li> <li><a href="#Terminate">Bulk Termination page</a> </li> <li><a href="#SimAuditLog">SIM Audit Log page</a> </li> </ul>
+
+<h2 id="SIMListpage">SIM List page</h2>
+
+<p>The SIMs List page provides search filters to identify SIMs that meet a certain criteria, a table of results to list the filtered SIMs and action buttons to perform actions on one or more SIMs in the list.</p>
+
+<p> <object type="image/svg+xml"> </object> </p>
+
+<p>By default, the SIM List page displays the SIMs provisioned on your account.</p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<h3>Search filters</h3>
+
+<p>The search filters provide different ways to filter the list of SIMs and only show results which match the criteria defined in <b>all</b> of the applied search filters.</p>
+
+<p>The following table describes the fields available on the search filters pane.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Search For </td> <td> Specify a search string, the fields to which it is compared and the criteria that defines whether the SIM matches. <br />To use the Search For filters <ol> <li> Select one or more of the following fields from the drop-down list: <ul> <li>ICCID</li> <li>MSISDN</li> <li>SIMID</li> <li>IP</li> <li>Friendly Name</li> <li>IMEI</li> </ul> </li> <li> Select one of the following criteria, which determine how the search string (below) is compared to the selected fields (above): <ul> <li>Starting With – show results where any of the selected fields (above) start with the search string (below).</li> <li>Ending With – show results where any of the selected fields (above) end with the search string (below).</li> <li>Containing – show results where any of the selected fields (above) contain the search string.</li> <li>Matching – show results where any of the selected fields (above) exactly match the search string.</li> </ul> </li> <li> Specify the search string used to compare to the selected fields. <br />Leave the search string blank to search across all SIMs assigned to your account. </li> </ol> </td> </tr> <tr> <td> Group </td> <td> Select the name of the group to restrict the results to only include SIMs that are part of the selected SIM group/collection. </td> </tr> <tr> <td> SIM State </td> <td> Select to only show SIMs that are currently in one of the following <a href="/billing/billing-sim-lifecycle">SIM states</a>: <ul> <li>All – show SIMs in any SIM state.</li> <li>Terminated</li> <li>Available</li> <li>Active</li> <li>Suspended</li> <li>PendingTermination</li> </ul> </td> </tr> <tr> <td> SIM Package </td> <td> Select a <a href="/billing/billing-packages">package</a> to only show SIMs that belong to the selected package. Select <span>All</span> to show SIMs that belong to any package.  </td> </tr> <tr> <td> SIM Data Usage </td> <td> Select to filter SIMs based on the amount of data they have used.  <ul> <li>All SIMs</li> <li>Only SIMs with no data usage</li> <li>Only SIMs with data usage</li> </ul> </td> </tr> <tr> <td> <span>Search</span>  </td> <td>Select to display the results table for the selected search filters.</td> </tr> </tbody> </table>
+
+<p> </p>
+
+<h3>Results table</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table describes the columns displayed after performing a search.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> Friendly Name </td> <td> An optional, user-defined name that can be used to help identify the SIM. For example, the site location or purpose of the data connection. </td> </tr> <tr> <td> ICCID </td> <td>  Integrated Circuit Card Identifier for SIM cards or profiles (when using an eUICC SIM). For more information, see <a href="/getting-started/esim/profiles#top" target="_blank">About eUICC SIM profiles</a>. <span><strong>Note: </strong>Contains 14 and 20 numeric digits and starts with 89 or 99.</span> </td> </tr> <tr> <td> MSISDN </td> <td>  The Mobile Station International Subscriber Directory Number (MSISDN) is a unique identifier for a mobile phone number in telecommunications. It includes the country code, mobile network code and subscriber number, allowing for routing of calls and messages to the correct device. The MSISDN contains between 8 and 18 numeric digits and can include the '+' country code identifier, for example: +441234567890.  </td> </tr> <tr> <td> IP </td> <td> The IPv4 address of the device containing the SIM.  </td> </tr> <tr> <td> Data Usage </td> <td> The total monthly data usage by the SIM for the current billing period. </td> </tr> <tr> <td> Group </td> <td> The name of the group (SIM collection) to which you assigned the SIM. </td> </tr> <tr> <td> Status </td> <td> The current SIM state: <ul> <li>Available </li> <li>Active</li> <li>Suspended</li> <li>Terminated</li> </ul> <br />For more information, see <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>. </td> </tr> <tr> <td> Alert </td> <td> Displays the level of the data alert (if threshold is reached) defined in the <a href="/infinity-classic/settings#Alert">alert profile</a> associated with the SIM. If there is a data alert level shown, the table cell is highlighted and you can select the cell to display the SIM Alerts Summary. <br /><img src="/images/resources/images/infinityclassic/simalertssummary.png" alt="Simalertssummary" />  </td> </tr> <tr> <td> Action </td> <td>  <img src="/images/resources/images/infinityclassic/simactioniconsummary_24x24.png" alt="Simactioniconsummary 24X24" /> – <a href="/infinity-classic/sim-actions#Summary">Summary of activity</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconsettings_24x24.png" alt="Simactioniconsettings 24X24" /> – <a href="/infinity-classic/sim-actions#Settings">Settings</a>  <br /> <img src="/images/resources/images/infinityclassic/simactioniconnetwork_24x24.png" alt="Simactioniconnetwork 24X24" /> – <a href="/infinity-classic/sim-actions#Network">Network settings</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconcontract_24x24.png" alt="Simactioniconcontract 24X24" /> – <a href="/infinity-classic/sim-actions#Contract">Contract settings</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconbilling_24x24.png" alt="Simactioniconbilling 24X24" /> – <a href="/infinity-classic/sim-actions#Billing">Billing</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconmessaging_24x24.png" alt="Simactioniconmessaging 24X24" /> – <a href="/infinity-classic/sim-actions#Messaging">Messaging</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconradius_24x24.png" alt="Simactioniconradius 24X24" /> – <a href="/infinity-classic/sim-actions#Radius">RADIUS</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconnetflow_24x24.png" alt="Simactioniconnetflow 24X24" /> – <a href="/infinity-classic/sim-actions#NetFlow">NetFlow</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconcontrol_24x24.png" alt="Simactioniconcontrol 24X24" /> – <a href="/infinity-classic/sim-actions#Control">Control Panel</a> <br /> <img src="/images/resources/images/infinityclassic/simactioniconaudit_24x24.png" alt="Simactioniconaudit 24X24" /> – <a href="/infinity-classic/sim-actions#Audit">SIM Audit Log</a> </td> </tr> <tr> <td><span>Perform Bulk Action</span> </td> <td> Only the <span>Change Settings</span> bulk action is available on this page. <br />Select <span>Change Settings</span> to display the SIM Settings dialog, where you change the SIM state and other settings for the selected rows. </td> </tr> </tbody> </table>
+
+<h2 id="Activatepage">Activate page</h2>
+
+<p>The Activate page provides a table where you specify the SIMs to <a href="/infinity-classic/activating-sims">activate</a>. If you have a number of pre-provisioned SIMs, this page displays a link which loads the ICCID numbers of all pre-provisioned SIMs into the table. </p>
+
+<p><img src="/images/resources/images/infinityclassic/simactivation.svg" alt="Simactivation" /> </p>
+
+<p>To activate SIMs in bulk, see <a href="#Bulk">Bulk Activate page</a>.</p>
+
+<p>The following table describes the fields on the Activate page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>ICCID/SIM ID</td> <td>  Integrated Circuit Card Identifier for SIM cards or profiles (when using an eUICC SIM). For more information, see <a href="/getting-started/esim/profiles#top" target="_blank">About eUICC SIM profiles</a>. <span><strong>Note: </strong>Contains 14 and 20 numeric digits and starts with 89 or 99.</span> </td> </tr> <tr> <td>Friendly Name</td> <td> An optional, user-defined name that can be used to help identify the SIM. For example, the site location or purpose of the data connection. </td> </tr> <tr> <td>IMEI</td> <td> International Mobile Equipment Identity. The unique 15-digit International Mobile Equipment Identity serial number that identifies the device on the cellular network. </td> </tr> <tr> <td><span>Activate Selected SIMs</span> </td> <td>Select check boxes next to the SIMs you want to activate and select <span>Activate Selected SIMs</span>.</td> </tr> <tr> <td><span>Activate All SIMs</span> </td> <td>Select <span>Activate All SIMs</span> to activate all of the SIMs in the table.</td> </tr> <tr> <td><span>Perform Action</span> </td> <td>Use the <span>Insert Line</span>, <span>Delete Line</span>, <span>Duplicate Line</span> actions and <span>Perform Action</span> button to add/remove/duplicate rows in the table of SIMs to activate.</td> </tr> </tbody> </table>
+
+<h2 id="BulkActivatepage">Bulk Activate page</h2>
+
+<p>You can activate consecutive SIMs one box at a time (up to 200 SIMs), or using the Bulk Activation tool (up to 5000 non-consecutive SIMs). </p>
+
+<p><img src="/images/resources/images/infinityclassic/bulkactivatebox.png" alt="Bulkactivatebox" /> </p>
+
+<p>The following table describes the fields on the Bulk Activate page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><b>Bulk SIM boxfull activation</b> </td> <td> Activates consecutive SIMs one box at a time (up to 200 SIMs). <br />The final digit in the SIM number is a check digit. For more information, see <a href="/sims/consecutive-sims" target="_blank">Understanding AnyNet SIM numbers</a>. </td> </tr> <tr> <td> First </td> <td> The lowest numerical SIM number from the box to activate. </td> </tr> <tr> <td> Last </td> <td> The highest numerical SIM number from the box to activate.</td> </tr> <tr> <td><span>Activate</span> </td> <td>Select to activate the SIMS.</td> </tr> <tr> <td><b>Bulk Activation</b> </td> <td> Activates up to 5000 non-consecutive SIMs. </td> </tr> <tr> <td>Select Compatible Package</td> <td>  The agreed tariff to apply to all the SIMs. Only the tariffs assigned to the account are available for selection. </td> </tr> <tr> <td>Group</td> <td> The group name that will appear on invoices. Groups can help identify SIMs. </td> </tr> <tr> <td>ICCIDs</td> <td>  A list of SIM numbers you want to activate, one per line. You can paste up to 5000 non-consecutive SIM numbers. </td> </tr> <tr> <td><span>Activate SIM</span> </td> <td> Select to activate the SIMs. <br />The activation process can take up to 60 minutes. When activated, the SIMs become live on the network.  </td> </tr> <tr> <td><span>Clear</span> </td> <td>Removes all ICCID values from the list.</td> </tr> </tbody> </table>
+
+<h2 id="BulkTerminationpage">Bulk Termination page</h2>
+
+<p>You can <a href="/infinity-classic/terminating-sims">terminate</a> up to 5000 non-consecutive SIMs at a time using the <span>Bulk Termination</span> tool. </p>
+
+<p>If you terminate SIMs that are currently in contract, you are liable for the rest of the service charges up until the end date of the contract. </p>
+
+<p><img src="/images/resources/images/infinityclassic/bulktermination.png" alt="Bulktermination" /> </p>
+
+<p>The following table describes the fields on the Bulk Termination page.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>ICCIDs</td> <td>  A list of SIM numbers you want to terminate, one per line. <br />You can paste up to 5000 non-consecutive SIM numbers. </td> </tr> <tr> <td><span>Terminate</span> </td> <td> Select to terminate the SIMs. <br />SIMs that are not in contract are queued for termination. Termination is not instant – Eseye must verify the termination. <br />SIMs that are currently in contract will incur further service charges. </td> </tr> <tr> <td><span>Clear</span> </td> <td>Removes all ICCID values from the list.</td> </tr> </tbody> </table>
+
+<h2 id="SIMAuditLogpage">SIM Audit Log page</h2>
+
+<p>The SIM Audit Log enables you to search records of every action taken and every change made to all SIMs associated with the user account. </p>
+
+<p><img src="/images/resources/images/infinityclassic/simactionsimauditlog.png" alt="Simactionsimauditlog" /> </p>
+
+<p>Select the export to PDF (<img src="/images/resources/images/infinityclassic/iconpdf_24x24.png" alt="Iconpdf 24X24" />), export to CSV (<img src="/images/resources/images/infinityclassic/iconcsv_24x24.png" alt="Iconcsv 24X24" />) or print (<img src="/images/resources/images/infinityclassic/iconprint_24x24.png" alt="Iconprint 24X24" />) buttons to export or print the information displayed on the page.</p>
+
+<h3>Search</h3>
+
+<p>The search enables you to filter the list of SIM audit log records between a <span>From</span> and <span>To</span> date. </p>
+
+<p>Select the calendar icon (<img src="/images/resources/images/infinityclassic/iconcalendar_24x24.png" alt="Iconcalendar 24X24" />) to display a calendar from which you can select the required date.</p>
+
+<h3>Results</h3>
+
+<h5>Viewing more results</h5>
+
+<p>Some pages return results in a continuous list. Select <span> View More</span> at the end of the list to see more items.</p>
+
+<p>The following table describes the columns displayed for the SIM Audit Log records.</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Description</td> <td> Description of the activity or change. </td> </tr> <tr> <td>Date</td> <td>The date of the change in the following format YYYY-MM-DD.</td> </tr> <tr> <td>User</td> <td>The name of the user that made the change.</td> </tr> <tr> <td>Ref</td> <td> The ICCID of the SIM on which the user made the change. </td> </tr> <tr> <td>Information</td> <td>Detailed description about the change made.</td> </tr> </tbody> </table>

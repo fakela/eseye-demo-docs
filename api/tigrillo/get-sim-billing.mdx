@@ -1,0 +1,37 @@
+---
+title: "POST /Japi/Tigrillo/getSIMBilling"
+description: "Returns billing information for a single SIM card."
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/getSIMBilling"
+---
+
+<p>Returns billing information for a single SIM card.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login </li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/tigrillo/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Object name</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>ICCID</td> <td>The SIM card ICCID for which you want to view billing information.</td> <td> <img src="/images/resources/images/icons/checkmark_24x24.png" alt="Checkmark 24X24" /> </td> </tr> <tr> <td>startDate</td> <td> The first date included in the search, in the format: <span>"yyyy-mm-dd hh:mm:ss"</span>. If no time is included, the default is used: 00:00:00. <br />The default is null, which returns the most recent records. </td> <td> </td> </tr> <tr> <td>endDate</td> <td> The last date included in the search, in the format <span>"yyyy-mm-dd hh:mm:ss"</span>. If no time is included, the default is used: 00:00:00. <br />The default is null, which returns the most recent records. </td> <td> </td> </tr> <tr> <td>sortOrder</td> <td> Sort the results by Activity ("A") or Event ("E"). The default is null, which sorts the returned results by Event in descending order. <br />Type <span>A</span> (ascending) or <span>D</span> (descending) immediately after the field indicator to arrange the results using the selected field.  <br />For example, "AA" sorts the results by Activity, in ascending (0-9, A to Z) order. "AD" sorts the results by Activity, in descending order (9-0, Z to A). <span><strong>Note: </strong>If you do not specify a date range, the results are returned in descending order only.</span> </td> <td> </td> </tr> <tr> <td>startRec</td> <td> The start record for returned results. The default is null (alternatively, use "0"), which returns all the results listed from the first record (record 0). Use "1" to return all the results from record 1 onwards, "2" to return the results from record 2 onwards, and so on. </td> <td> </td> </tr> <tr> <td>numRecs</td> <td> The number of records to return. The default is null, which returns ten records. Use "1" to return one result, "2" to return two results, and so on. </td> <td> </td> </tr> <tr> <td>filter</td> <td> <div> Filter the results according to record type, either: <ul> <li>Data – <span>"D"</span></li> <li>SMS – <span>"S"</span></li> <li>Voice – <span>"V"</span></li> </ul> <br />The default is null, which returns all record types. </div> </td> <td> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123;<br />"ICCID": "8944538523013522377",<br /> "startDate": null,<br /> "endDate": "2018-11-15",<br /> "sortOrder": null,<br /> "startRec": null,<br /> "numRecs": null,<br /> "filter": null<br />&#125;<br /></code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>totalRecs</td> <td>Total number of records returned</td> </tr> <tr> <td>recs</td> <td>The array, listing the billing records.</td> </tr> <tr> <td>activity</td> <td> The activity type, either: <ul> <li><span>"Data"</span> </li> <li><span>"SMS"</span> </li> <li><span>"Voice"</span> </li> <li><span>"Other"</span> </li> </ul> </td> </tr> <tr> <td>start</td> <td>The event start date and time stamp, in the format: yyyy-mm-dd hh:mm:ss.</td> </tr> <tr> <td>stop</td> <td>The event stop date and time stamp, in the format: yyyy-mm-dd hh:mm:ss.</td> </tr> <tr> <td>description</td> <td>The activity description, as displayed in your contract.</td> </tr> <tr> <td>quantity</td> <td> The total activity usage amount in the event. <table> <col /> <col /> <thead> <tr> <th>Activity</th> <th>Measured in</th> </tr> </thead> <tbody> <tr> <td>Data</td> <td>Bytes</td> </tr> <tr> <td>SMS</td> <td>Number of messages</td> </tr> <tr> <td>Voice</td> <td>Number of seconds</td> </tr> </tbody> </table> </td> </tr> <tr> <td>price</td> <td>The amount billed for the event in the currency specified in the SIM card contract, rounded to two decimal points.</td> </tr> <tr> <td>mcc</td> <td> <div> Mobile Country Code – the country the device was in when the event occurred, in three-digit numeric format. For more information, see <a href="http://en.wikipedia.org/wiki/Mobile_country_code">http://en.wikipedia.org/wiki/Mobile&#95;country&#95;code</a>. </div> </td> </tr> <tr> <td>mnc</td> <td> Mobile Network Code – the network operator the device was using when the event occurred, in one or two digit numeric format. For more information, see <a href="http://en.wikipedia.org/wiki/Mobile_country_code">http://en.wikipedia.org/wiki/Mobile&#95;country&#95;code</a>. </td> </tr> <tr> <td>packageID</td> <td>The package reference number for the SIM at the time of the event.</td> </tr> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "totalRecs": 2,<br /> "recs": [<br /> &#123;<br /> "activity": "Data",<br /> "start": "2018-11-14 23:41:47",<br /> "stop": "2018-11-15 02:34:46",<br /> "description": "Data",<br /> "quantity": 2048,<br /> "price": "9.37",<br /> "mcc": "310",<br /> "mnc": "410",<br /> "packageID": 10001<br /> &#125;,<br /> &#123;<br /> "activity": "Data",<br /> "start": "2018-10-31 22:20:58",<br /> "stop": "2018-10-31 23:59:59",<br /> "description": "EU",<br /> "quantity": 2000,<br /> "price": "0.56",<br /> "mcc": "310",<br /> "mnc": "410",<br /> "packageID": 13518<br /> &#125;<br /> ],<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "",<br /> "errorMessage": ""<br /> &#125;<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

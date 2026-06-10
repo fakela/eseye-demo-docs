@@ -1,0 +1,54 @@
+---
+title: "About eUICC SIM profiles"
+description: "An eUICC SIM profile acts as a virtual SIM within the SIM container. Downloading and enabling a new profile means that an IoT device can switch to a different network operator without the need to physically change the..."
+---
+
+<p>An eUICC SIM profile acts as a virtual SIM within the SIM container. Downloading and enabling a new profile means that an IoT device can switch to a different network operator without the need to physically change the SIM.</p>
+
+<p>Eseye provides the <a href="/connectivity/connectivity-management-platform" target="_blank">Connectivity Management Platform</a> (CMP) to manage loading, <a href="/getting-started/imsi-rotation-switching#ImsiSwitching" target="_blank">switching</a>, and deleting profiles.</p>
+
+<p>Each profile contains: </p>
+
+<ul> <li>An <a href="/glossary/iccid">ICCID</a> to uniquely identify the profile</li> <li>One or more <a href="/glossary/imsi">IMSIs</a>, depending on the profile type, to identify the network subscriber</li> <li>Operator subscription data, including authentication credentials</li> <li>Policy rules</li> </ul>
+
+<p>The content and structure of profiles is standardised to ensure interoperability between all network. Each IMSI account is provided by the mobile network to which it connects.</p>
+
+<p>The number of profiles that can be stored on an eUICC is limited only by the memory available and the size of each network operator’s profile. For information about memory capacity, see the relevant <a href="/general/files#Datasheets" target="_blank">Datasheets</a>.</p>
+
+<p>You can only enable one profile at any time. The profile currently in use (enabled) is called the <span>active profile</span>. </p>
+
+<p> <img src="/images/resources/images/esim/profiles.svg" alt="Profiles" /> </p>
+
+<Tip>For information about how eUICC IMSIs are managed OTA, see <a href="/getting-started/esim/remote-sim-provisioning" target="_blank">Understanding the GSMA RSP M2M general architecture</a>.</Tip>
+
+<Tip>For information about eUICC, see <a href="/getting-started/esim/euicc" target="_blank">eUICC overview</a>.</Tip>
+
+<p>eUICC SIMs support the following profile types:</p>
+
+<Accordion title="">
+ <p>eUICC SIMs are pre-configured with a <a href="/glossary/multi-imsi">multi-IMSI</a> bootstrap profile that has full access to up to ten mobile networks and their corresponding roaming agreements. This enables the device to connect to a network as soon as it starts up. For more information, see <a href="/getting-started/imsi-rotation-switching#How" target="_blank">How long does an IMSI rotation or switch take?</a>.</p> <p>The bootstrap profile enables communication with the <a href="/getting-started/esim/remote-sim-provisioning" target="_blank">Remote SIM Provisioning</a> (RSP) system when the device first starts up. With an eUICC SIM, the device can use the RSP system to download an operational profile over-the-air (OTA) and activate it to connect to a more suitable network. </p> <span><strong>Note: </strong>MNOs typically charge for RSP, so Eseye will also charge for OTA functions. These charges are detailed in your contract.</span> <p>For information about how a device uses different IMSIs to connect to a network, see <a href="/getting-started/how-imsi-rotate-switch-works" target="_blank">Understanding the IMSI rotation and switching process</a>.</p> <p>For a comparison of bootstrap and operational profiles, see <a href="/getting-started/esim/bootstrap-vs-operational-profiles">Bootstrap profile vs operational profile comparison</a></p> 
+</Accordion>
+
+<Accordion title="">
+ <p>Operational profiles are single-IMSI profiles with full access to one mobile network and its corresponding roaming agreements. </p> <p>The CMP manages loading and deleting operational profiles over-the-air (OTA) in an Eseye-enabled eUICC SIM. An operational profile is usually downloaded and activated after a device is deployed, to ensure that each device can <a href="/getting-started/localisation" target="_blank">localise</a>, rather than roaming on a network within the bootstrap profile. </p> <p>This is useful for ensuring your IoT devices adhere to local legislation and network policies. It is also useful if you manufacture thousands of devices that are shipped globally, and you do not know where each batch will end up.</p> <p>You can use operational profiles on battery operated devices and mobile devices. For advice, contact Support (<a href="mailto:support@eseye.com?subject=Require advice about operational (step 2) profiles for an IoT device">support@eseye.com</a>). </p> 
+</Accordion>
+
+<Note>You can flag the bootstrap or an operational profile as the <span>fall-back</span> (see below).</Note>
+
+<Accordion title="Test profile">
+ <p>Test profiles are single-IMSI profiles used for device certification, production line sampling or product demonstrations. </p> <p>For more information, see <a href="/getting-started/test-profiles/eseye-test-profile">Eseye test profile</a>.</p> <p>eUICC SIMs can include a <a href="/getting-started/test-profiles/gsma-generic-euicc-test-profile">GSMA Generic eUICC test profile</a>. </p> <p>Customers must use AT commands to enable or disable the test profile.</p> 
+</Accordion>
+
+<h2 id="Aboutfallbackandrollback">About fall-back and roll-back</h2>
+
+<p>As a safe-guard against failed connections, eUICC SIMs use fall-back and roll-back. </p>
+
+<Accordion title="">
+ <p>One profile is designated as the fall-back. If the active (enabled) profile loses connectivity, or is rejected, disabled, or deleted, the device enables the fall-back profile in its place after up to 23 minutes has passed. The timing depends on how the module is manufactured.</p> <p>Eseye configures the fall-back using the <a href="/connectivity/connectivity-management-platform">Connectivity Management Platform</a> (CMP).</p> <span><strong>Note: </strong>The fall-back timer is separate from the multi-IMSI rotation timer, and will override multi-IMSI rotation if no connection occurs for 23 minutes.</span> <span><strong>Note: </strong>You cannot delete the profile assigned as the fall-back.</span> <p>To maximise connectivity when a device first starts, Eseye usually defines a <a href="/getting-started/imsi-rotation-switching">multi-IMSI</a> bootstrap profile as the fall-back on an AnyNet+ SIM. This gives the device access to up to ten networks, for greater connectivity.</p> <p>If the fall-back occurs as a result of connectivity failure, the CMP uses its rules-based engine to determine whether and when to attempt to switch the device back to a preferred operational profile.</p> <h4>Disabling fall-back</h4> <p>If a device is localised using an operational profile and the connection is stable, the CMP can define an operational profile as the fall-back, which effectively disables fall-back to the bootstrap profile. This prevents the device switching between profiles if it temporarily loses connectivity. For example, a tracking device in a car may lose connectivity if the car is parked underground overnight, but will reconnect on the fall-back profile (in this case, a single-IMSI operational profile) the next day when the car leaves the car park.</p> 
+</Accordion>
+
+<Accordion title="">
+ <span><strong>Note: </strong>This feature is for newly-downloaded profiles only.</span> <p>After connection is established using an eUICC profile, if you load and enable a new profile and the connection fails, then the SIM rolls back to the previously connected profile. This is managed by the Connectivity Management Platform.</p> 
+</Accordion>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/getting-started/esim/bootstrap-vs-operational-profiles">Bootstrap profile vs operational profile comparison</a> </li> <li><a href="/hardware-products/sims-intro">AnyNet SIMs</a> (includes form factors)</li> <li>Understand <a href="/getting-started/esim/esim">eSIM</a></li> <li><a href="/connectivity/connectivity-management-platform" target="_blank">About the Connectivity Management Platform</a> </li> </ul> </div>

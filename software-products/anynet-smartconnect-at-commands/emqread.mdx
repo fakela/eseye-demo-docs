@@ -1,0 +1,22 @@
+---
+title: "EMQREAD – read message from MQTT RX queue"
+description: "AnyNet SMARTconnect™ can store up to three MQTT messages in a queue in the Quectel module ’s volatile memory."
+---
+
+<p>AnyNet SMARTconnect™ can store up to three MQTT messages in a queue in the Quectel module’s volatile memory. </p>
+
+<p><span>AT+EMQREAD</span> reads the stored messages.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQREAD=? </td> <td> <span>OK</span>  </td> </tr> <tr> <td>Read</td> <td> AT+EMQREAD? </td> <td> <span>OK</span>  </td> </tr> <tr> <td>Write</td> <td> AT+EMQREAD </td> <td> +EMQREAD: S,&lt;len&gt;&#92;r&#92;n&lt;data&gt; <br />OK <br />or <br />+EMQREAD: &lt;id&gt;,&lt;len&gt;&#92;r&#92;n&lt;data&gt; <br />OK <br />or <br />+EMQREAD: NO MESSAGE <br />OK <br />where:  <ul> <li> <span>S</span> is for <span>singletopic</span> only. Indicates data received on a single topic. For information about singletopic, see <a href="/software-products/anynet-smartconnect-at-commands/emq">EMQ – publish a message to singletopic</a>. </li> <li><span>&lt;id&gt;</span> is the subscribed topic index number, not for singletopic use</li> <li><span>&lt;len&gt;</span> is the length of the incoming data </li> <li> <span>&lt;data&gt;</span> is the received data in either ASCII-hex format or as text, depending on both the <span>urcautoformat</span> setting in the configuration file, and if <span>&lt;data&gt;</span> appears within quotes. <br />For example, if the <span>urcautoformat</span> setting = <span>1</span>, then: <ul> <li><span>&lt;id&gt;,&lt;len&gt;&#92;r&#92;n"&lt;data&gt;"</span> reports data in ASCII-hex format</li> <li><span>&lt;id&gt;,&lt;len&gt;&#92;r&#92;n&lt;data&gt;</span> reports data in text format</li> </ul> <br />For more information, see <a href="/software-products/configuration-file#urcautof">Using the AnyNet SMARTconnect™ configuration file</a>. </li> </ul> </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQREAD</p>
+
+<p>+EMQREAD: 0,20</p>
+
+<p>Example data message</p>
+
+<p>OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

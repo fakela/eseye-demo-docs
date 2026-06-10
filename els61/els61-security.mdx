@@ -1,0 +1,34 @@
+---
+title: "Data security"
+description: "When you create a thing within AWS IoT Console, the associated SIM enables the Cinterion® ELS61 Wireless Module to register on a cellular network."
+---
+
+<p>When you create a thing within AWS IoT Console, the associated SIM enables the Cinterion® ELS61 Wireless Module to register on a cellular network.</p>
+
+<p>The Amazon Trust Service (ATS) uses the cellular network to securely deliver the following information to the Cinterion® ELS61 Wireless Module.</p>
+
+<p>For identification purposes:</p>
+
+<ul> <li>The unique AWSthing name </li> <li>The Amazon Resource Name (ARN) that defines which AWS endpoint supports the thing</li> </ul>
+
+<p>For security purposes:</p>
+
+<ul> <li>A set of X.509 certificates</li> <li>An encrypted private key – AWS and the Cinterion® ELS61 Wireless Module use key pairs for signing data</li> </ul>
+
+<p>The certificates and private key are stored in a secure Java keystore. The end user cannot see or handle the security materials throughout their use.</p>
+
+<p>When a thing is deleted in AWS, the data within the device keystore remains in the keystore. If you reuse the device with a new SIM and recreate it as a new thing within AWS, then any existing security information in the keystore is replaced by the new certificates and a new private key.</p>
+
+<h2> AWS security compliance </h2>
+
+<p>The Cinterion® ELS61 Wireless Module meets AWS security requirements:</p>
+
+<ul> <li>Each connected device has a set of credentials to access the message broker or device shadow service</li> <li>Device credentials are stored safely in order to send data securely to the message broker</li> <li>All traffic to and from AWS IoT is encrypted over Transport Layer Security (TLS)</li> </ul>
+
+<p>For more information, see the AWS documentation <span>Security</span> section, including: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-security.html">https://docs.aws.amazon.com/iot/latest/developerguide/iot-security.html</a>.</p>
+
+<h2>Processing updates</h2>
+
+<p>Updates to the certificates and keys are handled in the same way as all security data. This enables you to apply a managed certificate rotation policy, as well as automatically protecting the device against changes in rootCA providers.</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-creating-thing-in-aws">Creating a thing in AWS IoT Core</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

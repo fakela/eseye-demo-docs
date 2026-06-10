@@ -1,0 +1,141 @@
+---
+title: "GET /Japi/Diam/getNetworkInformation"
+description: "Retrieves a set of LAN information relating to a specific Hera 604 router."
+openapi: "/api-specs/legacy/tigrina.json GET /Japi/Diam/getNetworkInformation"
+---
+
+<p>Retrieves a set of LAN information relating to a specific Hera 604 router.</p>
+
+<h2 id="Requestkey">Request key</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Description </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> The router electronic serial number </td> </tr> </tbody> </table>
+
+<h3>Request example</h3>
+
+<p>&#123;</p>
+
+<p>“ESN”: “12345678901234567890”</p>
+
+<p>&#125;</p>
+
+<h2 id="Responsekeys">Response keys</h2>
+
+<p>Parameters are always named in a response, but can have a <span>null</span>, <span>""</span>, or <span>[ ]</span> value to indicate they are not provided.</p>
+
+<h3>Status object</h3>
+
+<p>API standard status object.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> status </td> <td> String </td> <td> Between 0 and 36 characters in length. <br /><span>"OK"</span> – the request processed successfully <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td> errorCode </td> <td> String </td> <td> 5 characters in length, in the following format: <br />E&lt;4 digit numeric code&gt; <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeNumber"</span> – the request failed because of this specific error. <span><strong>Note: </strong>For information about errors, see <a href="/api/tigrina/troubleshooting">Troubleshooting errors: Tigrina API</a>.</span> </td> </tr> <tr> <td> errorMessage </td> <td> String </td> <td> Between 0 and 255 characters in length. <br /><span>""</span> – the request processed successfully <br /><span>"ErrorCodeMessage"</span> – displays an explanation of the error if the request failed </td> </tr> </tbody> </table>
+
+<h3>Router object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> ESN </td> <td> 20 digit hex </td> <td> Hera 604 router serial number </td> </tr> <tr> <td> ICCID </td> <td> 19 digit numeric </td> <td> SIM serial number  </td> </tr> <tr> <td>LAN</td> <td>LAN object</td> <td>LAN connection information. For details, see below.</td> </tr> <tr> <td>HostEntries</td> <td>HostEntries object</td> <td>Host status. For details, see below.</td> </tr> <tr> <td>WiFi</td> <td>WiFi object</td> <td>WiFi status. For details, see below.</td> </tr> </tbody> </table>
+
+<h3>LAN object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> IPAddress </td> <td> IP string </td> <td> Router LAN IP Address </td> </tr> <tr> <td> SubNetMask </td> <td> IP string </td> <td> LAN Subnet Mask </td> </tr> <tr> <td> DHCP </td> <td> DHCP object </td> <td> DHCP settings information. For details, see below. </td> </tr> </tbody> </table>
+
+<h3>DHCP object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td>MinAddress</td> <td>IP string</td> <td>Minimum DHCP address</td> </tr> <tr> <td>MaxAddress</td> <td>IP string</td> <td>Maximum DHCP address</td> </tr> <tr> <td>SubNetMask</td> <td> IP string </td> <td>DHCP subnet mask</td> </tr> <tr> <td> LeaseTime </td> <td> 20 bit integer </td> <td> DHCP lease time </td> </tr> </tbody> </table>
+
+<h3>HostEntries object</h3>
+
+<p>You can have 0, 1, or 2 hosts available.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> Host </td> <td> Host object </td> <td> The nth host. For details, see below. </td> </tr> </tbody> </table>
+
+<h3>Host object</h3>
+
+<Note>If a host is no longer available in the ACS server, then the Tigrina API will return empty strings for the JSON keys in the Host object. For more information, see <a href="#Response">Response example</a>. In the example, "HostEntries": "2" is unavailable. We recommend that you do not display unavailable hosts in your application.</Note>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td> MACAddress </td> <td> MAC String </td> <td>Host MAC address</td> </tr> <tr> <td> HostName </td> <td> varchar(20) </td> <td>Host name</td> </tr> <tr> <td> IPAddress </td> <td> IP string </td> <td> IP address that uniquely identifies the host</td> </tr> <tr> <td> ClientID </td> <td> varchar(20) </td> <td> Host Client ID </td> </tr> </tbody> </table>
+
+<h3>WiFi object</h3>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th> JSON key </th> <th> Data type </th> <th> Returned value </th> </tr> </thead> <tbody> <tr> <td>SSID</td> <td> varchar(32) </td> <td> Service Set Identifier </td> </tr> <tr> <td>Name</td> <td> varchar(32) </td> <td> WiFi profile name </td> </tr> <tr> <td>Standard</td> <td> varchar(4) </td> <td> WiFi standard in use </td> </tr> </tbody> </table>
+
+<h3>Response example</h3>
+
+<p>&#123;</p>
+
+<p>"status": &#123;</p>
+
+<p>"status": "OK",</p>
+
+<p>"errorCode": "",</p>
+
+<p>"errorMessage": ""</p>
+
+<p>&#125;,</p>
+
+<p>"Router": &#123;</p>
+
+<p>"ESN": "12345678901234567890",</p>
+
+<p>"ICCID": "8944538523001234567",</p>
+
+<p>"LAN": &#123; </p>
+
+<p>"IPAddress": "192.168.0.1", </p>
+
+<p>"SubNetMask": "255.255.255.0", </p>
+
+<p>"DHCP": &#123; </p>
+
+<p>"MinAddress": "192.168.0.101", </p>
+
+<p>"MaxAddress": "192.168.0.103", </p>
+
+<p>"SubNetMask": "255.255.255.0", </p>
+
+<p>"LeaseTime": "86400" </p>
+
+<p>&#125; </p>
+
+<p>&#125;, </p>
+
+<p>"HostEntries": &#123; </p>
+
+<p>"1": &#123; </p>
+
+<p>"MACAddress": "00:d0:4c:12:34:56", </p>
+
+<p>"HostName": "DELL-64V1234T", </p>
+
+<p>"IPAddress": "192.168.0.101", </p>
+
+<p>"ClientID": "&#92;001&#92;000&#92;020&#92;363MBZ" </p>
+
+<p>&#125;, </p>
+
+<p>"2": &#123; </p>
+
+<p>"MACAddress": "", </p>
+
+<p>"HostName": "", </p>
+
+<p>"IPAddress": "", </p>
+
+<p>"ClientID": "" </p>
+
+<p>&#125; </p>
+
+<p>&#125;, </p>
+
+<p>"WiFi": &#123; </p>
+
+<p>"SSID": "OpenWrt", </p>
+
+<p>"Name": "cfg033579", </p>
+
+<p>"Standard": "11g" </p>
+
+<p>&#125; </p>
+
+<p>&#125; </p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API Introduction</a> </li> <li><a href="/api/tigrina/tigrina-api-requests">Tigrina API requests</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </li> </ul> </div>

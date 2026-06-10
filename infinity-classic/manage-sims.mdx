@@ -1,0 +1,42 @@
+---
+title: "Managing SIMs"
+description: "This section describes how to manage your SIMs through the SIM lifecycle, which includes:"
+---
+
+<p>This section describes how to manage your SIMs through the <a href="/billing/billing-sim-lifecycle">SIM lifecycle</a>, which includes:</p>
+
+<ul> <li><a href="#ChangeSimStates">Changing SIM states</a> </li> <li><a href="#UpdateSimDetails">Updating SIM details</a> </li> <li><a href="#CreatingSimGroups">Creating SIM groups</a> </li> <li><a href="/infinity-classic/ordering-sims">Ordering SIMs</a> </li> <li><a href="/infinity-classic/activating-sims">Activating SIMs</a> </li> <li><a href="/infinity-classic/suspending-sims">Suspending SIMs</a> </li> <li><a href="/infinity-classic/terminating-sims">Terminating SIMs</a> </li> </ul>
+
+<h2 id="ChangingSIMstates">Changing SIM states</h2>
+
+<p>The SIM state can be change from one state to another as described in the <a href="/billing/billing-sim-lifecycle">SIM lifecycle</a>.</p>
+
+<p>To change individual SIM states in Infinity Classic:</p>
+
+<ol> <li>Go to: <span>SIMS</span> &gt; <span>SIMs List</span> &gt; <span>Action</span> <img src="/images/resources/images/icons/siamnetworksettings_ic_24x24.png" alt="Siamnetworksettings Ic 24X24" /></li> <li>Select <span>Change State</span>.</li> <li> In the <span>Requested State</span> drop-down menu, select the required action. </li> <li> Select <span>Request</span>. </li> </ol>
+
+<h2 id="UpdatingSIMdetails">Updating SIM details</h2>
+
+<p>You can update SIM details using the:</p>
+
+<ul> <li><b>Infinity Classic portal</b>, which enables you to:<ul><li>Update details for individual SIMs</li><li>Bulk update details for SIMs</li></ul></li> <li><b>Tigrillo API</b>, using the setSIMDetail<a href="/api/tigrillo/set-sim-detail">s</a> command. For more information, see <a href="/api/tigrillo/set-sim-detail" target="_blank">POST /Japi/Tigrillo/setSIMDetail</a>.</li> </ul>
+
+<p>To update details for individual SIMs using Infinity Classic:</p>
+
+<ol> <li>Go to: <span>SIMS</span> &gt; <span>SIMs List</span> &gt; <span>Action</span> <img src="/images/resources/images/infinityclassic/simactioniconsettings_24x24.png" alt="Simactioniconsettings 24X24" /> </li> <li>Select <span>Edit</span>.</li> <li> Edit the SIM Settings and select <span>Save</span>. </li> </ol>
+
+<p>To bulk update details for multiple SIMs using Infinity Classic:</p>
+
+<ol> <li> Use the row check boxes to select the SIMs on which to perform the bulk action.  </li> <li> Below the results table, use the dropdown list to select <span>Change Settings</span>. </li> <li> Select <span>Perform Bulk Actions</span> to display to Bulk change SIM Settings dialog. <br /><img src="/images/resources/images/infinityclassic/bulkchangesimsettings.png" alt="Bulkchangesimsettings" />  </li> <li>Update the required fields on the dialog and select <span>Save</span>.</li> <li>Wait for the dialog to confirm the changes, then close the dialog.</li> </ol>
+
+<h2 id="CreatingSIMgroups">Creating SIM groups</h2>
+
+<p>To configure a SIM Group name in Infinity Classic:</p>
+
+<ol> <li> Go to: <span>SIMS</span> &gt; <span>SIM List</span> &gt; <span>Action </span><img src="/images/resources/images/icons/siamsimsettings_ic_24x24.png" alt="Siamsimsettings Ic 24X24" /> </li> <li>On the <span>SIM Settings</span> page, select <span>Edit</span>.</li> <li> In the <span>Group Name</span> drop-down menu, select an existing group. <span><strong>Tip: </strong>Alternatively, type the name of a new group. This will appear in the Group list when you save your changes.</span> </li> <li> Select <span>Save</span>. </li> </ol>
+
+<p>To assign a group to multiple SIMs in Infinity Classic:</p>
+
+<p>The first column in the SIM list is a checkbox. </p>
+
+<ol> <li> Select the checkbox alongside each SIM you want to assign the Group Name to. <span><strong>Tip: </strong>Select the column header checkbox to select all SIMs in the list.</span> </li> <li>At the bottom of the SIM list, in the drop-down box, select <span>Change Settings</span>.</li> <li> Select <span>Perform Bulk Action</span>. <br /><img src="/images/resources/images/infinityclassic/bulkassignalerts.png" alt="Bulkassignalerts" />  <br />The Bulk change SIM Settings form appears. </li> <li> Using the <span>Group</span> drop-down menu, select the Group Name for the chosen SIMs. <span><strong>Tip: </strong>Alternatively, type the name of a new group. This will appear in the Group list when you save your changes.</span> </li> <li>Select <span>Save</span> to save your changes.</li> <li>Close <span>Bulk change SIM Settings</span>.</li> </ol>

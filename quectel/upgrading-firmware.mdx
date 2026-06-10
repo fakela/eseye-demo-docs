@@ -1,0 +1,70 @@
+---
+title: "Upgrading the Quectel module firmware"
+description: "From time to time, you may need to upgrade your Quectel module firmware."
+---
+
+<p>From time to time, you may need to upgrade your Quectel module firmware. </p>
+
+<div> <h3>Before you begin</h3> <p>You need:</p> <ul> <li>A Windows computer (version 1909 or later), or up-to-date Linux system, with administrator access.</li> <li>The Quectel module where you want to update the firmware.</li> <li> The relevant cable with data transfer capability (such as a Micro USB cable) for connecting the Quectel module to the computer. Ensure the cable is connected to the device and the computer. </li> <li> For Linux, a terminal emulator (such as PuTTY) to connect to the relevant USB interface, for example: ttyUSB2. Use the following serial settings: <span>115200 8-N-1</span> </li> <li> If required, a jumper wire to power up the Quectel module, for example if it is part of an LTE IoT 2 click. </li> <li> Contact your Account Manager to receive a dropbox link to the Quectel module files. Please specify if you require Windows or Linux-based files. </li> </ul> <p>Download and extract the following tools using the supplied link, where &lt;<i>version</i>&gt; is the latest version:</p> <span><strong>Note: </strong>When you extract the files, ensure that the subfolders are also extracted.</span> <ul> <li>For Windows users:<ul><li>Quectel LTE and 5G Windows USB driver – <span>Quectel&#95;LTE&#95;5G&#95;Windows&#95;USB&#95;Driver&#95;V&lt;<i>version</i>&gt;.zip</span></li><li>QFlash for Windows – <span>QFlash&#95;V&lt;<i>version</i>&gt;&#95;EN.zip</span></li></ul></li> <li>For Linux users:<ul><li>Quectel Linux USB driver – <span>Quectel&#95;Linux&#95;USB&#95;Serial&#95;Option&#95;Driver&#95;V&lt;<i>version</i>&gt;.zip</span></li><li>QFirehose for Linux – <span>QFirehose&#95;Linux&#95;Android&#95;V&lt;<i>version</i>&gt;.zip</span></li></ul><span><strong>Note: </strong>Up-to-date Linux systems support a USB connection to the Quectel module.</span></li> </ul> <p>You must also download and extract the Quectel module firmware for your specific Quectel module model (the model number is located at the top of the chip) – for example, <span>BG9...zip</span>.</p> <span><strong>Note: </strong> <p>If you are <b>not</b> using AnyNet SMARTconnect™, you must request a firmware update for your module from Quectel Support. If you are using AnyNet SMARTconnect™, Eseye will supply you with the firmware file as part of AnyNet SMARTconnect™ installation. </p> <p>For more information, see:</p> <ul> <li>BG9x: <a href="/quectel/installing-smartconnect-bg9x" target="_blank">Installing AnyNet SMARTconnect™ on a Quectel BGxx module</a></li> <li>EG2x-G: <a href="/quectel/installing-smartconnect-eg2x-g" target="_blank">Installing AnyNet SMARTconnect™ on a Quectel EG2x-G module</a></li> </ul> </span> </div>
+
+<h2 id="Installationoverview">Installation overview</h2>
+
+<ol> <li>Choose the <a href="#Updating">Windows</a> or <a href="#Updating2">Linux</a> installation.</li> <li>Install the required USB drivers so you can use the relevant ports to load the firmware.</li> <li>Using a USB port on your computer, connect your development board that contains the Quectel modem.</li> <li>Discover which ports your computer is using to communicate with the development board.</li> <li>Update the Quectel module firmware using the supplied application.</li> </ol>
+
+<h2 id="UpdatingthemodulefirmwareusingWindows">Updating the module firmware using Windows</h2>
+
+<h3>Installing the Windows USB drivers</h3>
+
+<p>To install the Windows USB drivers:</p>
+
+<ol> <li> In the extracted <span>Quectel&#95;LTE&#95;5G&#95;Windows&#95;USB&#95;Driver&#95;V&lt;<i>version</i>&gt;</span> folder, locate and run <b>setup.exe</b> to start the InstallShield Wizard. </li> <li> If required, change the destination location, then select <span>Next</span>. </li> <li> Select <span>Next</span> to copy the files into the specified location and install the drivers. <span><strong>Note: </strong>Depending on your Windows security, a warning may appear. Select <span>Install</span>.</span> <br />The InstallShield Wizard Complete window appears when the drivers are successfully installed. </li> <li> Select <span>Finish</span> to exit the wizard. </li> </ol>
+
+<h3>Connecting to the Quectel module</h3>
+
+<p>Connect the Quectel module to the computer and power it up.</p>
+
+<Tip> <p>Depending on your development board, you may need to consult the development board circuit diagram to find the pin that drives the PWR key. For example, use a jumper wire to power up the LTE IoT 2 click, using the <span>PWK</span> and <span>5V</span> pins.</p> <p>You need only touch the pins briefly to power up.</p> </Tip>
+
+<p>Do not disconnect the power supply to the Quectel module at any time. The module requires power at all times, even during sleep mode. </p>
+
+<p>To check the USB DM port number:</p>
+
+<ol> <li>Using the computer, open <span>Device Manager</span>.</li> <li> Expand <span>Ports (COM &amp; LPT)</span>. <br />If Ports (COM &amp; LPT) does not exist, ensure that you have correctly installed the USB drivers, and that the cable can transfer data. </li> <li>Make a note of the <span>Quectel USB DM Port</span> number, which will vary depending on computer and USB port. </li> </ol>
+
+<h3>Updating the module firmware</h3>
+
+<p>To update the module firmware:</p>
+
+<ol> <li> In the extracted <span>QFlash&#95;&lt;<i>version</i>&gt;&#95;EN&#95;Windows</span> folder, locate and run <span>QFlash&#95;V&lt;<i>version</i>&gt;.exe</span> to launch the application. </li> <li>In the <span>COM Port</span> drop-down list, select the port number that matches the <span>Quectel USB DM Port</span> number.</li> <li>In the <span>Baudrate</span> drop-down list, select an appropriate rate, for example <span>460800</span>.</li> <li> Select <span>Load FW Files</span>. <span><strong>Note: </strong><span>Load FW Files</span> is a button, not a selection list as the UI implies.</span> </li> <li>In the <span>Open</span> window, browse to the supplied firmware folder, for example <span>BG9x...</span>.</li> <li>In the <span>update</span> folder, double-click any <span>&#42;.mbm</span> file to load the firmware files onto the connected Quectel module.</li> <li> Select <span>Start</span> to upgrade the module firmware. </li> <li> For BG9x modules only, if the <span>Do you need MBN autosel feature enabled by default?</span> dialog appears, select <span>OK</span>. <br />Do NOT select the <span>MBN autosel feature enabled</span> checkbox. </li> <li> Wait for the firmware upgrade to finish. <br />When the process completes, a PASS message should appear in the QFlash&#95;V&lt;<i>version</i>&gt; window. </li> <li> If a <span>FAIL</span> message appears, start the procedure again.  <span><strong>Tip: </strong>If the upgrade consistently fails, ensure the <span>DM Port</span> is correct. Alternatively, contact <a href="mailto:support@eseye.com">Support</a>.</span> </li> </ol>
+
+<h2 id="UpdatingthemodulefirmwareusingLinux">Updating the module firmware using Linux</h2>
+
+<h3>Connecting to the Quectel module</h3>
+
+<p>Connect the Quectel module to the computer and power it up.</p>
+
+<Tip> <p>Depending on your development board, you may need to consult the development board circuit diagram to find the pin that drives the PWR key. For example, use a jumper wire to power up the LTE IoT 2 click, using the <span>PWK</span> and <span>5V</span> pins.</p> <p>You need only touch the pins briefly to power up.</p> </Tip>
+
+<p>Do not disconnect the power supply to the Quectel module at any time. The module requires power at all times, even during sleep mode. </p>
+
+<h3>Checking the existing Linux USB drivers</h3>
+
+<p>Before installing the Linux USB drivers, check which drivers already exist on your Linux system.</p>
+
+<p>To check your existing drivers:</p>
+
+<ol> <li> Using the Linux command terminal, enter the command:  <br /><span>sudo dmesg | grep tty</span>  <br />If Linux correctly recognized the Quectel module, then four USB interfaces are listed in consecutive order, for example:  <br /><img src="/images/resources/images/linuxdrivers.png" alt="Linuxdrivers" />  <span><strong>Note: </strong>If less than four USB interfaces exist, you must install the USB drivers.</span> <span><strong>Note: </strong>The initial two USB interfaces enable you to update the Quectel module firmware using QFirehose, and install AnyNet SMARTconnect™ using QExplorer. The last two USB interfaces enable you to connect to the Quectel module with a terminal emulator in order to send AT commands.</span> </li> </ol>
+
+<h3>Installing the USB drivers</h3>
+
+<p>To compile and install the USB drivers:</p>
+
+<ol> <li> Using the command terminal, enter the command:  <br /><span>uname -r</span>  </li> <li> Note your Linux kernel version. </li> <li> Navigate to the correct extracted subfolder: <span>Quectel&#95;LTE&#95;5G&#95;Linux&#95;USB&#95;Driver&#95;V&lt;<i>version</i>&gt;/&lt;<i>kernelversion</i>&gt;</span>  <br />where &lt;<i>kernelversion</i>&gt; matches your Linux kernel version. <span><strong>Note: </strong>If your kernel version does not match the supplied versions, use the nearest previous version. For example, if your kernel version is v5.19.4 and the supplied versions are v5.19.1 and v5.19.5, then use v5.19.1.</span> </li> <li> Compile and install the drivers by entering:  <br /><span><span>sudo make install</span></span>  </li> <li> Reboot Linux. </li> <li>  Check if Linux is correctly recognising the Quectel module by entering:  <br /><span>sudo dmesg | grep tty</span>  <br />The response should contain four USB interfaces, listed in consecutive order. </li> </ol>
+
+<h3>Updating the module firmware</h3>
+
+<p>To update the module firmware:</p>
+
+<ol> <li> Using the command terminal, navigate to the extracted <span>Quectel&#95;LTE&#95;5G&#95;QFirehose&#95;Linux&#95;Android&#95;V&lt;<i>version</i>&gt;</span> folder.  </li> <li> Compile QFirehose by entering:  <br /><span>make</span>  <span><strong>Note: </strong>If it is successful, you will see the QFirehose file.</span> </li> <li> Enter the command:  <br /><span>sudo./QFirehose -f &lt;<i>&lt;Module&gt;...</i>&gt;</span>  <br />where <span>&lt;<i>&lt;Module&gt;...</i>&gt;</span> is the path to the supplied firmware folder, for example <span>BG9...</span>. </li> <li>Reboot the Quectel module.</li> <li> Use a terminal emulator to check the firmware version by sending the following: <br /><span>AT+QGMR</span>  <br />The returned version should match the version you installed. </li> </ol>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li>Installing AnyNet SMARTconnect™:<ul><li>BG9x: <a href="/quectel/installing-smartconnect-bg9x" target="_blank">Installing AnyNet SMARTconnect™ on a Quectel BGxx module</a></li><li>EG2x-G: <a href="/quectel/installing-smartconnect-eg2x-g" target="_blank">Installing AnyNet SMARTconnect™ on a Quectel EG2x-G module</a></li></ul></li> <li><a href="/quectel/establishing-cloud-connection">Connecting to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/general-at-commands/at-commands">General AT Commands</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8618-Eseye-enabled-Quectel-BG96-module-Developer-Guide.pdf" target="_blank">8618 Eseye-enabled Quectel BG96 module Developer Guide (PDF)</a> </li> </ul> </div>

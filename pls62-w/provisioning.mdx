@@ -1,0 +1,24 @@
+---
+title: "Where to next?"
+description: "Eseye automatically provisions the AnyNet Secure SIM. During this process, the security and identity information is downloaded and programmed into the SIM card. You can observe the provisioning progress in the device..."
+---
+
+<p>Eseye automatically provisions the AnyNet Secure SIM. During this process, the security and identity information is downloaded and programmed into the SIM card. You can observe the provisioning progress in the device shadow. You can access the shadow using Lambda functions, programatically, or through the <span>AWS IoT Console</span>.</p>
+
+<ol> <li>Using the <span>AWS IoT Console</span>, select the thing you created with the matching SIM number.</li> <li> On the <span>Device Shadows</span> tab, select <span>Classic Shadow</span> to view the <span>Device Shadow document</span>. <br /><img src="/images/resources/images/shadowarn.png" alt="Shadowarn" />  <br />Use the <span>Device Shadow state</span> pane to view the certificate delivery progress. The certificate is delivered after the status changes from Pending to Provisioned. You can also view smart terminal message consumption and location information. </li> </ol>
+
+<Note>Provisioning normally takes 5-10 minutes to complete, although the process may take up to an hour. If your Cinterion® PLS62‑W Wireless Module has not connected in 24 hours, contact Support: <a href="mailto:support@eseye.com">support@eseye.com</a>. </Note>
+
+<p>During provisioning, the Cinterion® PLS62‑W Wireless Module will reset four times. Use a terminal emulator to observe this process.</p>
+
+<Note>For information about setting up a terminal emulator, see <a href="/pls62-w/rs232-serial-connection">Attaching to the Intelligent Cloud Connect</a>.</Note>
+
+<p>When the device is ready, it sends the following URC:</p>
+
+<p>+EMT:EMQRDY</p>
+
+<p>You must wait until you receive the <span>+EMT:EMQRDY</span> URC before you can use the device to send and receive commands.</p>
+
+<Note> <p> </p> </Note>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/pls62-w/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li>Read about <a href="/iris/policy-management" target="_blank">Limiting the AWS IoT Core policy </a></li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8582-Intelligent-Cloud-Connect-Quick-Start-Guide.pdf" target="_blank">Intelligent Cloud Connect Quick Start Guide (PDF)</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/8589-Eseye-enabled-Cinterion®-PLS62‑W-Wireless-Module-Developer-Guide.pdf" target="_blank">Cinterion® PLS62‑W Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

@@ -1,0 +1,14 @@
+---
+title: "How Eseye authorises the device to use the IP network"
+description: "Eseye uses RADIUS authentication to control access to the Eseye network. The device is first verified as belonging to a customer and then either authorised to access specific resources ( Access-Accept ), or denied acc..."
+---
+
+<p>Eseye uses RADIUS authentication to control access to the Eseye network. The device is first verified as belonging to a customer and then either authorised to access specific resources (<span>Access-Accept</span>), or denied access (<span>Access-Reject</span>). </p>
+
+<p>If the SIM is permitted access to the Eseye network, then Eseye assigns an IP address to the device, using the device details in the connection request to deliver the IP address to the correct device. These device details include the SIM and modem unique identifiers and the APN. For more information, see <a href="/connectivity/connecting-over-mobile-network#Configur">Configuring a device to access the correct network</a>. </p>
+
+<Note>Customers can subscribe to RADIUS data through the Push API. For more information, see <a href="/api/push/push-api-intro" target="_blank">Push API introduction</a>. To subscribe to the Push API, speak to your Account Manager.</Note>
+
+<Note>Customers can request can track customer device activity on the network. For more information, see <a href="/connectivity/pca-pexplorer">About network traffic analysis using PCAP Explorer</a>.</Note>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/device-configuration">Device configuration best practices</a> </li> <li><a href="/connectivity/understanding-pops">About Eseye PoPs</a> </li> <li><a href="/connectivity/ip-addresses">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> <li><a href="/connectivity/access-point-name">About Access Point Names (APNs)</a> </li> <li><a href="/connectivity/anynet-dns-service">Understanding the AnyNet Domain Name Service (DNS)</a> </li> <li><a href="/connectivity/custom-dns-entries">About custom DNS entries</a> </li> </ul> </div>

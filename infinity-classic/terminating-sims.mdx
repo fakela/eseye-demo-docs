@@ -1,0 +1,32 @@
+---
+title: "Terminating SIMs"
+description: "When a SIM is terminated, the SIM stops connecting to the network. Service charges will stop unless the SIM is in contract, in which case you are liable for the rest of the service charges up until the end date of the..."
+---
+
+<p>When a SIM is terminated, the SIM stops connecting to the network. Service charges will stop unless the SIM is in contract, in which case you are liable for the rest of the service charges up until the end date of the contract. </p>
+
+<Note>Termination is not instant – Eseye must verify the termination. There may also be cancellation costs associated with terminating a SIM. </Note>
+
+<p>After a SIM is terminated it can be re-provisioned by changing the state.</p>
+
+<p>You can terminate SIMs using the:</p>
+
+<ul> <li><b>Infinity Classic portal</b>, which enables you to:<ul><li><a href="#Individual">Terminate individual SIMs</a></li><li><a href="#Bulk">Bulk terminate up to 5000 SIMs non-consecutive SIMs</a> (using the bulk termination tool)</li></ul></li> <li><b>Tigrillo API</b>, which provides a <a href="/api/tigrillo/terminate-sims">terminateSIMs</a> API command to terminate SIMs.</li> </ul>
+
+<h2 id="TerminatingindividualSIMs">Terminating individual SIMs</h2>
+
+<p>To terminate an individual SIM requires you to identify the SIM using its ICCID (SIM ID).</p>
+
+<p>To terminate an individual SIM in Infinity Classic:</p>
+
+<ol> <li>Using Infinity Classic, go to: <span>SIMs</span> &gt; <span>SIMs List</span>.</li> <li>Use the <a href="/infinity-classic/sims#SimList">search fields</a> to find the SIM to terminate.</li> <li> For the SIM to terminate, in the <span>Actions</span> column, select the <img src="/images/resources/images/infinityclassic/simactioniconnetwork_24x24.png" alt="Simactioniconnetwork 24X24" /> icon to display the <a href="/infinity-classic/sim-actions#Network">network settings</a> for the SIM. <br /><img src="/images/resources/images/infinityclassic/simactionreportnetwork.png" alt="Simactionreportnetwork" />  </li> <li>Select <span>Change State</span>. </li> <li>In the <span>Requested State</span> drop-down menu, select <span>Terminate SIM</span>.</li> <li> Select <span>Request</span>. <span><strong>Note: </strong>SIMs that are not in contract are queued for termination. Termination is not instant – Eseye must verify the termination.</span> </li> </ol>
+
+<h2 id="TerminatingSIMsinbulk">Terminating SIMs in bulk</h2>
+
+<p>You can <a href="#">terminate</a> up to 5000 non-consecutive SIMs at a time using the <span>Bulk Termination</span> tool. </p>
+
+<p>To bulk terminate SIMs in Infinity Classic:</p>
+
+<p>If you terminate SIMs that are currently in contract, you are liable for the rest of the service charges up until the end date of the contract. </p>
+
+<ol> <li> Using Infinity Classic, go to: <span>SIMs</span> &gt; <span>Bulk Termination</span>. <br /><img src="/images/resources/images/infinityclassic/bulktermination.png" alt="Bulktermination" />  </li> <li> In the <span>ICCID</span> box, paste the list of SIM numbers you want to terminate, one per line. <br />You can paste up to 5000 non-consecutive SIM numbers. <br />Select <span>Clear</span> to remove all ICCID values from the list. </li> <li> Select <span>Terminate</span> to terminate the SIMs. <br />SIMs that are not in contract are queued for termination. Termination is not instant – Eseye must verify the termination. <br />SIMs that are currently in contract will incur further service charges. </li> <li> If a warning appears listing in contract SIMs, and you want to continue with the termination, select <span>Terminate All SIMs</span>. <br />You will receive a separate termination invoice with the remaining service charges in one lump sum, unless you have made a prior alternative arrangement with Accounts. </li> </ol>

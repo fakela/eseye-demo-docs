@@ -1,0 +1,86 @@
+---
+title: "Start using the APIs"
+description: "This section will help you to integrate Eseye APIs with your products."
+---
+
+<p>This section will help you to integrate Eseye APIs with your products.</p>
+
+<p>Eseye has developed the following APIs. Select the links below to learn about configuring and troubleshooting each API:</p>
+
+<ul> <li><a href="/api/location/location-api-intro">Location API</a> – to help you track your devices.</li> <li><a href="/api/margay/margay-api-intro">Margay API</a> – to observe patterns, problems and anomalies with authentication and data throughput statistics on your network.</li> <li><a href="/api/package/package-api-intro" target="_blank">Package API</a> – to bundle products and services that are tailored to meet particular customer needs, providing a complete solution for the customer's IoT connectivity. This is an internal API, only available for those with an account administrator function.</li> <li><a href="/api/portfolio/portfolio-api-intro" target="_blank">Portfolio API</a> – for comprehensive customer account management, including managing users, tax and financial payment information, account addresses, and so on. This is an internal API, only available for those with an account administrator function.</li> <li><a href="/api/push/push-api-intro">Push API</a> – for live raw NetFlow and RADIUS Accounting data, for the purposes of monitoring and administering network usage.</li> <li><a href="/api/sim/simapi-intro" target="_blank">SIM API</a> – for managing your global IoT SIM estate.</li> <li><a href="/api/sms/smsapi-intro">SMS API</a> – to send and receive text and short messages to and from SMS-capable devices over internet and cellular networks.</li> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API</a> – legacy API, for managing your global IoT SIM estate.</li> <li><a href="/api/tigrina/tigrina-api-intro">Tigrina API</a> – to remotely monitor, access and reconfigure your Hera 604 routers.</li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<p>Depending on the API, we have the following methods of authentication:</p>
+
+<ul> <li>API service account login, which is token-based authentication. For more information, see <a href="#Service">Service account authentication</a>.</li> <li>User logins for Infinity Classic and Lynx, where the user must have a valid account before they can subscribe to the API.</li> <li>Listed on the IP Allowlist.</li> </ul>
+
+<h2 id="Serviceaccountauthentication">Service account authentication</h2>
+
+<p>Our API authorises requests using access tokens generated through the OAuth 2.0 client credentials flow. The tokens are requested from the authorisation server using the supplied service account credentials. Each access token expires an hour after issue.</p>
+
+<Tip>Where multiple API calls occur in a short period of time, we recommend retrieving the access token once and re-using it, rather than requesting a token for each call. </Tip>
+
+<h3>Using a service account to access the API</h3>
+
+<p>Service accounts enable machine-to-machine (m2m) API access. Eseye will create a service account for you. </p>
+
+<p>To retrieve a token using a service account:</p>
+
+<ol> <li> Generate the <span>Authorization Basic</span> header value:  <ol> <li>Combine the client Id and client secret, separated by a colon.</li> <li>Encode the resulting string using Base64.</li> </ol> <br />For example, using Linux bash: <br />echo -n '&lt;<var>clientID</var>&gt;:&lt;<var>clientSecret</var>&gt;' | base64 <br />where &lt;<var>clientId</var>&gt; is the supplied client ID, and &lt;<var>clientSecret</var>&gt; is the supplied client secret. </li> <li> If your Linux bash version returns two lines of text for the Base64-encoded string, remove the newline character. </li> <li> Using an API calling application like <span>Postman</span>, target the following URL: <br />POST https://eseye-idp-prod.auth.eu-west-1.amazoncognito.com/oauth2/token <br />where <span>https://eseye-idp-prod.auth.eu-west-1.amazoncognito.com</span> is the URL for the authorisation server. </li> <li> Ensure the headers include the following: <br />"Content-Type": "application/x-www-form-urlencoded" <br />"Authorization": "Basic" &lt;<span>Base64string</span>&gt; <br />where <span>&lt;<var>Base64string</var>&gt;</span> is the string you generated earlier. For example: <br />Basic NDhoNHY5dmNzdHN1dWlqdjl0OGg1Mzkdbmc6MWlpMnMydmt2M21jOWgwZnJqdGxqbmZyZGs2Mmw5ODN2ZTJ1bHByZXU1N2NydWZhODZsdg </li> <li> Ensure the body includes the following: <br />grant&#95;type=client&#95;credentials <br />scope=api/api. </li> <li> Send the token request. <br />The API returns an access token in the following format: <br />&#123; <br />"access&#95;token": "&lt;<var>accessToken</var>&gt;", <br />"expires&#95;in": 3600, <br />"token&#95;type": "Bearer" <br />&#125; <br />where <span>&lt;<var>accessToken</var>&gt;</span> is the JWT token used to authorise API requests, <span>expires&#95;in</span> is the amount of time in seconds that the key remains valid before expiring (the default is 1 hour), and <span>token&#95;type</span> is the <span>Authorization</span> type. </li> <li> Use the <span>&lt;<var>accessToken</var>&gt;</span> to authorise API calls, as a <span>Bearer</span> token in the <span>Authorization</span> header, with the following format: <br />"Authorization": "Bearer" &lt;<var>accessToken</var>&gt; <br />For example: <br />Authorization: Bearer eyJraWQiOiJENmZrVU5tMlhpemZ...A <span><strong>Note: </strong>Only endpoints that are authorised by the relevant registered service account permissions will return a valid response.</span> </li> </ol>
+
+<h3>Using the supplied Postman collections and environments to access the APIs</h3>
+
+<p>When you request access to an AnyNet API, you will receive a <span>Client ID</span>, <span>Client Secret</span> and <span>Base64 string</span>. Use these to authenticate your access to the AnyNet API. </p>
+
+<Note>To understand how to set up the environment for a specific API collection, use the links below.</Note>
+
+<p>If you have the relevant permissions, you can use the following collections:</p>
+
+<h4>Package API </h4>
+
+<ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPackageAPI.postman_environment.json" target="_blank" rel="noopener">AnyNetPackageAPI.postman&#95;environment.json</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPackageAPI.postman_collection.json" target="_blank" rel="noopener">AnyNetPackageAPI.postman&#95;collection.json</a> </li> </ul>
+
+<p>For more information, see <a href="/api/package/package-api-intro#Setting" target="_blank">Package API Introduction</a>.</p>
+
+<h4>Portfolio API </h4>
+
+<ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPortfolioAPI.postman_environment.json" target="_blank" rel="noopener">AnyNetPortfolioAPI.postman&#95;environment.json</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetPortfolioAPI.postman_collection.json" target="_blank" rel="noopener">AnyNetPortfolioAPI.postman&#95;collection.json</a> </li> </ul>
+
+<p>For more information, see <a href="/api/portfolio/portfolio-api-intro#Setting" target="_blank">Setting up Postman for Portfolio API</a>.</p>
+
+<h4>SIM API </h4>
+
+<ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetSIMAPI.postman_environment.json" target="_blank" rel="noopener">AnyNetSIMAPI.postman&#95;environment.json</a> </li> <li><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetSIMAPI.postman_collection.json" target="_blank" rel="noopener">AnyNetSIMAPI.postman&#95;collection.json</a> </li> </ul>
+
+<p>For more information, see <a href="/api/sim/si-moperations#Setting" target="_blank">About SIM endpoints</a>.</p>
+
+<h2 id="UsingPostmantotesttheAPIs">Using Postman to test the APIs</h2>
+
+<p>The API examples are written for Postman, using the supplied collections and environments. </p>
+
+<Tip>Refer to the Postman documentation to understand how to use the Postman application.</Tip>
+
+<h2 id="Headervalues">Header values</h2>
+
+<p>Headers accompany the body of a request, containing information about the request and how to process it. </p>
+
+<p>For more information, see <a href="/api/package/headers">Configuring Package API headers</a>.</p>
+
+<h2 id="Developerguides">Developer guides</h2>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/8313-Location-API-1.0-Developer-Guide.pdf" target="_blank">8313 Location API 1.0 Developer Guide (PDF)</a> </p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/8732-Margay-API-1.0-Developer-Guide.pdf" target="_blank">8732 Margay API 1.0 Developer Guide (PDF)</a> </p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/8725-Push-API-Developer-Guide.pdf" target="_blank">8725 Push API Developer Guide (PDF)</a> </p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/8297-SMS-API-Developer-Guide.pdf" target="_blank">8297 SMS API Developer Guide (PDF)</a> </p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/8649-Tigrina-API-Developer-Guide.pdf" target="_blank">8649 Tigrina API Developer Guide (PDF)</a> </p>
+
+<h2 id="Tryitout">Try it out</h2>
+
+<Note>Use the supplied Postman collections and environments to try out the AnyNet APIs in a test environment first, before deploying the APIs in your live environment.</Note>

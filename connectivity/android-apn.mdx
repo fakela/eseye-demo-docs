@@ -1,0 +1,30 @@
+---
+title: "Configuring an AnyNet APN on an Android device"
+description: "Use one of the following methods to configure an Android device to work with an AnyNet APN:"
+---
+
+<p>Use one of the following methods to configure an Android device to work with an AnyNet APN:</p>
+
+<ul> <li>Manually add the APN to an Android device using the <span>Access Point Name</span> settings</li> <li> Replace the existing <span>apns-conf.xml</span> file with a file containing the correct APN settings </li> </ul>
+
+<Tip>For information about APNs, see <a href="/connectivity/access-point-name">About Access Point Names (APNs)</a>.</Tip>
+
+<h2 id="ManuallyaddingtheAnyNetAPNtothedevice">Manually adding the AnyNet APN to the device</h2>
+
+<Note>This was tested on a Samsung Galaxy J3; Android version 9. Instructions may vary depending on the device and Android version.</Note>
+
+<p>To add the AnyNet APN to an Android device:</p>
+
+<ol> <li> On the Android <span>Settings</span> menu, select <span>Connections</span>. </li> <li> Select <span>Mobile networks</span>. </li> <li> Ensure <span>Data roaming</span> is turned on. </li> <li> Select <span>Access Point Names</span>. <br />A list of existing APNs is displayed. </li> <li> Select <span>Add</span>. </li> <li> Enter the following information into the APN fields: <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td> <span>Name</span>  </td> <td> AnyNet APN </td> </tr> <tr> <td> <span>APN</span>  </td> <td> &lt;<var>APNname</var>&gt; <br />where &lt;<var>APNname</var>&gt; is the APN specified in your contract </td> </tr> <tr> <td> <span>Username</span>  </td> <td> Android - &lt;<var>username</var>&gt; <br />where &lt;<var>username</var>&gt; is the name of your choice </td> </tr> <tr> <td> <span>Password</span>  </td> <td> pass <span><strong>Note: </strong>Additional authentication is applied when you connect to the APN.</span> </td> </tr> <tr> <td> <span>Authentication type</span>  </td> <td> PAP or CHAP </td> </tr> </tbody> </table> </li> <li> Leave the default values for all other fields. <span><strong>Note: </strong>Most fields have a <span>Not Set</span> value. The <span>MCC</span> and <span>MNC</span> fields are fetched from the network profile for the IMSI that the device is currently using.</span> </li> <li> Select the <img src="/images/resources/images/threedotmenu_18x24.png" alt="Threedotmenu 18X24" /> menu in the top right corner. </li> <li> Select <span>Save</span>. <br />The AnyNet &lt;<var>APNname</var>&gt; APN appears in the Access Point Names list. <span><strong>Note: </strong>This process may take time.</span> </li> </ol>
+
+<h2 id="Replacingtheapnsconfxmlfile">Replacing the apns-conf.xml file</h2>
+
+<p>The <b>apns-conf.xml</b> file contains the settings for the AnyNet APN and the Mobile Country Code (MCC) and Mobile Network Code (MNC) for each network. </p>
+
+<p>This option requires root access to the Android device. For more information, see <a href="https://en.wikipedia.org/wiki/Rooting_(Android)" target="_blank">Rooting&#95;(Android)</a>.</p>
+
+<Note>These instructions are for Android Debug Bridge (ADB). You can use other apps to transfer the file to your device. </Note>
+
+<ol> <li> Select the following link to access the AnyNet <span>apns-conf.xml</span> file: <br /><a href="https://docs.eseye.com/Content/Resources/Files/apns-conf.xml" target="_blank">apns-conf.xml</a>  <span><strong>Note: </strong>Depending on your settings, your browser may download the file automatically, prompt you for a target destination for the file, or open the file in a new browser window. If the file opens in a browser window, save it to a local folder.</span> </li> <li> Copy the <span>apns-conf.xml</span> file to the device: <br /><span>adb -s &lt;<var>device</var>&gt; push &lt;<var>download-path</var>&gt;apns-conf.xml /system/etc/apns-conf.xml</span>  <br />where <span>-s</span> indicates a device serial number is specified, &lt;<var>device</var>&gt; is the serial number of the device you want to update and &lt;<var>download-path</var>&gt; is the path to your local copy of the configuration file. <span><strong>Note: </strong>For more information about the push command see: <a href="http://adbshell.com/commands/adb-push" target="_blank">http://adbshell.com/commands/adb-push</a></span> </li> </ol>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li> For information about APNs, see <a href="/connectivity/access-point-name" target="_blank">About Access Point Names (APNs)</a> </li> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/device-configuration">Device configuration best practices</a> </li> <li><a href="/connectivity/authorising-device-to-use-network">How Eseye authorises the device to use the IP network</a> </li> <li><a href="/connectivity/ip-addresses">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> </ul> </div>

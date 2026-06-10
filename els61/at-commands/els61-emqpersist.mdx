@@ -1,0 +1,40 @@
+---
+title: "EMQPERSIST – report a set value to the device shadow"
+description: "Report a set value to the device shadow/twin. The operation depends on which AWSSHADOW mode you set, either simple or complete."
+---
+
+<p>Report a set value to the device shadow/twin. The operation depends on which <span>AWSSHADOW</span> mode you set, either <span>simple</span> or <span>complete</span>. </p>
+
+<Tip>You set <span>AWSSHADOW</span> in the Configuration File. For more information, see <a href="/els61/els61-configuration-file">Using the Cinterion® ELS61 Wireless Module configuration file</a>.</Tip>
+
+<h2>AWSSHADOW <span>simple</span> mode</h2>
+
+<p> The shadow Eseye Telemetry Module (ETM) performs the following automatically:</p>
+
+<ul> <li>Generates the JSON<span>state</span> and <span>reported</span> or <span>desired</span> objects</li> <li>Subscribes to the <span>shadow/update/delta</span> topic, and filters out the containing objects</li> <li>Presents the host with the state object JSON content only, sent via URC</li> </ul>
+
+<p>The host only sends the content of the <span>reported</span> object.</p>
+
+<h2>AWSSHADOW <span>complete</span> mode</h2>
+
+<p>The host sends the complete JSON for the shadow to ETM.</p>
+
+<p>AnyNet SMARTconnect™ sends the complete shadow message as a URC, without filtering.</p>
+
+<h2>EMQPERSIST commands</h2>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQPERSIST=? </td> <td> OK <br />  <br />EMQPERSIST:&lt;json&gt; </td> </tr> <tr> <td>Read</td> <td> AT+EMQPERSIST?  </td> <td> OK <br />or <br />ERROR </td> </tr> <tr> <td>Write</td> <td> AT+EMQPERSIST=&lt;JSON&gt; <br />where JSON is the JSON code, which depends on the AWSSHADOW mode you configured. <br />For <span>simple</span> mode: <br />Either the content of the <span>state</span><span>reported</span> object or <span>desired</span> object is required, in this format: <br />AT+EMQPERSIST="&#123;&#92;"<var>key</var>&#92;":<var>value</var>&#125;" <br />where <span>value</span> is a numeric value, including decimals and negative numbers. <br />If the passed-in text does not include <span>reported</span> or <span>desired</span>, then <span>reported</span> is assumed. The <span>state reported</span> encapsulation is appended. <br />If the passed-in text includes <span>reported</span> and/or <span>desired</span>, only the <span>state</span> encapsulation is appended. <br />For example, for the reported text: <br /><span>"&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;"</span> and  <br /><span>"&#123;&#92;"reported&#92;":&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;&#125;"</span> are both sent as  <br /><span>&#123;&#92;"state&#92;":&#123;&#92;"reported&#92;":&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;&#125;&#125;</span>  <br />For example, for reported and desired text: <br /><span>"&#123;&#92;"reported&#92;":&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;,&#92;"desired&#92;":&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;&#125;"</span> is sent as <br />&#123;&#92;"state&#92;":&#123;&#92;"reported&#92;":&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;,&#92;"desired&#92;":&#123;&#92;"key&#92;":&#92;"value&#92;"&#125;&#125;&#125;. <br />For <span>complete</span> mode: <br />The complete JSON data for the shadow/update topic is required, in this format: <br />AT+EMQPERSIST="&#123;&#92;"state&#92;":&#123;&#92;"reported&#92;":&#123;&#92;"key&#92;":value&#125;&#125;&#125;" <br />where <span>value</span> is a numeric value, including decimals and negative numbers. <br />  </td> <td> OK <br />  <br />SEND OK <br />or <br />ERROR </td> </tr> </tbody> </table>
+
+<h4>Examples</h4>
+
+<p>For <span>Simple</span> mode:</p>
+
+<p>AT+EMQPERSIST="&#123;&#92;"Temperature&#92;":-3.5&#125;"</p>
+
+<p>AT+EMQPERSIST="&#123;&#92;"Colour&#92;":&#92;"Blue&#92;"&#125;"</p>
+
+<p>For <span>Complete</span> mode, including setting AWSSHADOW to complete:</p>
+
+<p>AT+EMQPERSIST="&#123;&#92;"state&#92;":&#123;&#92;"reported&#92;":&#123;&#92;"Temperature&#92;":28.0&#125;&#125;&#125;"</p>
+
+<div> <h2>Where to next?</h2> <ul> <li><a href="/els61/els61-introduction">About the Eseye-enabled Cinterion® ELS61 Wireless Module</a> </li> <li><a href="/els61/at-commands/els61-mqt-ttelemetry-at-commands">MQTT AT commands</a> </li> <li><a href="/els61/at-commands/els61-emq-urcs">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-intro">About AnyNet SMARTconnect™</a> </li> <li><a href="/els61/at-commands/els61-etm-management-at-commands">Eseye Telemetry Module AT commands</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8613-Eseye-enabled-Cinterion®-ELS61-Wireless-Module-Developer-Guide.pdf" target="_blank">8613 Eseye-enabled Cinterion® ELS61 Wireless Module Developer Guide (PDF)</a> </li> </ul> </div>

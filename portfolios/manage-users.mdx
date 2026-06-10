@@ -1,0 +1,66 @@
+---
+title: "Managing users"
+description: "If you have the relevant permissions, you can manage users using Infinity."
+---
+
+<p>If you have the relevant permissions, you can manage users using Infinity.</p>
+
+<p>To access users by user account in Infinity:</p>
+
+<ol> <li> On the <span>Portfolios</span> page, in the portfolios list, select the <span>Portfolio ID</span>.  <br />Select <span>User Accounts</span> tab to view the user list in the <span>Search results</span> list. <br /><img src="/images/resources/images/integra/userstab.png" alt="Userstab" />  </li> </ol>
+
+<h2 id="Viewingusersbyuseraccount">Viewing users by user account</h2>
+
+<p>To view users by user account type:</p>
+
+<ul> <li> Select the relevant <span>user account type</span> tab, either:  <ul> <li><span>Portal Users</span> – users with access to Infinity</li> <li><span>SFTP Accounts</span> – users with access to the SFTP reporting file store</li> <li><span>Service Accounts</span> – users with access to the APIs</li> </ul> <br />The Infinity user list updates to display users of that type. The list displays the following fields: <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Username</span> </td> <td> The unique user account name for the current portfolio. </td> </tr> <tr> <td><span>First Name</span> </td> <td> The user's given name. </td> </tr> <tr> <td><span>Last Name</span> </td> <td> The user's surname. </td> </tr> <tr> <td><span>Email</span> </td> <td> A valid business email address, where the user receives emails. </td> </tr> <tr> <td><span>Status</span> </td> <td> The current object status, either: <ul> <li><span>setup</span> – (internal only) a partially completed, newly created object that is not yet available for use. </li> <li><span>requested</span> – a validation status for approving the setup object. All mandatory fields are validated. Approval is required to confirm that the object is configured correctly. Only someone with the correct permissions can approve the object. </li> <li><span>active</span> – the object is approved and ready for use. </li> <li><span>deleted</span> – (internal only) the object is removed from the customer system and is no longer available for use. </li> </ul> </td> </tr> <tr> <td><span>Actions</span> </td> <td>You can <a href="#Updating">update</a> and <a href="#Deleting">delete</a> existing users.</td> </tr> </tbody> </table> <span><strong>Tip: </strong>Alongside each user, select <img src="/images/resources/images/integra/iconexpand_24x24.png" alt="Iconexpand 24X24" /> to expand the user details and view the user's assigned <span>Roles</span> and <span>User ID</span>.</span> <span><strong>Note: </strong>If the number of users exceeds the viewing pane, you can select <span>View more</span> at the bottom of the page to expand the user list.</span> <span><strong>Tip: </strong>Alongside each user, select <img src="/images/resources/images/integra/iconexpand_24x24.png" alt="Iconexpand 24X24" /> to expand the user details and view the user's assigned <span>Roles</span> and <span>User ID</span>.</span> <span><strong>Note: </strong>If the number of users exceeds the viewing pane, you can select <span>View more</span> at the bottom of the page to expand the user list.</span> </li> </ul>
+
+<h3>Filtering the displayed Portal Users and SFTP Accounts users</h3>
+
+<p>Refine the displayed user list using any of the supplied filters.</p>
+
+<p> </p>
+
+<p>To filter the user list:</p>
+
+<ol> <li> On the <span>User Accounts</span> page, view the users by <span>Portal Users</span> or <span>SFTP Accounts</span>. <br />For more information, see <a href="#Viewing">Viewing users by user account</a>. </li> <li> Use any of the following filters to constrain the available list and find a specific user: <span><strong>Note: </strong>The search filters are case-insensitive. </span> <ul> <li><span>Username</span> – type the full username.</li> <li><span>First Name</span> – type the user's full first name.</li> <li><span>Last Name</span> – type the user's full surname.</li> <li><span>Email</span> – type the user's full business email address.</li> <li><span>Status</span> – select the required status from the drop-down list.</li> </ul> </li> <li> Select <span>Search</span> to filter the displayed users. </li> <li>Alternatively, select <span>Reset</span> to clear the filter constraints.</li> </ol>
+
+<h3>Filtering the displayed Service Accounts users</h3>
+
+<p>Refine the displayed user list using any of the supplied filters.</p>
+
+<p><img src="/images/resources/images/integra/userstab.png" alt="Userstab" /> </p>
+
+<p>To filter the user list:</p>
+
+<ol> <li> On the <span>User Accounts</span> page, view the users by <span>Service Account</span>. <br />For more information, see <a href="#Viewing">Viewing users by user account</a>. </li> <li> Use any of the following filters to constrain the available list and find a specific user: <ul> <li><span>Client ID</span> – type the full <span>Amazon Cognito</span> identifier.</li> <li><span>Email</span> – type the user's full business email address.</li> <li><span>Status</span> – select the required status from the drop-down list.</li> </ul> </li> <li> Select <span>Search</span> to filter the displayed users. </li> <li>Alternatively, select <span>Reset</span> to clear the filter constraints.</li> </ol>
+
+<h2 id="ViewingausersassignedrolesandUserID">Viewing a user's assigned roles and User ID</h2>
+
+<p>For information about roles, see <a href="/permissions/about-user-roles">About user roles</a>.</p>
+
+<p>To view a user's assigned roles and User ID:</p>
+
+<ol> <li> In the user list, alongside the user, select <img src="/images/resources/images/integra/iconexpand_24x24.png" alt="Iconexpand 24X24" /> to expand the user details and view the user's assigned <span>Roles</span> and <span>User ID</span>. <br /><img src="/images/resources/images/integra/userstab.png" alt="Userstab" />  </li> <li> Alternatively, select <img src="/images/resources/images/icons/iconcollapse_24x24.png" alt="Iconcollapse 24X24" /> to collapse the user details. </li> </ol>
+
+<h2 id="Creatinganewuser">Creating a new user</h2>
+
+<p>This includes entering user information like <span>username</span>, <span>email</span>, <span>role</span> and so on. Initial users are established during the portfolio creation, and customers have the option to add more users later as necessary.</p>
+
+<p>To create a new user:</p>
+
+<ol> <li> View the users by user account.  <br />For more information, see <a href="#Viewing">Viewing users by user account</a>. </li> <li> Select <span>Actions</span> &gt; <span>Add New User</span>. <span><strong>Note: </strong>Depending on the account type, different information is required to set up the account. </span> </li> <li> Provide the following information: <table> <col /> <col /> <thead> <tr> <th>Field</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><span>Username</span> </td> <td> For <span>Portal Users</span> and <span>SFTP Account</span> users. <br />The unique user account name for the current portfolio. </td> </tr> <tr> <td><span>Email Address</span> </td> <td> A valid business email address, where the user receives emails. </td> </tr> <tr> <td><span>First name</span> </td> <td> The user's given name. </td> </tr> <tr> <td><span>Last name</span> </td> <td> The user's surname. </td> </tr> <tr> <td><span>Mobile number</span> </td> <td> For <span>Portal Users</span> and <span>SFTP Account</span> users. <br />The user's full mobile phone number, including the country code, without leading zeros or spaces. </td> </tr> <tr> <td><span>Landline number</span> </td> <td> For <span>Portal Users</span> and <span>SFTP Account</span> users. <br />The user's full fixed line phone number, including the country code, without leading zeros or spaces.  </td> </tr> <tr> <td><span>SSH Public Key</span> </td> <td> For <span>Service Account</span> users. </td> </tr> <tr> <td><span>Infinity Roles</span> </td> <td> For <span>Portal Users</span>, select one or more roles. Roles affect access and permissions. <ul> <li> Admin </li> <li> Finance </li> <li> Logistics </li> <li> Support <span><strong>Tip: </strong>You can assign the <span>Admin</span> role to any of the added user account.</span> <span><strong>Note: </strong> This ensures that users have access to the relevant sections of the Infinity based on their job responsibilities.</span> </li> </ul> </td> </tr> <tr> <td><span>Service Account Roles</span> </td> <td> For <span>Service Account</span> users, select one or more roles. Roles affect access and permissions. <br />  </td> </tr> </tbody> </table> </li> <li> Select <span>Save</span> to create the user. <span><strong>Tip: </strong>If the user is created successfully, a green notification appears: <span>The user has been created</span>. If you encounter errors, contact Support.</span> </li> </ol>
+
+<h2 id="Updatinganuseraccount">Updating an user account</h2>
+
+<p>You can only update users if you have the permission to do so.</p>
+
+<p>To change the details of an existing user:</p>
+
+<ol> <li> View the users by a specific user account. <br />For more information, see <a href="#Viewing">Viewing users by user account</a>. </li> <li>Select <img src="/images/resources/images/icons/edit_ic_24x24.png" alt="Edit Ic 24X24" /> alongside the user you want to update.</li> <li>Make your changes.</li> <li> Select <span>Save</span> to apply the changes. <br />If the user is updated successfully, a green notification appears: "The user has been updated". <br />If you encounter errors, contact Support. </li> </ol>
+
+<h2 id="Changingtheuserstatus">Changing the user status</h2>
+
+<p>To change the status of the user:</p>
+
+<ol> <li> View the users by user account. <br />For more information, see<a href="#Viewing">Viewing users by user account</a>. </li> <li> Alongside the specific <span>User Details</span> row,, select  </li> <li> In the <span>Edit User</span> dialog, select the preferred status from the <span>User Status</span> drop-down list to change to. </li> <li> Select <span>Save</span> for the changes to reflect.</li> </ol>

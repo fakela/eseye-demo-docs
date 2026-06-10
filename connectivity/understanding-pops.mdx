@@ -1,0 +1,46 @@
+---
+title: "About Eseye PoPs"
+description: "Eseye has multiple geographically distributed Points of Presence (PoPs) that exist in data centres in the following locations worldwide:"
+---
+
+<p>Eseye has multiple geographically distributed Points of Presence (PoPs) that exist in data centres in the following locations worldwide: </p>
+
+<p><img src="/images/resources/images/connectivity/datacentregeographiclocation.png" alt="Datacentregeographiclocation" /> </p>
+
+<p>The PoPs are inter-connected as part of Eseye's <a href="/glossary/mpls">MPLS</a> network. Devices request a data session with the Eseye network via an ingress PoP, then the device data is usually sent through an egress PoP to the customer network. </p>
+
+<p>Depending on customer requirements, device data may ingress and egress Eseye's network either through a single PoP, or separate PoPs. Some data may bypass the Eseye network altogether, although the device is always assigned an IP address via the ingress PoP. For more information, see <a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a>.</p>
+
+<p>All the Eseye PoPs are mirrors of one another, so the configurations within them are identical. In the event of an outage, a PoP will failover to a different PoP in a separate geographic location. For more information, see <a href="/connectivity/mnos-by-pop#Data" target="_blank">Data Centre PoP (Secondary)</a>.</p>
+
+<Note>Failover usually takes about 24 hours to implement.</Note>
+
+<h2 id="UnderstandinghowinterconnectsingressEseyesnetwork">Understanding how interconnects ingress Eseye's network</h2>
+
+<p>Eseye has preconfigured a specific ingress PoP for each of our partner mobile networks. These ingress PoPs form part of the <a href="/glossary/interconnect">interconnects</a> (connection points) between partner mobile networks and the Eseye network.</p>
+
+<p>For example, the iBasis/KPN mobile network ingresses at Eseye’s Frankfurt PoP, whereas Verizon US ingresses at the Florida PoP. This reduces the network load on any particular PoP by ensuring that traffic is evenly distributed across the world. One PoP may host multiple interconnects. </p>
+
+<p>The following diagram shows the primary ingress PoP for each of Eseye's partner operators:</p>
+
+<p><img src="/images/resources/images/connectivity/interconnects.png" alt="Interconnects" /> </p>
+
+<p>For more information, see <a href="/connectivity/mnos-by-pop" target="_blank">Mobile Network Operators by PoP</a>.</p>
+
+<h3>About regionalised routing</h3>
+
+<p>Device data is usually routed through the PoP at which the network terminates, even if some devices are located in other countries and roam from their home network onto other networks. This can cause issues for deployments with low latency data transmission requirements. For example, unacceptable delays to data transmission may occur when data from roaming devices is transported a considerable distance to the ingress PoP, then routed back to a cloud service in the country in which the devices are located.</p>
+
+<p>Regionalised routing enables local routing, based on where the devices are located. For example, data for devices connected using iBasis in the EU would route through the Frankfurt PoP, while data for devices in the US would route through either the Florida or New York PoPs.</p>
+
+<p>Regionalised routing is provided using the AnyNet private APN anynetsim.com. For more information, see <a href="/connectivity/anynet-apn-list">Current AnyNet APN list</a>.</p>
+
+<h2 id="UnderstandinghowdataegressestheEseyenetwork">Understanding how data egresses the Eseye network</h2>
+
+<p>Depending on customer requirements, there are two typical ways in which Eseye can send device data to the customer network (or another network):</p>
+
+<ul> <li> <span>Route-based VPN (highly recommended)</span> – Eseye can use our high-speed MPLS network to deliver the data between PoPs and egress it at a specific PoP that is preconfigured with a route-based VPN to the customer network. For more information, see <a href="/connectivity/anynet-vpns" target="_blank">Understanding VPNs</a>. </li> <li><span>No VPN, or some traffic not VPN</span> – Alternatively, the device data can partially or completely bypass the Eseye network altogether and egress directly onto the internet from the device. For more information, see <a href="/connectivity/non-vpn-network-traffic" target="_blank">Routing non-VPN network traffic</a>.</li> </ul>
+
+<Note>Eseye can also configure a policy-based VPN, but this is not recommended, as it restricts each device to a single mobile network. For more information, see <a href="/connectivity/anynet-vpns#About" target="_blank">About LAN-LAN or client VPNs</a>.</Note>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/mnos-by-pop">Mobile Network Operators by PoP</a> </li> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a> </li> <li><a href="/connectivity/connecting-over-mpls-network" target="_blank">Section B – Connecting over Eseye's MPLS network</a> </li> <li><a href="/connectivity/connecting-over-internet" target="_blank">Section C – Connecting over the internet</a> </li> <li>Test your device connectivity: <a href="/connectivity/ping-service" target="_blank">About the AnyNet Ping service</a></li> </ul> </div>

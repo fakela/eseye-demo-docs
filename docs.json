@@ -1,0 +1,971 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Eseye",
+  "description": "Eseye documentation \u2014 IoT connectivity, hardware, and APIs",
+  "colors": {
+    "primary": "#005EB8",
+    "light": "#66B0E8",
+    "dark": "#005EB8"
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Get started",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "getting-started/getting-started",
+              "getting-started/anynet-federation",
+              "getting-started/hlr",
+              "getting-started/how-imsi-rotate-switch-works",
+              "getting-started/imsi-rotation-switching",
+              "getting-started/iot-wireless-technologies",
+              "getting-started/localisation",
+              "getting-started/multi-imsi",
+              "getting-started/roaming",
+              "getting-started/vlr",
+              {
+                "group": "eSIM",
+                "pages": [
+                  "getting-started/esim/esim",
+                  "getting-started/esim/bootstrap-vs-operational-profiles",
+                  "getting-started/esim/euicc",
+                  "getting-started/esim/modules-supporting-rsp",
+                  "getting-started/esim/profiles",
+                  "getting-started/esim/remote-sim-provisioning-overview",
+                  "getting-started/esim/remote-sim-provisioning"
+                ]
+              },
+              {
+                "group": "Sms",
+                "pages": [
+                  "getting-started/sms/troubleshooting-sms",
+                  "getting-started/sms/understanding-sms"
+                ]
+              },
+              {
+                "group": "Test Profiles",
+                "pages": [
+                  "getting-started/test-profiles/eseye-test-profile",
+                  "getting-started/test-profiles/gsma-generic-euicc-test-profile"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "IoT Hardware",
+        "groups": [
+          {
+            "group": "Hardware",
+            "pages": [
+              "hardware-products/hardware-products",
+              "hardware-products/connect-sqns-monarch2-to-network",
+              "hardware-products/connectn-rf9160-to-network",
+              "hardware-products/modems-intro",
+              "hardware-products/nt-pvs-nitz",
+              "hardware-products/sims-intro",
+              {
+                "group": "Hera routers",
+                "pages": [
+                  "hardware-products/hera/hera-introduction",
+                  {
+                    "group": "600 Series",
+                    "pages": [
+                      "hardware-products/hera/600-series/basic-settings604v5",
+                      "hardware-products/hera/600-series/connections604v5",
+                      "hardware-products/hera/600-series/connections604v6",
+                      "hardware-products/hera/600-series/dashboard604v5",
+                      "hardware-products/hera/600-series/data-logging604v5",
+                      "hardware-products/hera/600-series/end-panel-connectors604v5",
+                      "hardware-products/hera/600-series/end-panel-connectors604v6",
+                      "hardware-products/hera/600-series/file-management604v5",
+                      "hardware-products/hera/600-series/front-leds604v5",
+                      "hardware-products/hera/600-series/front-leds604v6",
+                      "hardware-products/hera/600-series/getting-started604v5",
+                      "hardware-products/hera/600-series/getting-started604v6",
+                      "hardware-products/hera/600-series/health-monitor604v5",
+                      "hardware-products/hera/600-series/performance604v5",
+                      "hardware-products/hera/600-series/restart604v5",
+                      "hardware-products/hera/600-series/serialto-i-pintro604v5",
+                      "hardware-products/hera/600-series/setup-wizards604v5",
+                      "hardware-products/hera/600-series/system-settings604v5",
+                      "hardware-products/hera/600-series/system-status604v5",
+                      "hardware-products/hera/600-series/us-declaration-conformity604v5",
+                      "hardware-products/hera/600-series/us-declaration-conformity604v6",
+                      "hardware-products/hera/600-series/user-management604v5",
+                      "hardware-products/hera/600-series/warnings604v5",
+                      "hardware-products/hera/600-series/warnings604v6",
+                      "hardware-products/hera/600-series/warranty604v5",
+                      "hardware-products/hera/600-series/warranty604v6"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "ELS61 module",
+            "pages": [
+              "els61/els61-introduction",
+              "els61/els61-awsio-t-jobs",
+              "els61/els61-configuration-file",
+              "els61/els61-configuring-system",
+              "els61/els61-creating-thing-in-aws",
+              "els61/els61-establishing-cellular-connection",
+              "els61/els61-provisioning",
+              "els61/els61-publish-data-to-cloud",
+              "els61/els61-rs232-serial-connection",
+              "els61/els61-security",
+              "els61/els61-subscribe-data-from-cloud",
+              "els61/els61-subscribe-publish-to-shadow",
+              "els61/els61-upgrading-software",
+              {
+                "group": "At Commands",
+                "pages": [
+                  "els61/at-commands/els61-at-commands",
+                  "els61/at-commands/els61-ccid",
+                  "els61/at-commands/els61-creg",
+                  "els61/at-commands/els61-csq",
+                  "els61/at-commands/els61-emq-urcs",
+                  "els61/at-commands/els61-emq",
+                  "els61/at-commands/els61-emqpersist",
+                  "els61/at-commands/els61-emqpubclose",
+                  "els61/at-commands/els61-emqpublish",
+                  "els61/at-commands/els61-emqpubopen",
+                  "els61/at-commands/els61-emqsubclose",
+                  "els61/at-commands/els61-emqsubopen",
+                  "els61/at-commands/els61-etm-management-at-commands",
+                  "els61/at-commands/els61-etm-urcs",
+                  "els61/at-commands/els61-etmcfg",
+                  "els61/at-commands/els61-etminfo",
+                  "els61/at-commands/els61-etmreset",
+                  "els61/at-commands/els61-etmstate",
+                  "els61/at-commands/els61-mqt-ttelemetry-at-commands",
+                  "els61/at-commands/els61-system-urcs"
+                ]
+              },
+              {
+                "group": "AWS Integration",
+                "pages": [
+                  "els61/aws-integration/els61-about-iris",
+                  "els61/aws-integration/els61-getting-started",
+                  "els61/aws-integration/els61-installing-iris",
+                  "els61/aws-integration/els61-review-overview",
+                  "els61/aws-integration/els61-view-welcome-page",
+                  {
+                    "group": "ELS61 Iam Permissions",
+                    "pages": [
+                      "els61/aws-integration/els61-iam-permissions/els61-attach-policies-to-user",
+                      "els61/aws-integration/els61-iam-permissions/els61-create-ia-museraccount"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "PLS62-W module",
+            "pages": [
+              "pls62-w/introduction",
+              "pls62-w/awsio-t-jobs",
+              "pls62-w/configuration-file",
+              "pls62-w/configuring-system",
+              "pls62-w/establishing-cellular-connection",
+              "pls62-w/provisioning",
+              "pls62-w/publish-data-to-cloud",
+              "pls62-w/rs232-serial-connection",
+              "pls62-w/security",
+              "pls62-w/subscribe-data-from-cloud",
+              "pls62-w/subscribe-publish-to-shadow",
+              "pls62-w/upgrading-software",
+              {
+                "group": "At Commands",
+                "pages": [
+                  "pls62-w/at-commands/at-commands",
+                  "pls62-w/at-commands/emq-urcs",
+                  "pls62-w/at-commands/emq",
+                  "pls62-w/at-commands/emqpersist",
+                  "pls62-w/at-commands/emqpubclose",
+                  "pls62-w/at-commands/emqpublish",
+                  "pls62-w/at-commands/emqpubopen",
+                  "pls62-w/at-commands/emqsubclose",
+                  "pls62-w/at-commands/emqsubopen",
+                  "pls62-w/at-commands/etm-management-at-commands",
+                  "pls62-w/at-commands/etm-urcs",
+                  "pls62-w/at-commands/etmcfg",
+                  "pls62-w/at-commands/etminfo",
+                  "pls62-w/at-commands/etmreset",
+                  "pls62-w/at-commands/etmstate",
+                  "pls62-w/at-commands/mqt-ttelemetry-at-commands"
+                ]
+              },
+              {
+                "group": "AWS Integration",
+                "pages": [
+                  "pls62-w/aws-integration/pls62-w-about-iris",
+                  "pls62-w/aws-integration/pls62-w-getting-started",
+                  "pls62-w/aws-integration/pls62-w-installing-iris",
+                  "pls62-w/aws-integration/pls62-w-review-overview",
+                  "pls62-w/aws-integration/pls62-w-view-welcome-page",
+                  {
+                    "group": "PLS62 Wiam Permissions",
+                    "pages": [
+                      "pls62-w/aws-integration/pls62-wiam-permissions/pls62-w-attach-policies-to-user",
+                      "pls62-w/aws-integration/pls62-wiam-permissions/pls62-w-create-ia-museraccount"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Quectel modules",
+            "pages": [
+              "quectel/awsio-t-jobs",
+              "quectel/connect-bg95-to-network",
+              "quectel/connect-bg96-to-network",
+              "quectel/establishing-cloud-connection",
+              "quectel/installing-smartconnect-bg9x",
+              "quectel/installing-smartconnect-eg2x-g",
+              "quectel/power-up",
+              "quectel/reducing-network-selection-time-best-practices",
+              "quectel/rs232-serial-connection",
+              "quectel/upgrading-firmware"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "IoT Software",
+        "groups": [
+          {
+            "group": "Software products",
+            "pages": [
+              "software-products/anynet-smartconnect-intro",
+              "software-products/configuration-file",
+              "software-products/connectingto-lw-m2-mserver",
+              "software-products/over-the-air-updates",
+              "software-products/system-lifecycle-management",
+              "software-products/update-software-firmware",
+              {
+                "group": "AnyNet SMARTconnect At Commands",
+                "pages": [
+                  "software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands",
+                  "software-products/anynet-smartconnect-at-commands/emq-urcs",
+                  "software-products/anynet-smartconnect-at-commands/emq",
+                  "software-products/anynet-smartconnect-at-commands/emqpersist",
+                  "software-products/anynet-smartconnect-at-commands/emqpubclose",
+                  "software-products/anynet-smartconnect-at-commands/emqpublish",
+                  "software-products/anynet-smartconnect-at-commands/emqpubopen",
+                  "software-products/anynet-smartconnect-at-commands/emqread",
+                  "software-products/anynet-smartconnect-at-commands/emqsubclose",
+                  "software-products/anynet-smartconnect-at-commands/emqsubopen",
+                  "software-products/anynet-smartconnect-at-commands/etm-urcs",
+                  "software-products/anynet-smartconnect-at-commands/etmcfg",
+                  "software-products/anynet-smartconnect-at-commands/etmcfgcheck",
+                  "software-products/anynet-smartconnect-at-commands/etmfwcheck",
+                  "software-products/anynet-smartconnect-at-commands/etmhfwconf",
+                  "software-products/anynet-smartconnect-at-commands/etmhfwget",
+                  "software-products/anynet-smartconnect-at-commands/etmhfwread",
+                  "software-products/anynet-smartconnect-at-commands/etminfo",
+                  "software-products/anynet-smartconnect-at-commands/etmlw",
+                  "software-products/anynet-smartconnect-at-commands/etmreset",
+                  "software-products/anynet-smartconnect-at-commands/etmstate",
+                  "software-products/anynet-smartconnect-at-commands/management-at-commands",
+                  "software-products/anynet-smartconnect-at-commands/mqtta-tcommands",
+                  "software-products/anynet-smartconnect-at-commands/mqttrx-queue",
+                  "software-products/anynet-smartconnect-at-commands/publish-data-to-cloud",
+                  "software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud",
+                  "software-products/anynet-smartconnect-at-commands/subscribe-publish-to-shadow"
+                ]
+              },
+              {
+                "group": "General At Commands",
+                "pages": [
+                  "software-products/general-at-commands/at-commands",
+                  "software-products/general-at-commands/ccid",
+                  "software-products/general-at-commands/creg"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "IRIS",
+            "pages": [
+              "iris/about-iris",
+              "iris/aws-integration",
+              "iris/cloud-foundation-template",
+              "iris/configuration-tab",
+              "iris/creating-thing-in-aws",
+              "iris/getting-started",
+              "iris/installing-iris",
+              "iris/policy-management",
+              "iris/preparing-aws",
+              "iris/review-overview",
+              "iris/setting-status-parameters",
+              "iris/uninstall",
+              "iris/unsubscribe",
+              "iris/update-tab",
+              "iris/view-welcome-page",
+              {
+                "group": "AWS",
+                "pages": [
+                  "iris/aws/device-shadow-metadata",
+                  "iris/aws/shadow-manual-update",
+                  "iris/aws/understanding-shadow-attributes",
+                  "iris/aws/view-certificate"
+                ]
+              },
+              {
+                "group": "Iam Permissions",
+                "pages": [
+                  "iris/iam-permissions/iam-permissions-introduction",
+                  "iris/iam-permissions/attach-policies-to-user",
+                  "iris/iam-permissions/create-ia-museraccount",
+                  "iris/iam-permissions/iam-policies"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "LPWAN",
+            "pages": [
+              "lpwan/configuring-nutaqfor-psm",
+              "lpwan/ps-mande-drx"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Connectivity",
+        "groups": [
+          {
+            "group": "Connectivity",
+            "pages": [
+              "connectivity/connectivity-intro",
+              "connectivity/about-secure-subnets",
+              "connectivity/access-point-name",
+              "connectivity/android-apn",
+              "connectivity/anynet-apn-list",
+              "connectivity/anynet-dns-service",
+              "connectivity/anynet-public-ip-address-ranges",
+              "connectivity/anynet-vpns",
+              "connectivity/authorising-device-to-use-network",
+              "connectivity/connecting-over-internet",
+              "connectivity/connecting-over-mobile-network",
+              "connectivity/connecting-over-mpls-network",
+              "connectivity/connectivity-management-platform",
+              "connectivity/custom-dns-entries",
+              "connectivity/device-configuration",
+              "connectivity/ip-addresses",
+              "connectivity/lte-default-apn",
+              "connectivity/manage-monitor-overview",
+              "connectivity/measure-latency",
+              "connectivity/mnos-by-pop",
+              "connectivity/mtu",
+              "connectivity/nat-overview",
+              "connectivity/non-vpn-network-traffic",
+              "connectivity/pca-pexplorer",
+              "connectivity/ping-service",
+              "connectivity/push-intro",
+              "connectivity/security-options-overview",
+              "connectivity/understanding-pops"
+            ]
+          },
+          {
+            "group": "Cloud services",
+            "pages": [
+              "cloud-services/cloud-services-intro",
+              "cloud-services/policy-management"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Managing my estate",
+        "groups": [
+          {
+            "group": "Managing my estate",
+            "pages": [
+              "managing-my-estate/managing-my-estate",
+              "managing-my-estate/about-lists-and-searches",
+              "managing-my-estate/alertprofile",
+              "managing-my-estate/alerts",
+              "managing-my-estate/audit",
+              "managing-my-estate/grouping-sims",
+              "managing-my-estate/manage-sim-collections",
+              "managing-my-estate/manage-tagging-sims",
+              "managing-my-estate/management-tools",
+              "managing-my-estate/managing-notifications",
+              "managing-my-estate/managing-sims",
+              "managing-my-estate/monitoring-sims",
+              "managing-my-estate/sim-change-state",
+              "managing-my-estate/viewing-estate-details",
+              "managing-my-estate/viewing-sim-details"
+            ]
+          },
+          {
+            "group": "Infinity",
+            "pages": [
+              "infinity/introduction",
+              "infinity/manage-user-profile"
+            ]
+          },
+          {
+            "group": "Infinity Classic",
+            "pages": [
+              "infinity-classic/introduction",
+              "infinity-classic/account",
+              "infinity-classic/activating-sims",
+              "infinity-classic/activity",
+              "infinity-classic/admin",
+              "infinity-classic/audit-reports",
+              "infinity-classic/diagnostic-reports",
+              "infinity-classic/displaying-sim-timelines",
+              "infinity-classic/estate-reports",
+              "infinity-classic/finance-reports",
+              "infinity-classic/finance",
+              "infinity-classic/locating-devices",
+              "infinity-classic/manage-accounts",
+              "infinity-classic/manage-sims",
+              "infinity-classic/managing-alerts",
+              "infinity-classic/managing-notifications",
+              "infinity-classic/managing-reports",
+              "infinity-classic/ordering-sims",
+              "infinity-classic/ordering",
+              "infinity-classic/settings",
+              "infinity-classic/sim-actions",
+              "infinity-classic/sims",
+              "infinity-classic/status-and-connectivity-reports",
+              "infinity-classic/support",
+              "infinity-classic/suspending-sims",
+              "infinity-classic/terminating-sims"
+            ]
+          },
+          {
+            "group": "Integra",
+            "pages": [
+              "integra/introduction",
+              "integra/about-portfolio-management",
+              "integra/configuring-profile-settings",
+              "integra/secretmanager"
+            ]
+          },
+          {
+            "group": "Portfolios",
+            "pages": [
+              "portfolios/manage-addresses",
+              "portfolios/manage-billing-preferences",
+              "portfolios/manage-orders",
+              "portfolios/manage-porfolios",
+              "portfolios/manage-portfolios",
+              "portfolios/manage-single-purchase",
+              "portfolios/manage-subscriptions",
+              "portfolios/manage-users",
+              "portfolios/placing-orders",
+              "portfolios/transactions-overview",
+              "portfolios/viewing-portfolios"
+            ]
+          },
+          {
+            "group": "Packages",
+            "pages": [
+              "packages/manage-comms-profile",
+              "packages/manage-contract-information",
+              "packages/manage-package-items",
+              "packages/manage-package-portfolios",
+              "packages/manage-packages",
+              "packages/managing-packages-overview",
+              "packages/viewing-packages"
+            ]
+          },
+          {
+            "group": "Permissions",
+            "pages": [
+              "permissions/about-user-roles"
+            ]
+          },
+          {
+            "group": "SIMs",
+            "pages": [
+              "sims/changing-si-mfunctions",
+              "sims/consecutive-sims",
+              "sims/sim-email-settings",
+              "sims/sim-part-numbers"
+            ]
+          },
+          {
+            "group": "SIM Only",
+            "pages": [
+              "sim-only/anynet-thing-type",
+              "sim-only/crc32code-example",
+              "sim-only/integration-intro",
+              "sim-only/sim-only-basic-read-process",
+              "sim-only/sim-only-enabling-sim-toolkit",
+              "sim-only/sim-only-policy-management",
+              "sim-only/sim-only-provisioning",
+              "sim-only/sim-only-reading-files",
+              {
+                "group": "At Commands",
+                "pages": [
+                  "sim-only/at-commands/sim-only-crsm"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "billing/billing-intro",
+              "billing/billing-admin-charge",
+              "billing/billing-bundled-usage",
+              "billing/billing-charges",
+              "billing/billing-contact-details",
+              "billing/billing-data-records",
+              "billing/billing-data-usage",
+              "billing/billing-locate-invoice",
+              "billing/billing-making-payment",
+              "billing/billing-packages",
+              "billing/billing-pooling",
+              "billing/billing-sim-charges",
+              "billing/billing-sim-lifecycle",
+              "billing/billing-sm-scharges",
+              "billing/billing-sms-data-voice-billing",
+              "billing/billing-terms-conditions",
+              "billing/service-contracts"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "analytics/audit-reports",
+              "analytics/dashboard",
+              "analytics/diagnostic-reports",
+              "analytics/estate-reports",
+              "analytics/finance-reports",
+              "analytics/managing-alerts",
+              "analytics/managing-reports",
+              "analytics/reports",
+              "analytics/sorting-navigating-results",
+              "analytics/status-and-connectivity-reports",
+              "analytics/viewing-reports"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "APIs",
+        "groups": [
+          {
+            "group": "Developer guide",
+            "pages": [
+              "developer-docs/getting-started-for-developers",
+              "developer-docs/start-using-apis"
+            ]
+          },
+          {
+            "group": "API reference",
+            "pages": [
+              {
+                "group": "Location API",
+                "pages": [
+                  "api/location/headers",
+                  "api/location/kmz",
+                  "api/location/locatecalculate",
+                  "api/location/locatedevice",
+                  "api/location/locatemast",
+                  "api/location/location-api-intro",
+                  "api/location/troubleshooting",
+                  "api/location/using-postman"
+                ]
+              },
+              {
+                "group": "Margay API",
+                "pages": [
+                  "api/margay/get-authentication-information",
+                  "api/margay/get-cookie-name",
+                  "api/margay/get-throughput-information",
+                  "api/margay/headers",
+                  "api/margay/intro-web-interface",
+                  "api/margay/login",
+                  "api/margay/logout",
+                  "api/margay/margay-api-intro",
+                  "api/margay/margay-api",
+                  "api/margay/ping",
+                  "api/margay/troubleshooting",
+                  "api/margay/viewing-stats"
+                ]
+              },
+              {
+                "group": "Package API",
+                "pages": [
+                  "api/package/headers",
+                  "api/package/package-api-intro",
+                  "api/package/package-api-reference",
+                  "api/package/package-attribute-operations",
+                  "api/package/package-item-attributes-operations",
+                  "api/package/package-item-operations",
+                  "api/package/package-operations"
+                ]
+              },
+              {
+                "group": "Portfolio API",
+                "pages": [
+                  "api/portfolio/address-type-operations",
+                  "api/portfolio/business-code-operations",
+                  "api/portfolio/headers",
+                  "api/portfolio/industry-sector-operations",
+                  "api/portfolio/invoicing-entity-attribute-operations",
+                  "api/portfolio/invoicing-entity-operations",
+                  "api/portfolio/job-title-operations",
+                  "api/portfolio/payment-method-operations",
+                  "api/portfolio/portal-attribute-operations",
+                  "api/portfolio/portal-operations",
+                  "api/portfolio/portfolio-address-attribute-operations",
+                  "api/portfolio/portfolio-address-operations",
+                  "api/portfolio/portfolio-api-intro",
+                  "api/portfolio/portfolio-api-reference",
+                  "api/portfolio/portfolio-attribute-operations",
+                  "api/portfolio/portfolio-operations",
+                  "api/portfolio/tax-code-operations",
+                  "api/portfolio/user-attribute-operations",
+                  "api/portfolio/user-operations",
+                  "api/portfolio/user-permission-operations",
+                  "api/portfolio/user-type-operations"
+                ]
+              },
+              {
+                "group": "Push API",
+                "pages": [
+                  "api/push/net-flow-push-parameters",
+                  "api/push/push-api-intro",
+                  "api/push/radius-acct-push-parameters",
+                  "api/push/radius-auth-push-parameters"
+                ]
+              },
+              {
+                "group": "SIM API",
+                "pages": [
+                  "api/sim/billing-snapshot-operations",
+                  "api/sim/headers",
+                  "api/sim/icc-attribute-operations",
+                  "api/sim/network-snapshot-operations",
+                  "api/sim/portfolio-package-operations",
+                  "api/sim/setting-up-postman-for-simapi",
+                  "api/sim/si-moperations",
+                  "api/sim/simapi-how-tos",
+                  "api/sim/simapi-intro",
+                  "api/sim/simapi-reference"
+                ]
+              },
+              {
+                "group": "SMS API",
+                "pages": [
+                  "api/sms/ascii-characters",
+                  "api/sms/delivery-receipt",
+                  "api/sms/mosms",
+                  "api/sms/mt-cancel",
+                  "api/sms/mt-status",
+                  "api/sms/mtsms",
+                  "api/sms/smsapi-intro",
+                  "api/sms/smsapi-troubleshooting"
+                ]
+              },
+              {
+                "group": "Tigrillo API",
+                "pages": [
+                  "api/tigrillo/activate-sims",
+                  "api/tigrillo/get-cookie-name",
+                  "api/tigrillo/get-sim-billing",
+                  "api/tigrillo/get-sim-last-activity",
+                  "api/tigrillo/get-sim-state-options",
+                  "api/tigrillo/get-sims",
+                  "api/tigrillo/headers",
+                  "api/tigrillo/login",
+                  "api/tigrillo/logout",
+                  "api/tigrillo/ping",
+                  "api/tigrillo/requests",
+                  "api/tigrillo/set-sim-detail",
+                  "api/tigrillo/set-sim-state",
+                  "api/tigrillo/suspend-sims",
+                  "api/tigrillo/terminate-sims",
+                  "api/tigrillo/tigrillo-api-intro",
+                  "api/tigrillo/troubleshooting",
+                  "api/tigrillo/unsuspend-sims"
+                ]
+              },
+              {
+                "group": "Tigrina API",
+                "pages": [
+                  "api/tigrina/code-example",
+                  "api/tigrina/get-cellular-information",
+                  "api/tigrina/get-cellular-rssi-history",
+                  "api/tigrina/get-device-information",
+                  "api/tigrina/get-network-information",
+                  "api/tigrina/login",
+                  "api/tigrina/logout",
+                  "api/tigrina/tigrina-api-intro",
+                  "api/tigrina/tigrina-api-requests",
+                  "api/tigrina/troubleshooting"
+                ]
+              },
+              {
+                "group": "SIM family API",
+                "pages": [
+                  {
+                    "group": "SIM",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/sim-api.json",
+                      "directory": "api-reference/sim-family/sim"
+                    }
+                  },
+                  {
+                    "group": "IMSI",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/imsi-api.json",
+                      "directory": "api-reference/sim-family/imsi"
+                    }
+                  },
+                  {
+                    "group": "IMSI range",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/imsi-range-api.json",
+                      "directory": "api-reference/sim-family/imsi-range"
+                    }
+                  },
+                  {
+                    "group": "MSISDN",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/msisdn-api.json",
+                      "directory": "api-reference/sim-family/msisdn"
+                    }
+                  },
+                  {
+                    "group": "MSISDN range",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/msisdn-range-api.json",
+                      "directory": "api-reference/sim-family/msisdn-range"
+                    }
+                  },
+                  {
+                    "group": "MSISDN type",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/msisdn-type-api.json",
+                      "directory": "api-reference/sim-family/msisdn-type"
+                    }
+                  },
+                  {
+                    "group": "ICC type",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/icc-type-api.json",
+                      "directory": "api-reference/sim-family/icc-type"
+                    }
+                  },
+                  {
+                    "group": "ICC type MNO",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/icc-type-mno-api.json",
+                      "directory": "api-reference/sim-family/icc-type-mno"
+                    }
+                  },
+                  {
+                    "group": "ICC collection",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/icccollection-api.json",
+                      "directory": "api-reference/sim-family/icc-collection"
+                    }
+                  },
+                  {
+                    "group": "Form factor",
+                    "openapi": {
+                      "source": "/api-specs/sim-family/form-factor-api.json",
+                      "directory": "api-reference/sim-family/form-factor"
+                    }
+                  }
+                ]
+              },
+              {
+                "group": "Invoice family API",
+                "pages": [
+                  {
+                    "group": "Transaction",
+                    "openapi": {
+                      "source": "/api-specs/invoice-family/transaction-api.json",
+                      "directory": "api-reference/invoice-family/transaction"
+                    }
+                  },
+                  {
+                    "group": "Transaction type",
+                    "openapi": {
+                      "source": "/api-specs/invoice-family/transaction-type-api.json",
+                      "directory": "api-reference/invoice-family/transaction-type"
+                    }
+                  },
+                  {
+                    "group": "Billing subscription",
+                    "openapi": {
+                      "source": "/api-specs/invoice-family/billing-subscription-api.json",
+                      "directory": "api-reference/invoice-family/billing-subscription"
+                    }
+                  },
+                  {
+                    "group": "Billing transaction",
+                    "openapi": {
+                      "source": "/api-specs/invoice-family/billing-transaction-api.json",
+                      "directory": "api-reference/invoice-family/billing-transaction"
+                    }
+                  }
+                ]
+              },
+              {
+                "group": "Package API (interactive)",
+                "openapi": {
+                  "source": "/api-specs/legacy/package-api.json",
+                  "directory": "api-reference/legacy/package"
+                }
+              },
+              {
+                "group": "Portfolio API (interactive)",
+                "openapi": {
+                  "source": "/api-specs/legacy/portfolio.json",
+                  "directory": "api-reference/legacy/portfolio"
+                }
+              },
+              {
+                "group": "SMS API (interactive)",
+                "openapi": {
+                  "source": "/api-specs/legacy/sms.json",
+                  "directory": "api-reference/legacy/sms"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Glossary",
+            "pages": [
+              "glossary/glossary",
+              "glossary/apn",
+              "glossary/backhaul",
+              "glossary/co-ap",
+              "glossary/comms-profile",
+              "glossary/deprovision",
+              "glossary/eid",
+              "glossary/encapsulation",
+              "glossary/hlr",
+              "glossary/home-network",
+              "glossary/https",
+              "glossary/iccid",
+              "glossary/imei",
+              "glossary/imsi",
+              "glossary/interconnect",
+              "glossary/latency",
+              "glossary/mcc",
+              "glossary/mnc",
+              "glossary/mpls",
+              "glossary/mqtts",
+              "glossary/msisdn",
+              "glossary/mtu",
+              "glossary/multi-imsi",
+              "glossary/package-item",
+              "glossary/package",
+              "glossary/pci-compliant",
+              "glossary/portfolio",
+              "glossary/provision",
+              "glossary/radius",
+              "glossary/rat",
+              "glossary/roaming-agreement",
+              "glossary/simid",
+              "glossary/sms",
+              "glossary/ttl",
+              "glossary/utc",
+              "glossary/vpn"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/troubleshooting",
+              "troubleshooting/network-reliability",
+              "troubleshooting/sim-not-working",
+              "troubleshooting/stolen-sims"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "general/archive",
+              "general/files",
+              "general/search-results",
+              "general/service-notifications",
+              "general/view-welcome-page"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "support/manage-tickets"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/eseye-logo.png",
+    "dark": "/logo/eseye-logo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Eseye.com",
+        "href": "https://www.eseye.com/"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Contact sales",
+      "href": "https://www.eseye.com/get-in-touch/"
+    }
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/eseye",
+      "x": "https://x.com/eseyeltd"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "assistant",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "grok",
+      "aistudio",
+      "devin",
+      "windsurf",
+      "mcp",
+      "add-mcp",
+      "cursor",
+      "vscode",
+      "devin-mcp"
+    ]
+  },
+  "seo": {
+    "metatags": {
+      "og:site_name": "Eseye Docs",
+      "og:type": "website"
+    }
+  }
+}

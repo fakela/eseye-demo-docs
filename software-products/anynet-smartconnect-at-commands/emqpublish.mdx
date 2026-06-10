@@ -1,0 +1,20 @@
+---
+title: "EMQPUBLISH – publish data to a message topic"
+description: "Publish data to a created message topic. Data is sent to your thing in the cloud."
+---
+
+<p>Publish data to a created message topic. Data is sent to your thing in the cloud.</p>
+
+<table> <col /> <col /> <col /> <thead> <tr> <th>Type</th> <th>Syntax</th> <th>Returned Result</th> </tr> </thead> <tbody> <tr> <td>Test</td> <td> AT+EMQPUBLISH=? </td> <td> +EMQPUBLISH: (0-7),(0-1),&lt;pubdata&gt; <br />  <br />OK </td> </tr> <tr> <td>Read</td> <td> AT+EMQPUBLISH? </td> <td> <span>OK</span>  </td> </tr> <tr> <td>Write</td> <td> AT+EMQPUBLISH<span>=(<span>0-7</span>),(<span>0-1</span>),<span>&lt;pubdata&gt;</span></span> <br />where:  <ul> <li><span>(<var>0-7</var>)</span> is the publish index number</li> <li><span>(<var>0-1</var>)</span> is the Quality of Service, either:<ul><li><span>0</span> – sends the message without guaranteeing message receipt. The message is not stored on the sender, and is not acknowledged.</li><li><span>1</span> – guarantees the message is delivered at least once.</li></ul></li> <li> <span>&lt;pubdata&gt;</span> – is the published message. If <span>&lt;pubdata&gt;</span> is not contained within quotes, it is sent as text with no modification. The maximum payload length is 1000 characters. All characters must be printable.  <br />If <span>"&lt;pubdata&gt;"</span> is contained within quotes, it is handled as ASCII-hex. If <span>"&#123;&lt;pubdata&gt;"</span> includes an open brace immediately after the inital quote, it is handled as a JSON string.  <span><strong>Note: </strong>AnyNet SMARTconnect™ does not verify the JSON string validity.</span> <br />AnyNet SMARTconnect™ handles <span>"</span><span>&lt;pubdata&gt;</span><span>"</span> as ASCII-hex if it contains an even number of valid ASCII-hex characters (<span>0</span>-<span>9</span>, <span>a</span>-<span>f</span>, <span>A</span>-<span>F</span>). ASCII-hex is converted to binary for transmission. <br />For JSON messages, <span>&#92;</span> (escape characters) are removed.  </li> </ul> </td> <td> <span>OK</span> – successfully wrote the command <br /><span>ERROR</span> – the command failed. Check your syntax, and that you have already set up the publish topic using <span>at+emqpubopen?</span>. Also check you have sent the <span>AT+ETMSTATE="startmqtt"</span> command to enable MQTT. <br /><span>:SEND OK</span> – send confirmation relating to Quality of Service. This response is for: <ul> <li><span>QoS=0</span> – message is published </li> <li><span>QoS=1</span> – MQTT broker generates a <span>PUBACK</span> to confirm receipt of the MQTT message</li> </ul> <br /><span>:SEND FAIL</span> - send failure for <span>QoS=1</span> only.  </td> </tr> </tbody> </table>
+
+<h4>Example</h4>
+
+<p>AT+EMQPUBLISH=1,1,"&#123;&#92;"BatteryPower&#92;": &#92;"Low&#92;"&#125;"</p>
+
+<p>OK</p>
+
+<p> </p>
+
+<p>:SEND OK</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/software-products/anynet-smartconnect-at-commands/anynet-smartconnect-at-commands" target="_blank">AnyNet SMARTconnect™ AT Commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqtta-tcommands" target="_blank">MQTT AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/publish-data-to-cloud">Sending data from your thing to the cloud</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/subscribe-data-from-cloud">Sending data from the cloud to your thing</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/emq-urcs" target="_blank">+EMQ Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/management-at-commands" target="_blank">Management AT commands</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/etm-urcs" target="_blank">+ETM Unsolicited Response Codes (URCs)</a> </li> <li><a href="/software-products/anynet-smartconnect-at-commands/mqttrx-queue">MQTT Rx Queue</a> </li> <li><a href="/software-products/general-at-commands/at-commands" target="_blank">General AT Commands</a> </li> </ul> </div>

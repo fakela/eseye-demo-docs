@@ -1,0 +1,51 @@
+---
+title: "POST /Japi/Tigrillo/getSIMStateOptions"
+description: "Returns the state options you can apply to the current SIM, based on the current state:"
+openapi: "/api-specs/legacy/tigrillo.json POST /Japi/Tigrillo/getSIMStateOptions"
+---
+
+<p>Returns the state options you can apply to the current SIM, based on the current state: </p>
+
+<ul> <li>If the SIM is active (provisioned), then you can suspend or terminate (deprovision) it. </li> <li>If the SIM is suspended, then you can reactivate or deprovision it.</li> <li>If the SIM is unprovisioned (terminated), then you can reactivate it.</li> </ul>
+
+<p>Eseye SIMs have the following lifecycle in the API:</p>
+
+<p><img src="/images/resources/images/management/simlifecycleapi.png" alt="Simlifecycleapi" /> </p>
+
+<p>For more information, see <a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a>.</p>
+
+<p>The Tigrillo API fetches the following statuses:</p>
+
+<ul> <li><span>null</span> (default) – returns all values, regardless of state</li> </ul>
+
+<ul> <li><span>available</span> </li> <li><span>pendingProvision</span> </li> <li><span>provisioned</span> </li> <li><span>suspended</span> </li> <li><span>pendingDeprovision</span> </li> <li><span>unprovisioned</span> </li> </ul>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login </li> </ul>
+
+<h2 id="Headers">Headers</h2>
+
+<p>For information about headers, see <a href="/api/tigrillo/headers">Configuring headers</a>.</p>
+
+<h2 id="RequestBodyapplicationjson">Request Body application/json</h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <col /> <col /> <thead> <tr> <th>Object name</th> <th>Type</th> <th>Description</th> <th>Required?</th> </tr> </thead> <tbody> <tr> <td>ICCID</td> <td>20 char string</td> <td>The current SIM ICCID</td> <td> <img src="/images/resources/images/icons/checkmark_8x8.png" alt="Checkmark 8X8" /> </td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>Body raw JSON</div> <div><pre><code>&#123;<br />"ICCID": "8944538523016999555"<br />&#125;</code></pre> </div> </div>
+
+<h2 id="Responsesapplicationjson">Responses application/json </h2>
+
+<h3>Schema</h3>
+
+<table> <col /> <col /> <thead> <tr> <th>JSON key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>status</td> <td> The array, containing details about the request status. </td> </tr> <tr> <td>status</td> <td>  <span>"OK"</span> – the request processed successfully  <br /><span>"ERR"</span> – the request failed </td> </tr> <tr> <td>errorCode</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeNumber</var>&gt;"</span> – the request failed because of this specific error. <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>errorMessage</td> <td> <span>""</span> – the request processed successfully  <br /><span>"&lt;<var>ErrorCodeMessage</var>&gt;"</span> – displays an explanation of the error if the request failed.  <br />For more information, see <a href="/api/tigrillo/troubleshooting">Troubleshooting errors: Tigrillo API</a>. </td> </tr> <tr> <td>stateOptions</td> <td> The array, displaying optional states. <span><strong>Note: </strong> If <span>suspended</span> and <span>terminate</span> are both returned, the SIM has a <span>provisioned</span> status. <br />If <span>active</span> and <span>terminate</span> are both returned, the SIM has a <span>suspended</span> status. </span> </td> </tr> <tr> <td>ID</td> <td> Either: <br /><span>suspend</span> – you can suspend the SIM card. If suspended, the SIM will continue connecting to the network and service charges will continue, but you cannot use the SIM. Suspension is instant and you can reverse it.  <br /><span>terminate</span>– you can terminate the SIM card. If terminated (unprovisioned), the SIM will stop connecting to the network. Service charges will stop unless the SIM is in contract, in which case the customer is liable for the rest of the service charges up until the end date of the contract. Termination is not instant – Eseye must verify the termination.In some instances, you can reprovision a terminated SIM. For more information, see <a href="/api/tigrillo/activate-sims">POST /Japi/Tigrillo/activateSIMs</a>. Allow two hours for the reprovisioning process to complete. <div> <span>active</span> – you can reactivate the SIM card. If activated, the SIM card will start connecting to the network and service charges could apply. You can reverse activation. <br /><span>reason</span> – indicates that you cannot change the SIM card state, and explains why. </div> </td> </tr> <tr> <td>title</td> <td>A description of the state option.</td> </tr> </tbody> </table>
+
+<h3>Example</h3>
+
+<div><a role="button" href="javascript:void(0);">Copy</a> <div>JSON</div> <div><pre><code>&#123;<br /> "status": &#123;<br /> "status": "OK",<br /> "errorCode": "",<br /> "errorMessage": ""<br /> &#125;,<br /> "stateOptions": [<br /> &#123;<br /> "ID": "suspend",<br /> "title": "Suspend SIM"<br /> &#125;,<br /> &#123;<br /> "ID": "terminate",<br /> "title": "Terminate the SIM"<br /> &#125;<br /> ]<br />&#125;</code></pre> </div> </div>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/tigrillo/tigrillo-api-intro">Tigrillo API introduction</a> </li> <li><a href="/api/tigrillo/requests">Tigrillo API requests</a> </li> <li><a href="/billing/billing-sim-lifecycle" target="_blank">Understanding the SIM lifecycle</a> </li> </ul> <h3>Related resources</h3> <ul> <li><a href="https://docs.eseye.com/Content/Resources/Files/8281-Tigrillo-API-1.0-Developer-Guide.pdf" target="_blank">8281 Tigrillo API 1.0 Developer Guide (PDF)</a> </li> </ul> </div>

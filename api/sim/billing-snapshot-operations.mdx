@@ -1,0 +1,180 @@
+---
+title: "About the billing snapshot endpoint"
+description: "The SIM API enables you to view a billing snapshot for a single SIM."
+---
+
+<p>The SIM API enables you to view a billing snapshot for a <a href="#Viewing2">single</a> SIM.</p>
+
+<h2 id="Authentication">Authentication</h2>
+
+<ul> <li>User required to login</li> <li>Bearer token required</li> </ul>
+
+<Note>For more information, see <a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a>.</Note>
+
+<h2 id="Headers">Headers</h2>
+
+<Note>For information about headers, see <a href="/api/sim/headers" target="_blank">Configuring SIM API headers</a>.</Note>
+
+<h2 id="Resources">Resources</h2>
+
+<p>Download and extract the following resource to test the SIM API:</p>
+
+<p><a href="https://docs.eseye.com/Content/Resources/Files/AnyNetSIMAPI.postman_collection_environment.zip" target="_blank" rel="noopener">AnyNetSIMAPI.postman&#95;collection&#95;environment.zip</a> </p>
+
+<Note>For more information, see <a href="/api/sim/simapi-intro#Using2" target="_blank">Using the supplied Postman collection and environment</a>.</Note>
+
+<h2 id="ViewingthebillingsnapshotforaspecificSIM">Viewing the billing snapshot for a specific SIM</h2>
+
+<p>To view the billing snapshot for a specific SIM:</p>
+
+<ul> <li> Call <span>GET /api/v2/sim/&#123;<var>iccId</var>&#125;/billingSnapshot</span>, where &#123;<var>iccId</var>&#125; identifies the SIM for which you want to generate a billing snapshot. <br /><span>Path parameters:</span> <span>iccId</span><b>&#42;</b> <span><strong>Note: </strong>JSON keys marked <b>&#42;</b> are mandatory.</span> <br />The API returns the billing details for the specified SIM. </li> </ul>
+
+<h4>Example</h4>
+
+<p><span>GET https://sim.api.anynetiot.com/api/v2/sim/8953448576492474/billingSnapshot</span> </p>
+
+<h3>Response schema application/json:</h3>
+
+<p><span>iccId</span>; <span>simId</span>; <span>price</span></p>
+
+<Note>For more information, see <a href="/api/sim/simapi-reference#billingSnap" target="_blank">Billing snapshot definition</a>.</Note>
+
+<p>Each <span>billingSnapshot</span> includes the following arrays:</p>
+
+<table> <col /> <col /> <thead> <tr> <th>Array</th> <th>Returned parameters</th> </tr> </thead> <tbody> <tr> <td><span>portfolioPackage</span> </td> <td> <span>portfolioId</span>; <span>packageId</span> </td> </tr> <tr> <td><span>packageItemCategory</span> </td> <td> <span>packageItemCategoryId</span>; <span>title</span>; <span>amount</span>; <span>updateTime</span> </td> </tr> </tbody> </table>
+
+<p>If the SIM contains attributes, these are returned in the <span>attributes</span> array. Each returned attribute includes:</p>
+
+<p><span>iccAttributeId</span>; <span>iccId</span>; <span>attribute</span>; <span>value</span>; <span>status</span></p>
+
+<h4>Example</h4>
+
+<p>&#123;</p>
+
+<p>"iccId": "8953448576492474",</p>
+
+<p>"simId": "8953448576492474",</p>
+
+<p>"price": 0.27,</p>
+
+<p>"portfolioPackage": &#123;</p>
+
+<p>"portfolioId": "a413fbf3f4ebc6318ad0bb6b1c901947",</p>
+
+<p>"packageId": 12345</p>
+
+<p>&#125;,</p>
+
+<p>"packageItemCategory": [</p>
+
+<p>&#123;</p>
+
+<p>"packageItemCategoryId": 105,</p>
+
+<p>"title": "Data",</p>
+
+<p>"amount": 5444608,</p>
+
+<p>"updateTime": "2024-04-05T02:19:47Z"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemCategoryId": 122,</p>
+
+<p>"title": "SMS",</p>
+
+<p>"amount": 2,</p>
+
+<p>"updateTime": "2024-04-05T02:19:47Z"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemCategoryId": 133,</p>
+
+<p>"title": "Voice",</p>
+
+<p>"amount": 138,</p>
+
+<p>"updateTime": "2024-04-05T02:19:47Z"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemCategoryId": 130,</p>
+
+<p>"title": "USSD",</p>
+
+<p>"amount": null,</p>
+
+<p>"updateTime": null</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"packageItemCategoryId": 106,</p>
+
+<p>"title": "message",</p>
+
+<p>"amount": null,</p>
+
+<p>"updateTime": null</p>
+
+<p>&#125;</p>
+
+<p>],</p>
+
+<p>"attributes": [</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": 8953448576492474,</p>
+
+<p>"attribute": "friendlyName"</p>
+
+<p>"value": "50kW – Rapid EV charger"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506792,</p>
+
+<p>"iccId": 8953448576492474,</p>
+
+<p>"attribute": "orderId",</p>
+
+<p>"value": "579"</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;,</p>
+
+<p>&#123;</p>
+
+<p>"iccAttributeId": 11506795,</p>
+
+<p>"iccId": 8953448576492474,</p>
+
+<p>"attribute": "orderItemId",</p>
+
+<p>"value": "1",</p>
+
+<p>"status": "active"</p>
+
+<p>&#125;</p>
+
+<p>]</p>
+
+<p>&#125;</p>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/api/sim/simapi-intro" target="_blank">SIM API Introduction</a> </li> <li><a href="/api/sim/simapi-how-tos">SIM API How To guide</a> </li> <li><a href="#">About the billing snapshot endpoint</a> </li> <li><a href="/api/sim/icc-attribute-operations" target="_blank">About SIM attribute endpoints</a> </li> <li><a href="/api/sim/portfolio-package-operations">About iccPortfolioPackage endpoints</a> </li> <li><a href="/api/sim/network-snapshot-operations">About the network snapshot endpoint</a> </li> <li><a href="/api/sim/simapi-reference" target="_blank">SIM API reference tables</a> </li> <li><a href="/api/sim/simapi-reference#Error" target="_blank">SIM API errors</a> </li> </ul> </div>

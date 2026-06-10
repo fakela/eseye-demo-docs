@@ -1,0 +1,40 @@
+---
+title: "About Access Point Names (APNs)"
+description: "An Access Point Name (APN) defines the network path between a mobile network and an IP network (the public internet or a private network, for example, Eseye's MPLS network). Each Eseye APN consists of:"
+---
+
+<p>An Access Point Name (APN) defines the network path between a mobile network and an IP network (the public internet or a private network, for example, Eseye's <a href="/glossary/glossary">MPLS</a> network). Each Eseye APN consists of:</p>
+
+<ul> <li>Pre-existing configurations between Eseye and the operator to enable a connection between the networks</li> <li>A RADIUS server and billing function</li> <li>The DNS – For more information, see <a href="/connectivity/anynet-dns-service">Understanding the AnyNet Domain Name Service (DNS)</a>.</li> </ul>
+
+<p>Any device that connects to an IP network using a mobile network must specify an APN as part of their configuration. The APN assigns an IP address to a device, and routes data between the device and its destination over the mobile network and internet.</p>
+
+<p> Your IoT devices must always use the same AnyNet APN, regardless of which mobile network they use to send data.</p>
+
+<p>Eseye may preconfigure multiple APNs to link to an MNO. Always use the APN specified in your contract.</p>
+
+<h2 id="AboutpublicandprivateAPNs">About public and private APNs</h2>
+
+<p>Mobile Network Operators (MNOs) provide public APNs for their customers to connect to. Enterprises that need better security or configuration options can set up private APNs for their customers or internal use. </p>
+
+<p>Public APNs provide basic internet access, mainly for consumer devices to access commonly-used apps and websites. The services are designed based on typical levels of consumer use. Operators often apply mechanisms such as network throttling or rate limiting to manage overloading. Public APNs offer limited flexibility for configuring or differentiating services that enterprises might need for critical business systems or want to offer their customers. </p>
+
+<p>With private APNs, such as the AnyNet APNs, enterprises can offer services that meet specific requirements. For example, IoT devices can have very different connectivity needs to consumer mobile phones. </p>
+
+<h3>Advantages of using AnyNet private APNs</h3>
+
+<p>Eseye provides a number of private APNs to meet the needs of different IoT deployments. All AnyNet APNs:</p>
+
+<ul> <li> Provide the same services at all PoPs to all IoT devices, regardless of where the devices are located or which mobile network they are connected to. Using the same APN across all devices simplifies device configuration. </li> <li> Use the same subnet configurations, IP address allocations and routing rules. With public APNs, a device is allocated a different IP address whenever it connects, which increases the complexity of managing devices and diagnosing connectivity issues. AnyNet APNs have pre-allocated IP addresses, so devices are assigned the same IP address whenever they connect on a particular network.  </li> <li> Authenticate devices to ensure only authorised devices connect to Eseye PoPs. </li> <li> Manage and record device data sessions, activity and network usage, logging data for use in device management and monitoring, and billing. Our network management tools enable you to monitor and manage device connections. Our technical consultants have access to additional tools and can provide support to resolve complex connectivity issues. </li> <li> Route data according to configured security options, such as NAT, VPNs, and ACL rules. <br />For more information, see <a href="/connectivity/nat-overview" target="_blank">About Network Address Translation (NAT)</a>, <a href="/connectivity/anynet-vpns#Configur" target="_blank">Configuring AnyNet VPNs</a>, and <a href="/connectivity/non-vpn-network-traffic#About" target="_blank">About the AnyNet ACL service</a>. </li> <li> Prevent SIM-SIM traffic, which has been observed on consumer and non-specialist IoT APNs, and creates a major security risk. </li> </ul>
+
+<Note>See <a href="/connectivity/anynet-apn-list">Current AnyNet APN list</a> for a list of available private AnyNet APNs.</Note>
+
+<Note>For a list of public IP addresses to add to your company firewall allowed list, see <a href="/connectivity/anynet-public-ip-address-ranges" target="_blank">Egress IP addresses</a>.</Note>
+
+<h3>About custom APNs</h3>
+
+<p>Some customers want to use their own domain name as their APN name. Using a custom APN (also known as a 'vanity APN') is not recommended unless it is essential. The disadvantages are:</p>
+
+<ul> <li><span>Expense:</span> we need to make arrangements for custom APNs with each MNO, adding complexity and cost to customer onboarding.</li> <li><span>Restrictions:</span> some MNOs limit the number of custom APNs we can configure with them. If we can't configure the custom APN with an MNO, the customer's devices can't use the mobile network provided by that operator, restricting our ability to provide the highest levels of connectivity for the customer. </li> </ul>
+
+<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li><a href="/connectivity/connectivity-intro">Eseye connectivity overview</a> </li> <li><a href="/connectivity/lte-default-apn" target="_blank">Understanding LTE default APNs</a> </li> <li><a href="/connectivity/android-apn" target="_blank">Configuring an AnyNet APN on an Android device</a> </li> <li><a href="/connectivity/authorising-device-to-use-network">How Eseye authorises the device to use the IP network</a> </li> <li><a href="/connectivity/ip-addresses">About IP addresses</a> </li> <li><a href="/connectivity/about-secure-subnets">About secure subnets</a> </li> <li><a href="/connectivity/connecting-over-mobile-network">Section A – Connecting over the mobile network</a> </li> <li><a href="/connectivity/understanding-pops" target="_blank">About Eseye PoPs</a> </li> </ul> </div>

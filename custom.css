@@ -1,0 +1,24 @@
+/* Hide the default page-header chrome on the custom landing page so the hero
+   sits flush against the navbar/tabs. We do NOT hide the navbar/tabs themselves
+   so the landing page shares chrome with the rest of the docs (Strategy B). */
+html[data-current-path="/"] #content-area,
+html[data-current-path="/"] main {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: none !important;
+}
+
+html[data-current-path="/"] #header,
+html[data-current-path="/"] header[role="banner"],
+html[data-current-path="/"] #page-header,
+html[data-current-path="/"] aside#sidebar,
+html[data-current-path="/"] aside.sidebar,
+html[data-current-path="/"] #table-of-contents,
+html[data-current-path="/"] #toc {
+  display: none !important;
+}
+
+html[data-current-path="/"] .pagination-nav,
+html[data-current-path="/"] footer.docs-footer {
+  display: none !important;
+}
