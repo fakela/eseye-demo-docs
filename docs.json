@@ -1,14 +1,17 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "aspen",
   "name": "Eseye",
   "description": "Eseye documentation \u2014 IoT connectivity, hardware, and APIs",
   "colors": {
-    "primary": "#005EB8",
-    "light": "#66B0E8",
+    "primary": "#EC1E79",
+    "light": "#0F172A",
     "dark": "#005EB8"
   },
-  "favicon": "/favicon.png",
+  "favicon": {
+    "light": "/favicon.png",
+    "dark": "/favicon.png"
+  },
   "navigation": {
     "tabs": [
       {
@@ -921,8 +924,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/eseye-logo.png",
-    "dark": "/logo/eseye-logo.png"
+    "light": "/images/logo(1).svg",
+    "dark": "/images/logo(1).svg"
   },
   "navbar": {
     "links": [
@@ -967,5 +970,8 @@
       "og:site_name": "Eseye Docs",
       "og:type": "website"
     }
+  },
+  "appearance": {
+    "default": "system"
   }
 }
