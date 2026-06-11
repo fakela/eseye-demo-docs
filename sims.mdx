@@ -1,0 +1,17 @@
+---
+title: "sims"
+tag: "Internal"
+hidden: true
+---
+
+the behavior is effectively a reset, not a pause/resume. The timer only runs during a continuous limited service condition. If the device transitions into other states, such as PLMN search or normal service, the timer is reset and will only start again when limited service is re-entered.\
+In your first example, this is exactly what we see:\
+The device enters limited service\
+Then transitions into PLMN search and subsequently normal service\
+Because of this, the timer does not run continuously for 3 minutes, so fallback does not trigger at the expected time\
+ \
+So yes, PLMN search effectively breaks the limited service condition and resets the timer.\
+In the second test, however:\
+The device enters limited service.\
+It briefly transitions, but returns to limited service without reaching normal service\
+In this case, the timer is able to run continuously, and fallback occurs at ~3 minutes as expected

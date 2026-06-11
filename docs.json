@@ -918,6 +918,12 @@
             "pages": [
               "support/manage-tickets"
             ]
+          },
+          {
+            "group": "Unstructured data",
+            "pages": [
+              "sims"
+            ]
           }
         ]
       }

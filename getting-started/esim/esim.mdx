@@ -3,18 +3,69 @@ title: "About eSIM technology"
 description: "An eSIM (embedded SIM) is an embedded chip that is manufactured onto a board in your device to replace the removable SIM. The information within it is rewritable, which means you can change mobile networks and enable..."
 ---
 
-<p>An eSIM (embedded SIM) is an embedded chip that is manufactured onto a board in your device to replace the removable SIM. The information within it is rewritable, which means you can change mobile networks and enable SIM provisioning over-the-air (OTA) without needing to physically swap SIM cards. </p>
+## What is an eSIM?
 
-<p>eSIM technology is especially important for IoT devices, which may exist in remote locations and may contain embedded SIMs (without eSIM technology) that an engineer cannot swap without replacing an entire board. It also avoids the need to design a physical enclosure for multiple SIMs, saving space and simplifying device design, manufacturing, and provisioning.</p>
+An **eSIM** (embedded SIM) is a small chip permanently soldered onto a device's circuit board. Unlike traditional removable SIM cards, an eSIM's contents are rewritable over the air, allowing you to:
 
-<Note>The GSMA defines different eSIM architectures for machine to machine (M2M) and consumer device use cases. The Eseye eSIM solution uses the M2M eSIM architecture.</Note>
+- Provision a device onto a mobile network without inserting a physical SIM.
+- Switch between mobile network operators (MNOs) remotely.
+- Manage connectivity for devices deployed in the field, sealed enclosures, or harsh environments.
 
-<p>eSIM technology requires devices with <a href="/getting-started/esim/euicc">eUICC SIMs</a> that support the use of operator <a href="/getting-started/esim/profiles">profiles</a>, and <a href="/getting-started/esim/remote-sim-provisioning">remote SIM provisioning</a> systems in the network to perform the updates. Both the eUICC SIMs and remote provisioning systems must achieve GSMA certification and operator-specific certification before you can use them on a live network. This ensures security and interoperability between operators.</p>
+<Note>
+  The GSMA defines different eSIM architectures for machine-to-machine (M2M) and consumer device use cases. The Eseye eSIM solution uses the M2M eSIM architecture.
+</Note>
 
-<p> <img src="/images/resources/images/esim/esim.svg" alt="Esim" /> </p>
+<p>
+  <img src="/images/resources/images/esim/esim.svg" alt="eSIM" />
+</p>
 
-<h2 id="EseyeseSIMsolution">Eseye's eSIM solution</h2>
+## Why use eSIM for IoT?
 
-<p>Eseye has agreements in place with multiple operators that enables Eseye to download profiles from operators with the best connectivity or services for the connected IoT device. The <a href="/connectivity/connectivity-management-platform">Connectivity Management Platform</a> can use predetermined rules to trigger the remote SIM provisioning systems to download and enable different profiles depending on the regional requirements. The available operators and services for an IoT device depend on the <a href="/billing/billing-packages">package</a> assigned to the device.</p>
+eSIM technology is purpose-built for IoT deployments where physical SIM access is impractical or impossible:
 
-<p>For IoT devices that include an <a href="/hardware-products/hera/hera-introduction">Eseye Hera router</a> (EU/USA/RoW model only), there is an embedded eUICC SIM as well as a physical SIM card within the Hera hardware.</p>
+| Benefit | Description |
+| --- | --- |
+| **Remote provisioning** | Download and activate operator profiles over the air, anywhere in the world. |
+| **Network flexibility** | Change MNOs to optimise coverage, performance, or cost without recalling devices. |
+| **Durability** | Soldered form factor (MFF2) withstands shock, vibration, temperature, and humidity. |
+| **Tamper resistance** | Cannot be removed or swapped, reducing theft and fraud risk. |
+| **Single SKU** | Manufacture once, deploy anywhere — localise connectivity at the destination. |
+
+## Key components
+
+An eSIM solution is made up of several interrelated components:
+
+- **eSIM** — the physical embedded chip on the device.
+- **eUICC** — the software (embedded Universal Integrated Circuit Card) that runs on the chip and stores multiple network profiles. See [eUICC overview](/getting-started/esim/euicc).
+- **Profile** — operator credentials (IMSI, ICCID, keys) that allow the device to authenticate on a specific mobile network. See [Profiles](/getting-started/esim/profiles).
+- **Remote SIM Provisioning (RSP)** — the GSMA-defined framework for downloading, enabling, disabling, and deleting profiles over the air. See [Remote SIM Provisioning overview](/getting-started/esim/remote-sim-provisioning-overview).
+
+## eSIM vs. traditional SIM
+
+|  | Traditional SIM | eSIM |
+| --- | --- | --- |
+| Form factor | Removable (2FF, 3FF, 4FF) | Soldered (MFF2) |
+| Operator change | Physical swap | Remote download |
+| Profiles stored | One | Multiple |
+| Suitable for IoT | Limited | Yes |
+| Lifecycle management | Manual | Automated via RSP |
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="eUICC overview" icon="microchip" href="/getting-started/esim/euicc">
+    Learn about the software component that powers eSIM.
+  </Card>
+
+  <Card title="Profiles" icon="id-card" href="/getting-started/esim/profiles">
+    Understand operational and bootstrap profiles.
+  </Card>
+
+  <Card title="Remote SIM Provisioning" icon="cloud-arrow-down" href="/getting-started/esim/remote-sim-provisioning-overview">
+    See how profiles are delivered over the air.
+  </Card>
+
+  <Card title="Modules supporting RSP" icon="list-check" href="/getting-started/esim/modules-supporting-rsp">
+    Check which cellular modules support eSIM provisioning.
+  </Card>
+</CardGroup>
