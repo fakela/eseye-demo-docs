@@ -24,12 +24,12 @@
               "getting-started/anynet-federation",
               "getting-started/hlr",
               "getting-started/imsi-rotation-switching",
+              "getting-started/rotate",
               "getting-started/iot-wireless-technologies",
               "getting-started/localisation",
               "getting-started/multi-imsi",
               "getting-started/roaming",
               "getting-started/vlr",
-              "getting-started/rotate",
               {
                 "group": "eSIM",
                 "pages": [
