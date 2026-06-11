@@ -3,40 +3,60 @@ title: "Understanding IMSI rotation vs IMSI switching"
 description: "If your SIMS use multi-IMSI functionality, the device can rotate or switch between IMSIs in order to maximise connectivity."
 ---
 
-<p>If your SIMS use multi-IMSI functionality, the device can rotate or switch between IMSIs in order to maximise connectivity. </p>
+If your SIMs use multi-IMSI functionality, the device can rotate or switch between IMSIs in order to maximise connectivity.
 
-<h2 id="AboutIMSIrotation">About IMSI rotation</h2>
+## About IMSI rotation
 
-<p>If a device modem loses connection or fails to connect to a network, after three minutes a SIM application automatically rotates the SIM onto the next IMSI and presents the alternative to the modem. The modem is refreshed to use the alternative settings. </p>
+If a device modem loses connection or fails to connect to a network, after three minutes a SIM application automatically rotates the SIM onto the next IMSI and presents the alternative to the modem. The modem is refreshed to use the alternative settings.
 
-<Note>IMSI rotation only works with a SIM or eUICC profile that has multi-IMSI functionality. </Note>
+<Note>
+  IMSI rotation only works with a SIM or eUICC profile that has multi-IMSI functionality.
+</Note>
 
-<p> <img src="/images/resources/images/multiimsi/imsirotation.svg" alt="Imsirotation" /> </p>
+<p>
+  <img src="/images/resources/images/multiimsi/imsirotation.svg" alt="IMSI rotation" />
+</p>
 
-<p>In the following example, the SIM has three IMSIs. When it cannot connect using Operator A, the SIM rotates to IMSI #2 and connects using Operator B:</p>
+In the following example, the SIM has three IMSIs. When it cannot connect using Operator A, the SIM rotates to IMSI #2 and connects using Operator B:
 
-<p> <img src="/images/resources/images/multiimsi/multiimsirotation.svg" alt="Multiimsirotation" /> </p>
+<p>
+  <img src="/images/resources/images/multiimsi/multiimsirotation.svg" alt="Multi-IMSI rotation" />
+</p>
 
-<h2 id="AboutIMSIswitching">About IMSI switching</h2>
+## About IMSI switching
 
-<p>After connection is established, the Connectivity Management Platform (CMP) can instruct the SIM to switch to a specific IMSI. This is useful for <a href="/getting-started/localisation" target="_blank">localising</a> the IoT device to the home network, or <a href="/getting-started/roaming#Steering" target="_blank">steering</a> the device to a different roaming partner.</p>
+After connection is established, the Connectivity Management Platform (CMP) can instruct the SIM to switch to a specific IMSI. This is useful for [localising](/getting-started/localisation) the IoT device to the home network, or [steering](/getting-started/roaming#Steering) the device to a different roaming partner.
 
-<p>In the following example, the SIM first connects using Operator A, but is switched onto IMSI #3, to use Operator C's roaming partner (Operator D), for legislative purposes:</p>
+In the following example, the SIM first connects using Operator A, but is switched onto IMSI #3, to use Operator C's roaming partner (Operator D), for legislative purposes:
 
-<p> <img src="/images/resources/images/multiimsi/multiimsiswitching.svg" alt="Multiimsiswitching" /> </p>
+<p>
+  <img src="/images/resources/images/multiimsi/multiimsiswitching.svg" alt="Multi-IMSI switching" />
+</p>
 
-<h2 id="HowlongdoesanIMSIrotationorswitchtake">How long does an IMSI rotation or switch take?</h2>
+## How long does an IMSI rotation or switch take?
 
-<p>The length of time taken for an IMSI to rotate or switch, either on the device or OTA, depends on the following factors:</p>
+The length of time taken for an IMSI to rotate or switch, either on the device or OTA, depends on the following factors:
 
-<ul> <li>Time set for auto-rotation (usually 3 minutes)</li> <li>Device power constraints or optimisations, such as the length of time it is awake </li> <li>Modem setup, such as how often and how long it connects to a network</li> <li>The number of IMSI accounts available if connectivity is not established. Three IMSIs are quicker to rotate through than ten IMSIs.</li> <li>Whether the device is mobile or static. If a device is constantly moving, it may take a while to establish a network connection.</li> </ul>
+- Time set for auto-rotation (usually 3 minutes)
+- Device power constraints or optimisations, such as the length of time it is awake
+- Modem setup, such as how often and how long it connects to a network
+- The number of IMSI accounts available if connectivity is not established. Three IMSIs are quicker to rotate through than ten IMSIs.
+- Whether the device is mobile or static. If a device is constantly moving, it may take a while to establish a network connection.
 
-<Note>You can manage configurations and optimise timing using the Rules Engine.</Note>
+<Note>
+  You can manage configurations and optimise timing using the Rules Engine.
+</Note>
 
-<h2 id="IMSIrotationandswitchingconfigurationoptions">IMSI rotation and switching configuration options</h2>
+## IMSI rotation and switching configuration options
 
-<p>Eseye supports the following:</p>
+Eseye supports the following:
 
-<ul> <li>Enable or disable the IMSI rotation feature. For localisation purposes, you may need to disable the IMSI rotate feature to ensure that the device remains on a preferred network.</li> <li>Add or remove IMSIs from the SIM. This is important to ensure that the device can connect to available networks at the best rates, or for legislative purposes, throughout its lifetime.</li> <li>Eseye can work with the customer to customise the SIM application, either at build time or during the service life of the IoT device where the SIM exists.</li> </ul>
+- Enable or disable the IMSI rotation feature. For localisation purposes, you may need to disable the IMSI rotate feature to ensure that the device remains on a preferred network.
+- Add or remove IMSIs from the SIM. This is important to ensure that the device can connect to available networks at the best rates, or for legislative purposes, throughout its lifetime.
+- Eseye can work with the customer to customise the SIM application, either at build time or during the service life of the IoT device where the SIM exists.
 
-<div> <h2 id="Wheretonext">Where to next?</h2> <ul> <li>Understand <a href="/getting-started/roaming">roaming</a>, <a href="/getting-started/roaming#Steering">steering of roaming</a> and <a href="/getting-started/localisation">localisation</a></li> <li>Understand <a href="/getting-started/esim/esim">eSIM</a></li> <li><a href="/hardware-products/sims-intro">AnyNet SIMs</a> </li> </ul> </div>
+## Where to next?
+
+- Understand [roaming](/getting-started/roaming), [steering of roaming](/getting-started/roaming#Steering) and [localisation](/getting-started/localisation)
+- Understand [eSIM](/getting-started/esim/esim)
+- [AnyNet SIMs](/hardware-products/sims-intro)
