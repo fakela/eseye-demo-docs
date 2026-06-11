@@ -29,6 +29,7 @@
               "getting-started/multi-imsi",
               "getting-started/roaming",
               "getting-started/vlr",
+              "getting-started/rotate",
               {
                 "group": "eSIM",
                 "pages": [
