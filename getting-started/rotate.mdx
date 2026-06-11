@@ -1,4 +1,81 @@
 ---
 title: "Understanding the IMSI rotation and switching process"
-description: "For both IMSI rotation and IMSI switching, the process of how the IMSI changes within the SIM is the same. However, different factors will influence an IMSI rotation versus an IMSI switch."
+description: "For both IMSI rotation and IMSI switching, the process of how the IMSI changes within the SIM is the same. However, different factors will influence an IMSI ation versus an IMSI switch."
 ---
+
+For both IMSI rotation and IMSI switching, the process of how the IMSI changes within the SIM is the same. However, different factors will influence an IMSI rotation versus an IMSI switch.
+
+For IMSI rotation, an application in the SIM triggers a rotation if it detects that there is no network connection for a period of time. For IMSI switching, the Connectivity Management Platform can instruct a SIM that is connected to a network to immediately change IMSI.
+
+For more information, see:
+
+- [Understanding IMSI rotation vs IMSI switching](/getting-started/imsi-rotation-switching)
+- [How the SIM application detects network connection](#how-the-sim-application-detects-network-connection)
+- [About the Connectivity Management Platform](/connectivity/connectivity-management-platform)
+
+## How the SIM application detects network connection
+
+At a regular interval (usually three minutes), the SIM application reads three LOCI files within the SIM:
+
+- EF<sub>LOCI</sub>
+- EF<sub>PSLOCI</sub>
+- EF<sub>EPSLOCI</sub>
+
+These files indicate if the modem has successfully registered on a network, or if it is still attempting to connect.
+
+<Note>
+  For devices that have never previously connected, the modem will attempt to connect according to the IMSI order that was configured during SIM manufacture. For devices that have previously connected to a network, the modem will attempt to connect to the last successfully connected network.
+</Note>
+
+If the modem is not connected, the SIM application will rotate the IMSI according to the preconfigured order. This means that if the device is deployed where the current home network is not available and does not offer a roaming service, then the SIM application will rotate to an alternative IMSI to allow the device to connect.
+
+<Note>
+  Different companies configure their devices to implement the rotation timers in different ways. For example, some customer devices use a timer to count the IMSI rotation time, whereas other customer devices count the number of status commands.
+</Note>
+
+Eseye can change the rotation order after the device is deployed.
+
+### How the limited service fallback timer behaves
+
+The fallback timer is effectively a **reset**, not a pause/resume. It only runs while the device is in a _continuous_ limited service condition. If the device transitions into other states — such as **PLMN search** or **normal service** — the timer is reset and only starts again when limited service is re-entered.
+
+<Note>
+  A PLMN search effectively breaks the limited service condition and resets the fallback timer.
+</Note>
+
+#### Example 1: Timer resets, fallback does not trigger
+
+1. The device enters **limited service**.
+2. The device transitions into **PLMN search**, then into **normal service**.
+3. Because the limited service condition was broken, the timer does not run continuously for 3 minutes, so fallback does not trigger at the expected time.
+
+#### Example 2: Timer runs continuously, fallback triggers
+
+1. The device enters **limited service**.
+2. The device briefly transitions but returns to limited service **without** reaching normal service.
+3. The timer runs continuously, and fallback occurs at ~3 minutes as expected.
+
+## How the SIM changes IMSI
+
+When the IMSI either rotates or switches, the SIM application overwrites the active bootstrap account with the following files from the newly selected account:
+
+|  |  |
+| --- | --- |
+| Account 0i | EF<sub>OPL</sub> |
+| AD SIM | EF<sub>OPLMNwAcT</sub> |
+| Auth Counter | EF<sub>PNN</sub> |
+| BCCH | EF<sub>PSLOCI</sub> |
+| EF<sub>ACC</sub> | EF<sub>SPN</sub> |
+| EF<sub>ACL</sub> | IMSI USIM |
+| EF<sub>EHPLMN</sub> | Kc |
+| EF<sub>EPSLOCI</sub> | KI |
+| EF<sub>EPSNSC</sub> | OPC |
+| EF<sub>HPLMNwAcT</sub> | PLMNsel |
+| EF<sub>KcGPRS</sub> | SMSP |
+| EF<sub>LOCI</sub> |  |
+
+- ISD\_P connectivity parameters, for connecting to SM-SR
+
+The SIM application then uses a UICC Reset command to instruct the IoT device modem to refresh the account values. The modem uses the new account details to try and connect to the new home network, or a roaming network.
+
+At this point, the modem must clear the EF<sub>FPLMN</sub> file (6F7B), which is then updated by the mobile network during the registration process.
